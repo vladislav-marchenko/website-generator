@@ -11,7 +11,7 @@ export const HeroSection = () => {
         <h1 className='uppercase text-8xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[18.7rem] font-black select-none leading-normal'>
           Aurora
         </h1>
-        <h2 className='py-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight'>
+        <h2 className='py-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold'>
           No code, no hassle, just moonlight magic
         </h2>
         <Description className='my-6'>
