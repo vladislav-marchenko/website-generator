@@ -25,10 +25,10 @@ export const HeroSection = () => {
           </Button>
         </div>
       </div>
-      <Link to='/#' className='flex flex-col items-center animate-bounce'>
+      <a href='/#launch' className='flex flex-col items-center animate-bounce'>
         <span className='text-sm'>Scroll to explore</span>
         <IoIosArrowDown size={24} />
-      </Link>
+      </a>
     </Section>
   )
 }

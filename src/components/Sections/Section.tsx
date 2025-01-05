@@ -1,11 +1,19 @@
 import { cn } from '@/utils'
-import { FC, PropsWithChildren } from 'react'
+import { FC, HTMLAttributes, ReactNode } from 'react'
 
-export const Section: FC<PropsWithChildren<{ className?: string }>> = ({
+interface SectionProps extends HTMLAttributes<HTMLElement> {
+  children: ReactNode
+  className?: string
+}
+
+export const Section: FC<SectionProps> = ({
   children,
-  className
+  className,
+  ...props
 }) => {
   return (
-    <section className={cn('h-screen px-8', className)}>{children}</section>
+    <section className={cn('h-screen px-8', className)} {...props}>
+      {children}
+    </section>
   )
 }

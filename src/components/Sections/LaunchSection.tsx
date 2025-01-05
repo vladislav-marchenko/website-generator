@@ -5,7 +5,10 @@ import { Section } from './Section'
 
 export const LaunchSection = () => {
   return (
-    <Section className='flex justify-center items-center bg-neutral-100 dark:bg-neutral-800'>
+    <Section
+      id='launch'
+      className='flex justify-center items-center bg-neutral-100 dark:bg-neutral-800'
+    >
       <div className='flex justify-between items-center gap-8 max-w-6xl w-full mx-auto'>
         <div className='flex flex-col gap-4'>
           <Badge>Fast. Professional. Powerful.</Badge>
