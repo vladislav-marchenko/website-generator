@@ -15,6 +15,9 @@ function App() {
           </TemplateContextProvider>
         }
       />
+      <Route path='/dashboard' element={<Main />} />
+      <Route path='/templates' element={<Main />} />
+      <Route path='/pricing' element={<Main />} />
       <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   )
