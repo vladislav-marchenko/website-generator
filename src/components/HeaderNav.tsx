@@ -23,7 +23,7 @@ export const HeaderNav = () => {
         <Link
           key={link}
           to={`/${link}`}
-          className='text-neutral-500 capitalize hover:text-black dark:hover:text-white transition-colors duration-200'
+          className='text-neutral-700 dark:text-neutral-200 capitalize hover:text-black dark:hover:text-white transition-colors duration-200'
         >
           {link}
         </Link>
