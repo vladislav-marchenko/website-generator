@@ -19,6 +19,7 @@ export const Header = () => {
         <nav className='flex gap-8 items-center'>
           {navLinks.map((link) => (
             <Link
+              key={link}
               to={`/${link}`}
               className='relative capitalize after:block after:rounded-full after:position-absolute after:top-full after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-[width] after:duration-200'
             >

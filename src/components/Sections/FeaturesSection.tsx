@@ -15,7 +15,10 @@ export const FeaturesSection = () => {
       </div>
       <div className='flex gap-4'>
         {featuresCards.map(({ title, description, icon: Icon }) => (
-          <div className='flex flex-col gap-4 p-6 border-2 border-neutral-400 rounded-xl'>
+          <div
+            key={title}
+            className='flex flex-col gap-4 p-6 border-2 border-neutral-400 rounded-xl'
+          >
             <div className='p-3 bg-white rounded-xl text-black max-w-max'>
               <Icon size={28} />
             </div>
