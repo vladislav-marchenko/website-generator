@@ -21,7 +21,9 @@ export const LaunchSection = () => {
           </Description>
           <div className='flex gap-4 items-center'>
             <Button>Start Building</Button>
-            <Button variant='outline'>Explore Features</Button>
+            <Button href='/#features' variant='outline'>
+              Explore Features
+            </Button>
           </div>
         </div>
         <div className='flex items-center justify-center flex-auto h-96 bg-neutral-400 rounded-md w-[1000px]'>

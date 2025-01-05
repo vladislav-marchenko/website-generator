@@ -5,7 +5,10 @@ import { featuresCards } from '@/consts'
 
 export const FeaturesSection = () => {
   return (
-    <Section className='flex flex-col items-center gap-12 justify-center'>
+    <Section
+      id='features'
+      className='flex flex-col items-center gap-12 justify-center'
+    >
       <div className='flex flex-col gap-4 text-center justify-center items-center'>
         <Badge>Features</Badge>
         <h3 className='text-4xl font-bold'>Everything You Need</h3>

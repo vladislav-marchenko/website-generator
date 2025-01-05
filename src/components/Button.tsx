@@ -17,6 +17,7 @@ type Props = {
   children: ReactNode
   className?: string
   to?: string
+  href?: string
   variant?: keyof typeof styles
 } & (ButtonProps | LinkProps)
 
@@ -24,10 +25,20 @@ export const Button: FC<Props> = ({
   children,
   variant = 'primary',
   className,
-  to,
   ...props
 }) => {
-  if (to) {
+  if (props.href) {
+    return (
+      <a
+        {...(props as LinkProps)}
+        className={cn(styles[variant], commonStyles, className)}
+      >
+        {children}
+      </a>
+    )
+  }
+
+  if (props.to) {
     return (
       <Link
         {...(props as LinkProps)}

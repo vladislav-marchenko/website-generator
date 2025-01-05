@@ -1,5 +1,5 @@
 import { Section } from './Section'
 
 export const FAQSection = () => {
-  return <Section>FAQSection</Section>
+  return <Section id='FAQ'>FAQSection</Section>
 }

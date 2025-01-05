@@ -2,11 +2,13 @@ import { Button } from '../Button'
 import { Description } from '../Description'
 import { Section } from './Section'
 import { IoIosArrowDown } from 'react-icons/io'
-import { Link } from 'react-router-dom'
 
 export const HeroSection = () => {
   return (
-    <Section className='flex items-center justify-center flex-col pt-[69px]'>
+    <Section
+      id='hero'
+      className='flex items-center justify-center flex-col pt-[69px]'
+    >
       <div className='flex flex-col items-center justify-center flex-auto text-center'>
         <h1 className='uppercase text-8xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[18.7rem] font-black select-none leading-normal'>
           Aurora
