@@ -8,7 +8,7 @@ export const Description: FC<PropsWithChildren<{ className?: string }>> = ({
   return (
     <p
       className={cn(
-        'text-sm sm:text-base md:text-lg text-neutral-300',
+        'text-sm sm:text-base md:text-lg text-neutral-500',
         className
       )}
     >

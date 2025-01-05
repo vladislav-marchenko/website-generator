@@ -6,8 +6,6 @@ export const Section: FC<PropsWithChildren<{ className?: string }>> = ({
   className
 }) => {
   return (
-    <section className={cn('h-[calc(100vh-69px)] px-8', className)}>
-      {children}
-    </section>
+    <section className={cn('h-screen px-8', className)}>{children}</section>
   )
 }

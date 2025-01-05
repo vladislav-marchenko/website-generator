@@ -1,3 +1,4 @@
+import { ThemeContextProvider } from '@/contexts/ThemeContext'
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom'
 import {
@@ -17,11 +18,13 @@ export const Providers = ({ children }: PropsWithChildren) => {
 
   return (
     <BrowserRouter>
-      <ConnectionProvider endpoint={endpoint}>
-        <WalletProvider wallets={wallets} autoConnect>
-          <WalletModalProvider>{children}</WalletModalProvider>
-        </WalletProvider>
-      </ConnectionProvider>
+      <ThemeContextProvider>
+        <ConnectionProvider endpoint={endpoint}>
+          <WalletProvider wallets={wallets} autoConnect>
+            <WalletModalProvider>{children}</WalletModalProvider>
+          </WalletProvider>
+        </ConnectionProvider>
+      </ThemeContextProvider>
     </BrowserRouter>
   )
 }

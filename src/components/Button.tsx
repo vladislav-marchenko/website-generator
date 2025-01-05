@@ -6,8 +6,9 @@ const commonStyles =
   'px-4 py-3 font-bold text-lg rounded-full hover:scale-105 transiton-all duration-200'
 
 const styles = {
-  primary: 'bg-white text-black',
-  outline: 'border-2 border-white hover:bg-white hover:text-black'
+  primary: 'bg-black text-white dark:bg-white dark:text-black',
+  outline:
+    'border-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
 }
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>

@@ -5,7 +5,7 @@ import { Section } from './Section'
 
 export const LaunchSection = () => {
   return (
-    <Section className='flex justify-between items-center gap-8'>
+    <Section className='flex justify-between items-center gap-8 bg-neutral-100 dark:bg-neutral-800'>
       <div className='flex flex-col gap-4'>
         <Badge>Fast. Professional. Powerful.</Badge>
         <h2 className='font-bold tracking-tighter sm:text-5xl xl:text-6xl'>

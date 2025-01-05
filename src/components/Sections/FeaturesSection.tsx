@@ -19,7 +19,7 @@ export const FeaturesSection = () => {
             key={title}
             className='flex flex-col gap-4 p-6 border-2 border-neutral-400 rounded-xl'
           >
-            <div className='p-3 bg-white rounded-xl text-black max-w-max'>
+            <div className='p-3 bg-black text-white dark:bg-white dark:text-black rounded-xl max-w-max'>
               <Icon size={28} />
             </div>
             <h4 className='text-xl font-bold'>{title}</h4>
