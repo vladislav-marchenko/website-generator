@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header'
+import { FAQSection } from '@/components/Sections/FAQSection'
 import { FeaturesSection } from '@/components/Sections/FeaturesSection'
 import { HeroSection } from '@/components/Sections/HeroSection'
 import { LaunchSection } from '@/components/Sections/LaunchSection'
@@ -11,6 +12,7 @@ export const Home = () => {
         <HeroSection />
         <LaunchSection />
         <FeaturesSection />
+        <FAQSection />
       </main>
     </div>
   )

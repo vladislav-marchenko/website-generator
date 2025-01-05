@@ -1,34 +1,28 @@
 import { Badge } from '../Badge'
 import { Description } from '../Description'
 import { Section } from './Section'
-
-const cards = [
-  {
-    title: 'Professional Templates',
-    description:
-      'Choose from our collection of modern, responsive designs crafted specifically for memecoins. Each template is optimized for conversion and engagement.'
-  },
-  {
-    title: 'Easy Customization',
-    description:
-      'Personalize your website with our intuitive editor. Change colors, content, and layout with just a few clicks - no coding required.'
-  },
-  {
-    title: 'Instant Preview',
-    description:
-      'Preview your website changes in real-time as you make them. Perfect your design before sharing it with your community.'
-  }
-]
+import { featuresCards } from '@/consts'
 
 export const FeaturesSection = () => {
   return (
-    <Section className='flex items-center justify-center'>
+    <Section className='flex flex-col items-center gap-12 justify-center'>
       <div className='flex flex-col gap-4 text-center justify-center items-center'>
         <Badge>Features</Badge>
         <h3 className='text-4xl font-bold'>Everything You Need</h3>
         <Description>
           Launch your memecoin website with powerful features
         </Description>
+      </div>
+      <div className='flex gap-4'>
+        {featuresCards.map(({ title, description, icon: Icon }) => (
+          <div className='flex flex-col gap-4 p-6 border-2 border-neutral-400 rounded-xl'>
+            <div className='p-3 bg-white rounded-xl text-black max-w-max'>
+              <Icon size={28} />
+            </div>
+            <h4 className='text-xl font-bold'>{title}</h4>
+            <Description className='max-w-xs'>{description}</Description>
+          </div>
+        ))}
       </div>
     </Section>
   )
