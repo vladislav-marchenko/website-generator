@@ -1,11 +1,8 @@
 import { Button } from './Button'
-import { ThemeContext } from '@/contexts/ThemeContext'
-import { ThemeContextValues } from '@/types/contexts'
+import { CustomizeMenu } from './CustomizeMenu'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useWalletModal } from '@solana/wallet-adapter-react-ui'
-import { useContext } from 'react'
 import { FaUserCircle } from 'react-icons/fa'
-import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
 const navLinks = ['dashboard', 'templates', 'pricing']
@@ -13,7 +10,6 @@ const navLinks = ['dashboard', 'templates', 'pricing']
 export const HeaderNav = () => {
   const { publicKey } = useWallet()
   const { setVisible } = useWalletModal()
-  const { theme, toggleTheme } = useContext(ThemeContext) as ThemeContextValues
 
   const publicKeyString = publicKey?.toString()
 
@@ -39,13 +35,7 @@ export const HeaderNav = () => {
           <span>{publicKeyString.slice(0, 8)}...</span>
         </button>
       )}
-      <button
-        onClick={toggleTheme}
-        className='p-2 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200'
-      >
-        {theme === 'dark' && <IoSunnyOutline size={28} />}
-        {theme === 'light' && <IoMoonOutline size={28} />}
-      </button>
+      <CustomizeMenu />
     </nav>
   )
 }

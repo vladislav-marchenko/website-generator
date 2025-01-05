@@ -1,3 +1,4 @@
+import { China, Russia, Spain, USA } from './components/Icons'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const featuresCards = [
@@ -19,5 +20,24 @@ export const featuresCards = [
     description:
       'Preview your website changes in real-time as you make them. Perfect your design before sharing it with your community.',
     icon: FaBoltLightning
+  }
+]
+
+export const languages = [
+  {
+    label: 'EN',
+    icon: USA
+  },
+  {
+    label: 'CN',
+    icon: China
+  },
+  {
+    label: 'RU',
+    icon: Russia
+  },
+  {
+    label: 'SP',
+    icon: Spain
   }
 ]
