@@ -5,5 +5,5 @@
 button,
 input,
 div {
-  @apply outline-none hover:outline-none;
+  @apply outline-0 hover:outline-0;
 }
