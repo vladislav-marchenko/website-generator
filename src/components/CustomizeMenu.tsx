@@ -18,7 +18,7 @@ export const CustomizeMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Customize size={32} className='dark:fill-white' />
+        <Customize size={25} className='dark:fill-white' />
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent className='bg-neutral-100 p-1.5 mt-2 rounded-md z-20'>
