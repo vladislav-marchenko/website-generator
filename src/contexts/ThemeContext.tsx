@@ -10,15 +10,11 @@ const getPreferredTheme = () => {
 
 const getTheme = () => {
   const storedTheme = localStorage.getItem('theme')
-  const htmlElement = document.documentElement
 
   if (storedTheme === 'light' || storedTheme === 'dark') {
-    htmlElement.setAttribute('data-theme', storedTheme)
     return storedTheme
   } else {
     const preferredTheme = getPreferredTheme()
-
-    htmlElement.setAttribute('data-theme', preferredTheme)
     return preferredTheme
   }
 }
