@@ -12,7 +12,6 @@ import {
   ES,
   DE,
   US,
-  BR,
   FR,
   NL,
   IT,
@@ -61,7 +60,6 @@ export const languages = [
   { icon: ES, label: 'Es' }, // Испанский
   { icon: DE, label: 'De' }, // Немецкий
   { icon: US, label: 'En' }, // Английский
-  { icon: BR, label: 'Pt-BR' }, // Бразильский (Португальский)
   { icon: FR, label: 'Fr' }, // Французский
   { icon: NL, label: 'Nl' }, // Нидерландский
   { icon: IT, label: 'It' }, // Итальянский
