@@ -1,12 +1,4 @@
-import {
-  China,
-  Discord,
-  Medium,
-  Russia,
-  Spain,
-  Telegram,
-  Twitter
-} from './components/Icons'
+import { Discord, Medium, Telegram, Twitter } from './components/Icons'
 import {
   IN,
   ID,
