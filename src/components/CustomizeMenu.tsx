@@ -1,14 +1,17 @@
 import { Customize } from './Icons'
-import { languages } from '@/consts'
-import { ThemeContext } from '@/contexts/ThemeContext'
-import { ThemeContextValues } from '@/types/contexts'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuTrigger,
   DropdownMenuPortal,
-  DropdownMenuTrigger
-} from '@radix-ui/react-dropdown-menu'
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger
+} from '@/components/ui/dropdown-menu'
+import { languages } from '@/consts'
+import { ThemeContext } from '@/contexts/ThemeContext'
+import { ThemeContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5'
 
@@ -17,42 +20,31 @@ export const CustomizeMenu = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <Customize size={25} className='dark:fill-white' />
+      <DropdownMenuTrigger asChild>
+        <button>
+          <Customize className='dark:fill-white' />
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuPortal>
-        <DropdownMenuContent className='bg-neutral-100 p-1.5 mt-2 rounded-md z-20'>
-          <DropdownMenuItem
-            onClick={toggleTheme}
-            className='flex gap-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200 cursor-pointer'
-          >
-            <span>Theme</span>
-            {theme === 'dark' && <IoSunnyOutline size={22} />}
-            {theme === 'light' && <IoMoonOutline size={22} />}
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger className='flex gap-2 p-2 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200'>
-                Language
-              </DropdownMenuTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuContent className='flex flex-raw flex-wrap gap-2 bg-neutral-100 p-1.5 mt-2 rounded-md z-20 w-[134px]'>
-                  {languages.map(({ label, icon: Icon }) => (
-                    <DropdownMenuItem
-                      key={label}
-                      onClick={() => console.log(label)}
-                      className='flex items-center p-1 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200 hove gap-1 cursor-pointer'
-                    >
-                      <Icon className='w-5 h-5 object-fill' />
-                      <span>{label}</span>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenuPortal>
-            </DropdownMenu>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenuPortal>
+      <DropdownMenuContent className='w-34'>
+        <DropdownMenuItem onClick={toggleTheme} className='flex gap-2'>
+          <span>Theme</span>
+          {theme === 'dark' && <IoSunnyOutline size={22} />}
+          {theme === 'light' && <IoMoonOutline size={22} />}
+        </DropdownMenuItem>
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>Language</DropdownMenuSubTrigger>
+          <DropdownMenuPortal>
+            <DropdownMenuSubContent>
+              {languages.map(({ label, icon: Icon }) => (
+                <DropdownMenuItem key={label}>
+                  <Icon size={22} />
+                  <span>{label}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuSubContent>
+          </DropdownMenuPortal>
+        </DropdownMenuSub>
+      </DropdownMenuContent>
     </DropdownMenu>
   )
 }

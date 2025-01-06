@@ -1,6 +1,7 @@
 import { Button } from '../Button'
 import { Description } from '../Description'
 import { Section } from './Section'
+import { PROJECT_NAME } from '@/consts'
 import { IoIosArrowDown } from 'react-icons/io'
 
 export const HeroSection = () => {
@@ -11,7 +12,7 @@ export const HeroSection = () => {
     >
       <div className='flex flex-col items-center justify-center flex-auto text-center'>
         <h1 className='uppercase text-8xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[18.7rem] font-black select-none leading-normal'>
-          Aurora
+          {PROJECT_NAME}
         </h1>
         <h2 className='py-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold'>
           No code, no hassle, just moonlight magic

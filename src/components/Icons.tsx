@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 export const Customize: FC<{ className?: string; size?: number }> = ({
   className,
-  size = 28
+  size = 25
 }) => {
   return (
     <svg
