@@ -16,8 +16,7 @@ export const FancyButton: FC<PropsWithChildren<{ to: string }>> = ({
           '--radius': '100px',
           '--speed': '1.5s',
           '--cut': '0.1em',
-          '--bg':
-            'radial-gradient(ellipse 80% 50% at 50% 120%, rgba(62, 61, 117), rgba(30, 30, 65))'
+          '--bg': '#ffffff'
         } as React.CSSProperties
       }
     >
@@ -27,20 +26,13 @@ export const FancyButton: FC<PropsWithChildren<{ to: string }>> = ({
             className='absolute inset-0'
             style={{
               background:
-                'conic-gradient(from calc(270deg - (var(--spread) * 0.5)), transparent 0, hsl(274, 100%, 50%) var(--spread), transparent var(--spread))'
+                'conic-gradient(from calc(270deg - (var(--spread) * 0.5)), transparent 0, hsl(0, 0%, 60%) var(--spread), transparent var(--spread))'
             }}
-          ></div>
+          />
         </div>
       </div>
-      <div
-        className='absolute'
-        style={{
-          background: 'var(--bg)',
-          borderRadius: 'var(--radius)',
-          inset: 'var(--cut)'
-        }}
-      ></div>
-      <span className='z-10 w-48 whitespace-pre bg-gradient-to-b from-black from-30% to-gray-300/80 bg-clip-text text-center text-lg font-bold leading-none tracking-tight text-white'>
+      <div className='absolute inset-[var(--cut)] rounded-lg bg-black dark:bg-white' />
+      <span className='z-10 w-48 whitespace-pre bg-gradient-to-b from-black from-30% to-gray-300/80 bg-clip-text text-center text-lg font-bold leading-none tracking-tight text-white dark:text-black'>
         {children}
       </span>
     </Link>
