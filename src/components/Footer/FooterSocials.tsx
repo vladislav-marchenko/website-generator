@@ -9,7 +9,7 @@ export const FooterSocials: FC = () => {
           <a
             href={href}
             target='_blank'
-            className='text-neutral-600 transition-colors duration-200 hover:text-black'
+            className='text-neutral-600 transition-colors duration-200 hover:text-black dark:text-neutral-300 dark:hover:text-white'
           >
             <Icon />
           </a>

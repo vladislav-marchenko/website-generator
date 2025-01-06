@@ -22,7 +22,7 @@ export const Footer: FC = () => {
           <FooterSocials />
         </FooterItem>
       </div>
-      <hr className='my-8 w-full border-neutral-200' />
+      <hr className='my-8 w-full border-neutral-200 dark:border-neutral-600' />
       <FooterCopyrights />
     </footer>
   )
