@@ -12,7 +12,10 @@ export const Section: FC<SectionProps> = ({
   ...props
 }) => {
   return (
-    <section className={cn('h-full min-h-screen p-8', className)} {...props}>
+    <section
+      className={cn('h-full min-h-[calc(100vh-85px)] p-8', className)}
+      {...props}
+    >
       {children}
     </section>
   )
