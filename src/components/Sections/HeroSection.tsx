@@ -1,5 +1,6 @@
 import { Button } from '../Button'
 import { Description } from '../Description'
+import { FancyButton } from '../FancyButton'
 import { Section } from './Section'
 import { PROJECT_NAME } from '@/consts'
 import { IoIosArrowDown } from 'react-icons/io'
@@ -22,7 +23,7 @@ export const HeroSection = () => {
           coin’s name, and get ready to soar.
         </Description>
         <div className='flex items-center gap-4'>
-          <Button to='/dashboard'>Go to Dashboard</Button>
+          <FancyButton to='/dashboard'>Go to Dashboard</FancyButton>
           <Button to='/howto' variant='outline'>
             How to start
           </Button>

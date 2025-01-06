@@ -1,0 +1,44 @@
+{
+  "header": {
+    "navLinks": {
+      "dashboard": "Dashboard",
+      "templates": "Templates",
+      "pricing": "Pricing"
+    },
+    "connectButton": "Connect",
+    "themeLabel": "Theme",
+    "languageLabel": "Language"
+  },
+  "hero": {
+    "title": "No code, no hassle, just moonlight magic",
+    "description": "Forget the boring details. Choose a wild template, brand it with your coin’s name, and get ready to soar.",
+    "dashboardButton": "Go to Dashboard",
+    "howToButton": "How to start",
+    "scrollToExploreButton": "Scroll to explore"
+  },
+  "launch": {
+    "title": "Launch Your Solana Project in Minutes",
+    "description": "Create stunning, feature-rich websites for your Solana projects with zero coding. Stand out in the competitive crypto space.",
+    "startBuildingButton": "Start Building",
+    "exploreFeaturesButton": "Explore Features"
+  },
+  "features": {
+    "badge": "Features",
+    "title": "Everything You Need",
+    "description": "Launch your memecoin website with powerful features",
+    "cards": {
+      "template": {
+        "title": "Professional Templates",
+        "description": "Choose from our collection of modern, responsive designs crafted specifically for memecoins. Each template is optimized for conversion and engagement."
+      },
+      "customization": {
+        "title": "Easy Customization",
+        "description": "Personalize your website with our intuitive editor. Change colors, content, and layout with just a few clicks - no coding required."
+      },
+      "preview": {
+        "title": "Instant Preview",
+        "description": "Preview your website changes in real-time as you make them. Perfect your design before sharing it with your community."
+      }
+    }
+  }
+}
