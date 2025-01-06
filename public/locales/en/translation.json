@@ -30,15 +30,18 @@
     "cards": {
       "template": {
         "title": "Innovative Templates",
-        "description": "Explore a range of sleek, responsive designs crafted specifically for memecoin projects. Each template is fine-tuned for maximum impact and user engagement."
+        "description": "Explore a range of sleek, responsive designs crafted specifically for memecoin projects. Each template is fine-tuned for maximum impact and user engagement.",
+        "iconName": "rocket"
       },
       "editing": {
         "title": "Effortless Editing",
-        "description": "Personalize your website with ease using our intuitive editor. Modify colors, text, and layouts effortlessly—no technical skills needed"
+        "description": "Personalize your website with ease using our intuitive editor. Modify colors, text, and layouts effortlessly—no technical skills needed",
+        "iconName": "palette"
       },
       "updates": {
         "title": "Instant Updates",
-        "description": "View your edits in real-time as you make them. Refine every detail to perfection before launching your site to the community."
+        "description": "View your edits in real-time as you make them. Refine every detail to perfection before launching your site to the community.",
+        "iconName": "lightning"
       }
     }
   },

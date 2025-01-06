@@ -26,27 +26,11 @@ import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
 
-export const featuresCards = [
-  {
-    title: i18n.t('features.cards.title'),
-    description:
-      'Choose from our collection of modern, responsive designs crafted specifically for memecoins. Each template is optimized for conversion and engagement.',
-    icon: FaRocket
-  },
-  {
-    title: 'Easy Customization',
-    description:
-      'Personalize your website with our intuitive editor. Change colors, content, and layout with just a few clicks - no coding required.',
-
-    icon: FaPalette
-  },
-  {
-    title: 'Instant Preview',
-    description:
-      'Preview your website changes in real-time as you make them. Perfect your design before sharing it with your community.',
-    icon: FaBoltLightning
-  }
-]
+export const featuresCardIcons = {
+  rocket: FaRocket,
+  palette: FaPalette,
+  lightning: FaBoltLightning
+}
 
 export const languages = [
   { icon: IN, label: 'हिं' }, // Индийский (Хинди)
