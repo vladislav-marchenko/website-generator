@@ -13,10 +13,12 @@ import { languages } from '@/consts'
 import { ThemeContext } from '@/contexts/ThemeContext'
 import { ThemeContextValues } from '@/types/contexts'
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5'
 
 export const CustomizeMenu = () => {
   const { theme, toggleTheme } = useContext(ThemeContext) as ThemeContextValues
+  const { t } = useTranslation()
 
   return (
     <DropdownMenu>
@@ -27,12 +29,14 @@ export const CustomizeMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-34'>
         <DropdownMenuItem onClick={toggleTheme} className='flex gap-2'>
-          <span>Theme</span>
+          <span>{t('header.themeLabel')}</span>
           {theme === 'dark' && <IoSunnyOutline size={22} />}
           {theme === 'light' && <IoMoonOutline size={22} />}
         </DropdownMenuItem>
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Language</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>
+            {t('header.languageLabel')}
+          </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
             <DropdownMenuSubContent className='grid grid-cols-4'>
               {languages.map(({ label, icon: Icon }) => (

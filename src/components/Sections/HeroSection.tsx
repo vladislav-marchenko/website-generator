@@ -3,9 +3,12 @@ import { Description } from '../Description'
 import { FancyButton } from '../FancyButton'
 import { Section } from './Section'
 import { PROJECT_NAME } from '@/consts'
+import { useTranslation } from 'react-i18next'
 import { IoIosArrowDown } from 'react-icons/io'
 
 export const HeroSection = () => {
+  const { t } = useTranslation()
+
   return (
     <Section
       id='hero'
@@ -15,22 +18,17 @@ export const HeroSection = () => {
         <h1 className='select-none text-8xl font-black uppercase leading-normal sm:text-7xl md:text-8xl lg:text-9xl xl:text-[18.7rem]'>
           {PROJECT_NAME}
         </h1>
-        <h2 className='py-2 xl:text-5xl'>
-          No code, no hassle, just moonlight magic
-        </h2>
-        <Description className='my-6'>
-          Forget the boring details. Choose a wild template, brand it with your
-          coin’s name, and get ready to soar.
-        </Description>
+        <h2 className='py-2 xl:text-5xl'>{t('hero.title')}</h2>
+        <Description className='my-6'>{t('hero.description')}</Description>
         <div className='flex items-center gap-4'>
-          <FancyButton to='/dashboard'>Go to Dashboard</FancyButton>
+          <FancyButton to='/dashboard'>{t('hero.dashboardButton')}</FancyButton>
           <Button to='/howto' variant='outline'>
-            How to start
+            {t('hero.howToButton')}
           </Button>
         </div>
       </div>
       <a href='/#launch' className='flex animate-bounce flex-col items-center'>
-        <span className='text-sm'>Scroll to explore</span>
+        <span className='text-sm'>{t('hero.scrollToExploreButton')}</span>
         <IoIosArrowDown size={24} />
       </a>
     </Section>

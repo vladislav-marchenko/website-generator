@@ -2,8 +2,11 @@ import { Badge } from '../Badge'
 import { Button } from '../Button'
 import { Description } from '../Description'
 import { Section } from './Section'
+import { useTranslation } from 'react-i18next'
 
 export const LaunchSection = () => {
+  const { t } = useTranslation()
+
   return (
     <Section
       id='launch'
@@ -11,16 +14,15 @@ export const LaunchSection = () => {
     >
       <div className='container flex items-center justify-between gap-8'>
         <div className='flex flex-col gap-4'>
-          <Badge>Fast. Professional. Powerful.</Badge>
-          <h2>Launch Your Solana Project in Minutes</h2>
+          <Badge>{t('launch.badge')}</Badge>
+          <h2>{t('launch.title')}</h2>
           <Description className='max-w-[600px]'>
-            Create stunning, feature-rich websites for your Solana projects with
-            zero coding. Stand out in the competitive crypto space.
+            {t('launch.description')}
           </Description>
           <div className='flex items-center gap-4'>
-            <Button>Start Building</Button>
+            <Button>{t('launch.startBuildingButton')}</Button>
             <Button href='/#features' variant='outline'>
-              Explore Features
+              {t('launch.discoverButton')}
             </Button>
           </div>
         </div>

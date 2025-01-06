@@ -1,27 +1,29 @@
 import { Button } from './Button'
 import { CustomizeMenu } from './CustomizeMenu'
 import { NavLink } from './NavLink'
-import { headerNavLinks } from '@/consts'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useWalletModal } from '@solana/wallet-adapter-react-ui'
+import { useTranslation } from 'react-i18next'
 import { FaUserCircle } from 'react-icons/fa'
 
 export const HeaderNav = () => {
   const { publicKey } = useWallet()
   const { setVisible } = useWalletModal()
-
   const publicKeyString = publicKey?.toString()
+
+  const { t } = useTranslation()
+  const headerNavLinks = t('header.navLinks', { returnObjects: true })
 
   return (
     <nav className='flex items-center gap-8'>
-      {headerNavLinks.map((link) => (
+      {Object.values(headerNavLinks).map((link) => (
         <NavLink key={link} to={`/${link}`}>
           {link}
         </NavLink>
       ))}
       {!publicKeyString && (
         <Button onClick={() => setVisible(true)} className='py-2'>
-          Connect
+          {t('header.connectButton')}
         </Button>
       )}
       {publicKeyString && (

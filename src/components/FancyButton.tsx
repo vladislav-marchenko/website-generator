@@ -15,7 +15,7 @@ export const FancyButton: FC<PropsWithChildren<{ to: string }>> = ({
           '--shimmer-color': '#ffffff',
           '--radius': '100px',
           '--speed': '1.5s',
-          '--cut': '0.1em',
+          '--cut': '0.2em',
           '--bg': '#ffffff'
         } as React.CSSProperties
       }
@@ -32,7 +32,7 @@ export const FancyButton: FC<PropsWithChildren<{ to: string }>> = ({
         </div>
       </div>
       <div className='absolute inset-[var(--cut)] rounded-lg bg-black dark:bg-white' />
-      <span className='z-10 w-48 whitespace-pre bg-gradient-to-b from-black from-30% to-gray-300/80 bg-clip-text text-center text-lg font-bold leading-none tracking-tight text-white dark:text-black'>
+      <span className='z-10 whitespace-pre bg-gradient-to-b from-black from-30% to-gray-300/80 bg-clip-text text-center text-lg font-bold leading-none tracking-tight text-white dark:text-black'>
         {children}
       </span>
     </Link>
