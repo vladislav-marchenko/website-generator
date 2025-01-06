@@ -5,9 +5,31 @@ import {
   Russia,
   Spain,
   Telegram,
-  Twitter,
-  USA
+  Twitter
 } from './components/Icons'
+import {
+  IN,
+  ID,
+  BD,
+  VN,
+  UA,
+  RU,
+  PK,
+  CN,
+  KR,
+  ES,
+  DE,
+  US,
+  BR,
+  FR,
+  NL,
+  IT,
+  GR,
+  TR,
+  JP,
+  PT,
+  SA
+} from 'country-flag-icons/react/3x2'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
@@ -35,22 +57,27 @@ export const featuresCards = [
 ]
 
 export const languages = [
-  {
-    label: 'EN',
-    icon: USA
-  },
-  {
-    label: 'CN',
-    icon: China
-  },
-  {
-    label: 'RU',
-    icon: Russia
-  },
-  {
-    label: 'SP',
-    icon: Spain
-  }
+  { icon: IN, label: 'हिं' }, // Индийский (Хинди)
+  { icon: ID, label: 'Id' }, // Индонезийский язык
+  { icon: BD, label: 'বাংলা' }, // Бангладеш (Бенгальский)
+  { icon: VN, label: 'Vi' }, // Вьетнамский язык
+  { icon: UA, label: 'Укр' }, // Украинский
+  { icon: RU, label: 'Ру' }, // Русский
+  { icon: PK, label: 'اردو' }, // Пакистанский (Урду)
+  { icon: CN, label: '汉语' }, // Китай (Мандаринский)
+  { icon: KR, label: '한국어' }, // Южная Корея (Корейский)
+  { icon: ES, label: 'Es' }, // Испанский
+  { icon: DE, label: 'De' }, // Немецкий
+  { icon: US, label: 'En' }, // Английский
+  { icon: BR, label: 'Pt-BR' }, // Бразильский (Португальский)
+  { icon: FR, label: 'Fr' }, // Французский
+  { icon: NL, label: 'Nl' }, // Нидерландский
+  { icon: IT, label: 'It' }, // Итальянский
+  { icon: GR, label: 'Ελ' }, // Греческий
+  { icon: TR, label: 'Tr' }, // Турецкий
+  { icon: JP, label: '日本語' }, // Японский
+  { icon: PT, label: 'Pt' }, // Португальский
+  { icon: SA, label: 'عربى' } // Арабский
 ]
 
 export const FAQs = [
@@ -86,7 +113,6 @@ export const footerNavLinks = [
   'templates',
   'pricing',
   'docs',
-  'status',
   'about',
   'blog'
 ]

@@ -1,10 +1,10 @@
 {
   "header": {
-    "navLinks": {
-      "dashboard": "Dashboard",
-      "templates": "Templates",
-      "pricing": "Pricing"
-    },
+    "navLinks": [
+      "dashboard",
+      "templates",
+      "pricing"
+    ],
     "connectButton": "Connect",
     "themeLabel": "Theme",
     "languageLabel": "Language"
@@ -17,28 +17,58 @@
     "scrollToExploreButton": "Scroll to explore"
   },
   "launch": {
-    "title": "Launch Your Solana Project in Minutes",
-    "description": "Create stunning, feature-rich websites for your Solana projects with zero coding. Stand out in the competitive crypto space.",
+    "badge": "Quick. Innovative. Effective",
+    "title": "Kickstart Your Solana Journey Effortlessly",
+    "description": "Build dynamic, customizable platforms for your Solana projects—no coding required. Elevate your presence in the fast-paced blockchain ecosystem.",
     "startBuildingButton": "Start Building",
-    "exploreFeaturesButton": "Explore Features"
+    "discoverButton": "Discover More"
   },
   "features": {
-    "badge": "Features",
-    "title": "Everything You Need",
-    "description": "Launch your memecoin website with powerful features",
+    "badge": "Core Benefits",
+    "title": "All the Tools You Need",
+    "description": "Build a unique website to showcase your memecoin project, packed with advanced features",
     "cards": {
       "template": {
-        "title": "Professional Templates",
-        "description": "Choose from our collection of modern, responsive designs crafted specifically for memecoins. Each template is optimized for conversion and engagement."
+        "title": "Innovative Templates",
+        "description": "Explore a range of sleek, responsive designs crafted specifically for memecoin projects. Each template is fine-tuned for maximum impact and user engagement."
       },
-      "customization": {
-        "title": "Easy Customization",
-        "description": "Personalize your website with our intuitive editor. Change colors, content, and layout with just a few clicks - no coding required."
+      "editing": {
+        "title": "Effortless Editing",
+        "description": "Personalize your website with ease using our intuitive editor. Modify colors, text, and layouts effortlessly—no technical skills needed"
       },
-      "preview": {
-        "title": "Instant Preview",
-        "description": "Preview your website changes in real-time as you make them. Perfect your design before sharing it with your community."
+      "updates": {
+        "title": "Instant Updates",
+        "description": "View your edits in real-time as you make them. Refine every detail to perfection before launching your site to the community."
       }
     }
+  },
+  "FAQs": {
+    "title": "Frequently Asked Questions",
+    "description": "Your Essential Guide to Common Questions",
+    "questions": [
+      {
+        "question": "What is AURORA?",
+        "answer": "AURORA is a platform that enables you to quickly create professional websites for your meme token. Just select a template, personalize it with your token’s details, and download your website files instantly."
+      },
+      {
+        "question": "How does AURORA work?",
+        "answer": "AURORA streamlines the creation of your meme token’s website. Select a template, customize it with your token information, and instantly receive the website files ready for download—no technical skills needed"
+      },
+      {
+        "question": "Do we host your website?",
+        "answer": "Yes, we provide full hosting for your website. Once you’ve created and customized your site using our templates, we take care of the hosting process, ensuring that your website is securely stored and available online. Our hosting is reliable, fast, and optimized for performance, so your website runs smoothly at all times, with no additional setup required from you."
+      },
+      {
+        "question": "Is website hosting included?",
+        "answer": "Each template is designed with essential features for your memecoin, including token details, buy buttons, tokenomics, roadmap, team profiles, FAQ section, and social media links. All templates are mobile-friendly and optimized for top performance"
+      },
+      {
+        "question": "How much does it cost?",
+        "answer": "We offer two pricing plans: the Standard option for 0.045 SOL per website, and the Premium option for 0.25 SOL, which includes access to exclusive templates and advanced features. Select the plan that works best for your requirements."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Join thousands of creators who are rapidly building the future of Solana-based memecoins. Whether you’re launching your first token or expanding your project, our platform provides all the tools you need to design, customize, and launch a professional website for your Solana memecoin—quickly and with ease."
   }
 }

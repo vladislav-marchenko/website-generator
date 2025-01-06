@@ -34,10 +34,10 @@ export const CustomizeMenu = () => {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>Language</DropdownMenuSubTrigger>
           <DropdownMenuPortal>
-            <DropdownMenuSubContent>
+            <DropdownMenuSubContent className='grid grid-cols-4'>
               {languages.map(({ label, icon: Icon }) => (
                 <DropdownMenuItem key={label}>
-                  <Icon size={22} />
+                  <Icon />
                   <span>{label}</span>
                 </DropdownMenuItem>
               ))}
