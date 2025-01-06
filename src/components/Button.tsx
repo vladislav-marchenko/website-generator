@@ -1,4 +1,4 @@
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 

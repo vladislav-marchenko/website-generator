@@ -1,4 +1,4 @@
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, ReactNode } from 'react'
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {

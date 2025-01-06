@@ -1,4 +1,4 @@
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 import { FC, PropsWithChildren } from 'react'
 
 export const Description: FC<PropsWithChildren<{ className?: string }>> = ({

@@ -1,6 +1,6 @@
+import { getSubdomain } from '@/lib/utils'
 import { Home } from '@/pages/Home'
 import { Website } from '@/pages/Website'
-import { getSubdomain } from '@/utils'
 
 const subdomain = getSubdomain()
 
