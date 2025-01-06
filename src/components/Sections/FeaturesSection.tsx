@@ -7,11 +7,11 @@ export const FeaturesSection = () => {
   return (
     <Section
       id='features'
-      className='flex flex-col items-center gap-12 justify-center'
+      className='flex flex-col items-center justify-center gap-12'
     >
-      <div className='flex flex-col gap-4 text-center justify-center items-center'>
+      <div className='container flex flex-col items-center justify-center gap-4 text-center'>
         <Badge>Features</Badge>
-        <h3 className='text-4xl font-bold'>Everything You Need</h3>
+        <h3>Everything You Need</h3>
         <Description>
           Launch your memecoin website with powerful features
         </Description>
@@ -20,12 +20,12 @@ export const FeaturesSection = () => {
         {featuresCards.map(({ title, description, icon: Icon }) => (
           <div
             key={title}
-            className='flex flex-col gap-4 p-6 border-2 border-neutral-400 rounded-xl'
+            className='flex flex-col gap-4 rounded-xl border-2 border-neutral-200 p-6 dark:border-neutral-500'
           >
-            <div className='p-3 bg-black text-white dark:bg-white dark:text-black rounded-xl max-w-max'>
+            <div className='max-w-max rounded-xl bg-black p-3 text-white dark:bg-white dark:text-black'>
               <Icon size={28} />
             </div>
-            <h4 className='text-xl font-bold'>{title}</h4>
+            <h4>{title}</h4>
             <Description className='max-w-xs'>{description}</Description>
           </div>
         ))}

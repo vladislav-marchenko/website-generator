@@ -12,7 +12,7 @@ export const FAQSection = () => {
   return (
     <Section
       id='FAQ'
-      className='flex flex-col justify-center items-center gap-12 bg-neutral-100 dark:bg-neutral-800'
+      className='flex flex-col items-center justify-center gap-12 bg-neutral-100 dark:bg-neutral-800'
     >
       <div className='flex flex-col items-center gap-4'>
         <h3 className='text-4xl font-bold'>Frequently Asked Questions</h3>
@@ -23,7 +23,7 @@ export const FAQSection = () => {
       <Accordion
         type='single'
         collapsible
-        className='flex flex-col gap-4 max-w-7xl w-full'
+        className='container flex flex-col gap-4'
       >
         {FAQs.map(({ question, answer }) => (
           <AccordionItem key={question} value={question}>

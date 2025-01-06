@@ -7,26 +7,24 @@ export const LaunchSection = () => {
   return (
     <Section
       id='launch'
-      className='flex justify-center items-center bg-neutral-100 dark:bg-neutral-800'
+      className='flex items-center justify-center bg-neutral-100 dark:bg-neutral-800'
     >
-      <div className='flex justify-between items-center gap-8 max-w-6xl w-full mx-auto'>
+      <div className='container flex items-center justify-between gap-8'>
         <div className='flex flex-col gap-4'>
           <Badge>Fast. Professional. Powerful.</Badge>
-          <h2 className='font-bold tracking-tighter sm:text-5xl xl:text-6xl'>
-            Launch Your Solana Project in Minutes
-          </h2>
+          <h2>Launch Your Solana Project in Minutes</h2>
           <Description className='max-w-[600px]'>
             Create stunning, feature-rich websites for your Solana projects with
             zero coding. Stand out in the competitive crypto space.
           </Description>
-          <div className='flex gap-4 items-center'>
+          <div className='flex items-center gap-4'>
             <Button>Start Building</Button>
             <Button href='/#features' variant='outline'>
               Explore Features
             </Button>
           </div>
         </div>
-        <div className='flex items-center justify-center flex-auto h-96 bg-neutral-400 rounded-md w-[1000px]'>
+        <div className='flex h-96 w-[1000px] flex-auto items-center justify-center rounded-md bg-neutral-400'>
           Video placeholder
         </div>
       </div>

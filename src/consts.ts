@@ -1,4 +1,13 @@
-import { China, Russia, Spain, USA } from './components/Icons'
+import {
+  China,
+  Discord,
+  Medium,
+  Russia,
+  Spain,
+  Telegram,
+  Twitter,
+  USA
+} from './components/Icons'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
@@ -67,5 +76,36 @@ export const FAQs = [
     question: 'How much does it cost?',
     answer:
       'We have two pricing options: Standard generation at 0.05 SOL per website, or Premium at 0.25 SOL which gives you access to all premium features and templates. Choose the plan that best fits your needs.'
+  }
+]
+
+export const headerNavLinks = ['dashboard', 'templates', 'pricing']
+
+export const footerNavLinks = [
+  'dashboard',
+  'templates',
+  'pricing',
+  'docs',
+  'status',
+  'about',
+  'blog'
+]
+
+export const footerSocialLinks = [
+  {
+    icon: Twitter,
+    href: 'https://twitter.com/'
+  },
+  {
+    icon: Discord,
+    href: 'https://discord.com/'
+  },
+  {
+    icon: Telegram,
+    href: 'https://t.me/'
+  },
+  {
+    icon: Medium,
+    href: 'https://medium.com/'
   }
 ]

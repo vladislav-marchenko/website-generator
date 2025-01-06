@@ -4,11 +4,34 @@
 
 button,
 input {
-  @apply outline-0 hover:outline-0 focus:outline-0 border-0;
+  @apply border-0 outline-0 hover:outline-0 focus:outline-0;
 }
 
 @layer base {
   :root {
-    --radius: 0.5rem
+    --radius: 0.5rem;
+  }
+
+  h2 {
+    @apply font-bold tracking-tighter sm:text-5xl xl:text-6xl
+  }
+
+  h3 {
+    @apply text-4xl font-bold
+  }
+
+  h4 {
+    @apply text-xl font-bold;
+  }
+
+  h5 {
+    @apply mb-4 text-sm font-bold uppercase tracking-wider text-neutral-700;
+  }
+
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-7xl px-4;
   }
 }
