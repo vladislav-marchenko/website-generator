@@ -82,3 +82,18 @@ export const footerSocialLinks = [
     href: 'https://medium.com/'
   }
 ]
+
+export const pricingCards = [
+  {
+    title: 'standard',
+    price: 0.045,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at orci sollicitudin, sagittis turpis eget, euismod massa. Aliquam sit amet dictum quam. Curabitur scelerisque lobortis tortor eu gravida. Proin blandit lacus lorem, a imperdiet elit accumsan eu. Sed euismod tempor tortor, vel facilisis metus viverra in.'
+  },
+  {
+    title: 'premium',
+    price: 0.25,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at orci sollicitudin, sagittis turpis eget, euismod massa. Aliquam sit amet dictum quam. Curabitur scelerisque lobortis tortor eu gravida. Proin blandit lacus lorem, a imperdiet elit accumsan eu. Sed euismod tempor tortor, vel facilisis metus viverra in.'
+  }
+]

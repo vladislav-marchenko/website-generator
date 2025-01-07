@@ -1,55 +1,53 @@
+import { Description } from '@/components/Description'
+import { PricingCard } from '@/components/Pricing/PricingCard'
+import { Section } from '@/components/Sections/Section'
+import { pricingCards } from '@/consts'
 import { cn } from '@/lib/utils'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
-const cards = [
-  {
-    title: 'standard',
-    price: 0.045
-  },
-  {
-    title: 'premium',
-    price: 0.25
-  }
-]
+export const animationStyles =
+  'transition-all group-data-[animate=out]:invisible group-data-[animate]:duration-500 group-data-[animate=in]:animate-in group-data-[animate=out]:animate-out group-data-[animate=in]:fade-in group-data-[animate=out]:fade-out'
 
 export const Pricing = () => {
-  const [selectedCard, setSelectedCard] = useState(cards[0].title)
+  const [selectedCardIndex, setSelectedCardIndex] = useState(0)
+  const { title, description } = pricingCards[selectedCardIndex]
 
-  const nextCard = (currentIndex: number) => {
-    const nextIndex = currentIndex === cards.length - 1 ? 0 : currentIndex + 1
-    setSelectedCard(cards[nextIndex].title)
+  const ref = useRef<HTMLDivElement | null>(null)
+
+  const nextCard = () => {
+    ref.current?.setAttribute('data-animate', 'out')
+
+    setTimeout(() => {
+      ref.current?.setAttribute('data-animate', 'in')
+
+      if (selectedCardIndex < pricingCards.length - 1) {
+        return setSelectedCardIndex(selectedCardIndex + 1)
+      }
+
+      setSelectedCardIndex(0)
+    }, 499)
   }
 
   return (
-    <div className='flex h-full items-center justify-center'>
-      <div className='relative'>
-        {cards.map(({ title, price }, index) => (
-          <div
-            key={title}
-            className={cn(
-              'absolute left-0 top-0 rounded-md bg-neutral-600 p-4 transition-all duration-500',
-              {
-                'invisible animate-out fade-out slide-out-to-right slide-out-to-top':
-                  selectedCard !== title
-              }
-            )}
-          >
-            <div>
-              <h3>{title}</h3>
-              <span>${price}</span>
-            </div>
-            {selectedCard === title && (
-              <button
-                onClick={() => nextCard(index)}
-                className='mt-4 rounded bg-blue-500 p-2 text-white'
-              >
-                Next
-              </button>
-            )}
-          </div>
-        ))}
+    <Section className='flex items-center'>
+      <div
+        ref={ref}
+        className='group container flex h-full items-center gap-12'
+      >
+        <div
+          className={cn(
+            'flex flex-col gap-4 group-data-[animate=in]:slide-in-from-bottom group-data-[animate=out]:slide-out-to-bottom',
+            animationStyles
+          )}
+        >
+          <h2 className='capitalize'>{title}</h2>
+          <Description className='max-w-[600px]'>{description}</Description>
+        </div>
+        <PricingCard
+          selectedCardIndex={selectedCardIndex}
+          nextCard={nextCard}
+        />
       </div>
-      <div className='mt-4'>Current: {selectedCard}</div>
-    </div>
+    </Section>
   )
 }
