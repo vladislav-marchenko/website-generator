@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 
 const commonStyles =
-  'px-4 py-3 font-bold text-lg rounded-full hover:scale-105 transiton-all duration-200'
+  'text-center px-4 py-3 font-bold text-lg rounded-full hover:scale-105 transiton-all duration-200'
 
 const styles = {
   primary: 'bg-black text-white dark:bg-white dark:text-black',
