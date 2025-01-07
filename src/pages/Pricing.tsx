@@ -1,11 +1,12 @@
 import { Button } from '@/components/Button'
 import { Description } from '@/components/Description'
+import { FancyCard } from '@/components/FancyCard'
 import { PricingCard } from '@/components/Pricing/PricingCard'
 import { Section } from '@/components/Sections/Section'
 import { pricingCards } from '@/consts'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
-import { IoIosArrowForward } from 'react-icons/io'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export const animationStyles =
   'transition-all group-data-[animation=out]:invisible group-data-[animation]:duration-500 group-data-[animation=in]:animate-in group-data-[animation=out]:animate-out group-data-[animation=in]:fade-in group-data-[animation=out]:fade-out'
@@ -15,10 +16,11 @@ export const Pricing = () => {
   const { title, description } = pricingCards[selectedCardIndex]
 
   const [animation, setAnimation] = useState<'in' | 'out' | null>(null)
+  const [animationDirection, setAnimationDirection] = useState<
+    'left' | 'right' | null
+  >(null)
 
-  const nextCard = () => {
-    if (animation) return
-
+  const changeCard = () => {
     setAnimation('out')
 
     setTimeout(() => {
@@ -34,10 +36,25 @@ export const Pricing = () => {
     setTimeout(() => setAnimation(null), 900)
   }
 
+  const previousCard = () => {
+    if (animation) return
+
+    setAnimationDirection('left')
+    changeCard()
+  }
+
+  const nextCard = () => {
+    if (animation) return
+
+    setAnimationDirection('right')
+    changeCard()
+  }
+
   return (
     <Section className='flex items-center'>
       <div
         data-animation={animation}
+        data-animation-direction={animationDirection}
         className='group container flex h-full items-center justify-between gap-8'
       >
         <div
@@ -50,8 +67,11 @@ export const Pricing = () => {
           <Description className='max-w-[600px]'>{description}</Description>
         </div>
         <div className='flex items-center gap-4'>
+          <Button onClick={previousCard} className='z-10 p-3'>
+            <IoIosArrowBack size={28} />
+          </Button>
           <PricingCard selectedCardIndex={selectedCardIndex} />
-          <Button onClick={nextCard} className='p-3'>
+          <Button onClick={nextCard} className='z-10 p-3'>
             <IoIosArrowForward size={28} />
           </Button>
         </div>
