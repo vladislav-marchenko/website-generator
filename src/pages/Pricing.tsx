@@ -4,6 +4,7 @@ import { FancyCard } from '@/components/FancyCard'
 import { PricingCard } from '@/components/Pricing/PricingCard'
 import { Section } from '@/components/Sections/Section'
 import { pricingCards } from '@/consts'
+import { useCardsAnimation } from '@/hooks/useCardsAnimation'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
@@ -15,40 +16,19 @@ export const Pricing = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
   const { title, description } = pricingCards[selectedCardIndex]
 
-  const [animation, setAnimation] = useState<'in' | 'out' | null>(null)
-  const [animationDirection, setAnimationDirection] = useState<
-    'left' | 'right' | null
-  >(null)
+  const selectNextCardIndex = () => {
+    if (selectedCardIndex < pricingCards.length - 1) {
+      return setSelectedCardIndex(selectedCardIndex + 1)
+    }
 
-  const changeCard = () => {
-    setAnimation('out')
-
-    setTimeout(() => {
-      setAnimation('in')
-
-      if (selectedCardIndex < pricingCards.length - 1) {
-        return setSelectedCardIndex(selectedCardIndex + 1)
-      }
-
-      setSelectedCardIndex(0)
-    }, 450)
-
-    setTimeout(() => setAnimation(null), 900)
+    setSelectedCardIndex(0)
   }
 
-  const previousCard = () => {
-    if (animation) return
-
-    setAnimationDirection('left')
-    changeCard()
-  }
-
-  const nextCard = () => {
-    if (animation) return
-
-    setAnimationDirection('right')
-    changeCard()
-  }
+  const {
+    animation,
+    animationDirection,
+    funcs: { previousCard, nextCard }
+  } = useCardsAnimation(selectNextCardIndex)
 
   return (
     <Section className='flex items-center'>
