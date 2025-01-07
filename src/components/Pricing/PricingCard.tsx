@@ -12,7 +12,7 @@ export const PricingCard: FC<{ selectedCardIndex: number }> = ({
   return (
     <div
       className={cn(
-        'min-w-80 rounded-2xl bg-neutral-700 p-8 group-data-[animation=in]:slide-in-from-top group-data-[animation=out]:slide-out-to-top',
+        'min-w-80 rounded-2xl bg-neutral-200 p-8 group-data-[animation=in]:slide-in-from-top group-data-[animation=out]:slide-out-to-top dark:bg-neutral-700',
         animationStyles
       )}
     >
