@@ -12,7 +12,7 @@ export const PricingCard: FC<{ selectedCardIndex: number }> = ({
   return (
     <div
       className={cn(
-        'group-data-[animation-direction=right]:slide-out-from-right group-data-[animation-direction=right]:slide-out-from-right min-w-80 rounded-2xl bg-neutral-200 p-8 group-data-[animation-direction=left]:slide-in-from-left group-data-[animation-direction=left]:slide-out-to-right group-data-[animation-direction=right]:slide-in-from-right group-data-[animation-direction=right]:slide-out-to-left dark:bg-neutral-700',
+        'group-data-[animation-direction=right]:slide-out-from-right group-data-[animation-direction=right]:slide-out-from-right min-w-80 rounded-2xl bg-neutral-200 p-8 repeat-1 group-data-[animation-direction=left]:slide-in-from-left group-data-[animation-direction=left]:slide-out-to-right group-data-[animation-direction=right]:slide-in-from-right group-data-[animation-direction=right]:slide-out-to-left dark:bg-neutral-700',
         animationStyles
       )}
     >

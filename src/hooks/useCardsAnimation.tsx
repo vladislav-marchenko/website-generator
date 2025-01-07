@@ -14,9 +14,12 @@ export const useCardsAnimation = (callback: () => void) => {
     setTimeout(() => {
       setAnimation('in')
       callback()
-    }, 450)
+    }, 500)
 
-    setTimeout(() => setAnimation(null), 900)
+    setTimeout(() => {
+      setAnimation(null)
+      setAnimationDirection(null)
+    }, 1100)
   }
 
   const previousCard = () => {
