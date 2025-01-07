@@ -1,6 +1,5 @@
 import { Button } from '@/components/Button'
 import { Description } from '@/components/Description'
-import { FancyCard } from '@/components/FancyCard'
 import { PricingCard } from '@/components/Pricing/PricingCard'
 import { Section } from '@/components/Sections/Section'
 import { pricingCards } from '@/consts'
