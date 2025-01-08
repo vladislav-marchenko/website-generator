@@ -1,7 +1,5 @@
 import { Button } from '../Button'
 import { pricingCards } from '@/consts'
-import { cn } from '@/lib/utils'
-import { animationStyles } from '@/pages/Pricing'
 import { FC } from 'react'
 
 export const PricingCard: FC<{ selectedCardIndex: number }> = ({
@@ -10,12 +8,7 @@ export const PricingCard: FC<{ selectedCardIndex: number }> = ({
   const { title, price, button } = pricingCards[selectedCardIndex]
 
   return (
-    <div
-      className={cn(
-        'group-data-[animation-direction=right]:slide-out-from-right group-data-[animation-direction=right]:slide-out-from-right min-w-80 rounded-2xl bg-neutral-200 p-8 repeat-1 group-data-[animation-direction=left]:slide-in-from-left group-data-[animation-direction=left]:slide-out-to-right group-data-[animation-direction=right]:slide-in-from-right group-data-[animation-direction=right]:slide-out-to-left dark:bg-neutral-700',
-        animationStyles
-      )}
-    >
+    <div className='min-w-80 rounded-2xl bg-neutral-200 p-8 duration-300 group-data-[animation=left]:animate-fade-out-left-fade-in-left group-data-[animation=right]:animate-fade-out-right-fade-in-right dark:bg-neutral-700'>
       <div className='flex flex-col gap-4'>
         <h4 className='text-center'>{title}</h4>
         <span className='text-nowrap text-center text-4xl font-bold tracking-wider'>

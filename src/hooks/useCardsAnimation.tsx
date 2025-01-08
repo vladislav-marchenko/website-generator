@@ -1,44 +1,41 @@
-import { useState } from 'react'
-
-type Animation = 'in' | 'out'
-type AnimationDirection = 'left' | 'right'
+import { useEffect, useRef, useState } from 'react'
 
 export const useCardsAnimation = (callback: () => void) => {
-  const [animation, setAnimation] = useState<Animation | null>(null)
-  const [animationDirection, setAnimationDirection] =
-    useState<AnimationDirection | null>(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const [isAnimation, setIsAnimation] = useState(false)
 
-  const changeCard = () => {
-    setAnimation('out')
+  useEffect(() => {
+    if (!ref.current) return
 
-    setTimeout(() => {
-      setAnimation('in')
-      callback()
-    }, 500)
+    const handleAnimationEnd = () => {
+      ref.current?.removeAttribute('data-animation')
+      setIsAnimation(false)
+    }
 
-    setTimeout(() => {
-      setAnimation(null)
-      setAnimationDirection(null)
-    }, 1100)
-  }
+    ref.current.addEventListener('animationend', handleAnimationEnd)
+
+    return () => {
+      ref.current?.removeEventListener('animationend', handleAnimationEnd)
+    }
+  }, [])
 
   const previousCard = () => {
-    if (animation) return
+    if (isAnimation) return
 
-    setAnimationDirection('left')
-    changeCard()
+    ref.current?.setAttribute('data-animation', 'left')
+    setTimeout(callback, 600)
   }
 
   const nextCard = () => {
-    if (animation) return
+    if (isAnimation) return
 
-    setAnimationDirection('right')
-    changeCard()
+    ref.current?.setAttribute('data-animation', 'right')
+    setTimeout(callback, 600)
   }
 
   return {
-    animation,
-    animationDirection,
-    funcs: { previousCard, nextCard }
+    ref,
+    previousCard,
+    nextCard
   }
 }
