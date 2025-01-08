@@ -21,6 +21,7 @@ export const useCardsAnimation = (callback: () => void) => {
 
   const previousCard = () => {
     if (isAnimation) return
+    setIsAnimation(true)
 
     ref.current?.setAttribute('data-animation', 'left')
     setTimeout(callback, 600)
@@ -28,6 +29,7 @@ export const useCardsAnimation = (callback: () => void) => {
 
   const nextCard = () => {
     if (isAnimation) return
+    setIsAnimation(true)
 
     ref.current?.setAttribute('data-animation', 'right')
     setTimeout(callback, 600)
