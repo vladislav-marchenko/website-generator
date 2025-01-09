@@ -18,7 +18,11 @@ export const CreateSidebar: FC = () => {
       <aside className='flex w-full min-w-80 flex-col gap-4 p-4'>
         {currentTemplate.categories[activeCategoryIndex].subCategories.map(
           ({ label, fields }) => (
-            <CreateSidebarSubCategory label={label} fields={fields} />
+            <CreateSidebarSubCategory
+              key={label}
+              label={label}
+              fields={fields}
+            />
           )
         )}
       </aside>

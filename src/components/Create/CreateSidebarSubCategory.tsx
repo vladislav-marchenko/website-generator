@@ -31,7 +31,7 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
           <ChevronDown />
         </Button>
       </CollapsibleTrigger>
-      <CollapsibleContent className='flex flex-col gap-4 pl-4'>
+      <CollapsibleContent className='p-1 pl-4'>
         {fields.map(({ name, label, placeholder }) => (
           <div key={name}>
             <Label>{label}</Label>

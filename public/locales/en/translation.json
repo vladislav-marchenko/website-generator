@@ -1,10 +1,6 @@
 {
   "header": {
-    "navLinks": [
-      "dashboard",
-      "templates",
-      "pricing"
-    ],
+    "navLinks": ["dashboard", "templates", "pricing"],
     "connectButton": "Connect",
     "themeLabel": "Theme",
     "languageLabel": "Language"
