@@ -13,9 +13,9 @@ export const CreateSidebar: FC = () => {
   ) as TemplateContextValues
 
   return (
-    <div className='flex'>
+    <div className='flex h-full'>
       <CreateSidebarCategories />
-      <aside className='flex w-full min-w-80 flex-col gap-4 p-4'>
+      <aside className='flex h-full w-full min-w-80 flex-col gap-4 p-4'>
         {currentTemplate.categories[activeCategoryIndex].subCategories.map(
           ({ label, fields }) => (
             <CreateSidebarSubCategory

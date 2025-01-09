@@ -1,6 +1,8 @@
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
+import ContentEditable from 'react-contenteditable'
+import webFontLoader from 'webfontloader'
 
 const defaultDataValues = {
   projectName:
@@ -9,8 +11,15 @@ const defaultDataValues = {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJVxGVNUPYD6GUrOmszlQ9orAi_ms3yP-dTeX6c6SKOcf86mbJdYyCCyuLSUkQWAO1eHE&usqp=CAU'
 }
 
+const fonts = ['Barlow', 'Roboto', 'Montserrat', 'Arial', 'Times New Roman']
+
 export const Classic: FC = () => {
-  const { data } = useContext(TemplateContext) as TemplateContextValues
+  const { data, setData } = useContext(TemplateContext) as TemplateContextValues
+  webFontLoader.load({
+    google: {
+      families: fonts
+    }
+  })
 
   return (
     <div
@@ -20,9 +29,14 @@ export const Classic: FC = () => {
       }}
     >
       <div className='absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
-        <h1 className='text-center text-4xl font-bold'>
-          {data.projectName || defaultDataValues.projectName}
-        </h1>
+        <ContentEditable
+          className='text-center text-4xl font-bold'
+          html={data.projectName || defaultDataValues.projectName}
+          tagName='h1'
+          onChange={(e) =>
+            setData({ ...data, projectName: e.currentTarget.innerText })
+          }
+        />
       </div>
     </div>
   )
