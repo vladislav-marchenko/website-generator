@@ -9,14 +9,14 @@ export const CreateSidebarCategories: FC = () => {
     useContext(TemplateContext) as TemplateContextValues
 
   return (
-    <div className='flex flex-col gap-4 bg-neutral-100 p-4 dark:bg-neutral-800'>
+    <div className='flex flex-col gap-4 bg-neutral-100 p-2 dark:bg-neutral-800'>
       {templates[selectedTemplate].categories.map(
         ({ name, icon: Icon }, index) => (
           <button
             key={name}
             onClick={() => setActiveCategoryIndex(index)}
             className={cn(
-              'rounded-md p-2 text-neutral-600 transition-colors duration-200',
+              'rounded-md p-1 text-neutral-600 transition-colors duration-200',
               {
                 'bg-neutral-600 text-white dark:bg-neutral-700':
                   index === activeCategoryIndex,
@@ -25,7 +25,7 @@ export const CreateSidebarCategories: FC = () => {
               }
             )}
           >
-            <Icon size={24} />
+            <Icon size={20} />
           </button>
         )
       )}

@@ -11,15 +11,19 @@ const defaultDataValues = {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJVxGVNUPYD6GUrOmszlQ9orAi_ms3yP-dTeX6c6SKOcf86mbJdYyCCyuLSUkQWAO1eHE&usqp=CAU'
 }
 
-const fonts = ['Barlow', 'Roboto', 'Montserrat', 'Arial', 'Times New Roman']
+// const fonts = ['Barlow', 'Roboto', 'Montserrat', 'Arial', 'Times New Roman']
 
 export const Classic: FC = () => {
   const { data, setData } = useContext(TemplateContext) as TemplateContextValues
+  /*
   webFontLoader.load({
     google: {
       families: fonts
     }
   })
+  */
+
+  // console.log(import.meta.env.VITE_GOOGLE_API_KEY)
 
   return (
     <div
