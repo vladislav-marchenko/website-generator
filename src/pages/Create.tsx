@@ -5,16 +5,17 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const Create = () => {
-  const { selectedTemplate } = useContext(
+  const { selectedTemplate: selectedTemplateName, data } = useContext(
     TemplateContext
   ) as TemplateContextValues
-  const TemplateElement = templates[selectedTemplate].element
+
+  const Template = templates[selectedTemplateName].element
 
   return (
-    <div className='flex h-full'>
+    <div className='flex h-full min-h-screen'>
       <CreateSidebar />
-      <main className='flex-auto'>
-        <TemplateElement />
+      <main className='flex-auto bg-neutral-600'>
+        <Template {...data} />
       </main>
     </div>
   )

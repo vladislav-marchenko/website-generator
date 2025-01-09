@@ -1,5 +1,4 @@
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
-import i18n from './i18n.ts'
 import {
   IN,
   ID,

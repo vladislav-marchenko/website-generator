@@ -1,76 +1,107 @@
 import { Classic } from './Classic'
-import { z } from 'zod'
+import { Templates } from '@/types'
+import { MdEdit, MdOutlineTextFields } from 'react-icons/md'
 
-export const templates = {
+export const templates: Templates = {
   classic: {
     label: 'Classic',
     price: 0.05,
     categories: [
       {
-        label: 'Menu',
-        fields: [
+        name: 'Edit',
+        icon: MdEdit,
+        subCategories: [
           {
-            type: 'text',
-            name: 'projectName',
-            label: 'Project name',
-            placeholder: 'Name'
+            label: 'Text',
+            fields: [
+              {
+                type: 'text',
+                name: 'projectName',
+                label: 'Project name',
+                placeholder: 'Name'
+              },
+              {
+                type: 'url',
+                name: 'twitter',
+                label: 'Twitter',
+                placeholder: '#'
+              },
+              {
+                type: 'url',
+                name: 'telegram',
+                label: 'Telegram',
+                placeholder: '#'
+              }
+            ]
           },
           {
-            type: 'url',
-            name: 'twitter',
-            label: 'Twitter',
-            placeholder: '#'
-          },
-          {
-            type: 'url',
-            name: 'telegram',
-            label: 'Telegram',
-            placeholder: '#'
+            label: 'Images',
+            fields: [
+              {
+                type: 'image',
+                name: 'background',
+                label: 'Background',
+                placeholder: 'https://via.placeholder.com/150'
+              }
+            ]
           }
         ]
       },
       {
-        label: 'Images',
-        fields: [
+        name: 'Text',
+        icon: MdOutlineTextFields,
+        subCategories: [
           {
-            type: 'image',
-            name: 'logo',
-            label: 'Logo',
-            placeholder: 'https://via.placeholder.com/150'
+            label: 'Something',
+            fields: [
+              {
+                type: 'text',
+                name: 'projectName',
+                label: 'Project name',
+                placeholder: 'Name'
+              },
+              {
+                type: 'url',
+                name: 'twitter',
+                label: 'Twitter',
+                placeholder: '#'
+              },
+              {
+                type: 'url',
+                name: 'telegram',
+                label: 'Telegram',
+                placeholder: '#'
+              }
+            ]
           },
           {
-            type: 'image',
-            name: 'background',
-            label: 'Background',
-            placeholder: 'https://via.placeholder.com/150'
+            label: 'Something else',
+            fields: [
+              {
+                type: 'image',
+                name: 'logo',
+                label: 'Logo',
+                placeholder: 'https://via.placeholder.com/150'
+              },
+              {
+                type: 'image',
+                name: 'background',
+                label: 'Background',
+                placeholder: 'https://via.placeholder.com/150'
+              }
+            ]
           }
         ]
       }
     ],
     badge: 'new',
-    element: Classic
-  },
-  simple: {
-    label: 'Simple',
-    categories: [
-      {
-        label: 'Custom',
-        fields: [
-          {
-            type: 'text',
-            name: 'custom',
-            label: 'Custom',
-            placeholder: 'Some custom field'
-          },
-          {
-            type: 'text',
-            name: 'projectName',
-            label: 'Project name',
-            placeholder: 'Some custom field'
-          }
-        ]
-      }
-    ],
-    element: Classic
+    element: Classic,
+    dataFields: {
+      projectName: '',
+      twitter: '',
+      telegram: '',
+      logo: '',
+      background: ''
+    }
   }
-}
+} as const
