@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
@@ -11,11 +12,21 @@ export const EditorBackground = () => {
   if (!activeSubCategoryData) return
 
   return (
-    <HexColorPicker
-      color={activeSubCategoryData.backgroundColor}
-      onChange={(color) => {
-        updateCurrentCategoryField('backgroundColor', color)
-      }}
-    />
+    <>
+      <HexColorPicker
+        color={activeSubCategoryData.backgroundColor}
+        onChange={(color) => {
+          updateCurrentCategoryField('backgroundColor', color)
+        }}
+      />
+      <Button
+        className='max-w-max'
+        onClick={() =>
+          updateCurrentCategoryField('backgroundColor', 'transparent')
+        }
+      >
+        Remove
+      </Button>
+    </>
   )
 }

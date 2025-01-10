@@ -145,20 +145,20 @@ export const editorFields = {
       element: EditorColor
     },
     {
-      label: 'Align',
-      element: EditorAlign
-    },
-    {
-      label: 'Styles',
-      element: EditorStyles
+      label: 'Background',
+      element: EditorBackground
     },
     {
       label: 'Stroke',
       element: EditorStroke
     },
     {
-      label: 'Background',
-      element: EditorBackground
+      label: 'Align',
+      element: EditorAlign
+    },
+    {
+      label: 'Styles',
+      element: EditorStyles
     }
   ]
 }
