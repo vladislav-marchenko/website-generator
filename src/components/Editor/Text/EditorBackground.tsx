@@ -12,7 +12,7 @@ export const EditorBackground = () => {
 
   return (
     <HexColorPicker
-      color={activeSubCategoryData.color}
+      color={activeSubCategoryData.backgroundColor}
       onChange={(color) => {
         updateCurrentCategoryField('backgroundColor', color)
       }}

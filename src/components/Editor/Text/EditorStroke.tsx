@@ -14,7 +14,7 @@ export const EditorStroke = () => {
   return (
     <>
       <HexColorPicker
-        color={activeSubCategoryData.color}
+        color={activeSubCategoryData.strokeColor}
         onChange={(color) => {
           updateCurrentCategoryField('strokeColor', color)
         }}
