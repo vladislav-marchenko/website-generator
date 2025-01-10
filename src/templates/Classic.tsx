@@ -12,6 +12,7 @@ const placeholders = {
 
 export const Classic: FC = () => {
   const { data } = useContext(TemplateContext) as TemplateContextValues
+  console.log(data)
 
   return (
     <div
@@ -22,6 +23,7 @@ export const Classic: FC = () => {
     >
       <div className='group absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
         <Text fieldName='projectName' placeholder={placeholders.projectName} />
+        <Text fieldName='twitter' placeholder={'hello world'} />
       </div>
     </div>
   )
