@@ -1,7 +1,9 @@
+import { EditorAlign } from './components/Editor/Text/EditorAlign'
 import { EditorColor } from './components/Editor/Text/EditorColor'
 import { EditorContent } from './components/Editor/Text/EditorContent'
 import { EditorFontSize } from './components/Editor/Text/EditorFontSize'
 import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
+import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
 import {
   IN,
@@ -122,21 +124,31 @@ export const defaultValues = {
   color: '#ffffff'
 }
 
-export const textEditorFields = [
-  {
-    label: 'Content',
-    element: EditorContent
-  },
-  {
-    label: 'Font family',
-    element: EditorFontsPicker
-  },
-  {
-    label: 'Font size',
-    element: EditorFontSize
-  },
-  {
-    label: 'Color',
-    element: EditorColor
-  }
-]
+export const editorFields = {
+  text: [
+    {
+      label: 'Content',
+      element: EditorContent
+    },
+    {
+      label: 'Font family',
+      element: EditorFontsPicker
+    },
+    {
+      label: 'Font size',
+      element: EditorFontSize
+    },
+    {
+      label: 'Color',
+      element: EditorColor
+    },
+    {
+      label: 'Align',
+      element: EditorAlign
+    },
+    {
+      label: 'Styles',
+      element: EditorStyles
+    }
+  ]
+}

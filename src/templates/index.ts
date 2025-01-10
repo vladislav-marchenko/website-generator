@@ -101,31 +101,41 @@ export const templates: Templates = {
         value: '',
         fontFamily: 'Inter',
         fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff'
+        color: '#ffffff',
+        align: 'center',
+        styles: []
       },
       twitter: {
         value: '',
         fontFamily: 'Inter',
         fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff'
+        color: '#ffffff',
+        align: 'center',
+        styles: []
       },
       telegram: {
         value: '',
         fontFamily: 'Inter',
         fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff'
+        color: '#ffffff',
+        align: 'center',
+        styles: []
       },
       logo: {
         value: '',
         fontFamily: 'Inter',
         fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff'
+        color: '#ffffff',
+        align: 'center',
+        styles: []
       },
       background: {
         value: '',
         fontFamily: 'Inter',
         fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff'
+        color: '#ffffff',
+        align: 'center',
+        styles: []
       }
     }
   }

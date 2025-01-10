@@ -3,16 +3,9 @@ import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 import ContentEditable from 'react-contenteditable'
 
-const defaultDataValues = {
-  projectName: {
-    value:
-      'Отредактируй Project name или background url, чтобы увидеть изменения на шаблоне',
-    fontFamily: 'Inter',
-    fontSize: {
-      value: 40,
-      unit: 'px'
-    }
-  },
+const placeholders = {
+  projectName:
+    'Отредактируй Project name или background url, чтобы увидеть изменения на шаблоне',
   background:
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJVxGVNUPYD6GUrOmszlQ9orAi_ms3yP-dTeX6c6SKOcf86mbJdYyCCyuLSUkQWAO1eHE&usqp=CAU'
 }
@@ -28,16 +21,12 @@ export const Classic: FC = () => {
     <div
       className='relative h-full'
       style={{
-        background: `url(${data.background || defaultDataValues.background}) no-repeat center/cover`,
-        fontFamily: `'${data.projectName.fontFamily}'`,
-        fontSize: fontSize + fontSizeUnit,
-        color: data.projectName.color
+        background: `url(${data.background || placeholders.background}) no-repeat center/cover`
       }}
     >
       <div className='absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
         <ContentEditable
-          className='text-center font-bold'
-          html={data.projectName.value || defaultDataValues.projectName.value}
+          html={data.projectName.value || placeholders.projectName}
           tagName='h1'
           onChange={(e) =>
             setData({
@@ -48,6 +37,15 @@ export const Classic: FC = () => {
               }
             })
           }
+          style={{
+            fontFamily: `'${data.projectName.fontFamily}'`,
+            fontSize: fontSize + fontSizeUnit,
+            color: data.projectName.color,
+            textAlign: data.projectName.align,
+            textDecoration: data.projectName.styles.join(' '),
+            fontStyle: data.projectName.styles.includes('italic') && 'italic',
+            fontWeight: data.projectName.styles.includes('bold') && 'bold'
+          }}
         />
       </div>
     </div>

@@ -8,9 +8,11 @@ export const EditorColor = () => {
     TemplateContext
   ) as TemplateContextValues
 
+  if (!activeSubCategoryData) return
+
   return (
     <HexColorPicker
-      color={activeSubCategoryData?.color}
+      color={activeSubCategoryData.color}
       onChange={(color) => {
         updateCurrentCategoryField('color', color)
       }}

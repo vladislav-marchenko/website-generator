@@ -20,6 +20,8 @@ type TemplateCategory = {
   subCategories: TemplateSubCategory[]
 }
 
+type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
+
 export interface DataField {
   value: string
   fontFamily: string
@@ -27,7 +29,9 @@ export interface DataField {
     value: number
     unit: 'px' | 'rem' | 'cm'
   }
-  color?: string
+  color: string
+  align: 'left' | 'center' | 'right'
+  styles: TextStyles[]
 }
 
 export interface DataFields {

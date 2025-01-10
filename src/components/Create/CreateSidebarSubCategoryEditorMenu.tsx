@@ -1,16 +1,6 @@
-import { FontsPicker } from '../FontsPicker'
-import { Input } from '../ui/input'
 import { Label } from '../ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '../ui/select'
-import { Slider } from '../ui/slider'
 import { Button } from '@/components/ui/button'
-import { fontSizeUnits, textEditorFields } from '@/consts'
+import { editorFields } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { cn } from '@/lib/utils'
 import type { TemplateContextValues } from '@/types/contexts'
@@ -18,23 +8,9 @@ import { ChevronLeft } from 'lucide-react'
 import { FC, useContext } from 'react'
 
 export const CreateSidebarSubCategoryEditorMenu: FC = () => {
-  const { activeSubCategory, setActiveSubCategory, data, setData } = useContext(
+  const { activeSubCategory, setActiveSubCategory } = useContext(
     TemplateContext
   ) as TemplateContextValues
-
-  const handleUpdateCategoryField = (
-    categoryName: string,
-    fieldName: string,
-    value: unknown
-  ) => {
-    setData((data) => ({
-      ...data,
-      [categoryName]: {
-        ...data[categoryName],
-        [fieldName]: value
-      }
-    }))
-  }
 
   return (
     <div
@@ -52,7 +28,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
 
       {activeSubCategory && (
         <div className='flex flex-col gap-8 py-4'>
-          {textEditorFields.map(({ label, element: Element }) => (
+          {editorFields.text.map(({ label, element: Element }) => (
             <div className='flex flex-col gap-2'>
               <Label>{label}</Label>
               <Element />
