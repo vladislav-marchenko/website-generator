@@ -4,7 +4,23 @@ import type { Animation } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 
-const items: Animation[] = ['pulse', 'ping', 'spin', 'bounce', 'in']
+const items: Animation[] = [
+  'pulse',
+  'ping',
+  'spin',
+  'bounce',
+  'in',
+  'wiggle',
+  'heartBeat',
+  'hflip',
+  'vflip',
+  'swing',
+  'rubberBand',
+  'flash',
+  'headShake',
+  'wobble',
+  'jello'
+]
 
 export const EditorAnimations: FC = () => {
   const { updateCurrentCategoryField } = useContext(
@@ -15,6 +31,7 @@ export const EditorAnimations: FC = () => {
     <ToggleGroup
       type='single'
       onValueChange={(value) => updateCurrentCategoryField('animation', value)}
+      className='flex flex-wrap gap-2'
     >
       {items.map((direction) => (
         <ToggleGroupItem

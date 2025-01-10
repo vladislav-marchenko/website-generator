@@ -3,15 +3,29 @@ import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
-export type Animation = 'pulse' | 'ping' | 'spin' | 'bounce' | 'in'
+export type Animation =
+  | 'pulse'
+  | 'ping'
+  | 'spin'
+  | 'bounce'
+  | 'in'
+  | 'wiggle'
+  | 'heartBeat'
+  | 'hflip'
+  | 'vflip'
+  | 'swing'
+  | 'rubberBand'
+  | 'flash'
+  | 'headShake'
+  | 'wobble'
+  | 'jello'
+type FontSizeUnit = 'px' | 'rem' | 'cm'
 
 export interface TextData {
   value: string
   fontFamily: string
-  fontSize: {
-    value: number
-    unit: 'px' | 'rem' | 'cm'
-  }
+  fontSizeValue: number
+  fontSizeUnit: FontSizeUnit
   color: string
   align: 'left' | 'center' | 'right'
   styles: TextStyles[]

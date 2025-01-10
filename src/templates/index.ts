@@ -100,19 +100,8 @@ export const templates: Templates = {
       projectName: {
         value: '',
         fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff',
-        align: 'center',
-        styles: [],
-        strokeColor: '#ff0000',
-        strokeWidth: 0,
-        backgroundColor: 'transparent',
-        rotation: 0
-      },
-      twitter: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
+        fontSizeValue: 40,
+        fontSizeUnit: 'px',
         color: '#ffffff',
         align: 'center',
         styles: [],
@@ -120,45 +109,63 @@ export const templates: Templates = {
         strokeWidth: 0,
         backgroundColor: 'transparent',
         rotation: 0,
-        animations: {
-          slideIn: 'bottom'
-        }
+        animation: 'in'
+      },
+      twitter: {
+        value: '',
+        fontFamily: 'Inter',
+        fontSizeValue: 40,
+        fontSizeUnit: 'px',
+        color: '#ffffff',
+        align: 'center',
+        styles: [],
+        strokeColor: '#ff0000',
+        strokeWidth: 0,
+        backgroundColor: 'transparent',
+        rotation: 0,
+        animation: 'in'
       },
       telegram: {
         value: '',
         fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
+        fontSizeValue: 40,
+        fontSizeUnit: 'px',
         color: '#ffffff',
         align: 'center',
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
         backgroundColor: 'transparent',
-        rotation: 0
+        rotation: 0,
+        animation: 'in'
       },
       logo: {
         value: '',
         fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
+        fontSizeValue: 40,
+        fontSizeUnit: 'px',
         color: '#ffffff',
         align: 'center',
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
         backgroundColor: 'transparent',
-        rotation: 0
+        rotation: 0,
+        animation: 'in'
       },
       background: {
         value: '',
         fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
+        fontSizeValue: 40,
+        fontSizeUnit: 'px',
         color: '#ffffff',
         align: 'center',
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
         backgroundColor: 'transparent',
-        rotation: 0
+        rotation: 0,
+        animation: 'in'
       }
     }
   }

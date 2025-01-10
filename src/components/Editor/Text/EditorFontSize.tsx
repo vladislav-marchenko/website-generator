@@ -17,13 +17,6 @@ export const EditorFontSize = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  const updateFontSize = (fieldName: string, value: unknown) => {
-    updateCurrentCategoryField('fontSize', {
-      ...activeSubCategoryData?.fontSize,
-      [fieldName]: value
-    })
-  }
-
   if (!activeSubCategoryData) return
 
   return (
@@ -33,10 +26,16 @@ export const EditorFontSize = () => {
           type='number'
           min={10}
           max={300}
-          value={activeSubCategoryData.fontSize.value}
-          onChange={(e) => updateFontSize('value', e.target.value)}
+          value={activeSubCategoryData.fontSizeValue}
+          onChange={(e) =>
+            updateCurrentCategoryField('fontSizeValue', e.target.value)
+          }
         />
-        <Select onValueChange={(unit) => updateFontSize('unit', unit)}>
+        <Select
+          onValueChange={(unit) =>
+            updateCurrentCategoryField('fontSizeUnit', unit)
+          }
+        >
           <SelectTrigger className='w-1/4'>
             <SelectValue placeholder={fontSizeUnits[0]} />
           </SelectTrigger>
@@ -48,10 +47,12 @@ export const EditorFontSize = () => {
         </Select>
       </div>
       <Slider
-        defaultValue={[activeSubCategoryData.fontSize.value]}
+        defaultValue={[activeSubCategoryData.fontSizeValue]}
         min={10}
         max={300}
-        onValueChange={(value) => updateFontSize('value', value[0])}
+        onValueChange={(value) =>
+          updateCurrentCategoryField('fontSizeValue', value[0])
+        }
       />
     </>
   )
