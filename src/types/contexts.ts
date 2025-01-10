@@ -1,4 +1,9 @@
-import type { DataFields, TemplateNames, TemplateSubCategoryField } from '.'
+import type {
+  DataField,
+  DataFields,
+  TemplateNames,
+  TemplateSubCategoryField
+} from '.'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {
@@ -12,6 +17,8 @@ export interface TemplateContextValues {
   setActiveSubCategory: Dispatch<
     SetStateAction<TemplateSubCategoryField | null>
   >
+  updateCurrentCategoryField: (fieldName: string, value: unknown) => void
+  activeSubCategoryData: DataField | null
 }
 
 export interface ThemeContextValues {

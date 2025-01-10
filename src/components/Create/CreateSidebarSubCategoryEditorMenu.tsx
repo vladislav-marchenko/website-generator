@@ -1,4 +1,4 @@
-import { FontsPicker } from '../Editor/Text/FontsPicker'
+import { FontsPicker } from '../FontsPicker'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import {
@@ -58,81 +58,6 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
               <Element />
             </div>
           ))}
-          <div className='flex flex-col gap-2'>
-            <Label>Content</Label>
-            <Input
-              value={data[activeSubCategory.name].value}
-              onChange={(e) => {
-                handleUpdateCategoryField(
-                  activeSubCategory.name,
-                  'value',
-                  e.target.value
-                )
-              }}
-            />
-          </div>
-          <div className='flex flex-col gap-2'>
-            <Label>Font family</Label>
-            <FontsPicker
-              onChange={(fontFamily) => {
-                handleUpdateCategoryField(
-                  activeSubCategory.name,
-                  'fontFamily',
-                  fontFamily
-                )
-              }}
-            />
-          </div>
-          <div className='flex flex-col gap-4'>
-            <Label>Size</Label>
-            <div className='flex items-center gap-2'>
-              <Input
-                type='number'
-                min={10}
-                max={300}
-                value={data[activeSubCategory.name].fontSize.value}
-                onChange={(e) => {
-                  handleUpdateCategoryField(
-                    activeSubCategory.name,
-                    'fontSize',
-                    {
-                      ...data[activeSubCategory.name].fontSize,
-                      value: e.target.value
-                    }
-                  )
-                }}
-              />
-              <Select
-                onValueChange={(unit) => {
-                  handleUpdateCategoryField(
-                    activeSubCategory.name,
-                    'fontSize',
-                    { ...data[activeSubCategory.name].fontSize, unit }
-                  )
-                }}
-              >
-                <SelectTrigger className='w-[180px]'>
-                  <SelectValue placeholder={fontSizeUnits[0]} />
-                </SelectTrigger>
-                <SelectContent>
-                  {fontSizeUnits.map((unit) => (
-                    <SelectItem value={unit}>{unit}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <Slider
-              defaultValue={[data[activeSubCategory.name].fontSize.value]}
-              min={10}
-              max={300}
-              onValueChange={(value) => {
-                handleUpdateCategoryField(activeSubCategory.name, 'fontSize', {
-                  ...data[activeSubCategory.name].fontSize,
-                  value: value[0]
-                })
-              }}
-            />
-          </div>
         </div>
       )}
     </div>

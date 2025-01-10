@@ -30,7 +30,8 @@ export const Classic: FC = () => {
       style={{
         background: `url(${data.background || defaultDataValues.background}) no-repeat center/cover`,
         fontFamily: `'${data.projectName.fontFamily}'`,
-        fontSize: fontSize + fontSizeUnit
+        fontSize: fontSize + fontSizeUnit,
+        color: data.projectName.color
       }}
     >
       <div className='absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>

@@ -1,6 +1,8 @@
-import { FontsPicker } from './components/Editor/Text/FontsPicker'
+import { EditorColor } from './components/Editor/Text/EditorColor'
+import { EditorContent } from './components/Editor/Text/EditorContent'
+import { EditorFontSize } from './components/Editor/Text/EditorFontSize'
+import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
-import { Input } from './components/ui/input'
 import {
   IN,
   ID,
@@ -123,14 +125,18 @@ export const defaultValues = {
 export const textEditorFields = [
   {
     label: 'Content',
-    element: Input
+    element: EditorContent
   },
   {
     label: 'Font family',
-    element: Input
+    element: EditorFontsPicker
   },
   {
     label: 'Font size',
-    element: FontsPicker
+    element: EditorFontSize
+  },
+  {
+    label: 'Color',
+    element: EditorColor
   }
 ]
