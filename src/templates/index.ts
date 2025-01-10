@@ -18,19 +18,43 @@ export const templates: Templates = {
                 type: 'text',
                 name: 'projectName',
                 label: 'Project name',
-                placeholder: 'Name'
+                placeholder: 'Name',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               },
               {
                 type: 'text',
                 name: 'twitter',
                 label: 'Twitter',
-                placeholder: '#'
+                placeholder: '#',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               },
               {
                 type: 'text',
                 name: 'telegram',
                 label: 'Telegram',
-                placeholder: '#'
+                placeholder: '#',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               }
             ]
           },
@@ -41,7 +65,15 @@ export const templates: Templates = {
                 type: 'text',
                 name: 'background',
                 label: 'Background',
-                placeholder: 'https://via.placeholder.com/150'
+                placeholder: 'https://via.placeholder.com/150',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               }
             ]
           }
@@ -58,19 +90,43 @@ export const templates: Templates = {
                 type: 'text',
                 name: 'projectName',
                 label: 'Project name',
-                placeholder: 'Name'
+                placeholder: 'Name',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               },
               {
                 type: 'text',
                 name: 'twitter',
                 label: 'Twitter',
-                placeholder: '#'
+                placeholder: '#',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               },
               {
                 type: 'text',
                 name: 'telegram',
                 label: 'Telegram',
-                placeholder: '#'
+                placeholder: '#',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               }
             ]
           },
@@ -81,13 +137,29 @@ export const templates: Templates = {
                 type: 'text',
                 name: 'logo',
                 label: 'Logo',
-                placeholder: 'https://via.placeholder.com/150'
+                placeholder: 'https://via.placeholder.com/150',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               },
               {
                 type: 'text',
                 name: 'background',
                 label: 'Background',
-                placeholder: 'https://via.placeholder.com/150'
+                placeholder: 'https://via.placeholder.com/150',
+                data: {
+                  value: '',
+                  fontFamily: 'Inter',
+                  fontSize: { value: 40, unit: 'px' },
+                  color: '#ffffff',
+                  align: 'center',
+                  styles: []
+                }
               }
             ]
           }
@@ -95,48 +167,6 @@ export const templates: Templates = {
       }
     ],
     badge: 'new',
-    element: Classic,
-    dataFields: {
-      projectName: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff',
-        align: 'center',
-        styles: []
-      },
-      twitter: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff',
-        align: 'center',
-        styles: []
-      },
-      telegram: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff',
-        align: 'center',
-        styles: []
-      },
-      logo: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff',
-        align: 'center',
-        styles: []
-      },
-      background: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSize: { value: 40, unit: 'px' },
-        color: '#ffffff',
-        align: 'center',
-        styles: []
-      }
-    }
+    element: Classic
   }
 } as const

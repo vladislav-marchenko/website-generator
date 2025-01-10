@@ -2,11 +2,26 @@ import { templates } from '@/templates'
 import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
 
+type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
+
+interface TextData {
+  value: string
+  fontFamily: string
+  fontSize: {
+    value: number
+    unit: 'px' | 'rem' | 'cm'
+  }
+  color: string
+  align: 'left' | 'center' | 'right'
+  styles: TextStyles[]
+}
+
 export type TemplateSubCategoryField = {
   type: 'text'
   label: string
   name: string
   placeholder: string
+  data: TextData
 }
 
 type TemplateSubCategory = {
@@ -20,31 +35,12 @@ type TemplateCategory = {
   subCategories: TemplateSubCategory[]
 }
 
-type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
-
-export interface DataField {
-  value: string
-  fontFamily: string
-  fontSize: {
-    value: number
-    unit: 'px' | 'rem' | 'cm'
-  }
-  color: string
-  align: 'left' | 'center' | 'right'
-  styles: TextStyles[]
-}
-
-export interface DataFields {
-  [key: string]: DataField
-}
-
 interface Template {
   label: string
   price: number
   categories: TemplateCategory[]
   badge?: string
   element: FC
-  dataFields: DataFields
 }
 
 export interface Templates {

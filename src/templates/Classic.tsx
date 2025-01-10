@@ -10,6 +10,10 @@ const placeholders = {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJVxGVNUPYD6GUrOmszlQ9orAi_ms3yP-dTeX6c6SKOcf86mbJdYyCCyuLSUkQWAO1eHE&usqp=CAU'
 }
 
+const getTextStrokeStyle = () => {
+  'text-shadow: 0.000em 0.075em #608b31, 0.029em 0.069em #608b31, 0.053em 0.053em #608b31, 0.069em 0.029em #608b31, 0.075em 0.000em #608b31, 0.069em -0.029em #608b31, 0.053em -0.053em #608b31, 0.029em -0.069em #608b31, 0.000em -0.075em #608b31, -0.029em -0.069em #608b31, -0.053em -0.053em #608b31, -0.069em -0.029em #608b31, -0.075em -0.000em #608b31, -0.069em 0.029em #608b31, -0.053em 0.053em #608b31, -0.029em 0.069em #608b31'
+}
+
 export const Classic: FC = () => {
   const { data, setData } = useContext(TemplateContext) as TemplateContextValues
   console.log(data)
