@@ -42,7 +42,9 @@ export const Classic: FC = () => {
             fontSize: fontSize + fontSizeUnit,
             color: data.projectName.color,
             textAlign: data.projectName.align,
-            textDecoration: data.projectName.styles.join(' '),
+            textDecoration: data.projectName.styles
+              .filter((style) => ['underline', 'line-through'].includes(style))
+              .join(' '),
             fontStyle: data.projectName.styles.includes('italic') && 'italic',
             fontWeight: data.projectName.styles.includes('bold') && 'bold'
           }}
