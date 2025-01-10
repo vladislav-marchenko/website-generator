@@ -106,7 +106,8 @@ export const templates: Templates = {
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        rotation: 0
       },
       twitter: {
         value: '',
@@ -117,7 +118,11 @@ export const templates: Templates = {
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        rotation: 0,
+        animations: {
+          slideIn: 'bottom'
+        }
       },
       telegram: {
         value: '',
@@ -128,7 +133,8 @@ export const templates: Templates = {
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        rotation: 0
       },
       logo: {
         value: '',
@@ -139,7 +145,8 @@ export const templates: Templates = {
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        rotation: 0
       },
       background: {
         value: '',
@@ -150,7 +157,8 @@ export const templates: Templates = {
         styles: [],
         strokeColor: '#ff0000',
         strokeWidth: 0,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        rotation: 0
       }
     }
   }

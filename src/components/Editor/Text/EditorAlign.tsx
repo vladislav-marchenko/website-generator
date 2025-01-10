@@ -29,7 +29,6 @@ export const EditorAlign = () => {
       type='single'
       defaultValue='center'
       onValueChange={(value) => updateCurrentCategoryField('align', value)}
-      className='justify-start'
     >
       {items.map(({ value, icon: Icon }) => (
         <ToggleGroupItem key={value} value={value}>

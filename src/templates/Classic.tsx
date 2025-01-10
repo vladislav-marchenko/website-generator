@@ -23,7 +23,10 @@ export const Classic: FC = () => {
         background: `url(${data.background || placeholders.background}) no-repeat center/cover`
       }}
     >
-      <div className='absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
+      <div
+        data-animation={data.projectName.animation}
+        className='group absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'
+      >
         <ContentEditable
           html={data.projectName.value || placeholders.projectName}
           tagName='h1'
@@ -36,6 +39,7 @@ export const Classic: FC = () => {
               }
             })
           }
+          className='transition-all duration-500 group-data-[animation=bounce]:animate-bounce group-data-[animation=ping]:animate-ping group-data-[animation=pulse]:animate-pulse group-data-[animation=spin]:animate-spin group-data-[animation=in]:duration-700 group-data-[animation=in]:animate-in group-data-[animation=in]:fade-in group-data-[animation=in]:slide-in-from-bottom'
           style={{
             fontFamily: `'${data.projectName.fontFamily}'`,
             fontSize: fontSize + fontSizeUnit,
@@ -47,7 +51,8 @@ export const Classic: FC = () => {
             fontStyle: data.projectName.styles.includes('italic') && 'italic',
             fontWeight: data.projectName.styles.includes('bold') && 'bold',
             '-webkit-text-stroke': `${data.projectName.strokeWidth}px ${data.projectName.strokeColor}`,
-            backgroundColor: data.projectName.backgroundColor
+            backgroundColor: data.projectName.backgroundColor,
+            transform: `rotate(${data.projectName.rotation}deg)`
           }}
         />
       </div>

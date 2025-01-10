@@ -33,7 +33,7 @@ export const EditorFontSize = () => {
           type='number'
           min={10}
           max={300}
-          value={activeSubCategoryData?.fontSize.value}
+          value={activeSubCategoryData.fontSize.value}
           onChange={(e) => updateFontSize('value', e.target.value)}
         />
         <Select onValueChange={(unit) => updateFontSize('unit', unit)}>

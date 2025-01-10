@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
+export type Animation = 'pulse' | 'ping' | 'spin' | 'bounce' | 'in'
 
 export interface TextData {
   value: string
@@ -17,6 +18,8 @@ export interface TextData {
   strokeColor: string
   strokeWidth: number
   backgroundColor: string
+  rotation: number
+  animation: Animation
 }
 
 export type TemplateSubCategoryField = {

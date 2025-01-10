@@ -40,7 +40,6 @@ export const EditorStyles = () => {
     <ToggleGroup
       type='multiple'
       onValueChange={(value) => updateCurrentCategoryField('styles', value)}
-      className='justify-start'
     >
       {items.map(({ value, icon: Icon }) => (
         <ToggleGroupItem key={value} value={value}>

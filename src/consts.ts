@@ -1,9 +1,11 @@
 import { EditorAlign } from './components/Editor/Text/EditorAlign'
+import { EditorAnimations } from './components/Editor/Text/EditorAnimations'
 import { EditorBackground } from './components/Editor/Text/EditorBackground'
 import { EditorColor } from './components/Editor/Text/EditorColor'
 import { EditorContent } from './components/Editor/Text/EditorContent'
 import { EditorFontSize } from './components/Editor/Text/EditorFontSize'
 import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
+import { EditorRotate } from './components/Editor/Text/EditorRotate'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
@@ -159,6 +161,14 @@ export const editorFields = {
     {
       label: 'Styles',
       element: EditorStyles
+    },
+    {
+      label: 'Rotate',
+      element: EditorRotate
+    },
+    {
+      label: 'Animations',
+      element: EditorAnimations
     }
   ]
 }
