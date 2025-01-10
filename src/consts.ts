@@ -1,4 +1,6 @@
+import { FontsPicker } from './components/Editor/Text/FontsPicker'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
+import { Input } from './components/ui/input'
 import {
   IN,
   ID,
@@ -24,6 +26,8 @@ import {
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
+export const GOOGLE_API_BASE_URL =
+  'https://www.googleapis.com/webfonts/v1/webfonts'
 
 export const featuresCardIcons = {
   rocket: FaRocket,
@@ -102,5 +106,31 @@ export const pricingCards = [
       label: 'Subscribe',
       href: '/subscribe'
     }
+  }
+]
+
+export const fontSizeUnits = ['px', 'rem', 'cm', '%']
+
+export const defaultValues = {
+  fontFamily: 'Inter',
+  fontSize: {
+    value: 24,
+    unit: 'px'
+  },
+  color: '#ffffff'
+}
+
+export const textEditorFields = [
+  {
+    label: 'Content',
+    element: Input
+  },
+  {
+    label: 'Font family',
+    element: Input
+  },
+  {
+    label: 'Font size',
+    element: FontsPicker
   }
 ]

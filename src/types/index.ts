@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
 
 export type TemplateSubCategoryField = {
-  type: 'text' | 'url' | 'image'
+  type: 'text'
   label: string
   name: string
   placeholder: string
@@ -20,15 +20,27 @@ type TemplateCategory = {
   subCategories: TemplateSubCategory[]
 }
 
+export interface DataField {
+  value: string
+  fontFamily: string
+  fontSize: {
+    value: number
+    unit: 'px' | 'rem' | 'cm'
+  }
+  color?: string
+}
+
+export interface DataFields {
+  [key: string]: DataField
+}
+
 interface Template {
   label: string
   price: number
   categories: TemplateCategory[]
   badge?: string
   element: FC
-  dataFields: {
-    [key: string]: string
-  }
+  dataFields: DataFields
 }
 
 export interface Templates {

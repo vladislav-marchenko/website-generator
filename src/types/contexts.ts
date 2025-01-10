@@ -1,13 +1,17 @@
-import { TemplateNames } from '.'
+import type { DataFields, TemplateNames, TemplateSubCategoryField } from '.'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {
   selectedTemplate: TemplateNames
   setSelectedTemplate: Dispatch<SetStateAction<TemplateNames>>
-  data: { [key: string]: string }
-  setData: Dispatch<SetStateAction<{ [key: string]: string }>>
+  data: DataFields
+  setData: Dispatch<SetStateAction<DataFields>>
   activeCategoryIndex: number
   setActiveCategoryIndex: Dispatch<SetStateAction<number>>
+  activeSubCategory: TemplateSubCategoryField | null
+  setActiveSubCategory: Dispatch<
+    SetStateAction<TemplateSubCategoryField | null>
+  >
 }
 
 export interface ThemeContextValues {

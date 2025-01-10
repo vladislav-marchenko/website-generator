@@ -21,13 +21,13 @@ export const templates: Templates = {
                 placeholder: 'Name'
               },
               {
-                type: 'url',
+                type: 'text',
                 name: 'twitter',
                 label: 'Twitter',
                 placeholder: '#'
               },
               {
-                type: 'url',
+                type: 'text',
                 name: 'telegram',
                 label: 'Telegram',
                 placeholder: '#'
@@ -38,7 +38,7 @@ export const templates: Templates = {
             label: 'Images',
             fields: [
               {
-                type: 'image',
+                type: 'text',
                 name: 'background',
                 label: 'Background',
                 placeholder: 'https://via.placeholder.com/150'
@@ -61,13 +61,13 @@ export const templates: Templates = {
                 placeholder: 'Name'
               },
               {
-                type: 'url',
+                type: 'text',
                 name: 'twitter',
                 label: 'Twitter',
                 placeholder: '#'
               },
               {
-                type: 'url',
+                type: 'text',
                 name: 'telegram',
                 label: 'Telegram',
                 placeholder: '#'
@@ -78,13 +78,13 @@ export const templates: Templates = {
             label: 'Something else',
             fields: [
               {
-                type: 'image',
+                type: 'text',
                 name: 'logo',
                 label: 'Logo',
                 placeholder: 'https://via.placeholder.com/150'
               },
               {
-                type: 'image',
+                type: 'text',
                 name: 'background',
                 label: 'Background',
                 placeholder: 'https://via.placeholder.com/150'
@@ -97,11 +97,36 @@ export const templates: Templates = {
     badge: 'new',
     element: Classic,
     dataFields: {
-      projectName: '',
-      twitter: '',
-      telegram: '',
-      logo: '',
-      background: ''
+      projectName: {
+        value: '',
+        fontFamily: 'Inter',
+        fontSize: { value: 40, unit: 'px' },
+        color: '#ffffff'
+      },
+      twitter: {
+        value: '',
+        fontFamily: 'Inter',
+        fontSize: { value: 40, unit: 'px' },
+        color: '#ffffff'
+      },
+      telegram: {
+        value: '',
+        fontFamily: 'Inter',
+        fontSize: { value: 40, unit: 'px' },
+        color: '#ffffff'
+      },
+      logo: {
+        value: '',
+        fontFamily: 'Inter',
+        fontSize: { value: 40, unit: 'px' },
+        color: '#ffffff'
+      },
+      background: {
+        value: '',
+        fontFamily: 'Inter',
+        fontSize: { value: 40, unit: 'px' },
+        color: '#ffffff'
+      }
     }
   }
 } as const

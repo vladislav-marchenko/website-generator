@@ -1,5 +1,6 @@
 import { CreateSidebarCategories } from './CreateSidebarCategories'
 import { CreateSidebarSubCategory } from './CreateSidebarSubCategory'
+import { CreateSidebarSubCategoryEditorMenu } from './CreateSidebarSubCategoryEditorMenu'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { templates } from '@/templates'
 import { TemplateContextValues } from '@/types/contexts'
@@ -15,7 +16,7 @@ export const CreateSidebar: FC = () => {
   return (
     <div className='flex h-full'>
       <CreateSidebarCategories />
-      <aside className='flex h-full w-full flex-col gap-4 p-4'>
+      <aside className='relative flex h-full w-full flex-col gap-4 p-4'>
         {currentTemplate.categories[activeCategoryIndex].subCategories.map(
           ({ label, fields }) => (
             <CreateSidebarSubCategory
@@ -25,6 +26,7 @@ export const CreateSidebar: FC = () => {
             />
           )
         )}
+        <CreateSidebarSubCategoryEditorMenu />
       </aside>
     </div>
   )

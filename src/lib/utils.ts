@@ -2,6 +2,7 @@ import { templates } from '@/templates'
 import { TemplateNames } from '@/types'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import webFontLoader from 'webfontloader'
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))
@@ -26,4 +27,12 @@ export const getTemplateFields = (selectedTemplate: TemplateNames) => {
   })
 
   return result
+}
+
+export const loadFont = (font: string) => {
+  webFontLoader.load({
+    google: {
+      families: [font]
+    }
+  })
 }

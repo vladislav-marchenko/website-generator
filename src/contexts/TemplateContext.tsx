@@ -10,6 +10,7 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     useState<TemplateNames>('classic')
   const [data, setData] = useState(templates[selectedTemplate].dataFields)
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0)
+  const [activeSubCategory, setActiveSubCategory] = useState(null)
 
   const value = {
     selectedTemplate,
@@ -17,7 +18,9 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     data,
     setData,
     activeCategoryIndex,
-    setActiveCategoryIndex
+    setActiveCategoryIndex,
+    activeSubCategory,
+    setActiveSubCategory
   }
 
   return (
