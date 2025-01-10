@@ -1,16 +1,16 @@
 import type {
-  DataField,
-  DataFields,
+  TemplateData,
   TemplateNames,
-  TemplateSubCategoryField
+  TemplateSubCategoryField,
+  TextData
 } from '.'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {
   selectedTemplate: TemplateNames
   setSelectedTemplate: Dispatch<SetStateAction<TemplateNames>>
-  data: DataFields
-  setData: Dispatch<SetStateAction<DataFields>>
+  data: TemplateData
+  setData: Dispatch<SetStateAction<TemplateData>>
   activeCategoryIndex: number
   setActiveCategoryIndex: Dispatch<SetStateAction<number>>
   activeSubCategory: TemplateSubCategoryField | null
@@ -18,7 +18,7 @@ export interface TemplateContextValues {
     SetStateAction<TemplateSubCategoryField | null>
   >
   updateCurrentCategoryField: (fieldName: string, value: unknown) => void
-  activeSubCategoryData: DataField | null
+  activeSubCategoryData: TextData | null
 }
 
 export interface ThemeContextValues {

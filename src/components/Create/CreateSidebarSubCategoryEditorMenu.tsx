@@ -15,7 +15,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
   return (
     <div
       className={cn(
-        'absolute bottom-0 left-0 right-0 top-0 bg-neutral-900 p-4 transition-transform duration-300',
+        'absolute bottom-0 left-0 right-0 top-0 overflow-y-auto bg-neutral-900 p-4 transition-transform duration-300',
         {
           'translate-x-full': !activeSubCategory
         }

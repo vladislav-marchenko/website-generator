@@ -103,7 +103,10 @@ export const templates: Templates = {
         fontSize: { value: 40, unit: 'px' },
         color: '#ffffff',
         align: 'center',
-        styles: []
+        styles: [],
+        strokeColor: '#ff0000',
+        strokeWidth: 0,
+        backgroundColor: 'transparent'
       },
       twitter: {
         value: '',
@@ -111,7 +114,10 @@ export const templates: Templates = {
         fontSize: { value: 40, unit: 'px' },
         color: '#ffffff',
         align: 'center',
-        styles: []
+        styles: [],
+        strokeColor: '#ff0000',
+        strokeWidth: 0,
+        backgroundColor: 'transparent'
       },
       telegram: {
         value: '',
@@ -119,7 +125,10 @@ export const templates: Templates = {
         fontSize: { value: 40, unit: 'px' },
         color: '#ffffff',
         align: 'center',
-        styles: []
+        styles: [],
+        strokeColor: '#ff0000',
+        strokeWidth: 0,
+        backgroundColor: 'transparent'
       },
       logo: {
         value: '',
@@ -127,7 +136,10 @@ export const templates: Templates = {
         fontSize: { value: 40, unit: 'px' },
         color: '#ffffff',
         align: 'center',
-        styles: []
+        styles: [],
+        strokeColor: '#ff0000',
+        strokeWidth: 0,
+        backgroundColor: 'transparent'
       },
       background: {
         value: '',
@@ -135,7 +147,10 @@ export const templates: Templates = {
         fontSize: { value: 40, unit: 'px' },
         color: '#ffffff',
         align: 'center',
-        styles: []
+        styles: [],
+        strokeColor: '#ff0000',
+        strokeWidth: 0,
+        backgroundColor: 'transparent'
       }
     }
   }

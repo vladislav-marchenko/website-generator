@@ -4,7 +4,7 @@ import { IconType } from 'react-icons/lib'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
 
-interface TextData {
+export interface TextData {
   value: string
   fontFamily: string
   fontSize: {
@@ -14,6 +14,9 @@ interface TextData {
   color: string
   align: 'left' | 'center' | 'right'
   styles: TextStyles[]
+  strokeColor: string
+  strokeWidth: number
+  backgroundColor: string
 }
 
 export type TemplateSubCategoryField = {
@@ -34,15 +37,17 @@ type TemplateCategory = {
   subCategories: TemplateSubCategory[]
 }
 
+export type TemplateData = {
+  [key: string]: TextData
+}
+
 interface Template {
   label: string
   price: number
   categories: TemplateCategory[]
   badge?: string
   element: FC
-  data: {
-    [key: string]: TextData
-  }
+  data: TemplateData
 }
 
 export interface Templates {
