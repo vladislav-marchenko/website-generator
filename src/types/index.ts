@@ -21,7 +21,6 @@ export type TemplateSubCategoryField = {
   label: string
   name: string
   placeholder: string
-  data: TextData
 }
 
 type TemplateSubCategory = {
@@ -41,6 +40,9 @@ interface Template {
   categories: TemplateCategory[]
   badge?: string
   element: FC
+  data: {
+    [key: string]: TextData
+  }
 }
 
 export interface Templates {
