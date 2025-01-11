@@ -5,11 +5,9 @@ import {
   CollapsibleTrigger
 } from '../ui/collapsible'
 import { CreateSidebarSubCategoryItem } from './CreateSidebarSubCategoryItem'
-import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateSubCategoryField } from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
 import { ChevronDown } from 'lucide-react'
-import { FC, useContext } from 'react'
+import { FC } from 'react'
 
 interface CreateSidebarSubCategoryProps {
   label: string
@@ -28,10 +26,12 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
           <ChevronDown />
         </Button>
       </CollapsibleTrigger>
-      <CollapsibleContent className='flex flex-col gap-8 p-1 pl-4'>
-        {fields.map((field) => (
-          <CreateSidebarSubCategoryItem key={field.name} {...field} />
-        ))}
+      <CollapsibleContent>
+        <div className='flex flex-col gap-4 p-1 pl-4'>
+          {fields.map((field) => (
+            <CreateSidebarSubCategoryItem key={field.name} {...field} />
+          ))}
+        </div>
       </CollapsibleContent>
     </Collapsible>
   )

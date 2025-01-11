@@ -1,7 +1,6 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { animations } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import type { Animation } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 
