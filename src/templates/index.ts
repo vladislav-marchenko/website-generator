@@ -1,7 +1,31 @@
 import { Classic } from './Classic'
-import { defaultValues } from '@/consts'
-import { Templates } from '@/types'
+import { DefaultValues, Templates } from '@/types'
 import { MdEdit, MdOutlineTextFields } from 'react-icons/md'
+
+const defaultValues: DefaultValues = {
+  text: {
+    value: '',
+    fontFamily: 'Inter',
+    fontSizeValue: 24,
+    fontSizeUnit: 'px',
+    color: '#ffffff',
+    styles: [],
+    strokeColor: '#ff0000',
+    strokeWidth: 0,
+    backgroundColor: 'transparent',
+    rotation: 0
+  },
+  image: {
+    items: [], // First element of slide show is regular image src
+    width: 300,
+    height: 'auto',
+    rotation: 0,
+    opacity: 100,
+    borderColor: '#ff0000',
+    borderWidth: 0,
+    slideshowInterval: 2000
+  }
+}
 
 export const templates: Templates = {
   classic: {

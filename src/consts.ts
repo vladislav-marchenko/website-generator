@@ -15,7 +15,7 @@ import { EditorRotate } from './components/Editor/Text/EditorRotate'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
-import type { Animation, DefaultValues } from './types'
+import type { Animation } from './types'
 import {
   IN,
   ID,
@@ -212,31 +212,6 @@ export const fallbackFonts = [
 ]
 
 export const fontSizeUnits = ['px', 'rem', 'cm', '%']
-
-export const defaultValues: DefaultValues = {
-  text: {
-    value: '',
-    fontFamily: 'Inter',
-    fontSizeValue: 24,
-    fontSizeUnit: 'px',
-    color: '#ffffff',
-    styles: [],
-    strokeColor: '#ff0000',
-    strokeWidth: 0,
-    backgroundColor: 'transparent',
-    rotation: 0
-  },
-  image: {
-    items: [], // First element of slide show is regular image src
-    width: 300,
-    height: 'auto',
-    rotation: 0,
-    opacity: 100,
-    borderColor: '#ff0000',
-    borderWidth: 0,
-    slideshowInterval: 2000
-  }
-}
 
 export const editorFields = {
   text: [

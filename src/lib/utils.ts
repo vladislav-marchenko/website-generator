@@ -15,20 +15,6 @@ export const getSubdomain = () => {
   return null
 }
 
-export const getTemplateFields = (selectedTemplate: TemplateNames) => {
-  const result = {}
-
-  templates[selectedTemplate].categories.forEach(({ subCategories }) => {
-    subCategories.forEach(({ fields }) => {
-      fields.forEach(({ name }) => {
-        Object.assign(result, { [name]: '' })
-      })
-    })
-  })
-
-  return result
-}
-
 export const loadFont = (font: string) => {
   webFontLoader.load({
     google: {
