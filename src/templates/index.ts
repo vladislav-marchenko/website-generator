@@ -1,4 +1,5 @@
 import { Classic } from './Classic'
+import { defaultValues } from '@/consts'
 import { Templates } from '@/types'
 import { MdEdit, MdOutlineTextFields } from 'react-icons/md'
 
@@ -94,79 +95,16 @@ export const templates: Templates = {
         ]
       }
     ],
-    badge: 'new',
     element: Classic,
     data: {
       projectName: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSizeValue: 40,
-        fontSizeUnit: 'px',
-        color: '#ffffff',
-        align: 'center',
-        styles: [],
-        strokeColor: '#ff0000',
-        strokeWidth: 0,
-        backgroundColor: 'transparent',
-        rotation: 0,
+        ...defaultValues.text,
         animation: 'in'
       },
-      twitter: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSizeValue: 40,
-        fontSizeUnit: 'px',
-        color: '#ffffff',
-        align: 'center',
-        styles: [],
-        strokeColor: '#ff0000',
-        strokeWidth: 0,
-        backgroundColor: 'transparent',
-        rotation: 0,
-        animation: 'in'
-      },
-      telegram: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSizeValue: 40,
-        fontSizeUnit: 'px',
-        color: '#ffffff',
-        align: 'center',
-        styles: [],
-        strokeColor: '#ff0000',
-        strokeWidth: 0,
-        backgroundColor: 'transparent',
-        rotation: 0,
-        animation: 'in'
-      },
-      logo: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSizeValue: 40,
-        fontSizeUnit: 'px',
-        color: '#ffffff',
-        align: 'center',
-        styles: [],
-        strokeColor: '#ff0000',
-        strokeWidth: 0,
-        backgroundColor: 'transparent',
-        rotation: 0,
-        animation: 'in'
-      },
-      background: {
-        value: '',
-        fontFamily: 'Inter',
-        fontSizeValue: 40,
-        fontSizeUnit: 'px',
-        color: '#ffffff',
-        align: 'center',
-        styles: [],
-        strokeColor: '#ff0000',
-        strokeWidth: 0,
-        backgroundColor: 'transparent',
-        rotation: 0,
-        animation: 'in'
-      }
+      twitter: defaultValues.text,
+      telegram: defaultValues.text,
+      logo: defaultValues.text,
+      background: defaultValues.text
     }
   }
 } as const

@@ -3,7 +3,8 @@ import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
-export type Animation =
+
+type AnimationValue =
   | 'pulse'
   | 'ping'
   | 'spin'
@@ -19,6 +20,12 @@ export type Animation =
   | 'headShake'
   | 'wobble'
   | 'jello'
+
+export interface Animation {
+  label: string
+  value: AnimationValue
+}
+
 type FontSizeUnit = 'px' | 'rem' | 'cm'
 
 export interface TextData {
@@ -27,13 +34,13 @@ export interface TextData {
   fontSizeValue: number
   fontSizeUnit: FontSizeUnit
   color: string
-  align: 'left' | 'center' | 'right'
+  align?: 'left' | 'center' | 'right'
   styles: TextStyles[]
   strokeColor: string
   strokeWidth: number
   backgroundColor: string
   rotation: number
-  animation: Animation
+  animation?: Animation
 }
 
 export type TemplateSubCategoryField = {
@@ -62,7 +69,6 @@ interface Template {
   label: string
   price: number
   categories: TemplateCategory[]
-  badge?: string
   element: FC
   data: TemplateData
 }
@@ -72,3 +78,7 @@ export interface Templates {
 }
 
 export type TemplateNames = keyof typeof templates
+
+export interface DefaultValues {
+  text: TextData
+}

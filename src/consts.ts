@@ -9,6 +9,7 @@ import { EditorRotate } from './components/Editor/Text/EditorRotate'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
+import { Animation, DefaultValues } from './types'
 import {
   IN,
   ID,
@@ -117,15 +118,84 @@ export const pricingCards = [
   }
 ]
 
+export const animations: Animation[] = [
+  {
+    label: 'pulse',
+    value: 'pulse'
+  },
+  {
+    label: 'ping',
+    value: 'ping'
+  },
+  {
+    label: 'spin',
+    value: 'spin'
+  },
+  {
+    label: 'bounce',
+    value: 'bounce'
+  },
+  {
+    label: 'in',
+    value: 'in'
+  },
+  {
+    label: 'wiggle',
+    value: 'wiggle'
+  },
+  {
+    label: 'heart beat',
+    value: 'heartBeat'
+  },
+  {
+    label: 'horizontal flip',
+    value: 'hflip'
+  },
+  {
+    label: 'vertical flip',
+    value: 'vflip'
+  },
+  {
+    label: 'swing',
+    value: 'swing'
+  },
+  {
+    label: 'rubber band',
+    value: 'rubberBand'
+  },
+  {
+    label: 'flash',
+    value: 'flash'
+  },
+  {
+    label: 'head shake',
+    value: 'headShake'
+  },
+  {
+    label: 'wobble',
+    value: 'wobble'
+  },
+  {
+    label: 'jello',
+    value: 'jello'
+  }
+]
+
 export const fontSizeUnits = ['px', 'rem', 'cm', '%']
 
-export const defaultValues = {
-  fontFamily: 'Inter',
-  fontSize: {
-    value: 24,
-    unit: 'px'
-  },
-  color: '#ffffff'
+export const defaultValues: DefaultValues = {
+  text: {
+    value: '',
+    fontFamily: 'Inter',
+    fontSizeValue: 24,
+    fontSizeUnit: 'px',
+    color: '#ffffff',
+    styles: [],
+    strokeColor: '#ff0000',
+    strokeWidth: 0,
+    backgroundColor: 'transparent',
+    rotation: 0
+  }
 }
 
 export const editorFields = {
