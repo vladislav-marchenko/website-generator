@@ -1,3 +1,8 @@
+import { EditorBorder } from './components/Editor/Image/EditorBorder'
+import { EditorOpacity } from './components/Editor/Image/EditorOpacity'
+import { EditorSize } from './components/Editor/Image/EditorSize'
+import { EditorSlideshow } from './components/Editor/Image/EditorSlideshow'
+import { EditorURL } from './components/Editor/Image/EditorURL'
 import { EditorAlign } from './components/Editor/Text/EditorAlign'
 import { EditorAnimations } from './components/Editor/Text/EditorAnimations'
 import { EditorBackground } from './components/Editor/Text/EditorBackground'
@@ -9,7 +14,7 @@ import { EditorRotate } from './components/Editor/Text/EditorRotate'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
-import { Animation, DefaultValues } from './types'
+import type { Animation, DefaultValues } from './types'
 import {
   IN,
   ID,
@@ -219,6 +224,16 @@ export const defaultValues: DefaultValues = {
     strokeWidth: 0,
     backgroundColor: 'transparent',
     rotation: 0
+  },
+  image: {
+    width: 300,
+    height: 'auto',
+    rotation: 0,
+    opacity: 100,
+    borderColor: '#ff0000',
+    borderWidth: 0,
+    slideshowInterval: 2000,
+    slideshowItems: [] // First element of slide show is regular image src
   }
 }
 
@@ -259,6 +274,36 @@ export const editorFields = {
     {
       label: 'Rotate',
       element: EditorRotate
+    },
+    {
+      label: 'Animations',
+      element: EditorAnimations
+    }
+  ],
+  image: [
+    {
+      label: 'URL',
+      element: EditorURL
+    },
+    {
+      label: 'Slideshow',
+      element: EditorSlideshow
+    },
+    {
+      label: 'Size',
+      element: EditorSize
+    },
+    {
+      label: 'Rotation',
+      element: EditorRotate
+    },
+    {
+      label: 'Opacity',
+      element: EditorOpacity
+    },
+    {
+      label: 'Border',
+      element: EditorBorder
     },
     {
       label: 'Animations',

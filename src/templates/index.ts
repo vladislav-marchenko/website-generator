@@ -39,9 +39,9 @@ export const templates: Templates = {
             label: 'Images',
             fields: [
               {
-                type: 'text',
-                name: 'background',
-                label: 'Background',
+                type: 'image',
+                name: 'logo',
+                label: 'Logo',
                 placeholder: 'https://via.placeholder.com/150'
               }
             ]
@@ -103,8 +103,15 @@ export const templates: Templates = {
       },
       twitter: defaultValues.text,
       telegram: defaultValues.text,
-      logo: defaultValues.text,
-      background: defaultValues.text
+      logo: {
+        ...defaultValues.image,
+        slideshowItems: [
+          'https://static.vecteezy.com/system/resources/thumbnails/049/547/613/small_2x/stunning-high-resolution-nature-and-landscape-backgrounds-breathtaking-scenery-in-hd-photo.jpg',
+          'https://www.shutterstock.com/image-photo/calm-weather-on-sea-ocean-600nw-2212935531.jpg',
+          'https://media1.giphy.com/media/3o6vXTpomeZEyxufGU/giphy.gif?cid=6c09b952jwjp5rlwdwzfrv2q5kq5k1u2bkykbc9jq1ahpuv8&ep=v1_gifs_search&rid=giphy.gif&ct=g'
+        ] // First element of slide show is regular image src
+      },
+      background: defaultValues.image
     }
   }
 } as const

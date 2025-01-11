@@ -1,3 +1,4 @@
+import { Image } from '@/components/TemplateItems/Image'
 import { Text } from '@/components/TemplateItems/Text'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateContextValues } from '@/types/contexts'
@@ -12,18 +13,23 @@ const placeholders = {
 
 export const Classic: FC = () => {
   const { data } = useContext(TemplateContext) as TemplateContextValues
-  console.log(data)
 
   return (
     <div
-      className='relative h-full'
+      className='relative h-full overflow-y-auto'
       style={{
         background: `url(${data.background || placeholders.background}) no-repeat center/cover`
       }}
     >
       <div className='group absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
-        <Text fieldName='projectName' placeholder={placeholders.projectName} />
-        <Text fieldName='twitter' placeholder={'hello world'} />
+        <div className='flex flex-col'>
+          <Text
+            fieldName='projectName'
+            placeholder={placeholders.projectName}
+          />
+          <Text fieldName='twitter' placeholder={'hello world'} />
+          <Image fieldName='logo' />
+        </div>
       </div>
     </div>
   )

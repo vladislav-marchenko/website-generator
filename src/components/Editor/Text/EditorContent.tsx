@@ -1,5 +1,6 @@
 import { Input } from '@/components/ui/input'
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
@@ -8,11 +9,12 @@ export const EditorContent = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  if (!activeSubCategoryData) return
+  const data = activeSubCategoryData as TextData
+  if (!data) return
 
   return (
     <Input
-      value={activeSubCategoryData.value}
+      value={data.value}
       onChange={(e) => updateCurrentCategoryField('value', e.target.value)}
     />
   )

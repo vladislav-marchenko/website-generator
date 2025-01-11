@@ -1,3 +1,4 @@
+import { editorFields } from '@/consts'
 import { templates } from '@/templates'
 import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
@@ -28,7 +29,12 @@ export interface Animation {
 
 type FontSizeUnit = 'px' | 'rem' | 'cm'
 
-export interface TextData {
+interface CommonData {
+  rotation: number
+  animation?: AnimationValue
+}
+
+export interface TextData extends CommonData {
   value: string
   fontFamily: string
   fontSizeValue: number
@@ -39,12 +45,20 @@ export interface TextData {
   strokeColor: string
   strokeWidth: number
   backgroundColor: string
-  rotation: number
-  animation?: Animation
+}
+
+export interface ImageData extends CommonData {
+  width: number
+  height: number | 'auto'
+  opacity: number
+  borderColor: string
+  borderWidth: number
+  slideshowInterval: number
+  slideshowItems: string[] // First element of slide show is regular image src
 }
 
 export type TemplateSubCategoryField = {
-  type: 'text'
+  type: keyof typeof editorFields
   label: string
   name: string
   placeholder: string
@@ -62,7 +76,7 @@ type TemplateCategory = {
 }
 
 export type TemplateData = {
-  [key: string]: TextData
+  [key: string]: TextData | ImageData
 }
 
 interface Template {
@@ -81,4 +95,5 @@ export type TemplateNames = keyof typeof templates
 
 export interface DefaultValues {
   text: TextData
+  image: ImageData
 }

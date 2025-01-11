@@ -9,6 +9,7 @@ import {
 import { Slider } from '@/components/ui/slider'
 import { fontSizeUnits } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
@@ -17,7 +18,8 @@ export const EditorFontSize = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  if (!activeSubCategoryData) return
+  const data = activeSubCategoryData as TextData
+  if (!data) return
 
   return (
     <>
@@ -26,7 +28,7 @@ export const EditorFontSize = () => {
           type='number'
           min={10}
           max={300}
-          value={activeSubCategoryData.fontSizeValue}
+          value={data.fontSizeValue}
           onChange={(e) =>
             updateCurrentCategoryField('fontSizeValue', e.target.value)
           }
@@ -47,7 +49,7 @@ export const EditorFontSize = () => {
         </Select>
       </div>
       <Slider
-        defaultValue={[activeSubCategoryData.fontSizeValue]}
+        defaultValue={[data.fontSizeValue]}
         min={10}
         max={300}
         onValueChange={(value) =>

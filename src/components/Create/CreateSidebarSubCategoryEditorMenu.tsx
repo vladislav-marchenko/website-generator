@@ -28,12 +28,14 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
 
       {activeSubCategory && (
         <div className='flex flex-col gap-8 py-4'>
-          {editorFields.text.map(({ label, element: Element }) => (
-            <div className='flex flex-col gap-2'>
-              <Label>{label}</Label>
-              <Element />
-            </div>
-          ))}
+          {editorFields[activeSubCategory.type].map(
+            ({ label, element: Element }) => (
+              <div className='flex flex-col gap-2'>
+                <Label>{label}</Label>
+                <Element />
+              </div>
+            )
+          )}
         </div>
       )}
     </div>

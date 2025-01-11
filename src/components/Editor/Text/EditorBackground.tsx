@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
@@ -9,12 +10,13 @@ export const EditorBackground = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  if (!activeSubCategoryData) return
+  const data = activeSubCategoryData as TextData
+  if (!data) return
 
   return (
     <>
       <HexColorPicker
-        color={activeSubCategoryData.backgroundColor}
+        color={data.backgroundColor}
         onChange={(color) => {
           updateCurrentCategoryField('backgroundColor', color)
         }}

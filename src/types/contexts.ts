@@ -1,4 +1,5 @@
 import type {
+  ImageData,
   TemplateData,
   TemplateNames,
   TemplateSubCategoryField,
@@ -18,7 +19,7 @@ export interface TemplateContextValues {
     SetStateAction<TemplateSubCategoryField | null>
   >
   updateCurrentCategoryField: (fieldName: string, value: unknown) => void
-  activeSubCategoryData: TextData | null
+  activeSubCategoryData: TextData | ImageData | null
 }
 
 export interface ThemeContextValues {

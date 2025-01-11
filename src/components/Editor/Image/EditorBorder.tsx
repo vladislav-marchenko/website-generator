@@ -1,36 +1,33 @@
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
+import { ImageData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
-export const EditorStroke = () => {
+export const EditorBorder = () => {
   const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
-  const data = activeSubCategoryData as TextData
+  const data = activeSubCategoryData as ImageData
   if (!data) return
 
   return (
     <>
       <HexColorPicker
-        color={data.strokeColor}
+        color={data.borderColor}
         onChange={(color) => {
-          updateCurrentCategoryField('strokeColor', color)
+          updateCurrentCategoryField('borderColor', color)
         }}
       />
       <div className='flex items-center gap-4'>
-        <Label>Width:</Label>
+        <Label>Width</Label>
         <Slider
-          defaultValue={[data.strokeWidth]}
-          min={0.2}
-          max={20}
-          step={0.1}
+          value={[data.borderWidth]}
           onValueChange={(value) =>
-            updateCurrentCategoryField('strokeWidth', value[0])
+            updateCurrentCategoryField('borderWidth', value[0])
           }
         />
       </div>
