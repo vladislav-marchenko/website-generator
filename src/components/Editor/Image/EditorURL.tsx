@@ -13,11 +13,11 @@ export const EditorURL = () => {
   if (!data) return
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const duplicatedArray = [...data.slideshowItems]
+    const duplicatedArray = [...data.items]
     duplicatedArray[0] = e.target.value
 
     updateCurrentCategoryField('slideshowItems', duplicatedArray)
   }
 
-  return <Input value={data.slideshowItems[0]} onChange={handleChange} />
+  return <Input value={data.items[0]} onChange={handleChange} />
 }

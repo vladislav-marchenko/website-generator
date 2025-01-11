@@ -226,14 +226,14 @@ export const defaultValues: DefaultValues = {
     rotation: 0
   },
   image: {
+    items: [], // First element of slide show is regular image src
     width: 300,
     height: 'auto',
     rotation: 0,
     opacity: 100,
     borderColor: '#ff0000',
     borderWidth: 0,
-    slideshowInterval: 2000,
-    slideshowItems: [] // First element of slide show is regular image src
+    slideshowInterval: 2000
   }
 }
 

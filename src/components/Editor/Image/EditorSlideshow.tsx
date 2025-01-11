@@ -14,11 +14,11 @@ export const EditorSlideshow = () => {
   if (!data) return
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
-    const duplicatedArray = [...data.slideshowItems]
+    const duplicatedArray = [...data.items]
     console.log(duplicatedArray, index)
     duplicatedArray[index] = e.target.value
 
-    updateCurrentCategoryField('slideshowItems', duplicatedArray)
+    updateCurrentCategoryField('items', duplicatedArray)
   }
 
   return (
@@ -27,7 +27,7 @@ export const EditorSlideshow = () => {
       {Array.from({ length: 3 }).map((_, index) => (
         <Input
           key={index}
-          value={data.slideshowItems[index]}
+          value={data.items[index]}
           onChange={(e) => handleChange(e, index)}
           placeholder={`${index + 1} image URL`}
         />

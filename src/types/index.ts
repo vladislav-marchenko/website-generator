@@ -48,13 +48,13 @@ export interface TextData extends CommonData {
 }
 
 export interface ImageData extends CommonData {
+  items: string[] // First element of slide show is regular image src
   width: number
   height: number | 'auto'
   opacity: number
   borderColor: string
   borderWidth: number
   slideshowInterval: number
-  slideshowItems: string[] // First element of slide show is regular image src
 }
 
 export type TemplateSubCategoryField = {
