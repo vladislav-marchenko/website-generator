@@ -23,7 +23,6 @@ export const EditorSlideshow = () => {
 
   return (
     <>
-      <Label>Interval (ms)</Label>
       {Array.from({ length: 3 }).map((_, index) => (
         <Input
           key={index}
@@ -32,6 +31,7 @@ export const EditorSlideshow = () => {
           placeholder={`${index + 1} image URL`}
         />
       ))}
+      <Label>Interval (ms)</Label>
       <Input
         type='number'
         value={data.slideshowInterval}

@@ -13,7 +13,11 @@ export const Image: FC<ImageProps> = ({ fieldName }) => {
   const { data } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data[fieldName] as ImageData
 
-  const items = fieldData.items.filter(Boolean)
+  const uploadedImageURL =
+    fieldData.uploaded && URL.createObjectURL(fieldData.uploaded)
+
+  const items = [uploadedImageURL, ...fieldData.items].filter(Boolean)
+
   const currentImageIndex = useSlideshow(
     items.length,
     fieldData.slideshowInterval

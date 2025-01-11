@@ -3,6 +3,7 @@ import { EditorOpacity } from './components/Editor/Image/EditorOpacity'
 import { EditorSize } from './components/Editor/Image/EditorSize'
 import { EditorSlideshow } from './components/Editor/Image/EditorSlideshow'
 import { EditorURL } from './components/Editor/Image/EditorURL'
+import { EditorUpload } from './components/Editor/Image/EditorUpload'
 import { EditorAlign } from './components/Editor/Text/EditorAlign'
 import { EditorAnimations } from './components/Editor/Text/EditorAnimations'
 import { EditorBackground } from './components/Editor/Text/EditorBackground'
@@ -284,6 +285,10 @@ export const editorFields = {
     {
       label: 'URL',
       element: EditorURL
+    },
+    {
+      label: 'Upload',
+      element: EditorUpload
     },
     {
       label: 'Slideshow',

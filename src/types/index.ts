@@ -48,7 +48,8 @@ export interface TextData extends CommonData {
 }
 
 export interface ImageData extends CommonData {
-  items: string[] // First element of slide show is regular image src
+  items: string[] // One element means a regular image. Two or more means a slide show
+  uploaded?: File
   width: number
   height: number | 'auto'
   opacity: number
