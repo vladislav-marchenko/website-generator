@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { ImageData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
-import { useContext } from 'react'
+import { ChangeEvent, useContext } from 'react'
 
 export const EditorUpload = () => {
   const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
@@ -11,6 +11,13 @@ export const EditorUpload = () => {
 
   const data = activeSubCategoryData as ImageData
   if (!data) return
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file || !file.type.includes('image/')) return
+
+    updateCurrentCategoryField('uploaded', file)
+  }
 
   return (
     <>
@@ -21,10 +28,8 @@ export const EditorUpload = () => {
         type='file'
         id='upload'
         className='hidden'
-        onChange={(e) =>
-          updateCurrentCategoryField('uploaded', e.target.files?.[0])
-        }
-        accept='image/png, image/jpeg'
+        onChange={handleChange}
+        accept='image/png, image/jpeg, image/gif'
         placeholder='Upload'
       />
       {data.uploaded && <span>{data.uploaded.name}</span>}
