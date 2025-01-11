@@ -16,7 +16,7 @@ export const EditorURL = () => {
     const duplicatedArray = [...data.items]
     duplicatedArray[0] = e.target.value
 
-    updateCurrentCategoryField('slideshowItems', duplicatedArray)
+    updateCurrentCategoryField('items', duplicatedArray)
   }
 
   return <Input value={data.items[0]} onChange={handleChange} />
