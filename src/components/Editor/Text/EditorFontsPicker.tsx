@@ -1,4 +1,4 @@
-import { FontsPicker } from '@/components/FontsPicker'
+import { FontsPicker } from '@/components/FontsPicker/FontsPicker'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import type { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'

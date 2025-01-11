@@ -1,3 +1,4 @@
+import { FontsPickerItem } from './FontsPickerItem'
 import { Loading } from '@/components/Loading'
 import { Button } from '@/components/ui/button'
 import {
@@ -5,7 +6,6 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem,
   CommandList
 } from '@/components/ui/command'
 import {
@@ -13,10 +13,11 @@ import {
   PopoverContent,
   PopoverTrigger
 } from '@/components/ui/popover'
+import { fallbackFonts } from '@/consts'
 import { loadFont } from '@/lib/utils'
 import { getFonts } from '@/services/api'
 import { useQuery } from '@tanstack/react-query'
-import { Check, ChevronsUpDownIcon } from 'lucide-react'
+import { ChevronsUpDownIcon } from 'lucide-react'
 import { FC, useState } from 'react'
 
 interface FontsPickerProps {
@@ -24,7 +25,7 @@ interface FontsPickerProps {
 }
 
 export const FontsPicker: FC<FontsPickerProps> = ({ onChange }) => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ['fonts'],
     queryFn: getFonts
   })
@@ -60,27 +61,24 @@ export const FontsPicker: FC<FontsPickerProps> = ({ onChange }) => {
             {isLoading && (
               <Loading className='flex h-full items-center justify-center py-4' />
             )}
-            {isError && (
-              <div className='py-4 text-center text-sm'>
-                Error loading fonts
-              </div>
-            )}
-            {!(isLoading || isError) && (
-              <CommandEmpty>No font found.</CommandEmpty>
-            )}
+            {isSuccess && <CommandEmpty>No font found.</CommandEmpty>}
             <CommandGroup>
-              {!isLoading &&
-                data?.items?.map(({ family }) => (
-                  <CommandItem
-                    key={family}
-                    value={family}
-                    onSelect={selectFont}
-                  >
-                    {family}
-                    {family === currentFontFamily && (
-                      <Check className='ml-auto' />
-                    )}
-                  </CommandItem>
+              {isSuccess &&
+                data?.items?.map(({ family: name }) => (
+                  <FontsPickerItem
+                    name={name}
+                    selectFont={selectFont}
+                    isSelected={name === currentFontFamily}
+                  />
+                ))}
+
+              {isError &&
+                fallbackFonts.map((name) => (
+                  <FontsPickerItem
+                    name={name}
+                    selectFont={selectFont}
+                    isSelected={name === currentFontFamily}
+                  />
                 ))}
             </CommandGroup>
           </CommandList>

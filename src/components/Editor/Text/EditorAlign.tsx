@@ -20,14 +20,16 @@ const items = [
 ]
 
 export const EditorAlign = () => {
-  const { updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
     TemplateContext
   ) as TemplateContextValues
+
+  if (!activeSubCategoryData) return
 
   return (
     <ToggleGroup
       type='single'
-      defaultValue='center'
+      defaultValue={activeSubCategoryData.align}
       onValueChange={(value) => updateCurrentCategoryField('align', value)}
     >
       {items.map(({ value, icon: Icon }) => (

@@ -181,6 +181,30 @@ export const animations: Animation[] = [
   }
 ]
 
+export const fallbackFonts = [
+  'Roboto',
+  'Open Sans',
+  'Montserrat',
+  'Poppins',
+  'Lato',
+  'Oswald',
+  'Noto Sans',
+  'Raleway',
+  'Nunito',
+  'Rubik',
+  'Ubuntu',
+  'Inter',
+  'Arimo',
+  'Lora',
+  'Libre Baskerville',
+  'Merriweather',
+  'Playfair Display',
+  'Mulish',
+  'Fira Sans',
+  'Quicksand',
+  'Barlow'
+]
+
 export const fontSizeUnits = ['px', 'rem', 'cm', '%']
 
 export const defaultValues: DefaultValues = {
