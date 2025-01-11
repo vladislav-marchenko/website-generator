@@ -21,6 +21,12 @@ export const EditorSlideshow = () => {
     updateCurrentCategoryField('items', duplicatedArray)
   }
 
+  const handleBlur = () => {
+    if (data.slideshowInterval < 500) {
+      updateCurrentCategoryField('slideshowInterval', 500)
+    }
+  }
+
   return (
     <>
       {Array.from({ length: 3 }).map((_, index) => (
@@ -34,7 +40,10 @@ export const EditorSlideshow = () => {
       <Label>Interval (ms)</Label>
       <Input
         type='number'
+        min={500}
+        max={10000}
         value={data.slideshowInterval}
+        onBlur={handleBlur}
         onChange={(e) =>
           updateCurrentCategoryField('slideshowInterval', e.target.value)
         }
