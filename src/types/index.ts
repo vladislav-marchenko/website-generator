@@ -59,7 +59,7 @@ export interface ImageData extends CommonData {
   borderWidth: number
 }
 
-export interface LinkData {
+export interface LinkData extends CommonData {
   url: string
   icon: LucideIcon
 }
@@ -104,4 +104,5 @@ export type TemplateNames = keyof typeof templates
 export interface DefaultValues {
   text: TextData
   image: ImageData
+  link: LinkData
 }

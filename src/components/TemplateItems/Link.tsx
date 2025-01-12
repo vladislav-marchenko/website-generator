@@ -14,7 +14,12 @@ export const Link: FC<LinkProps> = ({ fieldName }) => {
   const Icon = fieldData.icon
 
   return (
-    <a href={fieldData.url}>
+    <a
+      href={fieldData.url}
+      data-animation={fieldData.animation}
+      className='template-element-animations relative'
+      style={{ transform: `rotate(${fieldData.rotation}deg)` }}
+    >
       <Icon size={24} />
     </a>
   )

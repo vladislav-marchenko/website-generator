@@ -294,6 +294,14 @@ export const editorFields = {
     {
       label: 'URL',
       element: EditorURL
+    },
+    {
+      label: 'Rotation',
+      element: EditorRotate
+    },
+    {
+      label: 'Animation',
+      element: EditorAnimations
     }
   ]
 }

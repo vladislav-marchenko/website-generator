@@ -20,7 +20,11 @@ export const EditorAnimations: FC = () => {
       className='flex flex-wrap gap-2'
     >
       {animations.map(({ label, value }) => (
-        <ToggleGroupItem value={value} className='border border-neutral-600/40'>
+        <ToggleGroupItem
+          key={value}
+          value={value}
+          className='border border-neutral-600/40'
+        >
           {label}
         </ToggleGroupItem>
       ))}

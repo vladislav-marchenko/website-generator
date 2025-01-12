@@ -25,6 +25,11 @@ const defaultValues: DefaultValues = {
     borderColor: '#ff0000',
     borderWidth: 0,
     slideshowInterval: 2000
+  },
+  link: {
+    url: '',
+    icon: XIcon,
+    rotation: 0
   }
 }
 
@@ -68,7 +73,8 @@ export const templates: Templates = {
                 type: 'link',
                 label: 'Tiktok',
                 name: 'tiktok',
-                placeholder: 'https://www.tiktok.com'
+                placeholder: 'https://www.tiktok.com',
+                editor: true
               },
               {
                 type: 'link',
@@ -187,54 +193,18 @@ export const templates: Templates = {
         ...defaultValues.text,
         animation: 'in'
       },
-      tiktok: {
-        url: '',
-        icon: XIcon
-      },
-      instagram: {
-        url: '',
-        icon: XIcon
-      },
-      discord: {
-        url: '',
-        icon: XIcon
-      },
-      telegram: {
-        url: '',
-        icon: XIcon
-      },
-      twitter: {
-        url: '',
-        icon: XIcon
-      },
-      dexscreener: {
-        url: '',
-        icon: XIcon
-      },
-      pumpfun: {
-        url: '',
-        icon: XIcon
-      },
-      coingecko: {
-        url: '',
-        icon: XIcon
-      },
-      coinmarketcap: {
-        url: '',
-        icon: XIcon
-      },
-      birdeye: {
-        url: '',
-        icon: XIcon
-      },
-      dextools: {
-        url: '',
-        icon: XIcon
-      },
-      whitepaper: {
-        url: '',
-        icon: XIcon
-      },
+      tiktok: defaultValues.link,
+      instagram: defaultValues.link,
+      discord: defaultValues.link,
+      telegram: defaultValues.link,
+      twitter: defaultValues.link,
+      dexscreener: defaultValues.link,
+      pumpfun: defaultValues.link,
+      coingecko: defaultValues.link,
+      coinmarketcap: defaultValues.link,
+      birdeye: defaultValues.link,
+      dextools: defaultValues.link,
+      whitepaper: defaultValues.link,
       logo: {
         ...defaultValues.image,
         src: 'https://static.vecteezy.com/system/resources/thumbnails/049/547/613/small_2x/stunning-high-resolution-nature-and-landscape-backgrounds-breathtaking-scenery-in-hd-photo.jpg',
