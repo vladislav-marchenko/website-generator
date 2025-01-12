@@ -1,10 +1,8 @@
 import type {
-  ImageData,
-  LinkData,
+  Data,
   TemplateData,
   TemplateNames,
-  TemplateSubCategoryField,
-  TextData
+  TemplateSubCategoryField
 } from '.'
 import { Dispatch, SetStateAction } from 'react'
 
@@ -20,7 +18,7 @@ export interface TemplateContextValues {
     SetStateAction<TemplateSubCategoryField | null>
   >
   updateCurrentCategoryField: (fieldName: string, value: unknown) => void
-  activeSubCategoryData: TextData | ImageData | LinkData | null
+  activeSubCategoryData: Data | null
 }
 
 export interface ThemeContextValues {

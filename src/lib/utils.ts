@@ -1,5 +1,3 @@
-import { templates } from '@/templates'
-import { TemplateNames } from '@/types'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import webFontLoader from 'webfontloader'

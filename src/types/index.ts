@@ -29,6 +29,8 @@ export interface Animation {
 
 type FontSizeUnit = 'px' | 'rem' | 'cm'
 
+export type Data = TextData | ImageData | LinkData
+
 interface CommonData {
   rotation: number
   animation?: AnimationValue
@@ -64,12 +66,15 @@ export interface LinkData extends CommonData {
   icon: LucideIcon
 }
 
+export type TemplateSubCategoryFieldType = keyof typeof editorFields
+
 export interface TemplateSubCategoryField {
-  type: keyof typeof editorFields
+  type: TemplateSubCategoryFieldType
   label: string
   name: string
   placeholder: string
   editor?: boolean
+  defaultValues?: Data
 }
 
 type TemplateSubCategory = {
@@ -84,7 +89,7 @@ type TemplateCategory = {
 }
 
 export type TemplateData = {
-  [key: string]: TextData | ImageData | LinkData
+  [key: string]: Data
 }
 
 interface Template {
@@ -92,14 +97,13 @@ interface Template {
   price: number
   categories: TemplateCategory[]
   element: FC
-  data: TemplateData
 }
+
+export type TemplateNames = 'classic'
 
 export interface Templates {
   [key: string]: Template
 }
-
-export type TemplateNames = keyof typeof templates
 
 export interface DefaultValues {
   text: TextData

@@ -2,8 +2,9 @@ import { EditorBorder } from './components/Editor/Image/EditorBorder'
 import { EditorOpacity } from './components/Editor/Image/EditorOpacity'
 import { EditorSize } from './components/Editor/Image/EditorSize'
 import { EditorSlideshow } from './components/Editor/Image/EditorSlideshow'
-import { EditorURL } from './components/Editor/Image/EditorURL'
+import { EditorURL as EditorImageURL } from './components/Editor/Image/EditorURL'
 import { EditorUpload } from './components/Editor/Image/EditorUpload'
+import { EditorURL as EditorLinkURL } from './components/Editor/Link/EditorURL'
 import { EditorAlign } from './components/Editor/Text/EditorAlign'
 import { EditorAnimations } from './components/Editor/Text/EditorAnimations'
 import { EditorBackground } from './components/Editor/Text/EditorBackground'
@@ -38,6 +39,7 @@ import {
   PT,
   SA
 } from 'country-flag-icons/react/3x2'
+import { XIcon } from 'lucide-react'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
@@ -259,7 +261,7 @@ export const editorFields = {
   image: [
     {
       label: 'URL',
-      element: EditorURL
+      element: EditorImageURL
     },
     {
       label: 'Upload',
@@ -293,7 +295,7 @@ export const editorFields = {
   link: [
     {
       label: 'URL',
-      element: EditorURL
+      element: EditorLinkURL
     },
     {
       label: 'Rotation',

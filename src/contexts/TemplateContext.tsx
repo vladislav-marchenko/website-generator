@@ -1,9 +1,5 @@
-import { templates } from '@/templates'
-import {
-  TemplateData,
-  TemplateSubCategoryField,
-  type TemplateNames
-} from '@/types'
+import { templatesData } from '@/templates'
+import { TemplateData, TemplateNames, TemplateSubCategoryField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
 import { createContext, PropsWithChildren, useState } from 'react'
 
@@ -12,7 +8,7 @@ export const TemplateContext = createContext<TemplateContextValues | null>(null)
 export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   const [selectedTemplate, setSelectedTemplate] =
     useState<TemplateNames>('classic')
-  const [data, setData] = useState(templates[selectedTemplate].data)
+  const [data, setData] = useState(templatesData[selectedTemplate])
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0)
   const [activeSubCategory, setActiveSubCategory] =
     useState<TemplateSubCategoryField | null>(null)

@@ -16,6 +16,7 @@ export const Link: FC<LinkProps> = ({ fieldName }) => {
   return (
     <a
       href={fieldData.url}
+      target='_blank'
       data-animation={fieldData.animation}
       className='template-element-animations relative'
       style={{ transform: `rotate(${fieldData.rotation}deg)` }}

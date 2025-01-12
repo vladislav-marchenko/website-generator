@@ -1,8 +1,13 @@
 import { Classic } from './Classic'
-import { DefaultValues, Templates } from '@/types'
+import type {
+  DefaultValues,
+  TemplateData,
+  TemplateNames,
+  Templates
+} from '@/types'
 import { EditIcon, TextIcon, XIcon } from 'lucide-react'
 
-const defaultValues: DefaultValues = {
+export const defaultValues: DefaultValues = {
   text: {
     value: '',
     fontFamily: 'Inter',
@@ -171,13 +176,13 @@ export const templates: Templates = {
             label: 'Something else',
             fields: [
               {
-                type: 'text',
+                type: 'image',
                 name: 'logo',
                 label: 'Logo',
                 placeholder: 'https://via.placeholder.com/150'
               },
               {
-                type: 'text',
+                type: 'image',
                 name: 'background',
                 label: 'Background',
                 placeholder: 'https://via.placeholder.com/150'
@@ -187,33 +192,28 @@ export const templates: Templates = {
         ]
       }
     ],
-    element: Classic,
-    data: {
-      projectName: {
-        ...defaultValues.text,
-        animation: 'in'
-      },
-      tiktok: defaultValues.link,
-      instagram: defaultValues.link,
-      discord: defaultValues.link,
-      telegram: defaultValues.link,
-      twitter: defaultValues.link,
-      dexscreener: defaultValues.link,
-      pumpfun: defaultValues.link,
-      coingecko: defaultValues.link,
-      coinmarketcap: defaultValues.link,
-      birdeye: defaultValues.link,
-      dextools: defaultValues.link,
-      whitepaper: defaultValues.link,
-      logo: {
-        ...defaultValues.image,
-        src: 'https://static.vecteezy.com/system/resources/thumbnails/049/547/613/small_2x/stunning-high-resolution-nature-and-landscape-backgrounds-breathtaking-scenery-in-hd-photo.jpg',
-        slideshowItems: [
-          'https://www.shutterstock.com/image-photo/calm-weather-on-sea-ocean-600nw-2212935531.jpg',
-          'https://media1.giphy.com/media/3o6vXTpomeZEyxufGU/giphy.gif?cid=6c09b952jwjp5rlwdwzfrv2q5kq5k1u2bkykbc9jq1ahpuv8&ep=v1_gifs_search&rid=giphy.gif&ct=g'
-        ]
-      },
-      background: defaultValues.image
-    }
+    element: Classic
   }
+} as const
+
+export const getTemplateFields = (
+  selectedTemplate: TemplateNames
+): TemplateData => {
+  const result = {}
+
+  templates[selectedTemplate].categories.forEach(({ subCategories }) => {
+    subCategories.forEach(({ fields }) => {
+      fields.forEach(({ type, name, defaultValues: defaultFieldValues }) => {
+        Object.assign(result, {
+          [name]: { ...defaultValues[type], ...defaultFieldValues }
+        })
+      })
+    })
+  })
+
+  return result as TemplateData
+}
+
+export const templatesData = {
+  classic: getTemplateFields('classic')
 } as const
