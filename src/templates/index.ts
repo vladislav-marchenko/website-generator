@@ -1,6 +1,6 @@
 import { Classic } from './Classic'
 import { DefaultValues, Templates } from '@/types'
-import { MdEdit, MdOutlineTextFields } from 'react-icons/md'
+import { EditIcon, TextIcon, XIcon } from 'lucide-react'
 
 const defaultValues: DefaultValues = {
   text: {
@@ -16,7 +16,8 @@ const defaultValues: DefaultValues = {
     rotation: 0
   },
   image: {
-    items: [], // First element of slide show is regular image src
+    src: '',
+    slideshowItems: [], // First element of slide show is regular image src
     width: 300,
     height: 'auto',
     rotation: 0,
@@ -34,7 +35,7 @@ export const templates: Templates = {
     categories: [
       {
         name: 'Edit',
-        icon: MdEdit,
+        icon: EditIcon,
         subCategories: [
           {
             label: 'Text',
@@ -43,19 +44,8 @@ export const templates: Templates = {
                 type: 'text',
                 name: 'projectName',
                 label: 'Project name',
-                placeholder: 'Name'
-              },
-              {
-                type: 'text',
-                name: 'twitter',
-                label: 'Twitter',
-                placeholder: '#'
-              },
-              {
-                type: 'text',
-                name: 'telegram',
-                label: 'Telegram',
-                placeholder: '#'
+                placeholder: 'Name',
+                editor: true
               }
             ]
           },
@@ -66,7 +56,85 @@ export const templates: Templates = {
                 type: 'image',
                 name: 'logo',
                 label: 'Logo',
-                placeholder: 'https://via.placeholder.com/150'
+                placeholder: 'https://via.placeholder.com/150',
+                editor: true
+              }
+            ]
+          },
+          {
+            label: 'Links',
+            fields: [
+              {
+                type: 'link',
+                label: 'Tiktok',
+                name: 'tiktok',
+                placeholder: 'https://www.tiktok.com'
+              },
+              {
+                type: 'link',
+                label: 'Instagram',
+                name: 'instagram',
+                placeholder: 'https://www.instagram.com'
+              },
+              {
+                type: 'link',
+                label: 'Discord',
+                name: 'discord',
+                placeholder: 'https://discord.com'
+              },
+              {
+                type: 'link',
+                label: 'Telegram',
+                name: 'telegram',
+                placeholder: 'https://t.me'
+              },
+              {
+                type: 'link',
+                label: 'Twitter',
+                name: 'twitter',
+                placeholder: 'https://twitter.com'
+              },
+              {
+                type: 'link',
+                label: 'Dexscreener',
+                name: 'dexscreener',
+                placeholder: 'https://dexscreener.com'
+              },
+              {
+                type: 'link',
+                label: 'Pump.fun',
+                name: 'pumpfun',
+                placeholder: 'https://pump.fun'
+              },
+              {
+                type: 'link',
+                label: 'Coin Gecko',
+                name: 'coingecko',
+                placeholder: 'https://www.coingecko.com'
+              },
+              {
+                type: 'link',
+                label: 'Coin Market Cap',
+                name: 'coinmarketcap',
+                placeholder: 'https://coinmarketcap.com'
+              },
+              {
+                type: 'link',
+                label: 'Birdeye',
+                name: 'birdeye',
+                placeholder: 'https://www.birdeye.com'
+              },
+              {
+                type: 'link',
+                label: 'Dextools',
+                name: 'dextools',
+                placeholder: 'https://www.dextools.io'
+              },
+              {
+                type: 'link',
+                label: 'Whitepaper',
+                name: 'whitepaper',
+                placeholder: 'https://example.com/whitepaper'
               }
             ]
           }
@@ -74,7 +142,7 @@ export const templates: Templates = {
       },
       {
         name: 'Text',
-        icon: MdOutlineTextFields,
+        icon: TextIcon,
         subCategories: [
           {
             label: 'Something',
@@ -86,15 +154,9 @@ export const templates: Templates = {
                 placeholder: 'Name'
               },
               {
-                type: 'text',
+                type: 'link',
                 name: 'twitter',
                 label: 'Twitter',
-                placeholder: '#'
-              },
-              {
-                type: 'text',
-                name: 'telegram',
-                label: 'Telegram',
                 placeholder: '#'
               }
             ]
@@ -125,15 +187,61 @@ export const templates: Templates = {
         ...defaultValues.text,
         animation: 'in'
       },
-      twitter: defaultValues.text,
-      telegram: defaultValues.text,
+      tiktok: {
+        url: '',
+        icon: XIcon
+      },
+      instagram: {
+        url: '',
+        icon: XIcon
+      },
+      discord: {
+        url: '',
+        icon: XIcon
+      },
+      telegram: {
+        url: '',
+        icon: XIcon
+      },
+      twitter: {
+        url: '',
+        icon: XIcon
+      },
+      dexscreener: {
+        url: '',
+        icon: XIcon
+      },
+      pumpfun: {
+        url: '',
+        icon: XIcon
+      },
+      coingecko: {
+        url: '',
+        icon: XIcon
+      },
+      coinmarketcap: {
+        url: '',
+        icon: XIcon
+      },
+      birdeye: {
+        url: '',
+        icon: XIcon
+      },
+      dextools: {
+        url: '',
+        icon: XIcon
+      },
+      whitepaper: {
+        url: '',
+        icon: XIcon
+      },
       logo: {
         ...defaultValues.image,
-        items: [
-          'https://static.vecteezy.com/system/resources/thumbnails/049/547/613/small_2x/stunning-high-resolution-nature-and-landscape-backgrounds-breathtaking-scenery-in-hd-photo.jpg',
+        src: 'https://static.vecteezy.com/system/resources/thumbnails/049/547/613/small_2x/stunning-high-resolution-nature-and-landscape-backgrounds-breathtaking-scenery-in-hd-photo.jpg',
+        slideshowItems: [
           'https://www.shutterstock.com/image-photo/calm-weather-on-sea-ocean-600nw-2212935531.jpg',
           'https://media1.giphy.com/media/3o6vXTpomeZEyxufGU/giphy.gif?cid=6c09b952jwjp5rlwdwzfrv2q5kq5k1u2bkykbc9jq1ahpuv8&ep=v1_gifs_search&rid=giphy.gif&ct=g'
-        ] // First element of slide show is regular image src
+        ]
       },
       background: defaultValues.image
     }

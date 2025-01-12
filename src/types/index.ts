@@ -1,7 +1,7 @@
 import { editorFields } from '@/consts'
 import { templates } from '@/templates'
+import { LucideIcon } from 'lucide-react'
 import { FC } from 'react'
-import { IconType } from 'react-icons/lib'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
 
@@ -48,21 +48,28 @@ export interface TextData extends CommonData {
 }
 
 export interface ImageData extends CommonData {
-  items: string[] // One element means a regular image. Two or more means a slide show
+  src: string // First item of slideshow
+  slideshowItems: string[] // One element means a regular image. Two or more means a slide show
+  slideshowInterval: number
   uploaded?: File
   width: number
   height: number | 'auto'
   opacity: number
   borderColor: string
   borderWidth: number
-  slideshowInterval: number
 }
 
-export type TemplateSubCategoryField = {
+export interface LinkData {
+  url: string
+  icon: LucideIcon
+}
+
+export interface TemplateSubCategoryField {
   type: keyof typeof editorFields
   label: string
   name: string
   placeholder: string
+  editor?: boolean
 }
 
 type TemplateSubCategory = {
@@ -72,12 +79,12 @@ type TemplateSubCategory = {
 
 type TemplateCategory = {
   name: string
-  icon: IconType
+  icon: LucideIcon
   subCategories: TemplateSubCategory[]
 }
 
 export type TemplateData = {
-  [key: string]: TextData | ImageData
+  [key: string]: TextData | ImageData | LinkData
 }
 
 interface Template {

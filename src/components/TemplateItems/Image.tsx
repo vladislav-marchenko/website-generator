@@ -16,7 +16,11 @@ export const Image: FC<ImageProps> = ({ fieldName }) => {
   const uploadedImageURL =
     fieldData.uploaded && URL.createObjectURL(fieldData.uploaded)
 
-  const items = [uploadedImageURL, ...fieldData.items].filter(Boolean)
+  const items = [
+    fieldData.src,
+    uploadedImageURL,
+    ...fieldData.slideshowItems
+  ].filter(Boolean)
 
   const currentImageIndex = useSlideshow(
     items.length,
@@ -29,7 +33,9 @@ export const Image: FC<ImageProps> = ({ fieldName }) => {
       className='template-element-animations relative'
       style={{
         transform: `rotate(${fieldData.rotation}deg)`,
-        opacity: fieldData.opacity / 100
+        opacity: fieldData.opacity / 100,
+        minWidth: `${fieldData.width}px`,
+        minHeight: `${fieldData.height}px`
       }}
     >
       {items.map((src, index) => (
@@ -37,15 +43,15 @@ export const Image: FC<ImageProps> = ({ fieldName }) => {
           key={src}
           src={src}
           className={cn(
-            'absolute left-0 top-0 transition-opacity duration-1000',
+            'absolute left-0 top-0 w-full transition-opacity duration-1000',
             items.length > 1 && index !== currentImageIndex && 'opacity-0'
           )}
           style={{
+            borderColor: fieldData.borderColor,
+            borderWidth: `${fieldData.borderWidth}px`,
             width: `${fieldData.width}px`,
             height:
-              fieldData.height === 'auto' ? 'auto' : `${fieldData.height}px`,
-            borderColor: fieldData.borderColor,
-            borderWidth: `${fieldData.borderWidth}px`
+              fieldData.height === 'auto' ? 'auto' : `${fieldData.height}px`
           }}
         />
       ))}

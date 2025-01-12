@@ -13,28 +13,35 @@ export const EditorSlideshow = () => {
   const data = activeSubCategoryData as ImageData
   if (!data) return
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
-    const duplicatedArray = [...data.items]
-    console.log(duplicatedArray, index)
+  const handleChangeSlideshowInput = (
+    e: ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const duplicatedArray = [...data.slideshowItems]
     duplicatedArray[index] = e.target.value
 
-    updateCurrentCategoryField('items', duplicatedArray)
+    updateCurrentCategoryField('slideshowItems', duplicatedArray)
   }
 
   const handleBlur = () => {
     if (data.slideshowInterval < 500) {
-      updateCurrentCategoryField('slideshowInterval', 500)
+      updateCurrentCategoryField('slideshowItems', 500)
     }
   }
 
   return (
     <>
-      {Array.from({ length: 3 }).map((_, index) => (
+      <Input
+        value={data.src} // First element of slide show is regular image src
+        onChange={(e) => updateCurrentCategoryField('src', e.target.value)}
+        placeholder='1 image URL'
+      />
+      {Array.from({ length: 2 }).map((_, index) => (
         <Input
           key={index}
-          value={data.items[index]}
-          onChange={(e) => handleChange(e, index)}
-          placeholder={`${index + 1} image URL`}
+          value={data.slideshowItems[index]} // First element of slide show is regular image src
+          onChange={(e) => handleChangeSlideshowInput(e, index)}
+          placeholder={`${index + 2} image URL`}
         />
       ))}
       <Label>Interval (ms)</Label>

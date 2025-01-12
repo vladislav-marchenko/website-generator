@@ -1,5 +1,9 @@
 import { templates } from '@/templates'
-import { TemplateSubCategoryField, type TemplateNames } from '@/types'
+import {
+  TemplateData,
+  TemplateSubCategoryField,
+  type TemplateNames
+} from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
 import { createContext, PropsWithChildren, useState } from 'react'
 
@@ -16,7 +20,10 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   const activeSubCategoryData =
     activeSubCategory && data[activeSubCategory.name]
 
-  const updateCurrentCategoryField = (fieldName: string, value: unknown) => {
+  const updateCurrentCategoryField = (
+    fieldName: keyof TemplateData,
+    value: unknown
+  ) => {
     if (!activeSubCategory) return
 
     setData((data) => ({

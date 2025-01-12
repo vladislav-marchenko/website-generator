@@ -9,7 +9,7 @@ export const CreateSidebarCategories: FC = () => {
     useContext(TemplateContext) as TemplateContextValues
 
   return (
-    <div className='flex flex-col gap-4 bg-neutral-100 p-2 dark:bg-neutral-800'>
+    <div className='flex flex-col gap-4 overflow-y-auto bg-neutral-100 p-2 dark:bg-neutral-800'>
       {templates[selectedTemplate].categories.map(
         ({ name, icon: Icon }, index) => (
           <button
@@ -25,7 +25,7 @@ export const CreateSidebarCategories: FC = () => {
               }
             )}
           >
-            <Icon size={20} />
+            <Icon width={22} height={22} />
           </button>
         )
       )}

@@ -1,6 +1,6 @@
 import { Input } from '@/components/ui/input'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { ImageData } from '@/types'
+import { LinkData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
@@ -9,13 +9,13 @@ export const EditorURL = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  const data = activeSubCategoryData as ImageData
+  const data = activeSubCategoryData as LinkData
   if (!data) return
 
   return (
     <Input
-      value={data.src}
-      onChange={(e) => updateCurrentCategoryField('src', e.target.value)}
+      value={data.url}
+      onChange={(e) => updateCurrentCategoryField('url', e.target.value)}
     />
   )
 }

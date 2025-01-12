@@ -2,16 +2,22 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TemplateSubCategoryField } from '@/types'
+import type {
+  ImageData,
+  LinkData,
+  TemplateSubCategoryField,
+  TemplateSubCategoryFieldType,
+  TextData
+} from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { ChevronRight } from 'lucide-react'
-import { FC, useContext } from 'react'
+import { ChangeEvent, FC, useContext } from 'react'
 
 export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
   props
 ) => {
-  const { type, name, label, placeholder } = props
-  const { data, setData, setActiveSubCategory } = useContext(
+  const { type, name, label, placeholder, editor = false } = props
+  const { setActiveSubCategory } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -19,20 +25,69 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
     <div className='flex flex-col gap-2'>
       <Label className='flex items-center justify-between gap-4'>
         <span>{label}</span>
-        <Button onClick={() => setActiveSubCategory(props)} variant='ghost'>
-          <ChevronRight />
-        </Button>
+        {editor && (
+          <Button onClick={() => setActiveSubCategory(props)} variant='ghost'>
+            <ChevronRight />
+          </Button>
+        )}
       </Label>
-      <Input
-        value={data[name].value}
-        onChange={(e) =>
-          setData((data) => ({
-            ...data,
-            [name]: { ...data[name], value: e.target.value }
-          }))
-        }
+      <CreateSidebarSubCategoryItemField
+        type={type}
+        name={name}
         placeholder={placeholder}
       />
     </div>
   )
+}
+
+interface CreateSidebarSubCategoryItemFieldProps {
+  type: TemplateSubCategoryFieldType
+  name: string
+  placeholder: string
+}
+
+export const CreateSidebarSubCategoryItemField: FC<
+  CreateSidebarSubCategoryItemFieldProps
+> = ({ type, name, placeholder }) => {
+  const { data, setData } = useContext(TemplateContext) as TemplateContextValues
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    fieldName: keyof TextData | keyof ImageData | keyof LinkData
+  ) => {
+    setData((data) => ({
+      ...data,
+      [name]: { ...data[name], [fieldName]: e.target.value }
+    }))
+  }
+
+  switch (type) {
+    case 'text':
+      return (
+        <Input
+          value={(data[name] as TextData).value}
+          onChange={(e) => handleChange(e, 'value')}
+          placeholder={placeholder}
+        />
+      )
+    case 'image':
+      return (
+        <Input
+          type='url'
+          value={(data[name] as ImageData).src}
+          onChange={(e) => handleChange(e, 'src')}
+          placeholder={placeholder}
+        />
+      )
+
+    case 'link':
+      return (
+        <Input
+          type='url'
+          value={(data[name] as LinkData).url}
+          onChange={(e) => handleChange(e, 'url')}
+          placeholder={placeholder}
+        />
+      )
+  }
 }

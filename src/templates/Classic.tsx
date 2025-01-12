@@ -1,4 +1,5 @@
 import { Image } from '@/components/TemplateItems/Image'
+import { Link } from '@/components/TemplateItems/Link'
 import { Text } from '@/components/TemplateItems/Text'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateContextValues } from '@/types/contexts'
@@ -22,13 +23,13 @@ export const Classic: FC = () => {
       }}
     >
       <div className='group absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
-        <div className='flex flex-col'>
+        <div className='flex flex-col items-center'>
           <Text
             fieldName='projectName'
             placeholder={placeholders.projectName}
           />
-          <Text fieldName='twitter' placeholder={'hello world'} />
           <Image fieldName='logo' />
+          <Link fieldName='tiktok' />
         </div>
       </div>
     </div>

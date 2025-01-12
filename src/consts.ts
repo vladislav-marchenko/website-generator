@@ -289,5 +289,11 @@ export const editorFields = {
       label: 'Animations',
       element: EditorAnimations
     }
+  ],
+  link: [
+    {
+      label: 'URL',
+      element: EditorURL
+    }
   ]
 }
