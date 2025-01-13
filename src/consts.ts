@@ -16,7 +16,7 @@ import { EditorRotate } from './components/Editor/Text/EditorRotate'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Medium, Telegram, Twitter } from './components/Icons'
-import type { Animation } from './types'
+import type { Animation, PricingCard } from './types'
 import {
   IN,
   ID,
@@ -103,7 +103,7 @@ export const footerSocialLinks = [
   }
 ]
 
-export const pricingCards = [
+export const pricingCards: PricingCard[] = [
   {
     title: 'Standard',
     price: 0.045,
@@ -307,3 +307,48 @@ export const editorFields = {
     }
   ]
 }
+
+export const templateCards = [
+  {
+    name: 'classic',
+    title: 'Classic',
+    description:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+    shortDescription:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+    features: [
+      'Modern, clean design',
+      'Smooth animations',
+      'Tokenomics section',
+      'Mobile responsive'
+    ]
+  },
+  {
+    name: 'default',
+    title: 'Default',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+    shortDescription:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+    features: [
+      'Modern, clean design',
+      'Smooth animations',
+      'Tokenomics section',
+      'Mobile responsive'
+    ]
+  },
+  {
+    name: 'simple',
+    title: 'Simple',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+    shortDescription:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+    features: [
+      'Modern, clean design',
+      'Smooth animations',
+      'Tokenomics section',
+      'Mobile responsive'
+    ]
+  }
+]

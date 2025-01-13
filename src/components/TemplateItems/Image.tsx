@@ -1,8 +1,8 @@
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { useSlideshow } from '@/hooks/useSlideshow'
-import { cn } from '@/lib/utils'
 import type { ImageData, TemplateData } from '@/types'
 import type { TemplateContextValues } from '@/types/contexts'
+import { motion, AnimatePresence } from 'motion/react'
 import { FC, useContext } from 'react'
 
 interface ImageProps {
@@ -38,6 +38,8 @@ export const Image: FC<ImageProps> = ({ fieldName }) => {
         minHeight: `${fieldData.height}px`
       }}
     >
+      {/*
+
       {items.map((src, index) => (
         <img
           key={src}
@@ -55,6 +57,25 @@ export const Image: FC<ImageProps> = ({ fieldName }) => {
           }}
         />
       ))}
+
+      */}
+      <AnimatePresence mode='popLayout'>
+        <motion.img
+          key={currentImageIndex}
+          src={items[currentImageIndex]}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{
+            borderColor: fieldData.borderColor,
+            borderWidth: `${fieldData.borderWidth}px`,
+            width: `${fieldData.width}px`,
+            height:
+              fieldData.height === 'auto' ? 'auto' : `${fieldData.height}px`
+          }}
+        />
+      </AnimatePresence>
     </div>
   )
 }

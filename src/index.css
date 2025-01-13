@@ -43,7 +43,7 @@ input {
   }
 
   .template-element-animations {
-    @apply transition-transform duration-500 data-[animation=bounce]:animate-bounce data-[animation=flash]:animate-flash data-[animation=headShake]:animate-headShake data-[animation=heartBeat]:animate-heartBeat data-[animation=hflip]:animate-hflip data-[animation=jello]:animate-jello data-[animation=ping]:animate-ping data-[animation=pulse]:animate-pulse data-[animation=rubberBand]:animate-rubberBand data-[animation=spin]:animate-spin data-[animation=swing]:animate-swing data-[animation=vflip]:animate-vflip data-[animation=wiggle]:animate-wiggle data-[animation=wobble]:animate-wobble data-[animation=in]:duration-700 data-[animation=in]:animate-in data-[animation=in]:fade-in data-[animation=in]:slide-in-from-bottom
+    @apply transition-transform duration-500 data-[animation=bounce]:animate-bounce data-[animation=flash]:animate-flash data-[animation=headShake]:animate-headShake data-[animation=heartBeat]:animate-heartBeat data-[animation=hflip]:animate-hflip data-[animation=jello]:animate-jello data-[animation=ping]:animate-ping data-[animation=pulse]:animate-pulse data-[animation=rubberBand]:animate-rubberBand data-[animation=spin]:animate-spin data-[animation=swing]:animate-swing data-[animation=vflip]:animate-vflip data-[animation=wiggle]:animate-wiggle data-[animation=wobble]:animate-wobble data-[animation=in]:duration-700 data-[animation=in]:animate-in data-[animation=in]:fade-in data-[animation=in]:slide-in-from-bottom;
   }
 }
 

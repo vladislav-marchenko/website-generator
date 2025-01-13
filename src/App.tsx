@@ -3,6 +3,7 @@ import { TemplateContextProvider } from './contexts/TemplateContext'
 import { ThemeContext } from './contexts/ThemeContext'
 import { Create } from './pages/Create'
 import { Pricing } from './pages/Pricing'
+import { Templates } from './pages/Templates'
 import { ThemeContextValues } from './types/contexts'
 import { Main } from '@/pages/Main'
 import { useContext } from 'react'
@@ -16,7 +17,7 @@ function App() {
       <div className='dark:bg-neutral-900 dark:text-white'>
         <Routes>
           <Route
-            path='/create'
+            path='/create/:template'
             element={
               <TemplateContextProvider>
                 <Create />
@@ -26,9 +27,9 @@ function App() {
           <Route element={<Layout />}>
             <Route path='/' element={<Main />} />
             <Route path='/pricing' element={<Pricing />} />
+            <Route path='/templates' element={<Templates />} />
           </Route>
           <Route path='/dashboard' element={<Main />} />
-          <Route path='/templates' element={<Main />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </div>

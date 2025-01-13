@@ -49,44 +49,6 @@ export default {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: '0' }
         },
-        'fade-out-down-fade-in-up': {
-          '0%, 100%': {
-            transform: 'translateY(0)'
-          },
-          '50%': {
-            transform: 'translateY(100%)',
-            opacity: 0
-          }
-        },
-        'fade-out-left-fade-in-left': {
-          '0%, 100%': {
-            transform: 'translateX(0)',
-            opacity: 1
-          },
-          '50%': {
-            transform: 'translateX(-100%)',
-            opacity: 0
-          },
-          '51%': {
-            transform: 'translateX(100%)',
-            opacity: 0
-          }
-        },
-        'fade-out-right-fade-in-right': {
-          '0%, 100%': {
-            transform: 'translateX(0)',
-            opacity: 1
-          },
-          '50%': {
-            transform: 'translateX(100%)',
-            opacity: 0
-          },
-          '51%': {
-            transform: 'translateX(-100%)',
-            opacity: 0
-          }
-        },
-
         wiggle: {
           '0%, 100%': { transform: 'rotate(-15deg)' },
           '50%': { transform: 'rotate(15deg)' }
@@ -241,6 +203,11 @@ export default {
           '88.8%': {
             transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)'
           }
+        },
+        scroll: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-70%)' },
+          '100%': { transform: 'translateY(0)' }
         }
       },
       animation: {
@@ -248,12 +215,6 @@ export default {
         'collapsible-up': 'collapsible-up 0.2s ease-out',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-out-down-fade-in-up': 'fade-out-down-fade-in-up 1.3s ease-in-out',
-        'fade-out-left-fade-in-left':
-          'fade-out-left-fade-in-left 1.3s ease-in-out',
-        'fade-out-right-fade-in-right':
-          'fade-out-right-fade-in-right 1.3s ease-in-out',
-
         wiggle: 'wiggle 1s ease-in-out infinite',
         heartBeat: 'heartBeat 1s infinite',
         hflip: 'flipHorizontal 2s infinite',
@@ -263,7 +224,8 @@ export default {
         flash: 'flash 2s infinite',
         headShake: 'headShake 2s infinite',
         wobble: 'wobble 1s infinite',
-        jello: 'jello 2s infinite'
+        jello: 'jello 2s infinite',
+        scroll: 'scroll 10s infinite linear'
       }
     }
   },

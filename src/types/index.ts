@@ -110,3 +110,13 @@ export interface DefaultValues {
   image: ImageData
   link: LinkData
 }
+
+export interface PricingCard {
+  title: string
+  description: string
+  price: number
+  button: {
+    label: string
+    href: string
+  }
+}
