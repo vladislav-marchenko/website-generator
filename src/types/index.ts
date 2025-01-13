@@ -74,7 +74,7 @@ export interface TemplateSubCategoryField {
   name: string
   placeholder: string
   editor?: boolean
-  defaultValues?: Data
+  defaultValues?: Partial<Data>
 }
 
 type TemplateSubCategory = {

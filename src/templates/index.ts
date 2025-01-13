@@ -7,37 +7,6 @@ import type {
 } from '@/types'
 import { EditIcon, TextIcon, XIcon } from 'lucide-react'
 
-export const defaultValues: DefaultValues = {
-  text: {
-    value: '',
-    fontFamily: 'Inter',
-    fontSizeValue: 24,
-    fontSizeUnit: 'px',
-    color: '#ffffff',
-    styles: [],
-    strokeColor: '#ff0000',
-    strokeWidth: 0,
-    backgroundColor: 'transparent',
-    rotation: 0
-  },
-  image: {
-    src: '',
-    slideshowItems: [], // First element of slide show is regular image src
-    width: 300,
-    height: 'auto',
-    rotation: 0,
-    opacity: 100,
-    borderColor: '#ff0000',
-    borderWidth: 0,
-    slideshowInterval: 2000
-  },
-  link: {
-    url: '',
-    icon: XIcon,
-    rotation: 0
-  }
-}
-
 export const templates: Templates = {
   classic: {
     label: 'Classic',
@@ -55,7 +24,8 @@ export const templates: Templates = {
                 name: 'projectName',
                 label: 'Project name',
                 placeholder: 'Name',
-                editor: true
+                editor: true,
+                defaultValues: { fontSizeValue: 40, align: 'center' }
               }
             ]
           },
@@ -67,7 +37,10 @@ export const templates: Templates = {
                 name: 'logo',
                 label: 'Logo',
                 placeholder: 'https://via.placeholder.com/150',
-                editor: true
+                editor: true,
+                defaultValues: {
+                  url: 'https://via.placeholder.com/150'
+                }
               }
             ]
           },
@@ -160,7 +133,7 @@ export const templates: Templates = {
             fields: [
               {
                 type: 'text',
-                name: 'projectName',
+                name: 'something',
                 label: 'Project name',
                 placeholder: 'Name'
               },
@@ -196,6 +169,37 @@ export const templates: Templates = {
   }
 } as const
 
+export const defaultFieldValues: DefaultValues = {
+  text: {
+    value: '',
+    fontFamily: 'Inter',
+    fontSizeValue: 24,
+    fontSizeUnit: 'px',
+    color: '#ffffff',
+    styles: [],
+    strokeColor: '#ff0000',
+    strokeWidth: 0,
+    backgroundColor: 'transparent',
+    rotation: 0
+  },
+  image: {
+    src: '',
+    slideshowItems: [], // First element of slide show is regular image src
+    width: 300,
+    height: 'auto',
+    rotation: 0,
+    opacity: 100,
+    borderColor: '#ff0000',
+    borderWidth: 0,
+    slideshowInterval: 2000
+  },
+  link: {
+    url: '',
+    icon: XIcon,
+    rotation: 0
+  }
+}
+
 export const getTemplateFields = (
   selectedTemplate: TemplateNames
 ): TemplateData => {
@@ -203,9 +207,12 @@ export const getTemplateFields = (
 
   templates[selectedTemplate].categories.forEach(({ subCategories }) => {
     subCategories.forEach(({ fields }) => {
-      fields.forEach(({ type, name, defaultValues: defaultFieldValues }) => {
+      fields.forEach(({ type, name, defaultValues }) => {
         Object.assign(result, {
-          [name]: { ...defaultValues[type], ...defaultFieldValues }
+          [name]: {
+            ...defaultFieldValues[type],
+            ...defaultValues
+          }
         })
       })
     })
