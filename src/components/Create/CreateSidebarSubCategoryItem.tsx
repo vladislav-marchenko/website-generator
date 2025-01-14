@@ -1,18 +1,12 @@
 import { Button } from '../ui/button'
 import { Checkbox } from '../ui/checkbox'
-import { Input } from '../ui/input'
 import { Label } from '../ui/label'
+import { CreateSidebarSubCategoryItemField } from './CreateSidebarSubCategoryItemField'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import type {
-  ImageData,
-  LinkData,
-  TemplateSubCategoryField,
-  TemplateSubCategoryFieldType,
-  TextData
-} from '@/types'
+import type { TemplateSubCategoryField } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { ChevronRight } from 'lucide-react'
-import { ChangeEvent, FC, useContext } from 'react'
+import { FC, useContext } from 'react'
 
 export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
   props
@@ -55,55 +49,4 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
       )}
     </div>
   )
-}
-
-interface CreateSidebarSubCategoryItemFieldProps {
-  type: TemplateSubCategoryFieldType
-  name: string
-  placeholder?: string
-}
-
-export const CreateSidebarSubCategoryItemField: FC<
-  CreateSidebarSubCategoryItemFieldProps
-> = ({ type, name, placeholder }) => {
-  const { data, updateField } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement>,
-    fieldName: keyof TextData | keyof ImageData | keyof LinkData
-  ) => {
-    updateField(name, { ...data[name], [fieldName]: e.target.value })
-  }
-
-  switch (type) {
-    case 'text':
-      return (
-        <Input
-          value={(data[name] as TextData).value}
-          onChange={(e) => handleChange(e, 'value')}
-          placeholder={placeholder}
-        />
-      )
-    case 'image':
-      return (
-        <Input
-          type='url'
-          value={(data[name] as ImageData).src}
-          onChange={(e) => handleChange(e, 'src')}
-          placeholder={placeholder}
-        />
-      )
-
-    case 'link':
-      return (
-        <Input
-          type='url'
-          value={(data[name] as LinkData).url}
-          onChange={(e) => handleChange(e, 'url')}
-          placeholder={placeholder}
-        />
-      )
-  }
 }
