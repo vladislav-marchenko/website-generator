@@ -225,6 +225,7 @@ export const getTemplateFields = (
   templates[selectedTemplate].categories.forEach(({ subCategories }) => {
     subCategories.forEach(({ fields }) => {
       fields.forEach(({ type, name, defaultValues }) => {
+        // Toggle fields are already added to components as 'show' property
         if (name in result || type === 'toggle') return
 
         Object.assign(result, {

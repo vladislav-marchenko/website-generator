@@ -26,10 +26,13 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   ) => {
     if (!activeSubCategory) return
 
-    updateField(activeSubCategory.name, {
-      ...data[activeSubCategory.name],
-      [fieldName]: value
-    })
+    setData((data) => ({
+      ...data,
+      [activeSubCategory.name]: {
+        ...data[activeSubCategory.name],
+        [fieldName]: value
+      }
+    }))
   }
 
   const value = {
@@ -41,8 +44,8 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     setActiveCategoryIndex,
     activeSubCategory,
     setActiveSubCategory,
-    updateCurrentCategoryField,
     updateField,
+    updateCurrentCategoryField,
     activeSubCategoryData
   }
 
