@@ -10,7 +10,7 @@ export const Templates = () => {
   const [isSliderView, setIsSliderView] = useState(true)
 
   return (
-    <Section className='container flex flex-col gap-8'>
+    <Section className='container flex flex-col gap-16'>
       <div className='flex justify-between gap-4'>
         <Button to='/' className='flex items-center py-2 text-sm'>
           <ChevronLeft />
