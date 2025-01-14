@@ -22,8 +22,10 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
     <Collapsible>
       <CollapsibleTrigger className='flex items-center gap-4'>
         <span>{label}</span>
-        <Button variant='ghost'>
-          <ChevronDown />
+        <Button asChild variant='ghost'>
+          <div>
+            <ChevronDown />
+          </div>
         </Button>
       </CollapsibleTrigger>
       <CollapsibleContent>

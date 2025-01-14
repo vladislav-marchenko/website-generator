@@ -29,13 +29,13 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
           htmlFor={name}
           className='flex items-center justify-between gap-4 pr-2'
         >
-          <span>{label}</span>
-          {editor && (
-            <Button onClick={() => setActiveSubCategory(props)} variant='ghost'>
-              <ChevronRight />
-            </Button>
-          )}
+          {label}
         </Label>
+        {editor && (
+          <Button onClick={() => setActiveSubCategory(props)} variant='ghost'>
+            <ChevronRight />
+          </Button>
+        )}
         {type === 'toggle' && (
           <Checkbox
             id={name}
