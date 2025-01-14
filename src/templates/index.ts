@@ -131,7 +131,7 @@ export const templates: Templates = {
             fields: [
               {
                 type: 'toggle',
-                name: 'showTitle',
+                name: 'projectName',
                 label: 'Title'
               }
             ]
@@ -194,7 +194,8 @@ export const defaultFieldValues: DefaultValues = {
     strokeColor: '#ff0000',
     strokeWidth: 0,
     backgroundColor: 'transparent',
-    rotation: 0
+    rotation: 0,
+    show: true
   },
   image: {
     src: '',
@@ -205,15 +206,14 @@ export const defaultFieldValues: DefaultValues = {
     opacity: 100,
     borderColor: '#ff0000',
     borderWidth: 0,
-    slideshowInterval: 2000
+    slideshowInterval: 2000,
+    show: true
   },
   link: {
     url: '',
     icon: XIcon,
-    rotation: 0
-  },
-  toggle: {
-    checked: true
+    rotation: 0,
+    show: true
   }
 }
 
@@ -225,6 +225,8 @@ export const getTemplateFields = (
   templates[selectedTemplate].categories.forEach(({ subCategories }) => {
     subCategories.forEach(({ fields }) => {
       fields.forEach(({ type, name, defaultValues }) => {
+        if (name in result || type === 'toggle') return
+
         Object.assign(result, {
           [name]: {
             ...defaultFieldValues[type],

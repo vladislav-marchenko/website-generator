@@ -1,3 +1,4 @@
+import { editorFields } from '@/consts'
 import { LucideIcon } from 'lucide-react'
 import { FC } from 'react'
 
@@ -27,11 +28,12 @@ export interface Animation {
 
 type FontSizeUnit = 'px' | 'rem' | 'cm'
 
-export type Data = TextData | ImageData | LinkData | ToggleData
+export type Data = TextData | ImageData | LinkData
 
 interface CommonData {
   rotation: number
   animation?: AnimationValue
+  show: boolean
 }
 
 export interface TextData extends CommonData {
@@ -64,11 +66,7 @@ export interface LinkData extends CommonData {
   icon: LucideIcon
 }
 
-export interface ToggleData {
-  checked: boolean
-}
-
-export type TemplateSubCategoryFieldType = keyof DefaultValues
+export type TemplateSubCategoryFieldType = keyof typeof editorFields
 
 export interface TemplateSubCategoryField {
   type: TemplateSubCategoryFieldType
@@ -111,7 +109,6 @@ export interface DefaultValues {
   text: TextData
   image: ImageData
   link: LinkData
-  toggle: ToggleData
 }
 
 export interface PricingCard {

@@ -8,8 +8,7 @@ import type {
   LinkData,
   TemplateSubCategoryField,
   TemplateSubCategoryFieldType,
-  TextData,
-  ToggleData
+  TextData
 } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { ChevronRight } from 'lucide-react'
@@ -40,8 +39,10 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
         {type === 'toggle' && (
           <Checkbox
             id={name}
-            onCheckedChange={(value) => updateField(name, value)}
-            checked={(data[name] as ToggleData).checked}
+            onCheckedChange={(value) => {
+              updateField(name, { ...data[name], show: value })
+            }}
+            checked={data[name].show}
           />
         )}
       </div>
