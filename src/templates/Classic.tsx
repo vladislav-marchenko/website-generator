@@ -24,10 +24,12 @@ export const Classic: FC = () => {
     >
       <div className='group absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-md'>
         <div className='flex flex-col items-center'>
-          <Text
-            fieldName='projectName'
-            placeholder={placeholders.projectName}
-          />
+          {data.showTitle && (
+            <Text
+              fieldName='projectName'
+              placeholder={placeholders.projectName}
+            />
+          )}
           <Image fieldName='logo' />
           <Link fieldName='tiktok' />
         </div>

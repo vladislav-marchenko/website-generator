@@ -125,6 +125,16 @@ export const templates: Templates = {
                 placeholder: 'https://example.com/whitepaper'
               }
             ]
+          },
+          {
+            label: 'Enable/Disable elements',
+            fields: [
+              {
+                type: 'toggle',
+                name: 'showTitle',
+                label: 'Title'
+              }
+            ]
           }
         ]
       },
@@ -201,6 +211,9 @@ export const defaultFieldValues: DefaultValues = {
     url: '',
     icon: XIcon,
     rotation: 0
+  },
+  toggle: {
+    checked: true
   }
 }
 

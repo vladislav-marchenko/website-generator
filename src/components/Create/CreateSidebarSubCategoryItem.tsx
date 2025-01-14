@@ -1,4 +1,5 @@
 import { Button } from '../ui/button'
+import { Checkbox } from '../ui/checkbox'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { TemplateContext } from '@/contexts/TemplateContext'
@@ -7,7 +8,8 @@ import type {
   LinkData,
   TemplateSubCategoryField,
   TemplateSubCategoryFieldType,
-  TextData
+  TextData,
+  ToggleData
 } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { ChevronRight } from 'lucide-react'
@@ -17,25 +19,39 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
   props
 ) => {
   const { type, name, label, placeholder, editor = false } = props
-  const { setActiveSubCategory } = useContext(
+  const { data, updateField, setActiveSubCategory } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
   return (
     <div className='flex flex-col gap-2'>
-      <Label className='flex items-center justify-between gap-4'>
-        <span>{label}</span>
-        {editor && (
-          <Button onClick={() => setActiveSubCategory(props)} variant='ghost'>
-            <ChevronRight />
-          </Button>
+      <div className='flex items-center'>
+        <Label
+          htmlFor={name}
+          className='flex items-center justify-between gap-4 pr-2'
+        >
+          <span>{label}</span>
+          {editor && (
+            <Button onClick={() => setActiveSubCategory(props)} variant='ghost'>
+              <ChevronRight />
+            </Button>
+          )}
+        </Label>
+        {type === 'toggle' && (
+          <Checkbox
+            id={name}
+            onCheckedChange={(value) => updateField(name, value)}
+            checked={(data[name] as ToggleData).checked}
+          />
         )}
-      </Label>
-      <CreateSidebarSubCategoryItemField
-        type={type}
-        name={name}
-        placeholder={placeholder}
-      />
+      </div>
+      {type !== 'toggle' && (
+        <CreateSidebarSubCategoryItemField
+          type={type}
+          name={name}
+          placeholder={placeholder}
+        />
+      )}
     </div>
   )
 }
@@ -43,22 +59,21 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
 interface CreateSidebarSubCategoryItemFieldProps {
   type: TemplateSubCategoryFieldType
   name: string
-  placeholder: string
+  placeholder?: string
 }
 
 export const CreateSidebarSubCategoryItemField: FC<
   CreateSidebarSubCategoryItemFieldProps
 > = ({ type, name, placeholder }) => {
-  const { data, setData } = useContext(TemplateContext) as TemplateContextValues
+  const { data, updateField } = useContext(
+    TemplateContext
+  ) as TemplateContextValues
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement>,
     fieldName: keyof TextData | keyof ImageData | keyof LinkData
   ) => {
-    setData((data) => ({
-      ...data,
-      [name]: { ...data[name], [fieldName]: e.target.value }
-    }))
+    updateField(name, { ...data[name], [fieldName]: e.target.value })
   }
 
   switch (type) {

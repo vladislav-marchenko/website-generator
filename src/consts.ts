@@ -305,7 +305,8 @@ export const editorFields = {
       label: 'Animation',
       element: EditorAnimations
     }
-  ]
+  ],
+  toggle: null
 }
 
 export const templateCards = [

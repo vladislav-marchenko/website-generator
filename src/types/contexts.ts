@@ -18,6 +18,7 @@ export interface TemplateContextValues {
     SetStateAction<TemplateSubCategoryField | null>
   >
   updateCurrentCategoryField: (fieldName: string, value: unknown) => void
+  updateField: (fieldName: string, value: unknown) => void
   activeSubCategoryData: Data | null
 }
 
