@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className={theme}>
-      <div className='dark:bg-black dark:text-white'>
+      <div className='dark:bg-neutral-900 dark:text-white'>
         <Routes>
           <Route
             path='/create/:template'

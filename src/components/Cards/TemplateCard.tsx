@@ -1,5 +1,6 @@
 import { Button } from '../Button'
 import { Description } from '../Description'
+import { Card } from './Card'
 import { templateCards } from '@/consts'
 import { Check } from 'lucide-react'
 import { FC } from 'react'
@@ -11,7 +12,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
     templateCards[currentIndex]
 
   return (
-    <div className='flex min-h-24 w-[400px] flex-col gap-4 rounded-2xl bg-neutral-700 p-8'>
+    <Card>
       <div className='group h-48 overflow-hidden rounded-md'>
         <img
           className='object-cover object-top group-hover:animate-scroll'
@@ -20,7 +21,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
       </div>
       <h4>{title}</h4>
       <Description>{shortDescription}</Description>
-      <ul className='flex flex-col gap-1'>
+      <ul className='flex flex-col gap-1 pb-4'>
         {features.map((feature) => (
           <li className='flex items-center gap-2'>
             <Check size={20} />
@@ -29,6 +30,6 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
         ))}
       </ul>
       <Button to={`/create/${name}`}>Select</Button>
-    </div>
+    </Card>
   )
 }
