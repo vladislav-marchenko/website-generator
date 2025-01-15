@@ -1,13 +1,6 @@
+import { SizeUnitSelect } from '../SizeUnitSelect'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
-import { fontSizeUnits } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
@@ -33,20 +26,7 @@ export const EditorFontSize = () => {
             updateCurrentCategoryField('fontSizeValue', e.target.value)
           }
         />
-        <Select
-          onValueChange={(unit) =>
-            updateCurrentCategoryField('fontSizeUnit', unit)
-          }
-        >
-          <SelectTrigger className='w-1/4'>
-            <SelectValue placeholder={fontSizeUnits[0]} />
-          </SelectTrigger>
-          <SelectContent>
-            {fontSizeUnits.map((unit) => (
-              <SelectItem value={unit}>{unit}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <SizeUnitSelect />
       </div>
       <Slider
         defaultValue={[data.fontSizeValue]}

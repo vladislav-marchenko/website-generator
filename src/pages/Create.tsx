@@ -17,16 +17,13 @@ export const Create = () => {
   const Template = templates[selectedTemplateName].element
 
   return (
-    <ResizablePanelGroup
-      direction='horizontal'
-      className='flex h-full min-h-screen'
-    >
+    <ResizablePanelGroup direction='horizontal' className='flex max-h-dvh'>
       <ResizablePanel defaultSize={20} minSize={15} maxSize={80}>
         <CreateSidebar />
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel>
-        <main className='h-full flex-auto bg-neutral-600 text-white'>
+        <main className='h-full flex-auto text-white'>
           <Template />
         </main>
       </ResizablePanel>

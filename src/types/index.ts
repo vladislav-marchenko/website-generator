@@ -26,21 +26,20 @@ export interface Animation {
   value: AnimationValue
 }
 
-type FontSizeUnit = 'px' | 'rem' | 'cm'
+type SizeUnit = 'px' | 'rem' | 'cm' | '%'
 
-export type Data = TextData | ImageData | LinkData
+export type Data = TextData | ImageData | LinkData | ToggleData
 
 interface CommonData {
   rotation: number
   animation?: AnimationValue
-  show: boolean
 }
 
 export interface TextData extends CommonData {
   value: string
   fontFamily: string
   fontSizeValue: number
-  fontSizeUnit: FontSizeUnit
+  sizeUnit: SizeUnit
   color: string
   align?: 'left' | 'center' | 'right'
   styles: TextStyles[]
@@ -56,6 +55,7 @@ export interface ImageData extends CommonData {
   uploaded?: File
   width: number
   height: number | 'auto'
+  sizeUnit: SizeUnit
   opacity: number
   borderColor: string
   borderWidth: number
@@ -63,7 +63,12 @@ export interface ImageData extends CommonData {
 
 export interface LinkData extends CommonData {
   url: string
-  icon: LucideIcon
+  icon: LucideIcon | FC
+  size: number
+}
+
+export interface ToggleData {
+  value: boolean
 }
 
 export type TemplateSubCategoryFieldType = keyof typeof editorFields
@@ -109,6 +114,7 @@ export interface DefaultValues {
   text: TextData
   image: ImageData
   link: LinkData
+  toggle: ToggleData
 }
 
 export interface PricingCard {

@@ -1,4 +1,5 @@
-import { Classic } from './Classic'
+import { Classic } from './Classic/Classic'
+import { Telegram } from '@/components/Icons'
 import type {
   DefaultValues,
   TemplateData,
@@ -21,11 +22,40 @@ export const templates: Templates = {
             fields: [
               {
                 type: 'text',
-                name: 'projectName',
+                name: 'logoText',
                 label: 'Project name',
-                placeholder: 'Name',
                 editor: true,
-                defaultValues: { fontSizeValue: 40, align: 'center' }
+                defaultValues: { fontSizeValue: 40 }
+              },
+              {
+                type: 'text',
+                name: 'ticker',
+                label: 'Ticker',
+                editor: true,
+                defaultValues: {
+                  fontSizeValue: 96,
+                  styles: ['bold'],
+                  align: 'center',
+                  animation: 'heartBeat'
+                }
+              },
+              {
+                type: 'text',
+                name: 'contractAddress',
+                label: 'Contract Address',
+                editor: true,
+                defaultValues: {
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'description',
+                label: 'Description',
+                editor: true,
+                defaultValues: {
+                  color: '#000'
+                }
               }
             ]
           },
@@ -34,16 +64,35 @@ export const templates: Templates = {
             fields: [
               {
                 type: 'image',
-                name: 'logo',
+                name: 'logoImage',
                 label: 'Logo',
-                placeholder: 'https://via.placeholder.com/150',
                 editor: true,
                 defaultValues: {
-                  url: 'https://via.placeholder.com/150',
-                  slideshowItems: [
-                    'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
-                    'https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png'
-                  ]
+                  width: 70,
+                  height: 70,
+                  sizeUnit: 'px'
+                }
+              },
+              {
+                type: 'image',
+                name: 'background',
+                label: 'Background',
+                editor: true,
+                defaultValues: {
+                  src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
+                  width: 100,
+                  height: 100,
+                  sizeUnit: '%'
+                }
+              },
+              {
+                type: 'image',
+                name: 'preview',
+                label: 'Image Preview',
+                editor: true,
+                defaultValues: {
+                  width: 300,
+                  sizeUnit: 'px'
                 }
               }
             ]
@@ -74,7 +123,11 @@ export const templates: Templates = {
                 type: 'link',
                 label: 'Telegram',
                 name: 'telegram',
-                placeholder: 'https://t.me'
+                placeholder: 'https://t.me',
+                defaultValues: {
+                  icon: Telegram,
+                  size: 64
+                }
               },
               {
                 type: 'link',
@@ -131,8 +184,8 @@ export const templates: Templates = {
             fields: [
               {
                 type: 'toggle',
-                name: 'projectName',
-                label: 'Title'
+                name: 'showHowToBuy',
+                label: 'How to Buy'
               }
             ]
           }
@@ -188,32 +241,34 @@ export const defaultFieldValues: DefaultValues = {
     value: '',
     fontFamily: 'Inter',
     fontSizeValue: 24,
-    fontSizeUnit: 'px',
+    sizeUnit: 'px',
     color: '#ffffff',
     styles: [],
     strokeColor: '#ff0000',
     strokeWidth: 0,
     backgroundColor: 'transparent',
-    rotation: 0,
-    show: true
+    rotation: 0
   },
   image: {
     src: '',
     slideshowItems: [], // First element of slide show is regular image src
     width: 300,
     height: 'auto',
+    sizeUnit: 'px',
     rotation: 0,
     opacity: 100,
     borderColor: '#ff0000',
     borderWidth: 0,
-    slideshowInterval: 2000,
-    show: true
+    slideshowInterval: 2000
   },
   link: {
     url: '',
     icon: XIcon,
-    rotation: 0,
-    show: true
+    size: 24,
+    rotation: 0
+  },
+  toggle: {
+    value: true
   }
 }
 
@@ -225,8 +280,7 @@ export const getTemplateFields = (
   templates[selectedTemplate].categories.forEach(({ subCategories }) => {
     subCategories.forEach(({ fields }) => {
       fields.forEach(({ type, name, defaultValues }) => {
-        // Toggle fields are already added to components as 'show' property
-        if (name in result || type === 'toggle') return
+        if (name in result) return
 
         Object.assign(result, {
           [name]: {

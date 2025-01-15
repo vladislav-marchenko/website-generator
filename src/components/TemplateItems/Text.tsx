@@ -1,4 +1,5 @@
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { cn } from '@/lib/utils'
 import { TemplateData, TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
@@ -6,14 +7,19 @@ import ContentEditable from 'react-contenteditable'
 
 interface TextProps {
   fieldName: keyof TemplateData
-  placeholder: string
-  tagName?: string
+  placeholder?: string
+  as?: string
+  className?: {
+    wrapper?: string
+    text?: string
+  }
 }
 
 export const Text: FC<TextProps> = ({
   fieldName,
-  placeholder,
-  tagName = 'span'
+  placeholder = '',
+  as = 'span',
+  className
 }) => {
   const { data, setData } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data[fieldName] as TextData
@@ -21,7 +27,10 @@ export const Text: FC<TextProps> = ({
   return (
     <div
       data-animation={fieldData.animation}
-      className='template-element-animations'
+      className={cn(
+        'template-element-animations max-w-max',
+        className?.wrapper
+      )}
       style={{
         textAlign: fieldData.align,
         transform: `rotate(${fieldData.rotation}deg)`
@@ -29,7 +38,7 @@ export const Text: FC<TextProps> = ({
     >
       <ContentEditable
         html={fieldData.value || placeholder}
-        tagName={tagName}
+        tagName={as}
         onChange={(e) =>
           setData({
             ...data,
@@ -39,9 +48,10 @@ export const Text: FC<TextProps> = ({
             }
           })
         }
+        className={className?.text}
         style={{
           fontFamily: `'${fieldData.fontFamily}'`,
-          fontSize: fieldData.fontSizeValue + fieldData.fontSizeUnit,
+          fontSize: fieldData.fontSizeValue + fieldData.sizeUnit,
           color: fieldData.color,
           textDecoration: fieldData.styles
             .filter((style) => ['underline', 'line-through'].includes(style))

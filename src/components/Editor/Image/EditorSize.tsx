@@ -1,3 +1,4 @@
+import { SizeUnitSelect } from '../SizeUnitSelect'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
@@ -26,7 +27,7 @@ export const EditorSize = () => {
         min={50}
         max={1500}
       />
-      <div className='flex gap-4'>
+      <div className='flex items-end gap-4'>
         <div className='flex flex-col gap-2'>
           <Label htmlFor='width'>Width</Label>
           <Input
@@ -54,6 +55,7 @@ export const EditorSize = () => {
             placeholder='auto'
           />
         </div>
+        <SizeUnitSelect />
       </div>
     </div>
   )
