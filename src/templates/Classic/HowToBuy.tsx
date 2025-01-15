@@ -26,14 +26,21 @@ export const ClassicHowToBuy = () => {
       <h2 className='tracking-wide'>How to Buy</h2>
       <div className='flex flex-wrap justify-center gap-4'>
         {howToBuyCards.map(({ description, images }, index) => (
-          <div className='flex max-w-72 flex-col justify-between gap-8 rounded-xl bg-white p-4 text-black'>
+          <div
+            key={description}
+            className='flex max-w-72 flex-col justify-between gap-8 rounded-xl bg-white p-4 text-black'
+          >
             <div className='flex flex-col gap-2'>
               <h3 className='text-3xl'>Step {index + 1}</h3>
               <p className='text-center text-lg font-medium'>{description}</p>
             </div>
             <div className='flex items-center gap-4'>
               {images.map((image) => (
-                <img src={image} className='h-16 w-16 rounded-xl bg-black' />
+                <img
+                  key={image}
+                  src={image}
+                  className='h-16 w-16 rounded-xl bg-black'
+                />
               ))}
             </div>
           </div>

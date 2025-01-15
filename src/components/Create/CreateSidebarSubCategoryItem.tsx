@@ -16,8 +16,6 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
     TemplateContext
   ) as TemplateContextValues
 
-  console.log(data)
-
   return (
     <div className='flex flex-col gap-2'>
       <div className='flex items-center'>
