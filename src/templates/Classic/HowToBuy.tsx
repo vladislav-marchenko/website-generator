@@ -24,7 +24,7 @@ export const ClassicHowToBuy = () => {
   return (
     <div className='flex flex-col items-center gap-4 pt-16'>
       <h2 className='tracking-wide'>How to Buy</h2>
-      <div className='flex gap-4'>
+      <div className='flex flex-wrap justify-center gap-4'>
         {howToBuyCards.map(({ description, images }, index) => (
           <div className='flex max-w-72 flex-col justify-between gap-8 rounded-xl bg-white p-4 text-black'>
             <div className='flex flex-col gap-2'>
