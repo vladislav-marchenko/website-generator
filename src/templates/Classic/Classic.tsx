@@ -1,4 +1,3 @@
-import { ClassicButton } from './Button'
 import { ClassicBuyButton } from './BuyButton'
 import { ClassicCopyButton } from './CopyButton'
 import { ClassicHowToBuy } from './HowToBuy'
@@ -7,7 +6,6 @@ import { Link } from '@/components/TemplateItems/Link'
 import { Text } from '@/components/TemplateItems/Text'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateContextValues } from '@/types/contexts'
-import { Copy } from 'lucide-react'
 import { FC, useContext } from 'react'
 
 export const Classic: FC = () => {

@@ -13,7 +13,7 @@ export const ClassicBuyButton = () => {
   }
 
   return (
-    <ClassicButton className='w-72 rounded-full text-center text-3xl uppercase text-black'>
+    <ClassicButton className='min-w-72 rounded-full text-center text-3xl uppercase text-black'>
       <a
         href={data.links.buyNowLink.url}
         target='_blank'
