@@ -30,7 +30,7 @@ type SizeUnit = 'px' | 'rem' | 'cm' | '%'
 
 export type Data = TextData | ImageData | LinkData | ToggleData
 
-interface CommonData {
+interface CommonData extends TemplateSubCategoryField {
   rotation: number
   animation: AnimationValue | null
   animationDuration: number
@@ -118,10 +118,10 @@ export interface Templates {
 }
 
 export interface DefaultValues {
-  text: TextData
-  image: ImageData
-  link: LinkData
-  toggle: ToggleData
+  text: Omit<TextData, keyof TemplateSubCategoryField>
+  image: Omit<ImageData, keyof TemplateSubCategoryField>
+  link: Omit<LinkData, keyof TemplateSubCategoryField>
+  toggle: Omit<ToggleData, keyof TemplateSubCategoryField>
 }
 
 export interface PricingCard {

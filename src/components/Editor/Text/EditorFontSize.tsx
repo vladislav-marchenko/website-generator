@@ -7,7 +7,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const EditorFontSize = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -23,7 +23,7 @@ export const EditorFontSize = () => {
           max={300}
           value={data.fontSizeValue}
           onChange={(e) =>
-            updateCurrentCategoryField('fontSizeValue', e.target.value)
+            updateField(`${data.name}fontSizeValue`, e.target.value)
           }
         />
         <SizeUnitSelect />
@@ -33,7 +33,7 @@ export const EditorFontSize = () => {
         min={10}
         max={300}
         onValueChange={(value) =>
-          updateCurrentCategoryField('fontSizeValue', value[0])
+          updateField(`${data.name}.fontSizeValue`, value[0])
         }
       />
     </>

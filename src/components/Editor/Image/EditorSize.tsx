@@ -8,7 +8,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const EditorSize = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -20,10 +20,9 @@ export const EditorSize = () => {
       <Slider
         className='my-2'
         value={[data.width]}
-        onValueChange={(value) => {
-          updateCurrentCategoryField('width', value[0])
-          updateCurrentCategoryField('height', 'auto')
-        }}
+        onValueChange={(value) =>
+          updateField(data.name, { ...data, width: value[0], height: 'auto' })
+        }
         min={50}
         max={1500}
       />
@@ -36,9 +35,7 @@ export const EditorSize = () => {
             value={data.width}
             min={50}
             max={1500}
-            onChange={(e) =>
-              updateCurrentCategoryField('width', e.target.value)
-            }
+            onChange={(e) => updateField(`${data.name}.width`, e.target.value)}
           />
         </div>
         <div className='flex flex-col gap-2'>
@@ -49,9 +46,7 @@ export const EditorSize = () => {
             value={data.height}
             min={50}
             max={1500}
-            onChange={(e) =>
-              updateCurrentCategoryField('height', e.target.value)
-            }
+            onChange={(e) => updateField(`${data.name}.height`, e.target.value)}
             placeholder='auto'
           />
         </div>

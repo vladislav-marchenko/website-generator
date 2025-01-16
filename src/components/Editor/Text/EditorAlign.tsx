@@ -21,7 +21,7 @@ const items = [
 ]
 
 export const EditorAlign = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -32,7 +32,7 @@ export const EditorAlign = () => {
     <ToggleGroup
       type='single'
       defaultValue={data.align}
-      onValueChange={(value) => updateCurrentCategoryField('align', value)}
+      onValueChange={(value) => updateField(`${data.name}.align`, value)}
     >
       {items.map(({ value, icon: Icon }) => (
         <ToggleGroupItem key={value} value={value}>

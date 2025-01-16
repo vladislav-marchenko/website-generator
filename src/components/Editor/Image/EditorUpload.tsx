@@ -5,7 +5,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { ChangeEvent, useContext } from 'react'
 
 export const EditorUpload = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -16,7 +16,7 @@ export const EditorUpload = () => {
     const file = e.target.files?.[0]
     if (!file || !file.type.includes('image/')) return
 
-    updateCurrentCategoryField('uploaded', file)
+    updateField(`${data.name}.uploaded`, file)
   }
 
   return (

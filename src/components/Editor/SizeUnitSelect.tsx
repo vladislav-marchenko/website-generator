@@ -12,7 +12,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const SizeUnitSelect = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -22,7 +22,7 @@ export const SizeUnitSelect = () => {
   return (
     <Select
       value={data.sizeUnit}
-      onValueChange={(unit) => updateCurrentCategoryField('sizeUnit', unit)}
+      onValueChange={(unit) => updateField(`${data.name}.sizeUnit`, unit)}
     >
       <SelectTrigger className='w-1/4'>
         <SelectValue placeholder={fontSizeUnits[0]} />

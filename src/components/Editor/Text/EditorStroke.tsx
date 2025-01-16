@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
 export const EditorStroke = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -19,7 +19,7 @@ export const EditorStroke = () => {
       <HexColorPicker
         color={data.strokeColor}
         onChange={(color) => {
-          updateCurrentCategoryField('strokeColor', color)
+          updateField(`${data.name}.strokeColor`, color)
         }}
       />
       <div className='flex items-center gap-4'>
@@ -30,7 +30,7 @@ export const EditorStroke = () => {
           max={20}
           step={0.1}
           onValueChange={(value) =>
-            updateCurrentCategoryField('strokeWidth', value[0])
+            updateField(`${data.name}.strokeWidth`, value[0])
           }
         />
       </div>

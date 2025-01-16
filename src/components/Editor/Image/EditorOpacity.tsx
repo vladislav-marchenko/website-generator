@@ -5,7 +5,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const EditorOpacity = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -16,7 +16,7 @@ export const EditorOpacity = () => {
     <Slider
       className='my-2'
       value={[data.opacity]}
-      onValueChange={(value) => updateCurrentCategoryField('opacity', value[0])}
+      onValueChange={(value) => updateField(`${data.name}.opacity`, value[0])}
       min={0}
       max={100}
     />

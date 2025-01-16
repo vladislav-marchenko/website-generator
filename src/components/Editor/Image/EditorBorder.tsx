@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
 export const EditorBorder = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -18,16 +18,14 @@ export const EditorBorder = () => {
     <>
       <HexColorPicker
         color={data.borderColor}
-        onChange={(color) => {
-          updateCurrentCategoryField('borderColor', color)
-        }}
+        onChange={(color) => updateField(`${data.name}.borderColor`, color)}
       />
       <div className='flex items-center gap-4'>
         <Label>Width</Label>
         <Slider
           value={[data.borderWidth]}
           onValueChange={(value) =>
-            updateCurrentCategoryField('borderWidth', value[0])
+            updateField(`${data.name}.borderWidth`, value[0])
           }
         />
       </div>

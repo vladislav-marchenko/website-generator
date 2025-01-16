@@ -1,5 +1,6 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import {
   AlignLeft,
@@ -32,14 +33,17 @@ const items = [
 ]
 
 export const EditorStyles = () => {
-  const { updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
+
+  const data = activeSubCategoryData as TextData
+  if (!data) return
 
   return (
     <ToggleGroup
       type='multiple'
-      onValueChange={(value) => updateCurrentCategoryField('styles', value)}
+      onValueChange={(value) => updateField(`${data.name}.styles`, value)}
     >
       {items.map(({ value, icon: Icon }) => (
         <ToggleGroupItem key={value} value={value}>

@@ -5,7 +5,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const EditorURL = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -15,7 +15,8 @@ export const EditorURL = () => {
   return (
     <Input
       value={data.src}
-      onChange={(e) => updateCurrentCategoryField('src', e.target.value)}
+      onChange={(e) => updateField(`${data.name}.src`, e.target.value)}
+      placeholder={data?.placeholder}
     />
   )
 }

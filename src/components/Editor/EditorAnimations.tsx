@@ -8,7 +8,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 
 export const EditorAnimations: FC = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -20,9 +20,7 @@ export const EditorAnimations: FC = () => {
       <ToggleGroup
         type='single'
         value={data.animation || undefined}
-        onValueChange={(value) =>
-          updateCurrentCategoryField('animation', value)
-        }
+        onValueChange={(value) => updateField(`${data.name}.animation`, value)}
         className='flex flex-wrap gap-2'
       >
         {animations.map(({ label, value }) => (
@@ -42,7 +40,7 @@ export const EditorAnimations: FC = () => {
           min={100}
           max={5000}
           onValueChange={(value) =>
-            updateCurrentCategoryField('animationDuration', value[0])
+            updateField(`${data.name}.animationDuration`, value[0])
           }
         />
       </div>

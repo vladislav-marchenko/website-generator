@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
 export const EditorBackground = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -18,13 +18,13 @@ export const EditorBackground = () => {
       <HexColorPicker
         color={data.backgroundColor}
         onChange={(color) => {
-          updateCurrentCategoryField('backgroundColor', color)
+          updateField(`${data.name}.backgroundColor`, color)
         }}
       />
       <Button
         className='max-w-max'
         onClick={() =>
-          updateCurrentCategoryField('backgroundColor', 'transparent')
+          updateField(`${data.name}.backgroundColor`, 'transparent')
         }
       >
         Remove

@@ -6,27 +6,30 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const EditorSlideshow = () => {
-  const {
-    activeSubCategoryData,
-    activeSubCategory,
-    updateField,
-    updateCurrentCategoryField
-  } = useContext(TemplateContext) as TemplateContextValues
+  const { activeSubCategoryData, updateField } = useContext(
+    TemplateContext
+  ) as TemplateContextValues
 
   const data = activeSubCategoryData as ImageData
   if (!data) return
 
   const handleBlur = () => {
     if (data.slideshowInterval < 500) {
-      updateCurrentCategoryField('slideshowInterval', 500)
+      updateField(`${data.name}.slideshowInterval`, 500)
+    }
+
+    if (data.slideshowInterval > 10000) {
+      updateField(`${data.name}.slideshowInterval`, 10000)
     }
   }
+
+  console.log(data)
 
   return (
     <>
       <Input
         value={data.src}
-        onChange={(e) => updateCurrentCategoryField('src', e.target.value)}
+        onChange={(e) => updateField(`${data.name}.src`, e.target.value)}
         placeholder='1 image URL'
       />
       {Array.from({ length: 2 }).map((_, index) => (
@@ -34,10 +37,7 @@ export const EditorSlideshow = () => {
           key={index}
           value={data.slideshowItems[index]}
           onChange={(e) =>
-            updateCurrentCategoryField(
-              `slideshowItems[${index}]`,
-              e.target.value
-            )
+            updateField(`${data.name}.slideshowItems[${index}]`, e.target.value)
           }
           placeholder={`${index + 2} image URL`}
         />
@@ -50,7 +50,7 @@ export const EditorSlideshow = () => {
         value={data.slideshowInterval}
         onBlur={handleBlur}
         onChange={(e) =>
-          updateCurrentCategoryField('slideshowInterval', e.target.value)
+          updateField(`${data.name}.slideshowInterval`, e.target.value)
         }
         placeholder='Interval'
       />

@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
 export const EditorColor = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -15,9 +15,7 @@ export const EditorColor = () => {
   return (
     <HexColorPicker
       color={data.color}
-      onChange={(color) => {
-        updateCurrentCategoryField('color', color)
-      }}
+      onChange={(color) => updateField(`${data.name}.color`, color)}
     />
   )
 }

@@ -5,7 +5,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const EditorRotate = () => {
-  const { activeSubCategoryData, updateCurrentCategoryField } = useContext(
+  const { activeSubCategoryData, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -19,7 +19,7 @@ export const EditorRotate = () => {
         min={0}
         max={360}
         value={data.rotation}
-        onChange={(e) => updateCurrentCategoryField('rotation', e.target.value)}
+        onChange={(e) => updateField(`${data.name}.rotation`, e.target.value)}
       />
       <span>deg</span>
     </div>

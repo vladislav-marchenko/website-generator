@@ -348,10 +348,15 @@ export const getTemplateFields = (
 
   templates[selectedTemplate].categories.forEach(({ subCategories }) => {
     subCategories.forEach(({ fields }) => {
-      fields.forEach(({ type, name, defaultValues }) => {
+      fields.forEach(({ defaultValues, ...fieldData }) => {
+        const { type, name } = fieldData
         if (result.hasOwnProperty(name)) return
 
-        const data = merge(cloneDeep(defaultFieldValues[type]), defaultValues)
+        const data = merge(
+          fieldData,
+          cloneDeep(defaultFieldValues[type]),
+          defaultValues
+        )
 
         if (type === 'link') {
           set(result, `links.${name}`, data)
@@ -368,3 +373,5 @@ export const getTemplateFields = (
 export const templatesData = {
   classic: getTemplateFields('classic')
 } as const
+
+console.log(templatesData)

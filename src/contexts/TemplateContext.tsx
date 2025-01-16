@@ -1,7 +1,7 @@
 import { templatesData } from '@/templates'
 import { TemplateNames, TemplateSubCategoryField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
-import { cloneDeep, PropertyPath, set } from 'lodash'
+import { PropertyPath, set } from 'lodash'
 import { createContext, PropsWithChildren, useState } from 'react'
 
 export const TemplateContext = createContext<TemplateContextValues | null>(null)
@@ -30,11 +30,6 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     setData(set({ ...data }, path, value))
   }
 
-  const updateCurrentCategoryField = (path: string, value: unknown) => {
-    if (!activeSubCategory) return
-    updateField(`${activeSubCategory.name}.${path}`, value)
-  }
-
   const value = {
     selectedTemplate,
     setSelectedTemplate,
@@ -45,7 +40,6 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     activeSubCategory,
     setActiveSubCategory,
     updateField,
-    updateCurrentCategoryField,
     activeSubCategoryData
   }
 
