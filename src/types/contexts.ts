@@ -4,6 +4,7 @@ import type {
   TemplateNames,
   TemplateSubCategoryField
 } from '.'
+import { PropertyPath } from 'lodash'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {
@@ -17,8 +18,8 @@ export interface TemplateContextValues {
   setActiveSubCategory: Dispatch<
     SetStateAction<TemplateSubCategoryField | null>
   >
-  updateCurrentCategoryField: (fieldName: string, value: unknown) => void
-  updateField: (fieldName: string, value: unknown) => void
+  updateField: (path: PropertyPath, value: unknown) => void
+  updateCurrentCategoryField: (path: string, value: unknown) => void
   activeSubCategoryData: Data | null
 }
 

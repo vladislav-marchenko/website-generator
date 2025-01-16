@@ -6,6 +6,7 @@ import type {
   TemplateNames,
   Templates
 } from '@/types'
+import { cloneDeep, merge, set } from 'lodash'
 import { EditIcon, TextIcon, XIcon } from 'lucide-react'
 
 export const templates: Templates = {
@@ -176,6 +177,24 @@ export const templates: Templates = {
                 label: 'Whitepaper',
                 name: 'whitepaper',
                 placeholder: 'https://example.com/whitepaper'
+              },
+              {
+                type: 'link',
+                label: 'Author Telegram',
+                name: 'authorTelegram',
+                placeholder: 'https://t.me'
+              },
+              {
+                type: 'link',
+                label: 'Author Twitter',
+                name: 'authorTwitter',
+                placeholder: 'https://twitter.com'
+              },
+              {
+                type: 'link',
+                label: 'Author Discord',
+                name: 'authorDiscord',
+                placeholder: 'https://discord.com'
               }
             ]
           },
@@ -251,7 +270,7 @@ export const defaultFieldValues: DefaultValues = {
   },
   image: {
     src: '',
-    slideshowItems: [], // First element of slide show is regular image src
+    slideshowItems: [],
     width: 300,
     height: 'auto',
     sizeUnit: 'px',
@@ -275,19 +294,20 @@ export const defaultFieldValues: DefaultValues = {
 export const getTemplateFields = (
   selectedTemplate: TemplateNames
 ): TemplateData => {
-  const result = {}
+  const result = { links: {} }
 
   templates[selectedTemplate].categories.forEach(({ subCategories }) => {
     subCategories.forEach(({ fields }) => {
       fields.forEach(({ type, name, defaultValues }) => {
-        if (name in result) return
+        if (result.hasOwnProperty(name)) return
 
-        Object.assign(result, {
-          [name]: {
-            ...defaultFieldValues[type],
-            ...defaultValues
-          }
-        })
+        const data = merge(cloneDeep(defaultFieldValues[type]), defaultValues)
+
+        if (type === 'link') {
+          set(result, `links.${name}`, data)
+        } else {
+          set(result, name, data)
+        }
       })
     })
   })

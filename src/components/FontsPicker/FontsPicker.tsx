@@ -66,6 +66,7 @@ export const FontsPicker: FC<FontsPickerProps> = ({ onChange }) => {
               {isSuccess &&
                 data?.items?.map(({ family: name }) => (
                   <FontsPickerItem
+                    key={name}
                     name={name}
                     selectFont={selectFont}
                     isSelected={name === currentFontFamily}
@@ -75,6 +76,7 @@ export const FontsPicker: FC<FontsPickerProps> = ({ onChange }) => {
               {isError &&
                 fallbackFonts.map((name) => (
                   <FontsPickerItem
+                    key={name}
                     name={name}
                     selectFont={selectFont}
                     isSelected={name === currentFontFamily}

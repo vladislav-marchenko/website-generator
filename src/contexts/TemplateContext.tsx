@@ -1,6 +1,7 @@
 import { templatesData } from '@/templates'
-import { TemplateData, TemplateNames, TemplateSubCategoryField } from '@/types'
+import { TemplateNames, TemplateSubCategoryField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
+import { cloneDeep, PropertyPath, set } from 'lodash'
 import { createContext, PropsWithChildren, useState } from 'react'
 
 export const TemplateContext = createContext<TemplateContextValues | null>(null)
@@ -13,26 +14,27 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   const [activeSubCategory, setActiveSubCategory] =
     useState<TemplateSubCategoryField | null>(null)
 
-  const activeSubCategoryData =
-    activeSubCategory && data[activeSubCategory.name]
+  console.log(data.background.slideshowItems === data.logoImage.slideshowItems)
 
-  const updateField = (fieldName: keyof TemplateData, value: unknown) => {
-    setData((data) => ({ ...data, [fieldName]: value }) as TemplateData)
+  const activeSubCategoryData = getActiveSubCategoryData()
+
+  function getActiveSubCategoryData() {
+    if (!activeSubCategory) return null
+
+    if (activeSubCategory.type === 'link') {
+      return data.links[activeSubCategory.name]
+    }
+
+    return data[activeSubCategory.name]
   }
 
-  const updateCurrentCategoryField = (
-    fieldName: keyof TemplateData,
-    value: unknown
-  ) => {
-    if (!activeSubCategory) return
+  const updateField = (path: PropertyPath, value: unknown) => {
+    setData(set({ ...data }, path, value))
+  }
 
-    setData((data) => ({
-      ...data,
-      [activeSubCategory.name]: {
-        ...data[activeSubCategory.name],
-        [fieldName]: value
-      }
-    }))
+  const updateCurrentCategoryField = (path: string, value: unknown) => {
+    if (!activeSubCategory) return
+    updateField(`${activeSubCategory.name}.${path}`, value)
   }
 
   const value = {

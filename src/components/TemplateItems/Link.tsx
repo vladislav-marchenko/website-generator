@@ -9,7 +9,7 @@ interface LinkProps {
 
 export const Link: FC<LinkProps> = ({ fieldName }) => {
   const { data } = useContext(TemplateContext) as TemplateContextValues
-  const fieldData = data[fieldName] as LinkData
+  const fieldData = data.links[fieldName] as LinkData
 
   const Icon = fieldData.icon
 

@@ -1,7 +1,7 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { animations } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
+import { ImageData, LinkData, TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 
@@ -10,12 +10,13 @@ export const EditorAnimations: FC = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  if (!activeSubCategoryData) return
+  const data = activeSubCategoryData as TextData | ImageData | LinkData
+  if (!data) return
 
   return (
     <ToggleGroup
       type='single'
-      value={activeSubCategoryData.animation}
+      value={data.animation}
       onValueChange={(value) => updateCurrentCategoryField('animation', value)}
       className='flex flex-wrap gap-2'
     >

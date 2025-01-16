@@ -93,9 +93,15 @@ type TemplateCategory = {
   subCategories: TemplateSubCategory[]
 }
 
+type TemplateLinksData = {
+  links: {
+    [key: string]: Data
+  }
+}
+
 export type TemplateData = {
   [key: string]: Data
-}
+} & TemplateLinksData
 
 interface Template {
   label: string

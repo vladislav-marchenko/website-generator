@@ -7,7 +7,7 @@ import {
   TextData
 } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
-import { ChangeEvent, FC, useContext } from 'react'
+import { FC, useContext } from 'react'
 
 interface CreateSidebarSubCategoryItemFieldProps {
   type: TemplateSubCategoryFieldType
@@ -22,19 +22,13 @@ export const CreateSidebarSubCategoryItemField: FC<
     TemplateContext
   ) as TemplateContextValues
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement>,
-    fieldName: keyof TextData | keyof ImageData | keyof LinkData
-  ) => {
-    updateField(name, { ...data[name], [fieldName]: e.target.value })
-  }
-
   switch (type) {
     case 'text':
       return (
         <Input
           value={(data[name] as TextData).value}
-          onChange={(e) => handleChange(e, 'value')}
+          id={name}
+          onChange={(e) => updateField(`${name}.value`, e.target.value)}
           placeholder={placeholder}
         />
       )
@@ -43,8 +37,9 @@ export const CreateSidebarSubCategoryItemField: FC<
       return (
         <Input
           type='url'
+          id={name}
           value={(data[name] as ImageData).src}
-          onChange={(e) => handleChange(e, 'src')}
+          onChange={(e) => updateField(`${name}.src`, e.target.value)}
           placeholder={placeholder}
         />
       )
@@ -53,8 +48,9 @@ export const CreateSidebarSubCategoryItemField: FC<
       return (
         <Input
           type='url'
-          value={(data[name] as LinkData).url}
-          onChange={(e) => handleChange(e, 'url')}
+          id={name}
+          value={(data.links[name] as LinkData).url}
+          onChange={(e) => updateField(`links.${name}.url`, e.target.value)}
           placeholder={placeholder}
         />
       )
