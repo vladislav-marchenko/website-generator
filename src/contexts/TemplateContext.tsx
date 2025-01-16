@@ -3,12 +3,18 @@ import { TemplateNames, TemplateSubCategoryField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
 import { PropertyPath, set } from 'lodash'
 import { createContext, PropsWithChildren, useState } from 'react'
+import { Navigate, useParams } from 'react-router-dom'
 
 export const TemplateContext = createContext<TemplateContextValues | null>(null)
 
 export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
-  const [selectedTemplate, setSelectedTemplate] =
-    useState<TemplateNames>('classic')
+  const { template } = useParams()
+  if (!templatesData.hasOwnProperty(template ?? '')) {
+    return <Navigate to='/templates' />
+  }
+
+  const selectedTemplate = template as TemplateNames
+
   const [data, setData] = useState(templatesData[selectedTemplate])
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0)
   const [activeSubCategory, setActiveSubCategory] =
@@ -32,7 +38,6 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
 
   const value = {
     selectedTemplate,
-    setSelectedTemplate,
     data,
     setData,
     activeCategoryIndex,

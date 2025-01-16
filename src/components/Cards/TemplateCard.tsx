@@ -23,7 +23,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
       <Description>{shortDescription}</Description>
       <ul className='flex flex-col gap-1 pb-4'>
         {features.map((feature) => (
-          <li className='flex items-center gap-2'>
+          <li key={feature} className='flex items-center gap-2'>
             <Check size={20} />
             <span>{feature}</span>
           </li>

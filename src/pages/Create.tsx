@@ -4,17 +4,17 @@ import {
   ResizablePanel,
   ResizablePanelGroup
 } from '@/components/ui/resizable'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { templates } from '@/templates'
-import { Navigate, useParams } from 'react-router-dom'
+import { TemplateContextValues } from '@/types/contexts'
+import { useContext } from 'react'
 
 export const Create = () => {
-  const { template } = useParams()
+  const { selectedTemplate } = useContext(
+    TemplateContext
+  ) as TemplateContextValues
 
-  if (!templates.hasOwnProperty(template ?? '')) {
-    return <Navigate to='/templates' />
-  }
-
-  const Template = templates[template as string].element
+  const Template = templates[selectedTemplate].element
 
   return (
     <ResizablePanelGroup direction='horizontal' className='flex max-h-dvh'>
