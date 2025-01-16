@@ -23,6 +23,7 @@ export const Text: FC<TextProps> = ({
 }) => {
   const { data, setData } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data[fieldName] as TextData
+  console.log(fieldData)
 
   return (
     <div
@@ -33,7 +34,8 @@ export const Text: FC<TextProps> = ({
       )}
       style={{
         textAlign: fieldData.align,
-        transform: `rotate(${fieldData.rotation}deg)`
+        transform: `rotate(${fieldData.rotation}deg)`,
+        animationDuration: `${fieldData.animationDuration}ms`
       }}
     >
       <ContentEditable

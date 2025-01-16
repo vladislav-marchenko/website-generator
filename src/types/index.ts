@@ -32,7 +32,8 @@ export type Data = TextData | ImageData | LinkData | ToggleData
 
 interface CommonData {
   rotation: number
-  animation?: AnimationValue
+  animation: AnimationValue | null
+  animationDuration: number
 }
 
 export interface TextData extends CommonData {

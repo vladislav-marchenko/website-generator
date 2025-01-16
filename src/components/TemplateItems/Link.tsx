@@ -19,7 +19,10 @@ export const Link: FC<LinkProps> = ({ fieldName }) => {
       target='_blank'
       data-animation={fieldData.animation}
       className='template-element-animations relative'
-      style={{ transform: `rotate(${fieldData.rotation}deg)` }}
+      style={{
+        transform: `rotate(${fieldData.rotation}deg)`,
+        animationDuration: `${fieldData.animationDuration}ms`
+      }}
     >
       <Icon size={fieldData.size} />
     </a>

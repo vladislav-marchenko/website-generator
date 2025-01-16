@@ -266,7 +266,9 @@ export const defaultFieldValues: DefaultValues = {
     strokeColor: '#ff0000',
     strokeWidth: 0,
     backgroundColor: 'transparent',
-    rotation: 0
+    rotation: 0,
+    animation: null,
+    animationDuration: 1000
   },
   image: {
     src: '',
@@ -278,13 +280,17 @@ export const defaultFieldValues: DefaultValues = {
     opacity: 100,
     borderColor: '#ff0000',
     borderWidth: 0,
-    slideshowInterval: 2000
+    slideshowInterval: 2000,
+    animation: null,
+    animationDuration: 1000
   },
   link: {
     url: '',
     icon: Telegram,
     size: 64,
-    rotation: 0
+    rotation: 0,
+    animation: null,
+    animationDuration: 1000
   },
   toggle: {
     value: true
