@@ -17,13 +17,15 @@ export const ClassicCopyButton = () => {
   return (
     <ClassicButton
       onClick={copy}
-      className='hover:scale-[0.97] hover:opacity-80'
+      className='flex items-center gap-4 hover:scale-[0.97] hover:opacity-80'
     >
       <Text fieldName='contractAddress' placeholder='Contract address' />
       {isCopied && (
-        <CircleCheckBig className='pointer-events-none text-black' />
+        <CircleCheckBig size={28} className='pointer-events-none text-black' />
       )}
-      {!isCopied && <Copy className='pointer-events-none text-black' />}
+      {!isCopied && (
+        <Copy size={28} className='pointer-events-none text-black' />
+      )}
     </ClassicButton>
   )
 }

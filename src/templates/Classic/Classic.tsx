@@ -43,7 +43,7 @@ export const Classic: FC = () => {
             className={{ wrapper: 'rounded-md bg-white p-1' }}
             placeholder='Description'
           />
-          <ClassicButton className='rounded-full text-3xl text-black'>
+          <ClassicButton className='w-72 rounded-full text-center text-3xl uppercase text-black'>
             Buy now
           </ClassicButton>
           {data.showHowToBuy && <ClassicHowToBuy />}

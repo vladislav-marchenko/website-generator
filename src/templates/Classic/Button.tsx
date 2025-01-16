@@ -14,7 +14,7 @@ export const ClassicButton: FC<ButtonProps> = ({
   return (
     <button
       className={cn(
-        'flex items-center gap-4 rounded-md border-4 border-b-8 border-black bg-white px-6 py-3',
+        'rounded-md border-4 border-b-8 border-black bg-white px-8 py-4',
         className
       )}
       {...props}

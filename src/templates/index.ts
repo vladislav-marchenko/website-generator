@@ -34,7 +34,8 @@ export const templates: Templates = {
                 label: 'Ticker',
                 editor: true,
                 defaultValues: {
-                  fontSizeValue: 96,
+                  fontSizeValue: 7.5,
+                  sizeUnit: 'rem',
                   styles: ['bold'],
                   align: 'center',
                   animation: 'heartBeat'
@@ -67,6 +68,7 @@ export const templates: Templates = {
                 type: 'image',
                 name: 'logoImage',
                 label: 'Logo',
+                placeholder: 'URL',
                 editor: true,
                 defaultValues: {
                   width: 70,
@@ -78,6 +80,7 @@ export const templates: Templates = {
                 type: 'image',
                 name: 'background',
                 label: 'Background',
+                placeholder: 'URL',
                 editor: true,
                 defaultValues: {
                   src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
@@ -90,9 +93,10 @@ export const templates: Templates = {
                 type: 'image',
                 name: 'preview',
                 label: 'Image Preview',
+                placeholder: 'URL',
                 editor: true,
                 defaultValues: {
-                  width: 300,
+                  width: 340,
                   sizeUnit: 'px'
                 }
               }
@@ -219,7 +223,8 @@ export const templates: Templates = {
                   value:
                     'Mobile Users: Download the Phantom app for free. Desktop Users: Download the Phantom chrome extension.',
                   color: '#000',
-                  fontSizeValue: 20
+                  fontSizeValue: 20,
+                  align: 'center'
                 },
                 editor: true
               },
@@ -231,7 +236,8 @@ export const templates: Templates = {
                   value:
                     'Fund your wallet with Solana, you can buy Solana from an exchange or cross chain swap and send it to your wallet.',
                   color: '#000',
-                  fontSizeValue: 20
+                  fontSizeValue: 20,
+                  align: 'center'
                 },
                 editor: true
               },
@@ -243,7 +249,8 @@ export const templates: Templates = {
                   value:
                     'Go to Raydium or Jupiter and swap your Solana for $Ticker.',
                   color: '#000',
-                  fontSizeValue: 20
+                  fontSizeValue: 20,
+                  align: 'center'
                 },
                 editor: true
               }

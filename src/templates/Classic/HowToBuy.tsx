@@ -27,9 +27,9 @@ export const ClassicHowToBuy = () => {
         {howToBuyCards.map(({ name, images }, index) => (
           <div
             key={name}
-            className='flex max-w-72 flex-col justify-between gap-8 rounded-xl bg-white p-4 text-black'
+            className='flex max-w-72 flex-col items-center justify-between gap-8 rounded-xl bg-white p-6 text-black'
           >
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col items-center gap-2'>
               <h3 className='text-3xl'>Step {index + 1}</h3>
               <Text as='p' fieldName={name} />
             </div>
