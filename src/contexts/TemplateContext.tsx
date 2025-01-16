@@ -1,7 +1,7 @@
 import { templatesData } from '@/templates'
-import { TemplateNames, TemplateSubCategoryField } from '@/types'
+import { TemplateNames, TemplateSubCategoryField, UpdateField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
-import { PropertyPath, set } from 'lodash'
+import { set } from 'lodash'
 import { createContext, PropsWithChildren, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 
@@ -32,7 +32,7 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     return data[activeSubCategory.name]
   }
 
-  const updateField = (path: PropertyPath, value: unknown) => {
+  const updateField: UpdateField = (path, value) => {
     setData(set({ ...data }, path, value))
   }
 

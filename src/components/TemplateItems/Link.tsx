@@ -1,20 +1,26 @@
 import { TemplateItemError } from './Error'
-import { TemplateContext } from '@/contexts/TemplateContext'
+import { socialLinkIcons } from '@/consts'
 import { LinkData, TemplateData } from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
-import { FC, useContext } from 'react'
+import { FC } from 'react'
+
+const getIcon = (name: string) => {
+  if (socialLinkIcons.hasOwnProperty(name)) {
+    return socialLinkIcons[name as keyof typeof socialLinkIcons]
+  }
+
+  return socialLinkIcons.default
+}
 
 interface LinkProps {
+  data: TemplateData
   fieldName: keyof TemplateData
 }
 
-export const Link: FC<LinkProps> = ({ fieldName }) => {
-  const { data } = useContext(TemplateContext) as TemplateContextValues
+export const Link: FC<LinkProps> = ({ data, fieldName }) => {
   const fieldData = data.links[fieldName] as LinkData
-
   if (!fieldData) return <TemplateItemError />
 
-  const Icon = fieldData.icon
+  const Icon = getIcon(fieldData.iconName)
 
   return (
     <a

@@ -1,13 +1,18 @@
 import { ClassicButton } from './Button'
 import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Text } from '@/components/TemplateItems/Text'
-import { TemplateContext } from '@/contexts/TemplateContext'
-import { TemplateContextValues } from '@/types/contexts'
-import { useContext } from 'react'
+import { TemplateData, UpdateField } from '@/types'
+import { FC } from 'react'
 
-export const ClassicBuyButton = () => {
-  const { data } = useContext(TemplateContext) as TemplateContextValues
+interface ClassicBuyButtonProps {
+  data: TemplateData
+  updateField?: UpdateField
+}
 
+export const ClassicBuyButton: FC<ClassicBuyButtonProps> = ({
+  data,
+  updateField
+}) => {
   if (!data.links?.buyNowLink) {
     return <TemplateItemError />
   }
@@ -19,7 +24,7 @@ export const ClassicBuyButton = () => {
         target='_blank'
         className='flex justify-center'
       >
-        <Text fieldName='buyNowText' />
+        <Text data={data} updateField={updateField} fieldName='buyNowText' />
       </a>
     </ClassicButton>
   )

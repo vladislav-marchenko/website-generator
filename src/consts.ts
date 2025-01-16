@@ -15,7 +15,7 @@ import { EditorFontSize } from './components/Editor/Text/EditorFontSize'
 import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
-import { Discord, Medium, Telegram, Twitter } from './components/Icons'
+import { Discord, Link, Medium, Telegram, Twitter } from './components/Icons'
 import type { Animation, PricingCard } from './types'
 import {
   IN,
@@ -352,3 +352,8 @@ export const templateCards = [
     ]
   }
 ]
+
+export const socialLinkIcons = {
+  telegram: Telegram,
+  default: Link
+}

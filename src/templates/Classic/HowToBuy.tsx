@@ -3,6 +3,8 @@ import Phantom from '@/assets/phantom.jpeg'
 import Raydium from '@/assets/raydium.png'
 import Solana from '@/assets/solana.png'
 import { Text } from '@/components/TemplateItems/Text'
+import { TemplateData, UpdateField } from '@/types'
+import { FC } from 'react'
 
 const howToBuyCards = [
   {
@@ -19,7 +21,15 @@ const howToBuyCards = [
   }
 ]
 
-export const ClassicHowToBuy = () => {
+interface ClassicHowToBuyProps {
+  data: TemplateData
+  updateField?: UpdateField
+}
+
+export const ClassicHowToBuy: FC<ClassicHowToBuyProps> = ({
+  data,
+  updateField
+}) => {
   return (
     <div className='flex flex-col items-center gap-4 pt-16'>
       <h2 className='tracking-wide'>How to Buy</h2>
@@ -31,7 +41,12 @@ export const ClassicHowToBuy = () => {
           >
             <div className='flex flex-col items-center gap-2'>
               <h3 className='text-3xl'>Step {index + 1}</h3>
-              <Text as='p' fieldName={name} />
+              <Text
+                data={data}
+                updateField={updateField}
+                fieldName={name}
+                as='p'
+              />
             </div>
             <div className='flex items-center gap-4'>
               {images.map((image) => (

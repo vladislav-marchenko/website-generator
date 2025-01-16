@@ -2,9 +2,9 @@ import type {
   Data,
   TemplateData,
   TemplateNames,
-  TemplateSubCategoryField
+  TemplateSubCategoryField,
+  UpdateField
 } from '.'
-import { PropertyPath } from 'lodash'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {
@@ -17,7 +17,7 @@ export interface TemplateContextValues {
   setActiveSubCategory: Dispatch<
     SetStateAction<TemplateSubCategoryField | null>
   >
-  updateField: (path: PropertyPath, value: unknown) => void
+  updateField: UpdateField
   activeSubCategoryData: Data | null
 }
 

@@ -1,12 +1,12 @@
 import { TemplateItemError } from './Error'
-import { TemplateContext } from '@/contexts/TemplateContext'
 import { cn } from '@/lib/utils'
-import { TemplateData, TextData } from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
-import { FC, useContext } from 'react'
+import { TemplateData, TextData, UpdateField } from '@/types'
+import { FC } from 'react'
 import ContentEditable from 'react-contenteditable'
 
 interface TextProps {
+  data: TemplateData
+  updateField?: UpdateField
   fieldName: keyof TemplateData
   placeholder?: string
   as?: string
@@ -17,16 +17,14 @@ interface TextProps {
 }
 
 export const Text: FC<TextProps> = ({
+  data,
+  updateField,
   fieldName,
   placeholder = '',
   as = 'span',
   className
 }) => {
-  const { data, updateField } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
   const fieldData = data[fieldName] as TextData
-
   if (!fieldData) return <TemplateItemError />
 
   return (
@@ -43,11 +41,13 @@ export const Text: FC<TextProps> = ({
       }}
     >
       <ContentEditable
+        disabled={!updateField}
         html={fieldData.value || placeholder}
         tagName={as}
-        onChange={(e) =>
+        onChange={(e) => {
+          if (!updateField) return
           updateField(`${fieldName}.value`, e.currentTarget.innerText)
-        }
+        }}
         className={className?.text}
         style={{
           fontFamily: `'${fieldData.fontFamily}'`,

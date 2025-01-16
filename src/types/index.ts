@@ -1,4 +1,6 @@
+import { TemplateContextValues } from './contexts'
 import { editorFields } from '@/consts'
+import { PropertyPath } from 'lodash'
 import { LucideIcon } from 'lucide-react'
 import { FC } from 'react'
 
@@ -64,7 +66,7 @@ export interface ImageData extends CommonData {
 
 export interface LinkData extends CommonData {
   url: string
-  icon: LucideIcon | FC
+  iconName: string
   size: number
 }
 
@@ -108,7 +110,7 @@ interface Template {
   label: string
   price: number
   categories: TemplateCategory[]
-  element: FC
+  element: FC<{ data: TemplateData; updateField?: UpdateField }>
 }
 
 export type TemplateNames = 'classic'
@@ -133,3 +135,5 @@ export interface PricingCard {
     href: string
   }
 }
+
+export type UpdateField = (path: PropertyPath, value: unknown) => void

@@ -1,3 +1,4 @@
+import { Layout } from '@/components/Layout'
 import { getSubdomain } from '@/lib/utils'
 import { Home } from '@/pages/Home'
 import { Website } from '@/pages/Website'
@@ -9,5 +10,9 @@ export const Main = () => {
     return <Website />
   }
 
-  return <Home />
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  )
 }

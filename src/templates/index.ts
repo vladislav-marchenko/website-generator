@@ -1,5 +1,5 @@
 import { Classic } from './Classic/Classic'
-import { Telegram } from '@/components/Icons'
+import { Link, Telegram } from '@/components/Icons'
 import type {
   DefaultValues,
   TemplateData,
@@ -122,91 +122,105 @@ export const templates: Templates = {
                 label: 'Tiktok',
                 name: 'tiktok',
                 placeholder: 'https://www.tiktok.com',
-                editor: true
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Instagram',
                 name: 'instagram',
-                placeholder: 'https://www.instagram.com'
+                placeholder: 'https://www.instagram.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Discord',
                 name: 'discord',
-                placeholder: 'https://discord.com'
+                placeholder: 'https://discord.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Telegram',
                 name: 'telegram',
-                placeholder: 'https://t.me'
+                placeholder: 'https://t.me',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Twitter',
                 name: 'twitter',
-                placeholder: 'https://twitter.com'
+                placeholder: 'https://twitter.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Dexscreener',
                 name: 'dexscreener',
-                placeholder: 'https://dexscreener.com'
+                placeholder: 'https://dexscreener.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Pump.fun',
                 name: 'pumpfun',
-                placeholder: 'https://pump.fun'
+                placeholder: 'https://pump.fun',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Coin Gecko',
                 name: 'coingecko',
-                placeholder: 'https://www.coingecko.com'
+                placeholder: 'https://www.coingecko.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Coin Market Cap',
                 name: 'coinmarketcap',
-                placeholder: 'https://coinmarketcap.com'
+                placeholder: 'https://coinmarketcap.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Birdeye',
                 name: 'birdeye',
-                placeholder: 'https://www.birdeye.com'
+                placeholder: 'https://www.birdeye.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Dextools',
                 name: 'dextools',
-                placeholder: 'https://www.dextools.io'
+                placeholder: 'https://www.dextools.io',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Whitepaper',
                 name: 'whitepaper',
-                placeholder: 'https://example.com/whitepaper'
+                placeholder: 'https://example.com/whitepaper',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Author Telegram',
                 name: 'authorTelegram',
-                placeholder: 'https://t.me'
+                placeholder: 'https://t.me',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Author Twitter',
                 name: 'authorTwitter',
-                placeholder: 'https://twitter.com'
+                placeholder: 'https://twitter.com',
+                defaultValues: { iconName: 'tiktok' }
               },
               {
                 type: 'link',
                 label: 'Author Discord',
                 name: 'authorDiscord',
-                placeholder: 'https://discord.com'
+                placeholder: 'https://discord.com',
+                defaultValues: { iconName: 'tiktok' }
               }
             ]
           },
@@ -353,7 +367,7 @@ export const defaultFieldValues: DefaultValues = {
   },
   link: {
     url: '',
-    icon: Telegram,
+    iconName: 'default',
     size: 70,
     rotation: 0,
     animation: null,
