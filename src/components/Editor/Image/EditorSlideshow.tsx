@@ -23,8 +23,6 @@ export const EditorSlideshow = () => {
     }
   }
 
-  console.log(data)
-
   return (
     <>
       <Input
@@ -35,7 +33,7 @@ export const EditorSlideshow = () => {
       {Array.from({ length: 2 }).map((_, index) => (
         <Input
           key={index}
-          value={data.slideshowItems[index]}
+          value={data.slideshowItems[index] ?? ''}
           onChange={(e) =>
             updateField(`${data.name}.slideshowItems[${index}]`, e.target.value)
           }
