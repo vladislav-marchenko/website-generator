@@ -207,6 +207,47 @@ export const templates: Templates = {
                 label: 'How to Buy'
               }
             ]
+          },
+          {
+            label: 'How to Buy',
+            fields: [
+              {
+                type: 'text',
+                name: 'firstStep',
+                label: 'Step 1',
+                defaultValues: {
+                  value:
+                    'Mobile Users: Download the Phantom app for free. Desktop Users: Download the Phantom chrome extension.',
+                  color: '#000',
+                  fontSizeValue: 20
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondStep',
+                label: 'Step 2',
+                defaultValues: {
+                  value:
+                    'Fund your wallet with Solana, you can buy Solana from an exchange or cross chain swap and send it to your wallet.',
+                  color: '#000',
+                  fontSizeValue: 20
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdStep',
+                label: 'Step 3',
+                defaultValues: {
+                  value:
+                    'Go to Raydium or Jupiter and swap your Solana for $Ticker.',
+                  color: '#000',
+                  fontSizeValue: 20
+                },
+                editor: true
+              }
+            ]
           }
         ]
       },

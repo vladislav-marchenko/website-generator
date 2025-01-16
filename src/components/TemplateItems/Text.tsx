@@ -23,7 +23,6 @@ export const Text: FC<TextProps> = ({
 }) => {
   const { data, setData } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data[fieldName] as TextData
-  console.log(fieldData)
 
   return (
     <div
