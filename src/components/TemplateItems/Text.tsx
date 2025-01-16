@@ -1,3 +1,4 @@
+import { TemplateItemError } from './Error'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { cn } from '@/lib/utils'
 import { TemplateData, TextData } from '@/types'
@@ -25,6 +26,8 @@ export const Text: FC<TextProps> = ({
     TemplateContext
   ) as TemplateContextValues
   const fieldData = data[fieldName] as TextData
+
+  if (!fieldData) return <TemplateItemError />
 
   return (
     <div

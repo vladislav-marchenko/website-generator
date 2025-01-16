@@ -58,6 +58,18 @@ export const templates: Templates = {
                 defaultValues: {
                   color: '#000'
                 }
+              },
+              {
+                type: 'text',
+                name: 'buyNowText',
+                label: 'Buy Now',
+                editor: true,
+                defaultValues: {
+                  value: 'Buy Now',
+                  color: '#000',
+                  align: 'center',
+                  styles: ['bold']
+                }
               }
             ]
           },
@@ -249,6 +261,17 @@ export const templates: Templates = {
                   align: 'center'
                 },
                 editor: true
+              }
+            ]
+          },
+          {
+            label: 'Buttons',
+            fields: [
+              {
+                type: 'link',
+                name: 'buyNowLink',
+                label: 'Buy Now URL',
+                placeholder: 'URL'
               }
             ]
           }

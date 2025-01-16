@@ -1,4 +1,5 @@
 import { ClassicButton } from './Button'
+import { ClassicBuyButton } from './BuyButton'
 import { ClassicCopyButton } from './CopyButton'
 import { ClassicHowToBuy } from './HowToBuy'
 import { Image } from '@/components/TemplateItems/Image'
@@ -25,9 +26,9 @@ export const Classic: FC = () => {
               <Text fieldName='logoText' placeholder='Name' />
             </div>
             <div className='flex gap-4'>
-              <Link fieldName='telegram' />
-              <Link fieldName='tiktok' />
-              <Link fieldName='discord' />
+              {data.links?.telegram?.url && <Link fieldName='telegram' />}
+              {data.links?.tiktok?.url && <Link fieldName='tiktok' />}
+              {data.links?.discord?.url && <Link fieldName='discord' />}
             </div>
           </header>
           <Text fieldName='ticker' as='h1' placeholder='Ticker' />
@@ -43,9 +44,7 @@ export const Classic: FC = () => {
             className={{ wrapper: 'rounded-md bg-white p-1' }}
             placeholder='Description'
           />
-          <ClassicButton className='w-72 rounded-full text-center text-3xl uppercase text-black'>
-            Buy now
-          </ClassicButton>
+          <ClassicBuyButton />
           {data.showHowToBuy && <ClassicHowToBuy />}
         </div>
       </div>

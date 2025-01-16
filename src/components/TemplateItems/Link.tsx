@@ -1,3 +1,4 @@
+import { TemplateItemError } from './Error'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { LinkData, TemplateData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
@@ -10,6 +11,8 @@ interface LinkProps {
 export const Link: FC<LinkProps> = ({ fieldName }) => {
   const { data } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data.links[fieldName] as LinkData
+
+  if (!fieldData) return <TemplateItemError />
 
   const Icon = fieldData.icon
 

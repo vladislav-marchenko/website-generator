@@ -1,3 +1,4 @@
+import { TemplateItemError } from './Error'
 import ImagePlaceholder from '@/assets/placeholder.jpg'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { useSlideshow } from '@/hooks/useSlideshow'
@@ -18,6 +19,8 @@ interface ImageProps {
 export const Image: FC<ImageProps> = ({ fieldName, className }) => {
   const { data } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data[fieldName] as ImageData
+
+  if (!fieldData) return <TemplateItemError />
 
   const uploadedImageURL =
     fieldData.uploaded && URL.createObjectURL(fieldData.uploaded)
