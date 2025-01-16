@@ -1,5 +1,6 @@
 import { Input } from '@/components/ui/input'
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { ImageData, LinkData, TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
@@ -8,7 +9,8 @@ export const EditorRotate = () => {
     TemplateContext
   ) as TemplateContextValues
 
-  if (!activeSubCategoryData) return
+  const data = activeSubCategoryData as TextData | ImageData | LinkData
+  if (!data) return
 
   return (
     <div className='flex items-center gap-2'>
@@ -16,7 +18,7 @@ export const EditorRotate = () => {
         type='number'
         min={0}
         max={360}
-        value={activeSubCategoryData.rotation}
+        value={data.rotation}
         onChange={(e) => updateCurrentCategoryField('rotation', e.target.value)}
       />
       <span>deg</span>

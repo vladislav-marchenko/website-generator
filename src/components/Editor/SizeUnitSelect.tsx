@@ -17,8 +17,8 @@ export const SizeUnitSelect = () => {
   ) as TemplateContextValues
 
   const data = activeSubCategoryData as TextData | ImageData
+  if (!data) return
 
-  console.log(data)
   return (
     <Select
       value={data.sizeUnit}
