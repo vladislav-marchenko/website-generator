@@ -21,7 +21,9 @@ export const Text: FC<TextProps> = ({
   as = 'span',
   className
 }) => {
-  const { data, setData } = useContext(TemplateContext) as TemplateContextValues
+  const { data, updateField } = useContext(
+    TemplateContext
+  ) as TemplateContextValues
   const fieldData = data[fieldName] as TextData
 
   return (
@@ -41,13 +43,7 @@ export const Text: FC<TextProps> = ({
         html={fieldData.value || placeholder}
         tagName={as}
         onChange={(e) =>
-          setData({
-            ...data,
-            [fieldName]: {
-              ...fieldData,
-              value: e.currentTarget.innerText
-            }
-          })
+          updateField(`${fieldName}.value`, e.currentTarget.innerText)
         }
         className={className?.text}
         style={{

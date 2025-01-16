@@ -71,8 +71,8 @@ export const templates: Templates = {
                 placeholder: 'URL',
                 editor: true,
                 defaultValues: {
-                  width: 70,
-                  height: 70,
+                  width: 90,
+                  height: 90,
                   sizeUnit: 'px'
                 }
               },
@@ -128,11 +128,7 @@ export const templates: Templates = {
                 type: 'link',
                 label: 'Telegram',
                 name: 'telegram',
-                placeholder: 'https://t.me',
-                defaultValues: {
-                  icon: Telegram,
-                  size: 64
-                }
+                placeholder: 'https://t.me'
               },
               {
                 type: 'link',
@@ -335,7 +331,7 @@ export const defaultFieldValues: DefaultValues = {
   link: {
     url: '',
     icon: Telegram,
-    size: 64,
+    size: 70,
     rotation: 0,
     animation: null,
     animationDuration: 1000
