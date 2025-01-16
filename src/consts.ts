@@ -39,7 +39,6 @@ import {
   PT,
   SA
 } from 'country-flag-icons/react/3x2'
-import { XIcon } from 'lucide-react'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'

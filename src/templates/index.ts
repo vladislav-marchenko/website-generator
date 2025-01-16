@@ -7,7 +7,7 @@ import type {
   Templates
 } from '@/types'
 import { cloneDeep, merge, set } from 'lodash'
-import { EditIcon, TextIcon, XIcon } from 'lucide-react'
+import { EditIcon, TextIcon } from 'lucide-react'
 
 export const templates: Templates = {
   classic: {
@@ -282,8 +282,8 @@ export const defaultFieldValues: DefaultValues = {
   },
   link: {
     url: '',
-    icon: XIcon,
-    size: 24,
+    icon: Telegram,
+    size: 64,
     rotation: 0
   },
   toggle: {

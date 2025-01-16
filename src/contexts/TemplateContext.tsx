@@ -14,8 +14,6 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   const [activeSubCategory, setActiveSubCategory] =
     useState<TemplateSubCategoryField | null>(null)
 
-  console.log(data.background.slideshowItems === data.logoImage.slideshowItems)
-
   const activeSubCategoryData = getActiveSubCategoryData()
 
   function getActiveSubCategoryData() {

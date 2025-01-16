@@ -1,4 +1,5 @@
 import { ClassicButton } from './Button'
+import { ClassicCopyButton } from './CopyButton'
 import { ClassicHowToBuy } from './HowToBuy'
 import { Image } from '@/components/TemplateItems/Image'
 import { Link } from '@/components/TemplateItems/Link'
@@ -25,17 +26,16 @@ export const Classic: FC = () => {
             </div>
             <div className='flex gap-4'>
               <Link fieldName='telegram' />
-              <Link fieldName='telegram' />
+              <Link fieldName='tiktok' />
+              <Link fieldName='discord' />
             </div>
           </header>
           <Text fieldName='ticker' as='h1' placeholder='Ticker' />
-          <ClassicButton>
-            <Text fieldName='contractAddress' placeholder='Contract address' />
-            <Copy className='text-black' />
-          </ClassicButton>
-          <div className='flex gap-4'>
-            <Link fieldName='telegram' />
-            <Link fieldName='telegram' />
+          <ClassicCopyButton />
+          <div className='flex flex-wrap items-center justify-center gap-4'>
+            {Object.keys(data.links).map((key) => {
+              return data.links[key].url && <Link fieldName={key} />
+            })}
           </div>
           <Image fieldName='preview' className={{ image: 'rounded-xl' }} />
           <Text

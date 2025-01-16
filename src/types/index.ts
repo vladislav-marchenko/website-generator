@@ -95,7 +95,7 @@ type TemplateCategory = {
 
 type TemplateLinksData = {
   links: {
-    [key: string]: Data
+    [key: string]: LinkData
   }
 }
 
