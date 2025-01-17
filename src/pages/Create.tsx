@@ -18,7 +18,12 @@ export const Create = () => {
 
   return (
     <ResizablePanelGroup direction='horizontal' className='flex max-h-dvh'>
-      <ResizablePanel defaultSize={20} minSize={15} maxSize={80}>
+      <ResizablePanel
+        defaultSize={20}
+        minSize={20}
+        maxSize={80}
+        className='min-w-64'
+      >
         <CreateSidebar />
       </ResizablePanel>
       <ResizableHandle withHandle />
