@@ -16,10 +16,10 @@ export const TemplateLayout: FC<TemplateLayoutProps> = ({
 }) => {
   return (
     <div className='relative h-full'>
-      <div className='relative z-10 flex h-full flex-col items-center overflow-y-auto backdrop-blur-lg'>
+      <div className='relative z-10 flex h-full flex-col items-center backdrop-blur-lg'>
         <div
           className={cn(
-            'mx-auto flex h-full w-full max-w-6xl flex-col items-center gap-8 p-8 pt-16',
+            'mx-auto flex h-full w-full max-w-6xl flex-col items-center gap-8 overflow-y-auto p-8 pt-16',
             className
           )}
         >
