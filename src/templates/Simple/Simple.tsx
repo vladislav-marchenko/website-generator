@@ -15,7 +15,7 @@ export const Simple: FC<SimpleProps> = ({ data, updateField }) => {
   return (
     <TemplateLayout
       data={data}
-      className='max-w-5xl flex-row flex-wrap justify-center gap-12'
+      className='h-full max-w-5xl flex-row flex-wrap justify-center gap-12'
     >
       <Image
         data={data}

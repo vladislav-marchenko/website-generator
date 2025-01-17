@@ -1,4 +1,5 @@
 import { Classic } from './Classic/Classic'
+import { Impressive } from './Impressive/Impressive'
 import { Simple } from './Simple/Simple'
 import type {
   DefaultValues,
@@ -533,6 +534,195 @@ export const templates = {
       }
     ],
     element: Simple
+  },
+  impressive: {
+    label: 'Impressive',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+    shortDescription:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+    features: [
+      'Modern, clean design',
+      'Smooth animations',
+      'Tokenomics section',
+      'Mobile responsive'
+    ],
+    price: 0.05,
+    categories: [
+      {
+        name: 'Edit',
+        icon: EditIcon,
+        subCategories: [
+          {
+            label: 'Text',
+            fields: [
+              {
+                type: 'text',
+                name: 'ticker',
+                label: 'Ticker',
+                editor: true,
+                defaultValues: {
+                  fontSizeValue: 6,
+                  sizeUnit: 'rem',
+                  styles: ['bold'],
+                  align: 'center',
+                  animation: 'heartBeat'
+                }
+              },
+              {
+                type: 'text',
+                name: 'contractAddress',
+                label: 'Contract Address',
+                editor: true,
+                defaultValues: {
+                  color: '#000'
+                }
+              }
+            ]
+          },
+          {
+            label: 'Images',
+            fields: [
+              {
+                type: 'image',
+                name: 'background',
+                label: 'Background',
+                placeholder: 'URL',
+                editor: true,
+                defaultValues: {
+                  src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
+                  width: 100,
+                  height: 100,
+                  sizeUnit: '%'
+                }
+              },
+              {
+                type: 'image',
+                name: 'preview',
+                label: 'Image Preview',
+                placeholder: 'URL',
+                editor: true,
+                defaultValues: {
+                  width: 420,
+                  sizeUnit: 'px'
+                }
+              }
+            ]
+          },
+          {
+            label: 'Links',
+            fields: [
+              {
+                type: 'link',
+                label: 'Tiktok',
+                name: 'tiktok',
+                placeholder: 'https://www.tiktok.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Instagram',
+                name: 'instagram',
+                placeholder: 'https://www.instagram.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Discord',
+                name: 'discord',
+                placeholder: 'https://discord.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Telegram',
+                name: 'telegram',
+                placeholder: 'https://t.me',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Twitter',
+                name: 'twitter',
+                placeholder: 'https://twitter.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Dexscreener',
+                name: 'dexscreener',
+                placeholder: 'https://dexscreener.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Pump.fun',
+                name: 'pumpfun',
+                placeholder: 'https://pump.fun',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Coin Gecko',
+                name: 'coingecko',
+                placeholder: 'https://www.coingecko.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Coin Market Cap',
+                name: 'coinmarketcap',
+                placeholder: 'https://coinmarketcap.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Birdeye',
+                name: 'birdeye',
+                placeholder: 'https://www.birdeye.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Dextools',
+                name: 'dextools',
+                placeholder: 'https://www.dextools.io',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Whitepaper',
+                name: 'whitepaper',
+                placeholder: 'https://example.com/whitepaper',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Author Telegram',
+                name: 'authorTelegram',
+                placeholder: 'https://t.me',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Author Twitter',
+                name: 'authorTwitter',
+                placeholder: 'https://twitter.com',
+                defaultValues: { iconName: 'tiktok' }
+              },
+              {
+                type: 'link',
+                label: 'Author Discord',
+                name: 'authorDiscord',
+                placeholder: 'https://discord.com',
+                defaultValues: { iconName: 'tiktok' }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    element: Impressive
   }
 } as const satisfies Templates
 
