@@ -1,5 +1,5 @@
-import { TemplateContextValues } from './contexts'
 import { editorFields } from '@/consts'
+import { templates } from '@/templates'
 import { PropertyPath } from 'lodash'
 import { LucideIcon } from 'lucide-react'
 import { FC } from 'react'
@@ -106,18 +106,18 @@ export type TemplateData = {
   [key: string]: Data
 } & TemplateLinksData
 
-interface Template {
+export interface Template {
   label: string
   price: number
   categories: TemplateCategory[]
   element: FC<{ data: TemplateData; updateField?: UpdateField }>
 }
 
-export type TemplateNames = 'classic'
-
-export interface Templates {
+export type Templates = {
   [key: string]: Template
 }
+
+export type TemplateName = keyof typeof templates
 
 export interface DefaultValues {
   text: Omit<TextData, keyof TemplateSubCategoryField>
