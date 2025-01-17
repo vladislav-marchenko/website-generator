@@ -108,6 +108,9 @@ export type TemplateData = {
 
 export interface Template {
   label: string
+  description: string
+  shortDescription: string
+  features: string[]
   price: number
   categories: TemplateCategory[]
   element: FC<{ data: TemplateData; updateField?: UpdateField }>
@@ -127,7 +130,7 @@ export interface DefaultValues {
 }
 
 export interface PricingCard {
-  title: string
+  label: string
   description: string
   price: number
   button: {

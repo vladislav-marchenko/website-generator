@@ -2,7 +2,7 @@ import { Button } from '@/components/Button'
 import { TemplateCard } from '@/components/Cards/TemplateCard'
 import { Section } from '@/components/Sections/Section'
 import { Slider } from '@/components/Slider'
-import { templateCards } from '@/consts'
+import { templates } from '@/templates'
 import { ChevronLeft } from 'lucide-react'
 import { useState } from 'react'
 
@@ -24,12 +24,12 @@ export const Templates = () => {
         </Button>
       </div>
       {isSliderView && (
-        <Slider cards={templateCards} CardElement={TemplateCard} />
+        <Slider cards={Object.values(templates)} CardElement={TemplateCard} />
       )}
       {!isSliderView && (
-        <div className='grid grid-cols-3 gap-12'>
-          {templateCards.map((_, index) => (
-            <TemplateCard currentIndex={index} />
+        <div className='flex flex-wrap items-center gap-12'>
+          {Object.values(templates).map(({ label }, index) => (
+            <TemplateCard key={label} currentIndex={index} />
           ))}
         </div>
       )}

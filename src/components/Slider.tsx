@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { FC } from 'react'
 
 interface Card {
-  title: string
+  label: string
   description: string
 }
 
@@ -47,7 +47,7 @@ export const Slider: FC<SliderProps> = ({ cards, CardElement }) => {
             transition={{ duration: 0.7 }}
             className='flex flex-col gap-4'
           >
-            <h3>{cards[currentIndex].title}</h3>
+            <h3>{cards[currentIndex].label}</h3>
             <Description>{cards[currentIndex].description}</Description>
           </motion.div>
         </AnimatePresence>

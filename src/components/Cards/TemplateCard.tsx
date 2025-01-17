@@ -1,15 +1,16 @@
 import { Button } from '../Button'
 import { Description } from '../Description'
 import { Card } from './Card'
-import { templateCards } from '@/consts'
+import { templates } from '@/templates'
+import { Template, TemplateName } from '@/types'
 import { Check } from 'lucide-react'
 import { FC } from 'react'
 
 export const TemplateCard: FC<{ currentIndex: number }> = ({
   currentIndex
 }) => {
-  const { name, title, shortDescription, features } =
-    templateCards[currentIndex]
+  const name = Object.keys(templates)[currentIndex] as TemplateName
+  const { label, shortDescription, features } = templates[name] as Template
 
   return (
     <Card>
@@ -19,7 +20,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
           src='https://www.buidl.co.in/_next/image?url=%2Ftemplates%2Fmodern.png&w=1920&q=75'
         />
       </div>
-      <h4>{title}</h4>
+      <h4>{label}</h4>
       <Description>{shortDescription}</Description>
       <ul className='flex flex-col gap-1 pb-4'>
         {features.map((feature) => (

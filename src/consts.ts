@@ -104,7 +104,7 @@ export const footerSocialLinks = [
 
 export const pricingCards: PricingCard[] = [
   {
-    title: 'Standard',
+    label: 'Standard',
     price: 0.045,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at orci sollicitudin, sagittis turpis eget, euismod massa. Aliquam sit amet dictum quam. Curabitur scelerisque lobortis tortor eu gravida. Proin blandit lacus lorem, a imperdiet elit accumsan eu. Sed euismod tempor tortor, vel facilisis metus viverra in.',
@@ -114,7 +114,7 @@ export const pricingCards: PricingCard[] = [
     }
   },
   {
-    title: 'Premium',
+    label: 'Premium',
     price: 0.25,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at orci sollicitudin, sagittis turpis eget, euismod massa. Aliquam sit amet dictum quam. Curabitur scelerisque lobortis tortor eu gravida. Proin blandit lacus lorem, a imperdiet elit accumsan eu. Sed euismod tempor tortor, vel facilisis metus viverra in.',
@@ -307,51 +307,6 @@ export const editorFields = {
   ],
   toggle: null
 }
-
-export const templateCards = [
-  {
-    name: 'classic',
-    title: 'Classic',
-    description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
-    shortDescription:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
-    features: [
-      'Modern, clean design',
-      'Smooth animations',
-      'Tokenomics section',
-      'Mobile responsive'
-    ]
-  },
-  {
-    name: 'default',
-    title: 'Default',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
-    shortDescription:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
-    features: [
-      'Modern, clean design',
-      'Smooth animations',
-      'Tokenomics section',
-      'Mobile responsive'
-    ]
-  },
-  {
-    name: 'simple',
-    title: 'Simple',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
-    shortDescription:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
-    features: [
-      'Modern, clean design',
-      'Smooth animations',
-      'Tokenomics section',
-      'Mobile responsive'
-    ]
-  }
-]
 
 export const socialLinkIcons = {
   telegram: Telegram,

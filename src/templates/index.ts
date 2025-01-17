@@ -13,6 +13,16 @@ import { EditIcon, TextIcon } from 'lucide-react'
 export const templates = {
   classic: {
     label: 'Classic',
+    description:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+    shortDescription:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+    features: [
+      'Modern, clean design',
+      'Smooth animations',
+      'Tokenomics section',
+      'Mobile responsive'
+    ],
     price: 0.05,
     categories: [
       {
@@ -337,6 +347,16 @@ export const templates = {
   },
   simple: {
     label: 'Simple',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+    shortDescription:
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+    features: [
+      'Modern, clean design',
+      'Smooth animations',
+      'Tokenomics section',
+      'Mobile responsive'
+    ],
     price: 0.05,
     categories: [
       {
