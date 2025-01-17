@@ -1,4 +1,4 @@
-import { ClassicButton } from './Button'
+import { Button } from '../Button'
 import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Text } from '@/components/TemplateItems/Text'
 import { TemplateData, UpdateField } from '@/types'
@@ -18,7 +18,7 @@ export const ClassicBuyButton: FC<ClassicBuyButtonProps> = ({
   }
 
   return (
-    <ClassicButton className='min-w-72 rounded-full text-center text-3xl uppercase text-black'>
+    <Button className='min-w-72 rounded-full text-center text-3xl uppercase text-black'>
       <a
         href={data.links.buyNowLink.url}
         target='_blank'
@@ -26,6 +26,6 @@ export const ClassicBuyButton: FC<ClassicBuyButtonProps> = ({
       >
         <Text data={data} updateField={updateField} fieldName='buyNowText' />
       </a>
-    </ClassicButton>
+    </Button>
   )
 }

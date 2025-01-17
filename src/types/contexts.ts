@@ -1,14 +1,14 @@
 import type {
   Data,
   TemplateData,
-  TemplateNames,
+  TemplateName,
   TemplateSubCategoryField,
   UpdateField
 } from '.'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {
-  selectedTemplate: TemplateNames
+  selectedTemplate: TemplateName
   data: TemplateData
   setData: Dispatch<SetStateAction<TemplateData>>
   activeCategoryIndex: number

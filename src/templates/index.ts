@@ -1,4 +1,5 @@
 import { Classic } from './Classic/Classic'
+import { Simple } from './Simple/Simple'
 import type {
   DefaultValues,
   Template,
@@ -347,18 +348,11 @@ export const templates = {
             fields: [
               {
                 type: 'text',
-                name: 'logoText',
-                label: 'Project name',
-                editor: true,
-                defaultValues: { fontSizeValue: 40 }
-              },
-              {
-                type: 'text',
                 name: 'ticker',
                 label: 'Ticker',
                 editor: true,
                 defaultValues: {
-                  fontSizeValue: 7.5,
+                  fontSizeValue: 6,
                   sizeUnit: 'rem',
                   styles: ['bold'],
                   align: 'center',
@@ -373,45 +367,12 @@ export const templates = {
                 defaultValues: {
                   color: '#000'
                 }
-              },
-              {
-                type: 'text',
-                name: 'description',
-                label: 'Description',
-                editor: true,
-                defaultValues: {
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'buyNowText',
-                label: 'Buy Now',
-                editor: true,
-                defaultValues: {
-                  value: 'Buy Now',
-                  color: '#000',
-                  align: 'center',
-                  styles: ['bold']
-                }
               }
             ]
           },
           {
             label: 'Images',
             fields: [
-              {
-                type: 'image',
-                name: 'logoImage',
-                label: 'Logo',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 90,
-                  height: 90,
-                  sizeUnit: 'px'
-                }
-              },
               {
                 type: 'image',
                 name: 'background',
@@ -432,7 +393,7 @@ export const templates = {
                 placeholder: 'URL',
                 editor: true,
                 defaultValues: {
-                  width: 340,
+                  width: 420,
                   sizeUnit: 'px'
                 }
               }
@@ -547,116 +508,11 @@ export const templates = {
                 defaultValues: { iconName: 'tiktok' }
               }
             ]
-          },
-          {
-            label: 'Enable/Disable elements',
-            fields: [
-              {
-                type: 'toggle',
-                name: 'showHowToBuy',
-                label: 'How to Buy'
-              }
-            ]
-          },
-          {
-            label: 'How to Buy',
-            fields: [
-              {
-                type: 'text',
-                name: 'firstStep',
-                label: 'Step 1',
-                defaultValues: {
-                  value:
-                    'Mobile Users: Download the Phantom app for free. Desktop Users: Download the Phantom chrome extension.',
-                  color: '#000',
-                  fontSizeValue: 20,
-                  align: 'center'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondStep',
-                label: 'Step 2',
-                defaultValues: {
-                  value:
-                    'Fund your wallet with Solana, you can buy Solana from an exchange or cross chain swap and send it to your wallet.',
-                  color: '#000',
-                  fontSizeValue: 20,
-                  align: 'center'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdStep',
-                label: 'Step 3',
-                defaultValues: {
-                  value:
-                    'Go to Raydium or Jupiter and swap your Solana for $Ticker.',
-                  color: '#000',
-                  fontSizeValue: 20,
-                  align: 'center'
-                },
-                editor: true
-              }
-            ]
-          },
-          {
-            label: 'Buttons',
-            fields: [
-              {
-                type: 'link',
-                name: 'buyNowLink',
-                label: 'Buy Now URL',
-                placeholder: 'URL'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        name: 'Text',
-        icon: TextIcon,
-        subCategories: [
-          {
-            label: 'Something',
-            fields: [
-              {
-                type: 'text',
-                name: 'something',
-                label: 'Project name',
-                placeholder: 'Name'
-              },
-              {
-                type: 'link',
-                name: 'twitter',
-                label: 'Twitter',
-                placeholder: '#'
-              }
-            ]
-          },
-          {
-            label: 'Something else',
-            fields: [
-              {
-                type: 'image',
-                name: 'something',
-                label: 'Logo',
-                placeholder: 'https://via.placeholder.com/150'
-              },
-              {
-                type: 'image',
-                name: 'background',
-                label: 'Background',
-                placeholder: 'https://via.placeholder.com/150'
-              }
-            ]
           }
         ]
       }
     ],
-    element: Classic
+    element: Simple
   }
 } as const satisfies Templates
 

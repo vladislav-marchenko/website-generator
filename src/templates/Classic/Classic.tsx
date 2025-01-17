@@ -1,6 +1,7 @@
+import { ContractAddressButton } from '../ContractAddressButton'
+import { SocialLinks } from '../SocialLinks'
 import { TemplateLayout } from '../TemplateLayout'
 import { ClassicBuyButton } from './BuyButton'
-import { ClassicCopyButton } from './CopyButton'
 import { ClassicHowToBuy } from './HowToBuy'
 import { Image } from '@/components/TemplateItems/Image'
 import { Link } from '@/components/TemplateItems/Link'
@@ -45,12 +46,8 @@ export const Classic: FC<ClassicProps> = ({ data, updateField }) => {
         as='h1'
         placeholder='Ticker'
       />
-      <ClassicCopyButton data={data} />
-      <div className='flex flex-wrap items-center justify-center gap-4'>
-        {Object.keys(data.links).map((key) => {
-          return data.links[key].url && <Link data={data} fieldName={key} />
-        })}
-      </div>
+      <ContractAddressButton data={data} updateField={updateField} />
+      <SocialLinks data={data} />
       <Image
         data={data}
         fieldName='preview'

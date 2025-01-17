@@ -6,11 +6,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   className?: string
 }
 
-export const ClassicButton: FC<ButtonProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+export const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
   return (
     <button
       className={cn(

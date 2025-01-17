@@ -1,17 +1,28 @@
 import { Image } from '@/components/TemplateItems/Image'
+import { cn } from '@/lib/utils'
 import { TemplateData } from '@/types'
 import { FC, ReactNode } from 'react'
 
 interface TemplateLayoutProps {
   children: ReactNode
   data: TemplateData
+  className?: string
 }
 
-export const TemplateLayout: FC<TemplateLayoutProps> = ({ data, children }) => {
+export const TemplateLayout: FC<TemplateLayoutProps> = ({
+  data,
+  children,
+  className
+}) => {
   return (
     <div className='relative h-full'>
       <div className='relative z-10 flex h-full flex-col items-center overflow-y-auto backdrop-blur-lg'>
-        <div className='mx-auto flex w-full max-w-6xl flex-col items-center gap-8 p-8 pt-16'>
+        <div
+          className={cn(
+            'mx-auto flex h-full w-full max-w-6xl flex-col items-center gap-8 p-8 pt-16',
+            className
+          )}
+        >
           {children}
         </div>
       </div>

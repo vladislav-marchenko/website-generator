@@ -7,12 +7,11 @@ import { templates } from '@/templates'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 
-const currentTemplate = templates.classic
-
 export const CreateSidebar: FC = () => {
-  const { activeCategoryIndex, activeSubCategory } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+  const { selectedTemplate, activeCategoryIndex, activeSubCategory } =
+    useContext(TemplateContext) as TemplateContextValues
+
+  const currentTemplate = templates[selectedTemplate]
 
   return (
     <div className='flex h-dvh'>

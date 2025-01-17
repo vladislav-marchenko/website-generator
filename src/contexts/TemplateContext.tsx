@@ -1,5 +1,5 @@
 import { templatesData } from '@/templates'
-import { TemplateNames, TemplateSubCategoryField, UpdateField } from '@/types'
+import { TemplateName, TemplateSubCategoryField, UpdateField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
 import { set } from 'lodash'
 import { createContext, PropsWithChildren, useState } from 'react'
@@ -13,7 +13,7 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     return <Navigate to='/templates' />
   }
 
-  const selectedTemplate = template as TemplateNames
+  const selectedTemplate = template as TemplateName
 
   const [data, setData] = useState(templatesData[selectedTemplate])
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0)
