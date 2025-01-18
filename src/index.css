@@ -58,6 +58,10 @@
   .button {
     @apply rounded-md border-4 border-b-8 border-black bg-white px-6 py-3 leading-none;
   }
+
+  .impressive-block {
+    @apply dark:border-4 border-4 border-b-8 dark:border-b-8 border-black dark:border-black rounded-xl;
+  }
 }
 
 @keyframes spin {

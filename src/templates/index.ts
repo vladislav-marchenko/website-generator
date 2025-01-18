@@ -633,6 +633,9 @@ export const templates = {
                 editor: true,
                 defaultValues: {
                   src: 'https://img.freepik.com/premium-photo/orange-background-backgrounds-texture-weathered_53876-218333.jpg',
+                  slideshowItems: [
+                    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F022%2F325%2F079%2Flarge_2x%2Fnature-wallpaper-background-nature-digital-painting-colorful-nature-ai-background-free-photo.jpg&f=1&nofb=1&ipt=44ae5060e26ab081d15d95175d711be57bc9e79c334f9749478e8f0bb6db2616&ipo=images'
+                  ],
                   width: 100,
                   height: 100,
                   sizeUnit: '%'
@@ -813,15 +816,33 @@ export const templates = {
               },
               {
                 type: 'text',
-                name: 'roadmapFirstStep',
-                label: 'Phase 1',
+                name: 'roadmapFirstStepTitle',
+                label: 'Phase 1 title',
+                defaultValues: {
+                  value: 'Phase 1',
+                  color: '#fff'
+                }
+              },
+              {
+                type: 'text',
+                name: 'roadmapFirstStepDescription',
+                label: 'Phase 1 description',
                 defaultValues: {
                   color: '#000'
                 }
               },
               {
                 type: 'text',
-                name: 'roadmapSecondStep',
+                name: 'roadmapSecondStepTitle',
+                label: 'Phase 2 title',
+                defaultValues: {
+                  value: 'Phase 2',
+                  color: '#fff'
+                }
+              },
+              {
+                type: 'text',
+                name: 'roadmapSecondStepDescription',
                 label: 'Phase 2',
                 defaultValues: {
                   color: '#000'
@@ -829,7 +850,16 @@ export const templates = {
               },
               {
                 type: 'text',
-                name: 'roadmapThirdStep',
+                name: 'roadmapThirdStepTitle',
+                label: 'Phase 3 title',
+                defaultValues: {
+                  value: 'Phase 3',
+                  color: '#fff'
+                }
+              },
+              {
+                type: 'text',
+                name: 'roadmapThirdStepDescription',
                 label: 'Phase 3',
                 defaultValues: {
                   color: '#000'

@@ -1,6 +1,7 @@
-import { Button } from '../Button'
 import { BuyButton } from '../BuyButton'
+import { SocialLinks } from '../SocialLinks'
 import { TemplateLayout } from '../TemplateLayout'
+import { ImpressiveCopyButton } from './CopyButton'
 import { Image } from '@/components/TemplateItems/Image'
 import { Link } from '@/components/TemplateItems/Link'
 import { Text } from '@/components/TemplateItems/Text'
@@ -14,15 +15,25 @@ import { TemplateData, TextData, UpdateField } from '@/types'
 import { FC } from 'react'
 
 const roadmapSteps = [
-  'roadmapFirstStep',
-  'roadmapSecondStep',
-  'roadmapThirdStep'
+  {
+    title: 'roadmapFirstStepTitle',
+    description: 'roadmapFirstStepDescription'
+  },
+  {
+    title: 'roadmapSecondStepTitle',
+    description: 'roadmapSecondStepDescription'
+  },
+  {
+    title: 'roadmapThirdStepTitle',
+    description: 'roadmapThirdStepDescription'
+  }
 ]
 
 const howToBuySteps = [
   'howToBuyFirstStep',
   'howToBuySecondStep',
-  'howToBuyThirdStep'
+  'howToBuyThirdStep',
+  'howToBuyFourthStep'
 ]
 
 const FAQItems = [
@@ -66,13 +77,13 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
                 updateField={updateField}
                 className='rounded-xl bg-orange-500'
               />
-              {data.links?.telegram?.url && (
+              {data.links?.authorTelegram?.url && (
                 <Link data={data} fieldName='telegram' />
               )}
-              {data.links?.tiktok?.url && (
+              {data.links?.authorTwitter?.url && (
                 <Link data={data} fieldName='tiktok' />
               )}
-              {data.links?.discord?.url && (
+              {data.links?.authorDiscord?.url && (
                 <Link data={data} fieldName='discord' />
               )}
             </div>
@@ -89,17 +100,8 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
                 }}
                 placeholder='Ticker'
               />
-              <div className='button flex items-center justify-between gap-4 rounded-2xl'>
-                <Text
-                  data={data}
-                  updateField={updateField}
-                  fieldName='contractAddress'
-                  placeholder='Contract Address'
-                />
-                <Button className='rounded-xl bg-orange-500 px-4 py-2 font-dino text-xl font-bold uppercase'>
-                  copy
-                </Button>
-              </div>
+              <ImpressiveCopyButton data={data} updateField={updateField} />
+              <SocialLinks data={data} className='pt-4' />
             </div>
             <div className='w-full max-w-full md:max-w-md'>
               <Image data={data} fieldName='preview' />
@@ -129,7 +131,7 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
               data={data}
               updateField={updateField}
               fieldName='aboutUsDescription'
-              placeholder='Info'
+              placeholder='Info...'
             />
           </div>
         </section>
@@ -148,17 +150,22 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
               as='h2'
             />
             <div className='flex flex-wrap justify-center gap-8'>
-              {roadmapSteps.map((fieldName, index) => (
+              {roadmapSteps.map(({ title, description }) => (
                 <div
-                  key={fieldName}
-                  className='flex min-h-96 min-w-96 flex-col items-center gap-4 rounded-xl border-4 border-b-8 border-black bg-white p-8'
+                  key={title}
+                  className='impressive-block flex h-96 w-96 flex-col items-center gap-4 bg-white px-10 py-8'
                 >
-                  <h3 className='inline-block rounded-full border-4 border-black bg-orange-500 px-6 py-3 text-center text-2xl'>
-                    Phase {index + 1}
-                  </h3>
+                  <div className='flex w-full justify-center rounded-full border-4 border-black bg-orange-500 text-center text-2xl'>
+                    <Text
+                      data={data}
+                      fieldName={title}
+                      updateField={updateField}
+                      as='h3'
+                    />
+                  </div>
                   <Text
                     data={data}
-                    fieldName={fieldName}
+                    fieldName={description}
                     updateField={updateField}
                     className={{ wrapper: 'h-full w-full' }}
                   />
@@ -177,7 +184,7 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
               {howToBuySteps.map((fieldName, index) => (
                 <div
                   key={fieldName}
-                  className='flex w-full flex-col items-center gap-4 rounded-xl border-4 border-b-8 border-black bg-white p-8'
+                  className='impressive-block flex w-full flex-col items-center gap-4 bg-white p-8'
                 >
                   <h3 className='flex min-h-14 min-w-14 items-center justify-center rounded-full border-4 border-black bg-orange-500 text-center text-2xl'>
                     {index + 1}
@@ -194,7 +201,11 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
           </div>
         </section>
       </TemplateLayout>
-      <TemplateLayout data={data} backgroundFieldName='secondaryBackground'>
+      <TemplateLayout
+        data={data}
+        backgroundFieldName='secondaryBackground'
+        className='py-24'
+      >
         <section className='mx-auto flex max-w-7xl flex-col items-center gap-8'>
           <Text
             data={data}
@@ -211,7 +222,7 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
               <AccordionItem
                 key={question}
                 value={question}
-                className='w-full border-4 border-b-8 border-black bg-white text-black dark:border-black dark:bg-white dark:text-black'
+                className='impressive-block w-full bg-white px-6 py-4 text-black dark:border-black dark:bg-white dark:text-black'
               >
                 <AccordionTrigger>
                   <Text

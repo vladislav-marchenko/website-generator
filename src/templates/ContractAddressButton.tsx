@@ -1,5 +1,6 @@
 import { Button } from './Button'
 import { Text } from '@/components/TemplateItems/Text'
+import { useCopy } from '@/hooks/useCopy'
 import { cn } from '@/lib/utils'
 import { TemplateData, UpdateField } from '@/types'
 import { CircleCheckBig, Copy } from 'lucide-react'
@@ -16,15 +17,7 @@ export const ContractAddressButton: FC<ContractAddressButtonProps> = ({
   updateField,
   className
 }) => {
-  const [isCopied, setIsCopied] = useState(false)
-
-  const copy = (e: MouseEvent<HTMLElement>) => {
-    const text = (e.target as HTMLElement).innerText
-    navigator.clipboard.writeText(text)
-
-    setIsCopied(true)
-    setTimeout(() => setIsCopied(false), 1000)
-  }
+  const { isCopied, copy } = useCopy()
 
   return (
     <Button
