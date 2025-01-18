@@ -10,7 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { TemplateData, UpdateField } from '@/types'
+import { TemplateData, TextData, UpdateField } from '@/types'
 import { FC } from 'react'
 
 const roadmapSteps = [
@@ -235,15 +235,12 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
       <TemplateLayout
         data={data}
         backgroundFieldName='primaryBackground'
-        className='p-8'
+        className='h-full p-8'
       >
         <section className='flex justify-center'>
-          <Text
-            data={data}
-            fieldName='ticker'
-            updateField={updateField}
-            placeholder='ticker'
-          />
+          <span className='font-dino text-2xl'>
+            {(data?.ticker as TextData)?.value || 'ticker'}
+          </span>
         </section>
       </TemplateLayout>
     </div>

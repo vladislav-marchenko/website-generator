@@ -237,18 +237,13 @@ export const templates = {
             ]
           },
           {
-            label: 'Enable/Disable elements',
+            label: 'How to Buy',
             fields: [
               {
                 type: 'toggle',
                 name: 'showHowToBuy',
-                label: 'How to Buy'
-              }
-            ]
-          },
-          {
-            label: 'How to Buy',
-            fields: [
+                label: 'Show'
+              },
               {
                 type: 'text',
                 name: 'firstStep',

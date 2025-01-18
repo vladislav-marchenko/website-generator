@@ -43,8 +43,6 @@ export const Image: FC<ImageProps> = ({ data, fieldName, className }) => {
       style={{
         transform: `rotate(${fieldData.rotation}deg)`,
         opacity: fieldData.opacity / 100,
-        minWidth: `${fieldData.width}px`,
-        minHeight: `${fieldData.height}px`,
         animationDuration: `${fieldData.animationDuration}ms`
       }}
     >
