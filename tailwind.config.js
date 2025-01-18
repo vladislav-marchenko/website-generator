@@ -5,7 +5,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'serif']
+        inter: ['Inter', 'serif'],
+        dino: 'Dino'
       },
       borderRadius: {
         lg: 'var(--radius)',

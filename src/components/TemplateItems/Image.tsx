@@ -1,5 +1,5 @@
 import { TemplateItemError } from './Error'
-import ImagePlaceholder from '@/assets/placeholder.jpg'
+import ImagePlaceholder from '@/assets/images/placeholder.jpeg'
 import { useSlideshow } from '@/hooks/useSlideshow'
 import { cn } from '@/lib/utils'
 import type { ImageData, TemplateData } from '@/types'

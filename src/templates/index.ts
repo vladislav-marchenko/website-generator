@@ -562,11 +562,14 @@ export const templates = {
                 label: 'Ticker',
                 editor: true,
                 defaultValues: {
+                  fontFamily: 'Dino',
                   fontSizeValue: 6,
                   sizeUnit: 'rem',
                   styles: ['bold'],
                   align: 'center',
-                  animation: 'heartBeat'
+                  animation: 'heartBeat',
+                  strokeWidth: 2,
+                  strokeColor: '#000'
                 }
               },
               {
@@ -575,8 +578,40 @@ export const templates = {
                 label: 'Contract Address',
                 editor: true,
                 defaultValues: {
+                  color: '#000',
+                  fontSizeValue: 28
+                }
+              },
+              {
+                type: 'text',
+                name: 'buyNowText',
+                label: 'Buy Now',
+                editor: true,
+                defaultValues: {
+                  value: 'Buy',
+                  fontFamily: 'Dino',
+                  color: '#fff',
+                  fontSizeValue: 28,
+                  styles: ['bold']
+                }
+              },
+              {
+                type: 'text',
+                name: 'aboutUsTitle',
+                label: 'About Us title',
+                editor: true,
+                defaultValues: {
+                  fontFamily: 'Dino',
+                  fontSizeValue: 72,
                   color: '#000'
                 }
+              },
+              {
+                type: 'text',
+                name: 'aboutUsDescription',
+                label: 'About Us description',
+                editor: true,
+                defaultValues: { fontSizeValue: 32, color: '#000' }
               }
             ]
           },
@@ -585,12 +620,37 @@ export const templates = {
             fields: [
               {
                 type: 'image',
-                name: 'background',
-                label: 'Background',
+                name: 'logo',
+                label: 'Logo',
                 placeholder: 'URL',
                 editor: true,
                 defaultValues: {
-                  src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
+                  width: 102,
+                  height: 102,
+                  sizeUnit: 'px'
+                }
+              },
+              {
+                type: 'image',
+                name: 'primaryBackground',
+                label: 'Primary Background',
+                placeholder: 'URL',
+                editor: true,
+                defaultValues: {
+                  src: 'https://img.freepik.com/premium-photo/orange-background-backgrounds-texture-weathered_53876-218333.jpg',
+                  width: 100,
+                  height: 100,
+                  sizeUnit: '%'
+                }
+              },
+              {
+                type: 'image',
+                name: 'secondaryBackground',
+                label: 'Secondary Background',
+                placeholder: 'URL',
+                editor: true,
+                defaultValues: {
+                  src: 'https://www.knoxalliance.store/wp-content/uploads/2017/05/light-color-background-images-for-website-top-hd-images-for-free-background-for-website-in-light-color-1-1024x640.jpg',
                   width: 100,
                   height: 100,
                   sizeUnit: '%'
@@ -603,8 +663,19 @@ export const templates = {
                 placeholder: 'URL',
                 editor: true,
                 defaultValues: {
-                  width: 420,
-                  sizeUnit: 'px'
+                  width: 100,
+                  sizeUnit: '%'
+                }
+              },
+              {
+                type: 'image',
+                name: 'aboutUsPreview',
+                label: 'About Us preview',
+                placeholder: 'URL',
+                editor: true,
+                defaultValues: {
+                  width: 100,
+                  sizeUnit: '%'
                 }
               }
             ]
@@ -716,6 +787,207 @@ export const templates = {
                 name: 'authorDiscord',
                 placeholder: 'https://discord.com',
                 defaultValues: { iconName: 'tiktok' }
+              }
+            ]
+          },
+          {
+            label: 'Buttons',
+            fields: [
+              {
+                type: 'link',
+                name: 'buyNowLink',
+                label: 'Buy Now URL',
+                placeholder: 'URL'
+              }
+            ]
+          },
+          {
+            label: 'Roadmap',
+            fields: [
+              {
+                type: 'text',
+                name: 'roadmapTitle',
+                label: 'Title',
+                defaultValues: {
+                  value: 'Roadmap',
+                  fontFamily: 'Dino',
+                  fontSizeValue: 72,
+                  color: '#000',
+                  align: 'center'
+                }
+              },
+              {
+                type: 'text',
+                name: 'roadmapFirstStep',
+                label: 'Phase 1',
+                defaultValues: {
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'roadmapSecondStep',
+                label: 'Phase 2',
+                defaultValues: {
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'roadmapThirdStep',
+                label: 'Phase 3',
+                defaultValues: {
+                  color: '#000'
+                }
+              }
+            ]
+          },
+          {
+            label: 'How to Buy',
+            fields: [
+              {
+                type: 'text',
+                name: 'howToBuyTitle',
+                label: 'Title',
+                defaultValues: {
+                  value: 'How to Buy',
+                  fontFamily: 'Dino',
+                  fontSizeValue: 72,
+                  color: '#000',
+                  align: 'center'
+                }
+              },
+              {
+                type: 'text',
+                name: 'howToBuyFirstStep',
+                label: 'Step 1',
+                defaultValues: {
+                  value:
+                    'Create any wallet of your choice, we recommend Phantom.',
+                  color: '#000',
+                  align: 'center'
+                }
+              },
+              {
+                type: 'text',
+                name: 'howToBuySecondStep',
+                label: 'Step 2',
+                defaultValues: {
+                  value:
+                    'Fund your wallet with Solana, you can buy Solana from an exchange.',
+                  color: '#000',
+                  align: 'center'
+                }
+              },
+              {
+                type: 'text',
+                name: 'howToBuyThirdStep',
+                label: 'Step 3',
+                defaultValues: {
+                  value:
+                    'Head to Jupiter & paste our Contract Address, and swap your Solana to our token.',
+                  color: '#000',
+                  align: 'center'
+                }
+              },
+              {
+                type: 'text',
+                name: 'howToBuyFourthStep',
+                label: 'Step 4',
+                defaultValues: {
+                  value: 'Welcome aboard degen!',
+                  color: '#000',
+                  align: 'center'
+                }
+              }
+            ]
+          },
+          {
+            label: 'FAQ',
+            fields: [
+              {
+                type: 'text',
+                name: 'FAQTitle',
+                label: 'Title',
+                defaultValues: {
+                  value: 'FAQ',
+                  fontFamily: 'Dino',
+                  fontSizeValue: 72,
+                  color: '#000',
+                  align: 'center'
+                }
+              },
+              {
+                type: 'text',
+                name: 'firstQuestion',
+                label: 'Question 1',
+                defaultValues: {
+                  value: 'FIRST QUESTION',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'firstAnswer',
+                label: 'Answer 1',
+                defaultValues: {
+                  value: 'FIRST ANSWER',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'secondQuestion',
+                label: 'Question 2',
+                defaultValues: {
+                  value: 'SECOND QUESTION',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'secondAnswer',
+                label: 'Answer 2',
+                defaultValues: {
+                  value: 'SECOND ANSWER',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'thirdQuestion',
+                label: 'Question 3',
+                defaultValues: {
+                  value: 'THIRD QUESTION',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'thirdAnswer',
+                label: 'Answer 3',
+                defaultValues: {
+                  value: 'THIRD ANSWER',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'fourthQuestion',
+                label: 'Question 4',
+                defaultValues: {
+                  value: 'FOURTH QUESTION',
+                  color: '#000'
+                }
+              },
+              {
+                type: 'text',
+                name: 'fourthAnswer',
+                label: 'Answer 4',
+                defaultValues: {
+                  value: 'FOURTH ANSWER',
+                  color: '#000'
+                }
               }
             ]
           }

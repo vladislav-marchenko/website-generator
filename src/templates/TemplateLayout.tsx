@@ -4,31 +4,28 @@ import { TemplateData } from '@/types'
 import { FC, ReactNode } from 'react'
 
 interface TemplateLayoutProps {
-  children: ReactNode
   data: TemplateData
+  children: ReactNode
   className?: string
+  backgroundFieldName?: string
 }
 
 export const TemplateLayout: FC<TemplateLayoutProps> = ({
   data,
   children,
-  className
+  className,
+  backgroundFieldName
 }) => {
   return (
-    <div className='relative h-full'>
-      <div className='relative z-10 flex h-full flex-col items-center overflow-y-auto p-8 pt-16 backdrop-blur-lg'>
-        <div
-          className={cn(
-            'mx-auto flex w-full max-w-6xl flex-col items-center gap-8',
-            className
-          )}
-        >
-          {children}
-        </div>
+    <div className='relative'>
+      <div
+        className={cn('relative z-10 p-8 pt-16 backdrop-blur-lg', className)}
+      >
+        {children}
       </div>
       <Image
         data={data}
-        fieldName='background'
+        fieldName={backgroundFieldName ?? 'background'}
         className={{
           wrapper: 'absolute left-0 top-0 h-full w-full',
           image: 'object-cover'
