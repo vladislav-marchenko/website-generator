@@ -112,7 +112,7 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
       <TemplateLayout
         data={data}
         backgroundFieldName='secondaryBackground'
-        className='py-24'
+        className='pb-48 pt-28'
       >
         <section className='mx-auto flex max-w-7xl items-center gap-32'>
           <div className='w-full max-w-full md:max-w-md'>
@@ -136,13 +136,9 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
           </div>
         </section>
       </TemplateLayout>
-      <TemplateLayout
-        data={data}
-        backgroundFieldName='primaryBackground'
-        className='py-24'
-      >
-        <section className='mx-auto flex max-w-7xl flex-col gap-32'>
-          <div className='flex flex-col items-center justify-center gap-8'>
+      <TemplateLayout data={data} backgroundFieldName='primaryBackground'>
+        <section className='mx-auto flex max-w-7xl flex-col'>
+          <div className='flex flex-col items-center justify-center gap-8 py-24'>
             <Text
               data={data}
               updateField={updateField}
@@ -173,7 +169,7 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
               ))}
             </div>
           </div>
-          <div className='flex flex-col items-center gap-8'>
+          <div className='flex flex-col items-center gap-8 py-24'>
             <Text
               data={data}
               updateField={updateField}
