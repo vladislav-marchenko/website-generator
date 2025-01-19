@@ -1185,30 +1185,6 @@ export const templates = {
                 name: 'joinUsLink',
                 label: 'Join Us URL',
                 placeholder: 'URL'
-              },
-              {
-                type: 'link',
-                name: 'telegramButtonLink',
-                label: 'Telegram Button URL',
-                editor: true,
-                defaultValues: { placeholder: 'URL' }
-              },
-              {
-                type: 'toggle',
-                name: 'showTelegramButton',
-                label: 'Show telegram button'
-              },
-              {
-                type: 'link',
-                name: 'twitterButtonLink',
-                label: 'Twitter Button URL',
-                editor: true,
-                defaultValues: { placeholder: 'URL' }
-              },
-              {
-                type: 'toggle',
-                name: 'showTwitterButton',
-                label: 'Show twitter button'
               }
             ]
           }
