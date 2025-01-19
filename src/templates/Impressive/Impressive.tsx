@@ -220,7 +220,7 @@ export const Impressive: FC<ImpressiveProps> = ({ data, updateField }) => {
                 value={question}
                 className='impressive-block w-full bg-white px-6 py-4 text-black dark:border-black dark:bg-white dark:text-black'
               >
-                <AccordionTrigger>
+                <AccordionTrigger iconSize={32}>
                   <Text
                     data={data}
                     fieldName={question}

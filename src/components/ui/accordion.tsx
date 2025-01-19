@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, LucideIcon } from 'lucide-react'
 import * as React from 'react'
 
 const Accordion = AccordionPrimitive.Root
@@ -20,24 +20,38 @@ const AccordionItem = React.forwardRef<
 ))
 AccordionItem.displayName = 'AccordionItem'
 
+interface TriggerProps
+  extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> {
+  icon?: LucideIcon
+  iconSize?: number
+}
+
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className='flex'>
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        'flex flex-1 items-center justify-between py-4 text-left text-lg font-medium transition-all [&[data-state=open]>svg]:rotate-180',
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <ChevronDown className='h-8 w-8 shrink-0 transition-transform duration-200' />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-))
+  TriggerProps
+>(
+  (
+    { className, children, icon: Icon = ChevronDown, iconSize = 24, ...props },
+    ref
+  ) => (
+    <AccordionPrimitive.Header className='flex'>
+      <AccordionPrimitive.Trigger
+        ref={ref}
+        className={cn(
+          'flex flex-1 items-center justify-between py-4 text-left text-lg font-medium transition-all [&[data-state=open]>svg]:rotate-180',
+          className
+        )}
+        {...props}
+      >
+        {children}
+        <Icon
+          size={iconSize}
+          className='shrink-0 transition-transform duration-200'
+        />
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
+  )
+)
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
 
 const AccordionContent = React.forwardRef<
