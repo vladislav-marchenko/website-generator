@@ -30,7 +30,7 @@ export interface Animation {
 
 type SizeUnit = 'px' | 'rem' | 'cm' | '%'
 
-export type Data = TextData | ImageData | LinkData | ToggleData
+export type Data = TextData | ImageData | LinkData | ToggleData | ColorData
 
 interface CommonData extends TemplateSubCategoryField {
   rotation: number
@@ -74,7 +74,11 @@ export interface ToggleData {
   value: boolean
 }
 
-export type TemplateSubCategoryFieldType = keyof typeof editorFields
+export interface ColorData extends TemplateSubCategoryField {
+  value: string
+}
+
+export type TemplateSubCategoryFieldType = keyof DefaultValues
 
 export interface TemplateSubCategoryField {
   type: TemplateSubCategoryFieldType
@@ -127,6 +131,7 @@ export interface DefaultValues {
   image: Omit<ImageData, keyof TemplateSubCategoryField>
   link: Omit<LinkData, keyof TemplateSubCategoryField>
   toggle: Omit<ToggleData, keyof TemplateSubCategoryField>
+  color: Omit<ColorData, keyof TemplateSubCategoryField>
 }
 
 export interface PricingCard {

@@ -10,6 +10,7 @@ interface TextProps {
   fieldName: keyof TemplateData
   placeholder?: string
   as?: string
+  defaultColor?: string
   className?: {
     wrapper?: string
     text?: string
@@ -22,6 +23,7 @@ export const Text: FC<TextProps> = ({
   fieldName,
   placeholder = '',
   as = 'span',
+  defaultColor,
   className
 }) => {
   const fieldData = data[fieldName] as TextData
@@ -52,7 +54,7 @@ export const Text: FC<TextProps> = ({
         style={{
           fontFamily: `'${fieldData.fontFamily}'`,
           fontSize: fieldData.fontSizeValue + fieldData.sizeUnit,
-          color: fieldData.color,
+          color: fieldData.color || defaultColor,
           textDecoration: fieldData.styles
             .filter((style) => ['underline', 'line-through'].includes(style))
             .join(' '),

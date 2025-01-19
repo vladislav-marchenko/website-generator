@@ -209,6 +209,10 @@ export default {
           '0%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-70%)' },
           '100%': { transform: 'translateY(0)' }
+        },
+        spring: {
+          'from, to': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5%)' }
         }
       },
       animation: {
@@ -226,7 +230,8 @@ export default {
         headShake: 'headShake 2s infinite',
         wobble: 'wobble 1s infinite',
         jello: 'jello 2s infinite',
-        scroll: 'scroll 10s infinite linear'
+        scroll: 'scroll 10s infinite linear',
+        spring: 'spring 5s infinite linear'
       }
     }
   },

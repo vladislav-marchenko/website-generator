@@ -1,5 +1,6 @@
 import { Classic } from './Classic/Classic'
 import { Impressive } from './Impressive/Impressive'
+import { Rocket } from './Rocket/Rocket'
 import { Simple } from './Simple/Simple'
 import type {
   DefaultValues,
@@ -1020,6 +1021,71 @@ export const templates = {
       }
     ],
     element: Impressive
+  },
+  rocket: {
+    label: 'Rocket',
+    description: 'Rocket',
+    shortDescription: 'Rocket',
+    features: [],
+    price: 0,
+    categories: [
+      {
+        name: 'Colors',
+        icon: EditIcon,
+        subCategories: [
+          {
+            label: 'Accent Colors',
+            fields: [
+              {
+                type: 'color',
+                name: 'primaryColor',
+                label: 'Primary Color',
+                defaultValues: {
+                  value: '#3B82F6'
+                }
+              },
+              {
+                type: 'color',
+                name: 'secondaryColor',
+                label: 'Secondary Color',
+                defaultValues: {
+                  value: '#ff0000'
+                }
+              }
+            ]
+          },
+          {
+            label: 'Text',
+            fields: [
+              {
+                type: 'text',
+                name: 'ticker',
+                label: 'Ticker',
+                editor: true,
+                defaultValues: {
+                  value: 'Ticker',
+                  fontSizeValue: 96,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'projectName',
+                label: 'Project Name',
+                editor: true,
+                defaultValues: {
+                  value: 'Name',
+                  fontSizeValue: 96,
+                  color: '#000',
+                  styles: ['bold']
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    element: Rocket
   }
 } as const satisfies Templates
 
@@ -1029,7 +1095,7 @@ export const defaultFieldValues: DefaultValues = {
     fontFamily: 'Inter',
     fontSizeValue: 24,
     sizeUnit: 'px',
-    color: '#ffffff',
+    color: '',
     styles: [],
     strokeColor: '#ff0000',
     strokeWidth: 0,
@@ -1062,6 +1128,9 @@ export const defaultFieldValues: DefaultValues = {
   },
   toggle: {
     value: true
+  },
+  color: {
+    value: '#ff0000'
   }
 }
 

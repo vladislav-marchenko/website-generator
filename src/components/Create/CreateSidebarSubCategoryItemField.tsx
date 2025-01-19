@@ -1,6 +1,7 @@
 import { Input } from '../ui/input'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import {
+  ColorData,
   ImageData,
   LinkData,
   TemplateSubCategoryFieldType,
@@ -8,6 +9,7 @@ import {
 } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
+import { HexColorPicker } from 'react-colorful'
 
 interface CreateSidebarSubCategoryItemFieldProps {
   type: TemplateSubCategoryFieldType
@@ -52,6 +54,14 @@ export const CreateSidebarSubCategoryItemField: FC<
           value={(data.links[name] as LinkData).url}
           onChange={(e) => updateField(`links.${name}.url`, e.target.value)}
           placeholder={placeholder}
+        />
+      )
+
+    case 'color':
+      return (
+        <HexColorPicker
+          color={(data[name] as ColorData).value}
+          onChange={(color) => updateField(`${name}.value`, color)}
         />
       )
   }
