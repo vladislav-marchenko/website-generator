@@ -1,5 +1,5 @@
-import { AnimateCircle } from './AnimatedCircle'
-import { Text } from '@/components/TemplateItems/Text'
+import { RocketHeader } from './Header'
+import { RocketHero } from './Hero'
 import { loadFonts } from '@/lib/utils'
 import { ColorData, TemplateData, UpdateField } from '@/types'
 import { FC } from 'react'
@@ -13,27 +13,16 @@ loadFonts(['Orbitron'])
 
 export const Rocket: FC<RocketProps> = ({ data, updateField }) => {
   const primaryColor = (data?.primaryColor as ColorData)?.value
+  const secondaryColor = (data?.secondaryColor as ColorData)?.value
 
   return (
-    <div className='mx-auto flex max-w-7xl items-center gap-32 py-24'>
-      <div className='flex flex-col gap-4'>
-        <Text
-          data={data}
-          fieldName='heroTitle'
-          updateField={updateField}
-          defaultColor={primaryColor}
-        />
-        <Text
-          data={data}
-          fieldName='ticker'
-          updateField={updateField}
-          defaultColor={primaryColor}
-        />
-      </div>
-      <AnimateCircle
+    <div className='flex min-h-dvh flex-col bg-[#0e1019]'>
+      <RocketHeader data={data} updateField={updateField} />
+      <RocketHero
         data={data}
         updateField={updateField}
-        color={primaryColor}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
       />
     </div>
   )

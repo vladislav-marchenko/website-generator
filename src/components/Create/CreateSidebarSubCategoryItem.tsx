@@ -33,7 +33,7 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
         {type === 'toggle' && (
           <Checkbox
             id={name}
-            onCheckedChange={(value) => updateField(name, value)}
+            onCheckedChange={(value) => updateField(`${name}.value`, value)}
             checked={(data[name] as ToggleData).value}
           />
         )}

@@ -1049,7 +1049,7 @@ export const templates = {
                 name: 'secondaryColor',
                 label: 'Secondary Color',
                 defaultValues: {
-                  value: '#ff0000'
+                  value: '#c0bfbc'
                 }
               }
             ]
@@ -1083,6 +1083,39 @@ export const templates = {
               },
               {
                 type: 'text',
+                name: 'description',
+                label: 'Description',
+                editor: true,
+                defaultValues: {
+                  value:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, elit ac hendrerit fermentum, lorem quam blandit sapien, non finibus tortor est et urna. Etiam commodo iaculis convallis.',
+                  fontSizeValue: 16,
+                  color: '#c0bfbc'
+                }
+              },
+              {
+                type: 'text',
+                name: 'contractAddress',
+                label: 'Contract Address',
+                editor: true,
+                defaultValues: {
+                  fontSizeValue: 14
+                }
+              },
+              {
+                type: 'text',
+                name: 'contractAddressLabel',
+                label: 'Contract Address Label',
+                editor: true,
+                defaultValues: {
+                  value: 'Contract Address',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron',
+                  color: '#c0bfbc'
+                }
+              },
+              {
+                type: 'text',
                 name: 'projectName',
                 label: 'Project Name',
                 editor: true,
@@ -1092,6 +1125,90 @@ export const templates = {
                   color: '#000',
                   styles: ['bold']
                 }
+              },
+              {
+                type: 'text',
+                name: 'buyTicker',
+                label: 'Header Button',
+                editor: true,
+                defaultValues: {
+                  value: 'Buy Ticker',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 16,
+                  color: '#fff'
+                }
+              },
+              {
+                type: 'text',
+                name: 'buyNow',
+                label: 'Buy Now Button',
+                editor: true,
+                defaultValues: {
+                  value: 'Buy now',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 18,
+                  color: '#fff'
+                }
+              },
+              {
+                type: 'text',
+                name: 'joinUs',
+                label: 'Join Us Button',
+                editor: true,
+                defaultValues: {
+                  value: 'Join Us',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 18,
+                  color: '#fff'
+                }
+              },
+              ,
+            ]
+          },
+          {
+            label: 'Buttons',
+            fields: [
+              {
+                type: 'link',
+                name: 'buyTickerLink',
+                label: 'Buy Ticker URL',
+                placeholder: 'URL'
+              },
+              {
+                type: 'link',
+                name: 'buyNowLink',
+                label: 'Buy Now URL',
+                placeholder: 'URL'
+              },
+              {
+                type: 'link',
+                name: 'joinUsLink',
+                label: 'Join Us URL',
+                placeholder: 'URL'
+              },
+              {
+                type: 'link',
+                name: 'telegramButtonLink',
+                label: 'Telegram Button URL',
+                editor: true,
+                defaultValues: { placeholder: 'URL' }
+              },
+              {
+                type: 'toggle',
+                name: 'showTelegramButton',
+                label: 'Show telegram button'
+              },
+              {
+                type: 'link',
+                name: 'twitterButtonLink',
+                label: 'Twitter Button URL',
+                editor: true,
+                defaultValues: { placeholder: 'URL' }
+              },
+              {
+                type: 'toggle',
+                name: 'showTwitterButton',
+                label: 'Show twitter button'
               }
             ]
           }
