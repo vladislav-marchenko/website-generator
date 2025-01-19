@@ -1059,13 +1059,26 @@ export const templates = {
             fields: [
               {
                 type: 'text',
+                name: 'heroTitle',
+                label: 'Hero title',
+                editor: true,
+                defaultValues: {
+                  value: 'Token name',
+                  fontSizeValue: 64,
+                  fontFamily: 'Orbitron',
+                  styles: ['bold']
+                }
+              },
+              {
+                type: 'text',
                 name: 'ticker',
                 label: 'Ticker',
                 editor: true,
                 defaultValues: {
                   value: 'Ticker',
-                  fontSizeValue: 96,
-                  fontFamily: 'Orbitron'
+                  fontSizeValue: 28,
+                  fontFamily: 'Orbitron',
+                  color: '#c0bfbc'
                 }
               },
               {
@@ -1075,7 +1088,7 @@ export const templates = {
                 editor: true,
                 defaultValues: {
                   value: 'Name',
-                  fontSizeValue: 96,
+                  fontSizeValue: 80,
                   color: '#000',
                   styles: ['bold']
                 }

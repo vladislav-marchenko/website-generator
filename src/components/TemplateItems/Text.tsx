@@ -1,7 +1,7 @@
 import { TemplateItemError } from './Error'
 import { cn } from '@/lib/utils'
 import { TemplateData, TextData, UpdateField } from '@/types'
-import { FC } from 'react'
+import { CSSProperties, FC } from 'react'
 import ContentEditable from 'react-contenteditable'
 
 interface TextProps {
@@ -15,6 +15,7 @@ interface TextProps {
     wrapper?: string
     text?: string
   }
+  style?: CSSProperties
 }
 
 export const Text: FC<TextProps> = ({
@@ -24,7 +25,8 @@ export const Text: FC<TextProps> = ({
   placeholder = '',
   as = 'span',
   defaultColor,
-  className
+  className,
+  style
 }) => {
   const fieldData = data[fieldName] as TextData
   if (!fieldData) return <TemplateItemError />
@@ -61,7 +63,8 @@ export const Text: FC<TextProps> = ({
           fontStyle: fieldData.styles.includes('italic') && 'italic',
           fontWeight: fieldData.styles.includes('bold') && 'bold',
           WebkitTextStroke: `${fieldData.strokeWidth}px ${fieldData.strokeColor}`,
-          backgroundColor: fieldData.backgroundColor
+          backgroundColor: fieldData.backgroundColor,
+          ...style
         }}
       />
     </div>
