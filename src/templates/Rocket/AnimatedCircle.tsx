@@ -15,7 +15,7 @@ export const AnimateCircle: FC<AnimatedCircleProps> = ({
 }) => {
   const projectName = data?.projectName as TextData
   const maxFontSize = projectName?.fontSizeValue
-  const dynamicFontSize = 700 / projectName?.value.length
+  const dynamicFontSize = 600 / projectName?.value.length
   const fontSize = dynamicFontSize > maxFontSize ? maxFontSize : dynamicFontSize
 
   return (
