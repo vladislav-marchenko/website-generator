@@ -13,10 +13,10 @@ export const getSubdomain = () => {
   return null
 }
 
-export const loadFont = (font: string) => {
+export const loadFonts = (fonts: string[]) => {
   webFontLoader.load({
     google: {
-      families: [font]
+      families: fonts
     }
   })
 }

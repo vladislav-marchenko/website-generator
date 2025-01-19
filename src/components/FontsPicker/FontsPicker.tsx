@@ -14,7 +14,7 @@ import {
   PopoverTrigger
 } from '@/components/ui/popover'
 import { fallbackFonts } from '@/consts'
-import { loadFont } from '@/lib/utils'
+import { loadFonts } from '@/lib/utils'
 import { getFonts } from '@/services/api'
 import { useQuery } from '@tanstack/react-query'
 import { ChevronsUpDownIcon } from 'lucide-react'
@@ -38,7 +38,7 @@ export const FontsPicker: FC<FontsPickerProps> = ({ onChange }) => {
     setOpen(false)
     onChange && onChange(value)
 
-    loadFont(value)
+    loadFonts([value])
   }
 
   return (

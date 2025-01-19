@@ -1,5 +1,6 @@
 import { AnimateCircle } from './AnimatedCircle'
 import { Text } from '@/components/TemplateItems/Text'
+import { loadFonts } from '@/lib/utils'
 import { ColorData, TemplateData, UpdateField } from '@/types'
 import { FC } from 'react'
 
@@ -7,6 +8,8 @@ interface RocketProps {
   data: TemplateData
   updateField?: UpdateField
 }
+
+loadFonts(['Orbitron'])
 
 export const Rocket: FC<RocketProps> = ({ data, updateField }) => {
   const primaryColor = (data?.primaryColor as ColorData)?.value
