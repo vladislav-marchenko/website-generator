@@ -1,5 +1,6 @@
 import { Text } from '@/components/TemplateItems/Text'
-import { TemplateData, TextData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData, TextData } from '@/types/templates'
 import { FC } from 'react'
 
 interface AnimatedCircleProps {

@@ -1,6 +1,7 @@
 import { Text } from '@/components/TemplateItems/Text'
 import { useCopy } from '@/hooks/useCopy'
-import { TemplateData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
 interface ImpressiveCopyButtonProps {

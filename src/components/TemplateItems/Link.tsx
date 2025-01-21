@@ -1,6 +1,6 @@
 import { TemplateItemError } from './Error'
 import { socialLinkIcons } from '@/consts'
-import { LinkData, TemplateData } from '@/types'
+import { LinkData, TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
 const getIcon = (name: string) => {

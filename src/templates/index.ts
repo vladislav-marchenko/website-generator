@@ -2,13 +2,13 @@ import { Classic } from './Classic/Classic'
 import { Impressive } from './Impressive/Impressive'
 import { Rocket } from './Rocket/Rocket'
 import { Simple } from './Simple/Simple'
-import type {
+import {
   DefaultValues,
   Template,
   TemplateData,
   TemplateName,
   Templates
-} from '@/types'
+} from '@/types/templates'
 import { cloneDeep, merge, set } from 'lodash'
 import { EditIcon, TextIcon } from 'lucide-react'
 
@@ -1162,7 +1162,61 @@ export const templates = {
                   color: '#fff'
                 }
               },
-              ,
+              {
+                type: 'text',
+                name: 'tokenomicsTitle',
+                label: 'Tokenomics Title',
+                editor: true,
+                defaultValues: {
+                  value: 'Tokenomics',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 48
+                }
+              },
+              {
+                type: 'text',
+                name: 'missionTimelineTitle',
+                label: 'Mission Timeline Title',
+                defaultValues: {
+                  value: 'Mission Timeline',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 48
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'missionControlTitle',
+                label: 'Mission Control Title',
+                defaultValues: {
+                  value: 'Mission Control',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 48
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'FAQTitle',
+                label: 'Mission FAQ Title',
+                defaultValues: {
+                  value: 'Mission FAQ',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 48
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'joinTitle',
+                label: 'Join The Mission Title',
+                defaultValues: {
+                  value: 'Join The Mission',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 48
+                },
+                editor: true
+              }
             ]
           },
           {
@@ -1184,6 +1238,453 @@ export const templates = {
                 type: 'link',
                 name: 'joinUsLink',
                 label: 'Join Us URL',
+                placeholder: 'URL'
+              }
+            ]
+          },
+          {
+            label: 'Tokenomics',
+            fields: [
+              {
+                type: 'text',
+                name: 'firstTokenomicsIcon',
+                label: 'First Icon',
+                defaultValues: { value: '💰', fontSizeValue: 40 }
+              },
+              {
+                type: 'text',
+                name: 'firstTokenomicsTitle',
+                label: 'First Title',
+                defaultValues: {
+                  value: 'Total Supply',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'firstTokenomicsValue',
+                label: 'First Value',
+                defaultValues: {
+                  value: '1000000000',
+                  fontSizeValue: 32,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'secondTokenomicsIcon',
+                label: 'Second Icon',
+                defaultValues: { value: '📈', fontSizeValue: 40 }
+              },
+              {
+                type: 'text',
+                name: 'secondTokenomicsTitle',
+                label: 'Second Title',
+                defaultValues: {
+                  value: 'Buy Tax',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'secondTokenomicsValue',
+                label: 'Second Value',
+                defaultValues: {
+                  value: '5%',
+                  fontSizeValue: 32,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'thirdTokenomicsIcon',
+                label: 'Third Icon',
+                defaultValues: { value: '📉', fontSizeValue: 40 }
+              },
+              {
+                type: 'text',
+                name: 'thirdTokenomicsTitle',
+                label: 'Third Title',
+                defaultValues: {
+                  value: 'Sell Tax',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'thirdTokenomicsValue',
+                label: 'Third Value',
+                defaultValues: {
+                  value: '5%',
+                  fontSizeValue: 32,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'fourthTokenomicsIcon',
+                label: 'Fourth Icon',
+                defaultValues: { value: '🔒', fontSizeValue: 40 }
+              },
+              {
+                type: 'text',
+                name: 'fourthTokenomicsTitle',
+                label: 'Fourth Title',
+                defaultValues: {
+                  value: 'LP Lock',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                }
+              },
+              {
+                type: 'text',
+                name: 'fourthTokenomicsValue',
+                label: 'Fourth Value',
+                defaultValues: {
+                  value: '2 Years',
+                  fontSizeValue: 32,
+                  fontFamily: 'Orbitron'
+                }
+              }
+            ]
+          },
+          {
+            label: 'Mission Timeline',
+            fields: [
+              {
+                type: 'text',
+                name: 'firstTimelinePhaseTitle',
+                label: 'Phase 1 title',
+                defaultValues: {
+                  value: 'Phase 1',
+                  color: '#fff',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'firstTimelineTitle',
+                label: 'Phase 1 title',
+                defaultValues: {
+                  value: 'Concept & Vision',
+                  color: '#fff',
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'firstTimelineDescription',
+                label: 'Phase 1 description',
+                defaultValues: {
+                  value:
+                    'Define your big idea and lay out the foundation for your project. Set clear goals and build excitement around what’s coming next. 🚀',
+                  color: '#c0bfbc',
+                  fontSizeValue: 16
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'firstTimelineDate',
+                label: 'Phase 1 date',
+                defaultValues: {
+                  value: 'Q1 2024',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondTimelinePhaseTitle',
+                label: 'Phase 2 title',
+                defaultValues: {
+                  value: 'Phase 2',
+                  color: '#fff',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondTimelineTitle',
+                label: 'Phase 2 title',
+                defaultValues: {
+                  value: 'Build & Launch',
+                  color: '#fff',
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondTimelineDescription',
+                label: 'Phase 2 description',
+                defaultValues: {
+                  value:
+                    'Start creating! Focus on getting your product, service, or community up and running. This is where things start to come to life. 🌟',
+                  color: '#c0bfbc',
+                  fontSizeValue: 16
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondTimelineDate',
+                label: 'Phase 2 date',
+                defaultValues: {
+                  value: 'Q2 2025',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdTimelinePhaseTitle',
+                label: 'Phase 3 title',
+                defaultValues: {
+                  value: 'Phase 3',
+                  color: '#fff',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdTimelineTitle',
+                label: 'Phase 3 title',
+                defaultValues: {
+                  value: 'Build & Launch',
+                  color: '#fff',
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdTimelineDescription',
+                label: 'Phase 3 description',
+                defaultValues: {
+                  value:
+                    'Start creating! Focus on getting your product, service, or community up and running. This is where things start to come to life. 🌟',
+                  color: '#c0bfbc',
+                  fontSizeValue: 16
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdTimelineDate',
+                label: 'Phase 3 date',
+                defaultValues: {
+                  value: 'Q2 2025',
+                  fontSizeValue: 14,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              }
+            ]
+          },
+          {
+            label: 'Mission Control',
+            fields: [
+              {
+                type: 'image',
+                name: 'firstControlAvatar',
+                label: 'First Avatar',
+                defaultValues: { width: 120 },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'firstControlName',
+                label: 'First Name',
+                defaultValues: {
+                  value: 'Meme Lord',
+                  color: '#fff',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'firstControlJob',
+                label: 'First Job',
+                defaultValues: {
+                  value: 'Platform Architect',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 16
+                },
+                editor: true
+              },
+              {
+                type: 'image',
+                name: 'secondControlAvatar',
+                label: 'Second Avatar',
+                defaultValues: { width: 120 },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondControlName',
+                label: 'Second Name',
+                defaultValues: {
+                  value: 'Degen Dev',
+                  color: '#fff',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondControlJob',
+                label: 'Second Job',
+                defaultValues: {
+                  value: 'Smart Contract Wizard',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 16
+                },
+                editor: true
+              },
+              {
+                type: 'image',
+                name: 'thirdControlAvatar',
+                label: 'Third Avatar',
+                defaultValues: { width: 120 },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdControlName',
+                label: 'Third Name',
+                defaultValues: {
+                  value: 'Ser Launch',
+                  color: '#fff',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdControlJob',
+                label: 'Third Job',
+                defaultValues: {
+                  value: 'Community Lead',
+                  fontFamily: 'Orbitron',
+                  fontSizeValue: 16
+                },
+                editor: true
+              }
+            ]
+          },
+          {
+            label: 'FAQ',
+            fields: [
+              {
+                type: 'text',
+                name: 'firstQuestion',
+                label: 'First Question',
+                defaultValues: {
+                  value: 'What is AURORA? 🚀',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'firstAnswer',
+                label: 'First Answer',
+                defaultValues: {
+                  value:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+                  fontSizeValue: 16,
+                  color: '#c0bfbc'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondQuestion',
+                label: 'Second Question',
+                defaultValues: {
+                  value: 'Why AURORA? 🌟',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'secondAnswer',
+                label: 'Second Answer',
+                defaultValues: {
+                  value:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+                  fontSizeValue: 16,
+                  color: '#c0bfbc'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdQuestion',
+                label: 'Third Question',
+                defaultValues: {
+                  value: 'How does it work? ⚡',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'thirdAnswer',
+                label: 'Third Answer',
+                defaultValues: {
+                  value:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+                  fontSizeValue: 16,
+                  color: '#c0bfbc'
+                },
+                editor: true
+              }
+            ]
+          },
+          {
+            label: 'Links',
+            fields: [
+              {
+                type: 'link',
+                name: 'joinTelegram',
+                label: 'Telegram',
+                editor: true,
+                placeholder: 'URL'
+              },
+              {
+                type: 'link',
+                name: 'joinTwitter',
+                label: 'Twitter',
+                editor: true,
+                placeholder: 'URL'
+              },
+              {
+                type: 'link',
+                name: 'joinDiscord',
+                label: 'Discord',
+                editor: true,
                 placeholder: 'URL'
               }
             ]

@@ -1,6 +1,6 @@
 import { Image } from '@/components/TemplateItems/Image'
 import { cn } from '@/lib/utils'
-import { TemplateData } from '@/types'
+import { TemplateData } from '@/types/templates'
 import { FC, ReactNode } from 'react'
 
 interface TemplateLayoutProps {

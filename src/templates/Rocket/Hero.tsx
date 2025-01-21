@@ -2,7 +2,8 @@ import { AnimateCircle } from './AnimatedCircle'
 import { RocketButton } from './Button'
 import { RocketCopyButton } from './CopyButton'
 import { Text } from '@/components/TemplateItems/Text'
-import { TemplateData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
 interface RocketHeroProps {
@@ -19,13 +20,15 @@ export const RocketHero: FC<RocketHeroProps> = ({
   secondaryColor
 }) => {
   return (
-    <div className='mx-auto flex w-full max-w-6xl flex-auto items-center gap-40 py-24'>
+    <div className='mx-auto flex min-h-dvh w-full max-w-6xl flex-auto items-center gap-40 py-24'>
       <div className='flex max-w-lg flex-col gap-6'>
         <Text
           data={data}
           fieldName='heroTitle'
           updateField={updateField}
           defaultColor={primaryColor}
+          className={{ text: 'tracking-wider' }}
+          as='h1'
         />
         <Text data={data} fieldName='ticker' updateField={updateField} />
         <Text

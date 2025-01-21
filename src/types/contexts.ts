@@ -1,10 +1,10 @@
-import type {
+import type { UpdateField } from '.'
+import {
   Data,
   TemplateData,
   TemplateName,
-  TemplateSubCategoryField,
-  UpdateField
-} from '.'
+  TemplateSubCategoryField
+} from './templates'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface TemplateContextValues {

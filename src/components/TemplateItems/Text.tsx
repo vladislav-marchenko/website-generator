@@ -1,6 +1,7 @@
 import { TemplateItemError } from './Error'
 import { cn } from '@/lib/utils'
-import { TemplateData, TextData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData, TextData } from '@/types/templates'
 import { CSSProperties, FC } from 'react'
 import ContentEditable from 'react-contenteditable'
 

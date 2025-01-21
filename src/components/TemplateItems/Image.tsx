@@ -2,7 +2,7 @@ import { TemplateItemError } from './Error'
 import ImagePlaceholder from '@/assets/images/placeholder.jpeg'
 import { useSlideshow } from '@/hooks/useSlideshow'
 import { cn } from '@/lib/utils'
-import type { ImageData, TemplateData } from '@/types'
+import { ImageData, TemplateData } from '@/types/templates'
 import { motion, AnimatePresence } from 'motion/react'
 import { FC } from 'react'
 

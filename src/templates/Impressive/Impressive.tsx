@@ -11,7 +11,8 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { TemplateData, TextData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData, TextData } from '@/types/templates'
 import { FC } from 'react'
 
 const roadmapSteps = [

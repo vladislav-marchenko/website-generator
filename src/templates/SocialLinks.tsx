@@ -1,6 +1,6 @@
 import { Link } from '@/components/TemplateItems/Link'
 import { cn } from '@/lib/utils'
-import { TemplateData } from '@/types'
+import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
 interface SocialLinksProps {
