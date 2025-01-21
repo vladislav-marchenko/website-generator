@@ -26,7 +26,7 @@ export const RocketFAQ: FC<RocketFAQProps> = ({
         as='h2'
       />
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
-        {['first', 'second', 'third'].map((item) => (
+        {['first', 'second', 'third', 'fourth'].map((item) => (
           <RocketCard key={item} className='max-w-full'>
             <Text
               data={data}

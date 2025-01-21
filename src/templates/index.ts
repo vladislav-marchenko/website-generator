@@ -1660,6 +1660,29 @@ export const templates = {
                   color: '#c0bfbc'
                 },
                 editor: true
+              },
+              {
+                type: 'text',
+                name: 'fourthQuestion',
+                label: 'Fourth Question',
+                defaultValues: {
+                  value: 'How does it work? ⚡',
+                  fontSizeValue: 20,
+                  fontFamily: 'Orbitron'
+                },
+                editor: true
+              },
+              {
+                type: 'text',
+                name: 'fourthAnswer',
+                label: 'Fourth Answer',
+                defaultValues: {
+                  value:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+                  fontSizeValue: 16,
+                  color: '#c0bfbc'
+                },
+                editor: true
               }
             ]
           },
@@ -1781,3 +1804,5 @@ const getTemplatesData = () => {
 }
 
 export const templatesData = getTemplatesData()
+
+console.log(templatesData)
