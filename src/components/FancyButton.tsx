@@ -1,14 +1,25 @@
-import { FC, PropsWithChildren } from 'react'
+import { cn } from '@/lib/utils'
+import { FC, PropsWithChildren, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
-export const FancyButton: FC<PropsWithChildren<{ to: string }>> = ({
+interface FancyButtonProps {
+  to: string
+  children: ReactNode
+  className?: string
+}
+
+export const FancyButton: FC<FancyButtonProps> = ({
   children,
-  to
+  to,
+  className
 }) => {
   return (
     <Link
       to={to}
-      className='group relative flex cursor-pointer justify-center overflow-hidden whitespace-nowrap rounded-full px-6 py-5 text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_8px_rgba(62,61,117,0.7)]'
+      className={cn(
+        'group relative flex cursor-pointer justify-center overflow-hidden whitespace-nowrap rounded-full px-6 py-5 text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_8px_rgba(62,61,117,0.7)]',
+        className
+      )}
       style={
         {
           '--spread': '90deg',

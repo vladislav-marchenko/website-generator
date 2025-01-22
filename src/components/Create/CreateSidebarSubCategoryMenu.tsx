@@ -36,7 +36,9 @@ export const CreateSidebarSubCategoryMenu: FC<
                 <CreateSidebarSubCategoryItem key={field.name} {...field} />
               ))}
             </div>
-            <FancyButton to='/'>Pay</FancyButton>
+            <FancyButton to='/' className='w-full max-w-48 self-center'>
+              Create Web
+            </FancyButton>
           </div>
         </motion.div>
       )}

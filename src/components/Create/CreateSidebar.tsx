@@ -39,7 +39,9 @@ export const CreateSidebar: FC = () => {
               )
             )}
           </div>
-          <FancyButton to='/'>Pay</FancyButton>
+          <FancyButton to='/' className='w-full max-w-48 self-center'>
+            Create Web
+          </FancyButton>
           <CreateSidebarSubCategoryEditorMenu />
         </div>
       </aside>
