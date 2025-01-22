@@ -50,7 +50,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
                 It seems like there's no editor for this type of component
               </span>
             )}
-            <FancyButton to='/' className='w-full max-w-48 self-center'>
+            <FancyButton to='/' className='w-full max-w-64 self-center'>
               Create Web
             </FancyButton>
           </div>
