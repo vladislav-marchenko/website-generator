@@ -1,4 +1,4 @@
-import { Button } from '../Button'
+import { FancyButton } from '../FancyButton'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { CreateSidebarSubCategoryItem } from './CreateSidebarSubCategoryItem'
 import { TemplateSubCategoryField } from '@/types/templates'
@@ -24,7 +24,7 @@ export const CreateSidebarSubCategoryMenu: FC<
           animate={{ x: 0 }}
           exit={{ x: '-100%' }}
           transition={{ duration: 0.2 }}
-          className='absolute inset-0 z-10 flex flex-col overflow-y-auto bg-white dark:bg-neutral-900'
+          className='absolute inset-0 z-20 flex flex-col overflow-y-auto bg-white dark:bg-neutral-900'
         >
           <CreateSidebarHeader
             title={label}
@@ -36,7 +36,7 @@ export const CreateSidebarSubCategoryMenu: FC<
                 <CreateSidebarSubCategoryItem key={field.name} {...field} />
               ))}
             </div>
-            <Button>Pay</Button>
+            <FancyButton to='/'>Pay</FancyButton>
           </div>
         </motion.div>
       )}

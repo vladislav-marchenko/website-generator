@@ -1,4 +1,4 @@
-import { Button } from '../Button'
+import { FancyButton } from '../FancyButton'
 import { Label } from '../ui/label'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { editorFields } from '@/consts'
@@ -34,7 +34,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
           animate={{ x: 0 }}
           exit={{ x: '-100%' }}
           transition={{ duration: 0.2 }}
-          className='absolute inset-0 z-10 overflow-y-auto bg-white dark:bg-neutral-900'
+          className='absolute inset-0 z-20 overflow-y-auto bg-white dark:bg-neutral-900'
         >
           <CreateSidebarHeader onClick={() => setActiveSubCategory(null)} />
           <div className='flex flex-col gap-8 p-4'>
@@ -50,7 +50,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
                 It seems like there's no editor for this type of component
               </span>
             )}
-            <Button>Pay</Button>
+            <FancyButton to='/'>Pay</FancyButton>
           </div>
         </motion.div>
       )}

@@ -1,4 +1,4 @@
-import { Button } from '../Button'
+import { FancyButton } from '../FancyButton'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { CreateSidebarSubCategory } from './CreateSidebarSubCategory'
 import { CreateSidebarSubCategoryEditorMenu } from './CreateSidebarSubCategoryEditorMenu'
@@ -39,7 +39,7 @@ export const CreateSidebar: FC = () => {
               )
             )}
           </div>
-          <Button>Pay</Button>
+          <FancyButton to='/'>Pay</FancyButton>
           <CreateSidebarSubCategoryEditorMenu />
         </div>
       </aside>
