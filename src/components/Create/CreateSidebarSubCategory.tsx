@@ -21,7 +21,7 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
         className='flex w-full justify-between gap-2 rounded-md p-3 text-start transition-colors duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
       >
         <span>{label}</span>
-        <MoveRight />
+        <MoveRight size={16} />
       </button>
       <CreateSidebarSubCategoryMenu
         isActive={isActive}
