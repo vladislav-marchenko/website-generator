@@ -1,3 +1,4 @@
+import { Button } from '../Button'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { CreateSidebarSubCategory } from './CreateSidebarSubCategory'
 import { CreateSidebarSubCategoryEditorMenu } from './CreateSidebarSubCategoryEditorMenu'
@@ -26,17 +27,19 @@ export const CreateSidebar: FC = () => {
           buttonLabel='Back to templates'
           onClick={() => navigate('/templates')}
         />
-        <div className='flex flex-col gap-2 p-4'>
-          {currentTemplate.categories[activeCategoryIndex].subCategories.map(
-            ({ label, fields }) => (
-              <CreateSidebarSubCategory
-                key={label}
-                label={label}
-                fields={fields}
-              />
-            )
-          )}
-
+        <div className='flex flex-auto flex-col justify-between gap-4 p-4'>
+          <div className='flex flex-col gap-2'>
+            {currentTemplate.categories[activeCategoryIndex].subCategories.map(
+              ({ label, fields }) => (
+                <CreateSidebarSubCategory
+                  key={label}
+                  label={label}
+                  fields={fields}
+                />
+              )
+            )}
+          </div>
+          <Button>Pay</Button>
           <CreateSidebarSubCategoryEditorMenu />
         </div>
       </aside>

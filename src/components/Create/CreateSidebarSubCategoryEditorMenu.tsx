@@ -1,3 +1,4 @@
+import { Button } from '../Button'
 import { Label } from '../ui/label'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { editorFields } from '@/consts'
@@ -49,6 +50,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
                 It seems like there's no editor for this type of component
               </span>
             )}
+            <Button>Pay</Button>
           </div>
         </motion.div>
       )}
