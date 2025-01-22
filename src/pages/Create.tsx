@@ -22,9 +22,9 @@ export const Create = () => {
       <CreateCategories />
       <ResizablePanel
         defaultSize={20}
-        minSize={20}
+        minSize={5}
         maxSize={80}
-        className='min-w-64'
+        className='min-w-52'
       >
         <CreateSidebar />
       </ResizablePanel>
