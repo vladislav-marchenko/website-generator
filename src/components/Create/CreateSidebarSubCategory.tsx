@@ -1,13 +1,12 @@
 import { Button } from '../ui/button'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger
-} from '../ui/collapsible'
+import { CreateSidebarBack } from './CreateSidebarBack'
 import { CreateSidebarSubCategoryItem } from './CreateSidebarSubCategoryItem'
-import { TemplateSubCategoryField } from '@/types'
-import { ChevronDown } from 'lucide-react'
-import { FC } from 'react'
+import { CreateSidebarSubCategoryMenu } from './CreateSidebarSubCategoryMenu'
+import { TemplateSubCategoryField } from '@/types/templates'
+import { MoveLeft } from 'lucide-react'
+import { AnimatePresence } from 'motion/react'
+import { motion } from 'motion/react'
+import { FC, useState } from 'react'
 
 interface CreateSidebarSubCategoryProps {
   label: string
@@ -18,23 +17,21 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
   label,
   fields
 }) => {
+  const [isActive, setIsActive] = useState(false)
+
   return (
-    <Collapsible>
-      <CollapsibleTrigger className='flex items-center gap-4'>
-        <span className='text-start'>{label}</span>
-        <Button asChild variant='ghost'>
-          <div>
-            <ChevronDown />
-          </div>
-        </Button>
-      </CollapsibleTrigger>
-      <CollapsibleContent>
-        <div className='flex flex-col gap-4 p-1 pl-4'>
-          {fields.map((field) => (
-            <CreateSidebarSubCategoryItem key={field.name} {...field} />
-          ))}
-        </div>
-      </CollapsibleContent>
-    </Collapsible>
+    <>
+      <button
+        onClick={() => setIsActive(true)}
+        className='w-full rounded-md p-3 text-start transition-colors duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
+      >
+        {label}
+      </button>
+      <CreateSidebarSubCategoryMenu
+        isActive={isActive}
+        setIsActive={setIsActive}
+        fields={fields}
+      />
+    </>
   )
 }

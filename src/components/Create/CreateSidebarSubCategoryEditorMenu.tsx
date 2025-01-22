@@ -1,10 +1,9 @@
 import { Label } from '../ui/label'
-import { Button } from '@/components/ui/button'
+import { CreateSidebarBack } from './CreateSidebarBack'
 import { editorFields } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { cn } from '@/lib/utils'
 import type { TemplateContextValues } from '@/types/contexts'
-import { ChevronLeft } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
 import { FC, useContext } from 'react'
 
 export const CreateSidebarSubCategoryEditorMenu: FC = () => {
@@ -13,31 +12,29 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
   ) as TemplateContextValues
 
   return (
-    <div
-      className={cn(
-        'absolute bottom-0 left-0 right-0 top-0 z-10 overflow-y-auto bg-neutral-900 p-4 transition-transform duration-300',
-        {
-          'translate-x-full': !activeSubCategory
-        }
-      )}
-    >
-      <Button onClick={() => setActiveSubCategory(null)} variant='ghost'>
-        <ChevronLeft />
-        <span>Back</span>
-      </Button>
-
+    <AnimatePresence>
       {activeSubCategory && (
-        <div className='flex flex-col gap-8 py-4'>
-          {editorFields[activeSubCategory.type]?.map(
-            ({ label, element: Element }) => (
-              <div key={label} className='flex flex-col gap-2'>
-                <Label>{label}</Label>
-                <Element />
-              </div>
-            )
-          )}
-        </div>
+        <motion.div
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
+          transition={{ duration: 0.3 }}
+          className='absolute inset-0 z-10 overflow-y-auto bg-neutral-900'
+        >
+          <CreateSidebarBack onClick={() => setActiveSubCategory(null)} />
+
+          <div className='flex flex-col gap-8 p-4'>
+            {editorFields[activeSubCategory.type]?.map(
+              ({ label, element: Element }) => (
+                <div key={label} className='flex flex-col gap-2'>
+                  <Label>{label}</Label>
+                  <Element />
+                </div>
+              )
+            )}
+          </div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   )
 }

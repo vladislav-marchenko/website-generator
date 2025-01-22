@@ -6,7 +6,8 @@ import { ClassicHowToBuy } from './HowToBuy'
 import { Image } from '@/components/TemplateItems/Image'
 import { Link } from '@/components/TemplateItems/Link'
 import { Text } from '@/components/TemplateItems/Text'
-import { TemplateData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData, ToggleData } from '@/types/templates'
 import { FC } from 'react'
 
 interface ClassicProps {
@@ -15,6 +16,7 @@ interface ClassicProps {
 }
 
 export const Classic: FC<ClassicProps> = ({ data, updateField }) => {
+  console.log(data)
   return (
     <TemplateLayout data={data} className='h-dvh overflow-y-auto'>
       <div className='mx-auto flex max-w-6xl flex-col items-center gap-8'>
@@ -68,7 +70,7 @@ export const Classic: FC<ClassicProps> = ({ data, updateField }) => {
           updateField={updateField}
           className='min-w-72 rounded-full text-center text-3xl uppercase text-black'
         />
-        {data.showHowToBuy && (
+        {(data.showHowToBuy as ToggleData).value && (
           <ClassicHowToBuy data={data} updateField={updateField} />
         )}
       </div>

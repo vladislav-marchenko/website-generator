@@ -1804,5 +1804,3 @@ const getTemplatesData = () => {
 }
 
 export const templatesData = getTemplatesData()
-
-console.log(templatesData)

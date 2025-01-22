@@ -1,3 +1,4 @@
+import { CreateCategories } from '@/components/Create/CreateCategories'
 import { CreateSidebar } from '@/components/Create/CreateSidebar'
 import {
   ResizableHandle,
@@ -18,6 +19,7 @@ export const Create = () => {
 
   return (
     <ResizablePanelGroup direction='horizontal' className='flex max-h-dvh'>
+      <CreateCategories />
       <ResizablePanel
         defaultSize={20}
         minSize={20}
