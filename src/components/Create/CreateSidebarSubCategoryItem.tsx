@@ -21,7 +21,7 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
       <div className='flex items-center'>
         <Label
           htmlFor={name}
-          className='flex items-center justify-between gap-4 pr-2'
+          className='flex items-center justify-between gap-4 pr-2 font-arial-black'
         >
           {label}
         </Label>
