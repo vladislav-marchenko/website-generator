@@ -15,7 +15,7 @@ export const CreateSidebarHeader: FC<CreateSidebarHeaderProps> = ({
   onClick
 }) => {
   return (
-    <div className='flex w-full items-center justify-between gap-2 border-b border-neutral-700 px-4 py-6'>
+    <div className='sticky top-0 z-10 flex w-full items-center justify-between gap-2 border-b border-neutral-700 bg-neutral-900/70 px-4 py-6 backdrop-blur-md'>
       <Button
         onClick={onClick}
         variant='ghost'
