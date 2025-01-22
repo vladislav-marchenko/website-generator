@@ -1,3 +1,4 @@
+import { Badge } from '../Badge'
 import { Button } from '../ui/button'
 import { MoveLeft } from 'lucide-react'
 import { FC, MouseEvent } from 'react'
@@ -24,12 +25,16 @@ export const CreateSidebarHeader: FC<CreateSidebarHeaderProps> = ({
         <span>{buttonLabel}</span>
       </Button>
       {title && (
+        /*
         <div className='relative min-w-48 rounded-md border border-neutral-200 px-4 py-2 dark:border-neutral-800'>
           <span className='absolute right-4 top-0 inline-block -translate-y-1/2 bg-white p-px text-[10px] dark:bg-neutral-900'>
             Section
           </span>
           {title}
         </div>
+          * */
+
+        <Badge>{title}</Badge>
       )}
     </div>
   )
