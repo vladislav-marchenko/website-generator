@@ -1,5 +1,6 @@
 import { CreateSidebarSubCategoryMenu } from './CreateSidebarSubCategoryMenu'
 import { TemplateSubCategoryField } from '@/types/templates'
+import { MoveRight } from 'lucide-react'
 import { FC, useState } from 'react'
 
 interface CreateSidebarSubCategoryProps {
@@ -17,9 +18,10 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
     <>
       <button
         onClick={() => setIsActive(true)}
-        className='w-full rounded-md p-3 text-start transition-colors duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
+        className='flex w-full justify-between gap-2 rounded-md p-3 text-start transition-colors duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
       >
-        {label}
+        <span>{label}</span>
+        <MoveRight />
       </button>
       <CreateSidebarSubCategoryMenu
         isActive={isActive}
