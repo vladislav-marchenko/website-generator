@@ -6,7 +6,8 @@ export default {
     extend: {
       fontFamily: {
         inter: ['Inter', 'serif'],
-        dino: 'Dino'
+        dino: 'Dino',
+        'arial-black': 'Arial Black'
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -20,7 +20,7 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
         onClick={() => setIsActive(true)}
         className='flex w-full items-center justify-between gap-2 rounded-md p-3 text-start transition-colors duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
       >
-        <span>{label}</span>
+        <span className='font-arial-black'>{label}</span>
         <MoveRight size={16} />
       </button>
       <CreateSidebarSubCategoryMenu

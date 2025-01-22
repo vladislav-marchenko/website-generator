@@ -24,6 +24,14 @@
     src: url('./assets/fonts/Dinosaur.ttf');
   }
 
+  @font-face {
+    font-family: 'Arial Black';
+    font-style: 'normal';
+    font-display: swap;
+    src: url('./assets/fonts/ArialBlack.ttf');
+  }
+
+
   button,
   input {
     @apply border-0 outline-0 hover:outline-0 focus:outline-0 cursor-pointer;
