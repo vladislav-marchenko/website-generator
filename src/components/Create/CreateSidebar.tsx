@@ -1,4 +1,4 @@
-import { CreateSidebarBack } from './CreateSidebarBack'
+import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { CreateSidebarSubCategory } from './CreateSidebarSubCategory'
 import { CreateSidebarSubCategoryEditorMenu } from './CreateSidebarSubCategoryEditorMenu'
 import { TemplateContext } from '@/contexts/TemplateContext'
@@ -22,8 +22,8 @@ export const CreateSidebar: FC = () => {
           'overflow-y-auto': activeSubCategory === null
         })}
       >
-        <CreateSidebarBack
-          label='Back to templates'
+        <CreateSidebarHeader
+          buttonLabel='Back to templates'
           onClick={() => navigate('/templates')}
         />
         <div className='flex flex-col gap-2 p-4'>

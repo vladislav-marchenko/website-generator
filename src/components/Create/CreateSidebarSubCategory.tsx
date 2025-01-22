@@ -1,11 +1,5 @@
-import { Button } from '../ui/button'
-import { CreateSidebarBack } from './CreateSidebarBack'
-import { CreateSidebarSubCategoryItem } from './CreateSidebarSubCategoryItem'
 import { CreateSidebarSubCategoryMenu } from './CreateSidebarSubCategoryMenu'
 import { TemplateSubCategoryField } from '@/types/templates'
-import { MoveLeft } from 'lucide-react'
-import { AnimatePresence } from 'motion/react'
-import { motion } from 'motion/react'
 import { FC, useState } from 'react'
 
 interface CreateSidebarSubCategoryProps {
@@ -31,6 +25,7 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
         isActive={isActive}
         setIsActive={setIsActive}
         fields={fields}
+        label={label}
       />
     </>
   )

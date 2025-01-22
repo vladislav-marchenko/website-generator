@@ -1,4 +1,4 @@
-import { CreateSidebarBack } from './CreateSidebarBack'
+import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { CreateSidebarSubCategoryItem } from './CreateSidebarSubCategoryItem'
 import { TemplateSubCategoryField } from '@/types/templates'
 import { AnimatePresence } from 'motion/react'
@@ -9,22 +9,26 @@ interface CreateSidebarSubCategoryMenuProps {
   isActive: boolean
   setIsActive: Dispatch<SetStateAction<boolean>>
   fields: TemplateSubCategoryField[]
+  label: string
 }
 
 export const CreateSidebarSubCategoryMenu: FC<
   CreateSidebarSubCategoryMenuProps
-> = ({ isActive, setIsActive, fields }) => {
+> = ({ isActive, setIsActive, fields, label }) => {
   return (
     <AnimatePresence>
       {isActive && (
         <motion.div
-          initial={{ x: '100%' }}
+          initial={{ x: '-100%' }}
           animate={{ x: 0 }}
-          exit={{ x: '100%' }}
-          transition={{ duration: 0.3 }}
-          className='absolute inset-0 z-10 overflow-y-auto bg-neutral-900'
+          exit={{ x: '-100%' }}
+          transition={{ duration: 0.2 }}
+          className='absolute inset-0 z-10 overflow-y-auto bg-white dark:bg-neutral-900'
         >
-          <CreateSidebarBack onClick={() => setIsActive(false)} />
+          <CreateSidebarHeader
+            title={label}
+            onClick={() => setIsActive(false)}
+          />
           <div className='p-4'>
             <div className='flex flex-col gap-4 p-1 pl-4'>
               {fields.map((field) => (
