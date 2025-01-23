@@ -254,6 +254,17 @@ export const templates = {
             editor: true
           },
           {
+            type: 'image',
+            name: 'firstStepImage',
+            label: 'Step 1 Image',
+            defaultValues: {
+              src: 'https://firebasestorage.googleapis.com/v0/b/webby-2376c.firebasestorage.app/o/images%2Fphantomlogo.jpeg?alt=media&token=1bc88ed9-0e45-4cf9-9174-e3a72e276c49',
+              width: 64,
+              height: 64
+            },
+            editor: true
+          },
+          {
             type: 'text',
             name: 'secondStep',
             label: 'Step 2',
@@ -267,6 +278,17 @@ export const templates = {
             editor: true
           },
           {
+            type: 'image',
+            name: 'secondStepImage',
+            label: 'Step 2 Image',
+            defaultValues: {
+              src: 'https://firebasestorage.googleapis.com/v0/b/webby-2376c.firebasestorage.app/o/images%2Fsolicon.jpeg?alt=media&token=341437f5-35d6-41c0-b777-8c99435bdbbf',
+              width: 64,
+              height: 64
+            },
+            editor: true
+          },
+          {
             type: 'text',
             name: 'thirdStep',
             label: 'Step 3',
@@ -276,6 +298,17 @@ export const templates = {
               color: '#000',
               fontSizeValue: 20,
               align: 'center'
+            },
+            editor: true
+          },
+          {
+            type: 'image',
+            name: 'thirdStepImage',
+            label: 'Step 3 Image',
+            defaultValues: {
+              src: 'https://firebasestorage.googleapis.com/v0/b/webby-2376c.firebasestorage.app/o/images%2Fjuplogo.jpeg?alt=media&token=1e7e9715-b502-4ad2-9aa0-3e60c597c05b',
+              width: 64,
+              height: 64
             },
             editor: true
           }
@@ -965,8 +998,7 @@ export const templates = {
   },
   rocket: {
     label: 'Rocket',
-    description: `Rocket template is a bright, dynamic and memorable choice for your memecoin website. Its main feature is a stylish rocket animation, which creates a sense of movement and growth, symbolizing the rapid development of your project. This template is perfect for those who want to show the ambitiousness of their memcoin and attract users' attention with a unique presentation.\n\nThe template design combines modern technology, easy customization and dynamic visual elements, making it an ideal choice for both beginners and professionals in the crypto world.
-    `,
+    description: `Rocket template is a bright, dynamic and memorable choice for your memecoin website. Its main feature is a stylish rocket animation, which creates a sense of movement and growth, symbolizing the rapid development of your project. This template is perfect for those who want to show the ambitiousness of their memcoin and attract users' attention with a unique presentation.\n\nThe template design combines modern technology, easy customization and dynamic visual elements, making it an ideal choice for both beginners and professionals in the crypto world.`,
     shortDescription:
       'Rocket template is a bright, dynamic and memorable choice for your memecoin website.',
     features: [

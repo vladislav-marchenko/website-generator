@@ -1,25 +1,8 @@
-import Jupiter from '@/assets/images/jupiter.png'
-import Phantom from '@/assets/images/phantom.jpeg'
-import Raydium from '@/assets/images/raydium.png'
-import Solana from '@/assets/images/solana.png'
+import { Image } from '@/components/TemplateItems/Image'
 import { Text } from '@/components/TemplateItems/Text'
-import { TemplateData, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
+import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
-
-const howToBuyCards = [
-  {
-    name: 'firstStep',
-    images: [Phantom]
-  },
-  {
-    name: 'secondStep',
-    images: [Solana]
-  },
-  {
-    name: 'thirdStep',
-    images: [Raydium, Jupiter]
-  }
-]
 
 interface ClassicHowToBuyProps {
   data: TemplateData
@@ -34,7 +17,7 @@ export const ClassicHowToBuy: FC<ClassicHowToBuyProps> = ({
     <div className='flex flex-col items-center gap-4 pt-16'>
       <h2 className='tracking-wide'>How to Buy</h2>
       <div className='flex flex-wrap justify-center gap-4'>
-        {howToBuyCards.map(({ name, images }, index) => (
+        {['first', 'second', 'third'].map((name, index) => (
           <div
             key={name}
             className='flex max-w-72 flex-col items-center justify-between gap-8 rounded-xl bg-white p-6 text-black'
@@ -44,19 +27,15 @@ export const ClassicHowToBuy: FC<ClassicHowToBuyProps> = ({
               <Text
                 data={data}
                 updateField={updateField}
-                fieldName={name}
+                fieldName={`${name}Step`}
                 as='p'
               />
             </div>
-            <div className='flex items-center gap-4'>
-              {images.map((image) => (
-                <img
-                  key={image}
-                  src={image}
-                  className='h-16 w-16 rounded-xl bg-black'
-                />
-              ))}
-            </div>
+            <Image
+              data={data}
+              fieldName={`${name}StepImage`}
+              className={{ image: 'rounded-xl' }}
+            />
           </div>
         ))}
       </div>
