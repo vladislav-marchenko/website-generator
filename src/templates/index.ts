@@ -10,20 +10,19 @@ import {
   Templates
 } from '@/types/templates'
 import { cloneDeep, merge, set } from 'lodash'
-import { EditIcon } from 'lucide-react'
 
 export const templates = {
   classic: {
     label: 'Classic',
     description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+      'This template is created not just for the presentation of memecoin, but to turn a visit to the site into a memorable experience. From the first seconds the user enters a bright, dynamic world where everything speaks of creativity, boldness and lightness of the project. The visual component of the template as if shouts: "Here begins the story, which is worth remembering!"\n\nThe focus is on an eye-catching design that captures the spirit of the crypto community: modernity, uniqueness, and an emotional connection with your audience. Every element of the site - from the color background to the minimalistic structure - is carefully designed to make your memcoin stand out among hundreds of others.',
     shortDescription:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+      'This template is created not just for the presentation of memecoin, but to turn a visit to the site into a memorable experience',
     features: [
-      'Modern, clean design',
-      'Smooth animations',
-      'Tokenomics section',
-      'Mobile responsive'
+      'Intuitive navigation',
+      'Beautiful effects',
+      'Сlear structure',
+      'Fast interaction'
     ],
     price: 0.05,
     categories: [
@@ -299,14 +298,14 @@ export const templates = {
   simple: {
     label: 'Simple',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+      "This template is the epitome of simplicity and convenience, created especially for those who want to quickly and easily present their memecoin. It allows you to focus on the main thing without distracting users with unnecessary details. With this template, you don't need to understand complex technical details or spend hours on customization. Just fill in the fields, upload the necessary images - and your site is ready!",
     shortDescription:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+      'This template is the epitome of simplicity and convenience, created especially for those who want to quickly and easily present their memecoin.',
     features: [
-      'Modern, clean design',
-      'Smooth animations',
-      'Tokenomics section',
-      'Mobile responsive'
+      'Visual simplicity',
+      'Modern interface',
+      'Functionality',
+      'Focus on memcoin'
     ],
     price: 0.05,
     categories: [
@@ -482,14 +481,14 @@ export const templates = {
   impressive: {
     label: 'Impressive',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis tristique neque sit amet pretium. Cras non purus congue, scelerisque lacus ac, gravida sem. Aenean gravida porttitor venenatis. Pellentesque cursus, diam sit amet egestas egestas, diam justo lacinia urna, in malesuada sem erat id felis. Nam hendrerit, tortor interdum mattis tincidunt, metus purus laoreet lectus, ut elementum justo ligula sed ante.',
+      'This template is the perfect choice for creating your memcoin website that will attract attention and become a memorable event in the crypto world. User-friendly, colorful and functional, it makes it easy to present your project to a wide audience. The template is designed with ease of use and stylish design in mind, so that even beginners can launch their site in a few minutes. Its design emphasizes the lightness and humor characteristic of memcoins, creating a unique atmosphere and allowing you to stand out among other projects.',
     shortDescription:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. donec lobortis tristique neque sit amet pretium.',
+      'This template is the perfect choice for creating your memecoin website that will attract attention and become a memorable event in the crypto world.',
     features: [
-      'Modern, clean design',
-      'Smooth animations',
-      'Tokenomics section',
-      'Mobile responsive'
+      'FAQ section',
+      'Road Map Section',
+      'Bright and energetic design',
+      'Full customization'
     ],
     price: 0.05,
     categories: [
@@ -965,9 +964,16 @@ export const templates = {
   },
   rocket: {
     label: 'Rocket',
-    description: 'Rocket',
-    shortDescription: 'Rocket',
-    features: [],
+    description: `Rocket template is a bright, dynamic and memorable choice for your memecoin website. Its main feature is a stylish rocket animation, which creates a sense of movement and growth, symbolizing the rapid development of your project. This template is perfect for those who want to show the ambitiousness of their memcoin and attract users' attention with a unique presentation.\n\nThe template design combines modern technology, easy customization and dynamic visual elements, making it an ideal choice for both beginners and professionals in the crypto world.
+    `,
+    shortDescription:
+      'Rocket template is a bright, dynamic and memorable choice for your memecoin website.',
+    features: [
+      'Motion background',
+      'Interactive buttons',
+      'Adaptability',
+      'SEO optimization'
+    ],
     price: 0,
     categories: [
       {

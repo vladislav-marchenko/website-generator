@@ -48,12 +48,14 @@ export const Slider: FC<SliderProps> = ({ cards, CardElement }) => {
             className='flex flex-col gap-4'
           >
             <h3>{cards[currentIndex].label}</h3>
-            <Description>{cards[currentIndex].description}</Description>
+            <Description className='whitespace-pre-line'>
+              {cards[currentIndex].description}
+            </Description>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <div className='flex-2 flex items-center space-x-4'>
+      <div className='flex h-[680px] items-center space-x-4'>
         <Button onClick={prevSlide} className='z-10 p-3'>
           <ChevronLeft size={28} />
         </Button>
