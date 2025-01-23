@@ -27,7 +27,7 @@ export const Templates = () => {
         <Slider cards={Object.values(templates)} CardElement={TemplateCard} />
       )}
       {!isSliderView && (
-        <div className='flex flex-wrap items-center gap-12'>
+        <div className='grid grid-cols-3 gap-12'>
           {Object.values(templates).map(({ label }, index) => (
             <TemplateCard key={label} currentIndex={index} />
           ))}
