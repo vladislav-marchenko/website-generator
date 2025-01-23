@@ -26,7 +26,7 @@ export const TemplatesSelector = () => {
           </span>
           <Button
             className={cn('transition-colors duration-300', {
-              'dark:bg-neutral-500 dark:text-white dark:hover:bg-neutral-400':
+              'bg-neutral-200 text-black hover:bg-neutral-300 dark:bg-neutral-500 dark:text-white dark:hover:bg-neutral-400':
                 templateName !== selectedTemplate
             })}
           >
