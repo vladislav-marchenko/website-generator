@@ -11,7 +11,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
   currentIndex
 }) => {
   const templateName = Object.keys(templates)[currentIndex] as TemplateName
-  const { label, shortDescription, features } = templates[
+  const { label, shortDescription, features, price } = templates[
     templateName
   ] as Template
 
@@ -36,6 +36,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
           </li>
         ))}
       </ul>
+      <span className='text-lg font-medium'>Price: {price}</span>
       <Button to={`/create?${queryString}`}>Select</Button>
     </Card>
   )

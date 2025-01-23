@@ -4,6 +4,8 @@ export interface PricingCard {
   label: string
   description: string
   price: number
+  oldPrice?: number
+  features: string[]
   button: {
     label: string
     href: string

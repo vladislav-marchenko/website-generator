@@ -24,7 +24,7 @@ export const templates = {
       'Сlear structure',
       'Fast interaction'
     ],
-    price: 0.05,
+    price: 0.045,
     categories: [
       {
         label: 'Text',
@@ -307,7 +307,7 @@ export const templates = {
       'Functionality',
       'Focus on memcoin'
     ],
-    price: 0.05,
+    price: 0.045,
     categories: [
       {
         label: 'Text',
@@ -491,6 +491,7 @@ export const templates = {
       'Full customization'
     ],
     price: 0.05,
+    badge: 'popular',
     categories: [
       {
         label: 'Text',
@@ -974,7 +975,8 @@ export const templates = {
       'Adaptability',
       'SEO optimization'
     ],
-    price: 0,
+    price: 0.065,
+    badge: 'new',
     categories: [
       {
         label: 'Accent Colors',

@@ -111,20 +111,46 @@ export const pricingCards: PricingCard[] = [
     label: 'Standard',
     price: 0.045,
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at orci sollicitudin, sagittis turpis eget, euismod massa. Aliquam sit amet dictum quam. Curabitur scelerisque lobortis tortor eu gravida. Proin blandit lacus lorem, a imperdiet elit accumsan eu. Sed euismod tempor tortor, vel facilisis metus viverra in.',
+      'For 0.045 Solana you can create a website using Classic and Simple template. These are simple templates, with a clear and pleasant user interface. They are easy to edit and modify.',
+    features: ['Free domain', 'Editing after creation'],
     button: {
-      label: 'Buy now',
-      href: '/create'
+      label: 'Start create',
+      href: '/create?template=classic'
     }
   },
   {
-    label: 'Premium',
-    price: 0.25,
+    label: 'Advanced',
+    price: 0.05,
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at orci sollicitudin, sagittis turpis eget, euismod massa. Aliquam sit amet dictum quam. Curabitur scelerisque lobortis tortor eu gravida. Proin blandit lacus lorem, a imperdiet elit accumsan eu. Sed euismod tempor tortor, vel facilisis metus viverra in.',
+      'For 0.05 sol you can use the Impressive template. This template is full of different elements that you can edit to fit your memtoken. This template has blocks such as "How to buy", "FAQ", "Roadmap".',
+    features: [
+      'Free domain',
+      'Editing after creation',
+      'Roadmap',
+      'FAQ',
+      'How to buy'
+    ],
     button: {
-      label: 'Subscribe',
-      href: '/subscribe'
+      label: 'Start Create',
+      href: '/create?template=impressive'
+    }
+  },
+  {
+    label: 'Professional',
+    price: 0.06,
+    oldPrice: 0.1,
+    description:
+      'For 0.06 Sol you will get a fully professional template Rocket with animations, different blocks, buttons, full editing for your memecoin.',
+    features: [
+      'Free domain',
+      'Editing after creation',
+      'Tokenomics',
+      'FAQ',
+      'Animations'
+    ],
+    button: {
+      label: 'Start Create',
+      href: '/create?template=rocket'
     }
   }
 ]

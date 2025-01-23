@@ -1,3 +1,4 @@
+import { Badge } from './Badge'
 import { Button } from './Button'
 import { Description } from './Description'
 import { useSlider } from '@/hooks/useSlider'
@@ -8,6 +9,7 @@ import { FC } from 'react'
 interface Card {
   label: string
   description: string
+  badge?: string
 }
 
 interface SliderProps {
@@ -35,6 +37,8 @@ export const Slider: FC<SliderProps> = ({ cards, CardElement }) => {
     cards.length
   )
 
+  const { description, label, badge } = cards[currentIndex]
+
   return (
     <div className='flex items-center'>
       <div className='flex-1 p-5'>
@@ -47,9 +51,12 @@ export const Slider: FC<SliderProps> = ({ cards, CardElement }) => {
             transition={{ duration: 0.7 }}
             className='flex flex-col gap-4'
           >
-            <h3>{cards[currentIndex].label}</h3>
+            <div className='flex items-center gap-4'>
+              <h3>{label}</h3>
+              {badge && <Badge className='uppercase'>{badge}</Badge>}
+            </div>
             <Description className='whitespace-pre-line'>
-              {cards[currentIndex].description}
+              {description}
             </Description>
           </motion.div>
         </AnimatePresence>

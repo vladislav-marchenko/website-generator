@@ -1,6 +1,5 @@
 import { UpdateField } from '.'
 import { templates } from '@/templates'
-import { LucideIcon } from 'lucide-react'
 import { FC } from 'react'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
@@ -150,6 +149,7 @@ export interface Template {
   shortDescription: string
   features: string[]
   price: number
+  badge?: string
   categories: TemplateCategory[]
   element: FC<{ data: TemplateData; updateField?: UpdateField }>
 }
