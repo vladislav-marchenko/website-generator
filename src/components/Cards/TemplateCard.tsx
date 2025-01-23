@@ -16,7 +16,8 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
   ] as Template
 
   const [searchParams] = useSearchParams()
-  const queryString = `name=${searchParams.get('name')}&category=templates&template=${templateName}`
+  const params = new URLSearchParams(searchParams)
+  params.set('template', templateName)
 
   return (
     <Card className='justify-between'>
@@ -40,7 +41,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
       </div>
       <div className='flex flex-col gap-4'>
         <span className='text-lg font-medium'>Price: {price} sol</span>
-        <Button to={`/create?${queryString}`}>Select</Button>
+        <Button to={`/create?${params.toString()}`}>Select</Button>
       </div>
     </Card>
   )

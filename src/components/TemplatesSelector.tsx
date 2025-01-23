@@ -10,7 +10,10 @@ export const TemplatesSelector = () => {
 
   const selectTemplate = (templateName: TemplateName) => {
     if (selectedTemplate === templateName) return
-    setSearchParams({ template: templateName })
+
+    const params = new URLSearchParams(searchParams)
+    params.set('template', templateName)
+    setSearchParams(params)
   }
 
   return (
