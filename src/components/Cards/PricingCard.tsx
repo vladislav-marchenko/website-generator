@@ -28,7 +28,7 @@ export const PricingCard: FC<{ currentIndex: number }> = ({ currentIndex }) => {
         </div>
         <ul className='flex list-inside list-disc flex-col gap-4'>
           {features.map((feature) => (
-            <li>{feature}</li>
+            <li key={feature}>{feature}</li>
           ))}
         </ul>
         <Button to={button.href} className='mt-4 w-full py-2'>

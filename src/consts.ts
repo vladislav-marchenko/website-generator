@@ -90,7 +90,7 @@ export const footerNavLinks = [
 export const footerSocialLinks = [
   {
     icon: Twitter,
-    href: 'https://twitter.com/'
+    href: 'https://x.com/AuroraBuildd'
   },
   {
     icon: Discord,
@@ -99,10 +99,6 @@ export const footerSocialLinks = [
   {
     icon: Telegram,
     href: 'https://t.me/'
-  },
-  {
-    icon: Medium,
-    href: 'https://medium.com/'
   }
 ]
 
