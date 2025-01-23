@@ -1,5 +1,6 @@
+import { categoriesFields } from '@/consts'
 import { templatesData } from '@/templates'
-import { UpdateField } from '@/types'
+import { CategoryName, UpdateField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
 import { TemplateName, TemplateSubCategoryField } from '@/types/templates'
 import { set } from 'lodash'
@@ -24,7 +25,7 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   const selectedTemplate = template as TemplateName
 
   const [data, setData] = useState(templatesData[selectedTemplate])
-  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0)
+  const [activeCategory, setActiveCategory] = useState(getActiveCategory)
   const [activeSubCategory, setActiveSubCategory] =
     useState<TemplateSubCategoryField | null>(null)
 
@@ -33,6 +34,15 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   useLayoutEffect(() => {
     setData(templatesData[selectedTemplate])
   }, [selectedTemplate])
+
+  function getActiveCategory() {
+    const categoryParam = searchParams.get('category')
+    if (categoriesFields.hasOwnProperty(categoryParam ?? '')) {
+      return categoryParam as CategoryName
+    }
+
+    return Object.keys(categoriesFields)[0] as CategoryName
+  }
 
   function getActiveSubCategoryData() {
     if (!activeSubCategory) return null
@@ -52,8 +62,8 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     selectedTemplate,
     data,
     setData,
-    activeCategoryIndex,
-    setActiveCategoryIndex,
+    activeCategory,
+    setActiveCategory,
     activeSubCategory,
     setActiveSubCategory,
     updateField,

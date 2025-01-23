@@ -1,4 +1,4 @@
-import type { UpdateField } from '.'
+import type { CategoryName, UpdateField } from '.'
 import {
   Data,
   TemplateData,
@@ -11,8 +11,8 @@ export interface TemplateContextValues {
   selectedTemplate: TemplateName
   data: TemplateData
   setData: Dispatch<SetStateAction<TemplateData>>
-  activeCategoryIndex: number
-  setActiveCategoryIndex: Dispatch<SetStateAction<number>>
+  activeCategory: CategoryName
+  setActiveCategory: Dispatch<SetStateAction<CategoryName>>
   activeSubCategory: TemplateSubCategoryField | null
   setActiveSubCategory: Dispatch<
     SetStateAction<TemplateSubCategoryField | null>

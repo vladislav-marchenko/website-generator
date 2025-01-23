@@ -19,7 +19,11 @@ export const TemplatesSelector = () => {
         <div
           key={templateName}
           onClick={() => selectTemplate(templateName as TemplateName)}
-          className='flex justify-between gap-4'
+          className={cn(
+            'flex items-center justify-between p-2',
+            templateName === selectedTemplate &&
+              'rounded-xl border-2 dark:border-neutral-600'
+          )}
         >
           <span className='font-arial-black'>
             {templates[templateName as TemplateName].label}

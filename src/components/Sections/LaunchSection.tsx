@@ -22,7 +22,7 @@ export const LaunchSection = () => {
             {t('launch.description')}
           </Description>
           <div className='flex items-center gap-4'>
-            <div className='flex items-center rounded-md border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
+            <div className='flex items-center rounded-full border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}

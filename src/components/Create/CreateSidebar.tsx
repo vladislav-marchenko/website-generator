@@ -7,12 +7,12 @@ import { FC, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export const CreateSidebar: FC = () => {
-  const { activeCategoryIndex, activeSubCategory } = useContext(
+  const { activeCategory, activeSubCategory } = useContext(
     TemplateContext
   ) as TemplateContextValues
   const navigate = useNavigate()
 
-  const CurrentCategoryElement = categoriesFields[activeCategoryIndex].element
+  const CurrentCategoryElement = categoriesFields[activeCategory].element
 
   return (
     <div className='flex h-dvh'>

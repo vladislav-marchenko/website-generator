@@ -240,18 +240,18 @@ export const fallbackFonts = [
 
 export const fontSizeUnits = ['px', 'rem', 'cm', '%']
 
-export const categoriesFields = [
-  {
+export const categoriesFields = {
+  editor: {
     label: 'Editor',
     icon: Edit,
     element: Editor
   },
-  {
+  templates: {
     label: 'Templates',
     icon: GalleryVerticalEnd,
     element: TemplatesSelector
   }
-]
+}
 
 export const editorFields = {
   text: [

@@ -16,28 +16,32 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
   ] as Template
 
   const [searchParams] = useSearchParams()
-  const queryString = `name=${searchParams.get('name')}&template=${templateName}`
+  const queryString = `name=${searchParams.get('name')}&category=templates&template=${templateName}`
 
   return (
-    <Card>
-      <div className='group h-48 overflow-hidden rounded-md'>
-        <img
-          className='object-cover object-top group-hover:animate-scroll'
-          src='https://www.buidl.co.in/_next/image?url=%2Ftemplates%2Fmodern.png&w=1920&q=75'
-        />
+    <Card className='justify-between'>
+      <div className='flex flex-col gap-4'>
+        <div className='group h-48 overflow-hidden rounded-md'>
+          <img
+            className='object-cover object-top group-hover:animate-scroll'
+            src='https://www.buidl.co.in/_next/image?url=%2Ftemplates%2Fmodern.png&w=1920&q=75'
+          />
+        </div>
+        <h4>{label}</h4>
+        <Description>{shortDescription}</Description>
+        <ul className='flex flex-col gap-1 pb-4'>
+          {features.map((feature) => (
+            <li key={feature} className='flex items-center gap-2'>
+              <Check size={20} />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <h4>{label}</h4>
-      <Description>{shortDescription}</Description>
-      <ul className='flex flex-col gap-1 pb-4'>
-        {features.map((feature) => (
-          <li key={feature} className='flex items-center gap-2'>
-            <Check size={20} />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <span className='text-lg font-medium'>Price: {price}</span>
-      <Button to={`/create?${queryString}`}>Select</Button>
+      <div className='flex flex-col gap-4'>
+        <span className='text-lg font-medium'>Price: {price} sol</span>
+        <Button to={`/create?${queryString}`}>Select</Button>
+      </div>
     </Card>
   )
 }

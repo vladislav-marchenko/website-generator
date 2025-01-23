@@ -1,3 +1,4 @@
+import { categoriesFields } from '@/consts'
 import { PropertyPath } from 'lodash'
 
 export interface PricingCard {
@@ -13,3 +14,5 @@ export interface PricingCard {
 }
 
 export type UpdateField = (path: PropertyPath, value: unknown) => void
+
+export type CategoryName = keyof typeof categoriesFields

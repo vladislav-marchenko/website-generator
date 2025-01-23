@@ -15,7 +15,7 @@ export const templates = {
   classic: {
     label: 'Classic',
     description:
-      'This template is created not just for the presentation of memecoin, but to turn a visit to the site into a memorable experience. From the first seconds the user enters a bright, dynamic world where everything speaks of creativity, boldness and lightness of the project. The visual component of the template as if shouts: "Here begins the story, which is worth remembering!"\n\nThe focus is on an eye-catching design that captures the spirit of the crypto community: modernity, uniqueness, and an emotional connection with your audience. Every element of the site - from the color background to the minimalistic structure - is carefully designed to make your memcoin stand out among hundreds of others.',
+      'This template is created not just for the presentation of memecoin, but to turn a visit to the site into a memorable experience. From the first seconds the user enters a bright, dynamic world where everything speaks of creativity, boldness and lightness of the project. The visual component of the template as if shouts: "Here begins the story, which is worth remembering!"',
     shortDescription:
       'This template is created not just for the presentation of memecoin, but to turn a visit to the site into a memorable experience',
     features: [
@@ -998,7 +998,8 @@ export const templates = {
   },
   rocket: {
     label: 'Rocket',
-    description: `Rocket template is a bright, dynamic and memorable choice for your memecoin website. Its main feature is a stylish rocket animation, which creates a sense of movement and growth, symbolizing the rapid development of your project. This template is perfect for those who want to show the ambitiousness of their memcoin and attract users' attention with a unique presentation.\n\nThe template design combines modern technology, easy customization and dynamic visual elements, making it an ideal choice for both beginners and professionals in the crypto world.`,
+    description:
+      "Rocket template is a bright, dynamic and memorable choice for your memecoin website. Its main feature is a stylish rocket animation, which creates a sense of movement and growth, symbolizing the rapid development of your project. This template is perfect for those who want to show the ambitiousness of their memcoin and attract users' attention with a unique presentation.",
     shortDescription:
       'Rocket template is a bright, dynamic and memorable choice for your memecoin website.',
     features: [
