@@ -1,6 +1,10 @@
 {
   "header": {
-    "navLinks": ["dashboard", "templates", "pricing"],
+    "navLinks": [
+      "dashboard",
+      "templates",
+      "pricing"
+    ],
     "connectButton": "Connect",
     "themeLabel": "Theme",
     "languageLabel": "Language"
@@ -16,8 +20,7 @@
     "badge": "Quick. Innovative. Effective",
     "title": "Kickstart Your Solana Journey Effortlessly",
     "description": "Build dynamic, customizable platforms for your Solana projects—no coding required. Elevate your presence in the fast-paced blockchain ecosystem.",
-    "startBuildingButton": "Start Building",
-    "discoverButton": "Discover More"
+    "startBuildingButton": "Start Building"
   },
   "features": {
     "badge": "Core Benefits",

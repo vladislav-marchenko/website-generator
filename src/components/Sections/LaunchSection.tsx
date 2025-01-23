@@ -2,9 +2,11 @@ import { Badge } from '../Badge'
 import { Button } from '../Button'
 import { Description } from '../Description'
 import { Section } from './Section'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export const LaunchSection = () => {
+  const [name, setName] = useState('')
   const { t } = useTranslation()
 
   return (
@@ -20,9 +22,17 @@ export const LaunchSection = () => {
             {t('launch.description')}
           </Description>
           <div className='flex items-center gap-4'>
-            <Button>{t('launch.startBuildingButton')}</Button>
-            <Button href='/#features' variant='outline'>
-              {t('launch.discoverButton')}
+            <div className='flex items-center rounded-md border-2 border-neutral-500 bg-neutral-600'>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className='bg-transparent py-2 pl-4'
+                placeholder='yoursite'
+              />
+              <span className='pr-4'>.{window.location.host}</span>
+            </div>
+            <Button to={`/templates?name=${name}`}>
+              {t('launch.startBuildingButton')}
             </Button>
           </div>
         </div>

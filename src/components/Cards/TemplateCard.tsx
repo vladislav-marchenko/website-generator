@@ -5,12 +5,18 @@ import { templates } from '@/templates'
 import { Template, TemplateName } from '@/types/templates'
 import { Check } from 'lucide-react'
 import { FC } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 export const TemplateCard: FC<{ currentIndex: number }> = ({
   currentIndex
 }) => {
-  const name = Object.keys(templates)[currentIndex] as TemplateName
-  const { label, shortDescription, features } = templates[name] as Template
+  const templateName = Object.keys(templates)[currentIndex] as TemplateName
+  const { label, shortDescription, features } = templates[
+    templateName
+  ] as Template
+
+  const [searchParams] = useSearchParams()
+  const queryString = `name=${searchParams.get('name')}&template=${templateName}`
 
   return (
     <Card>
@@ -30,7 +36,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
           </li>
         ))}
       </ul>
-      <Button to={`/create?template=${name}`}>Select</Button>
+      <Button to={`/create?${queryString}`}>Select</Button>
     </Card>
   )
 }
