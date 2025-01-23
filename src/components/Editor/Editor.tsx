@@ -19,7 +19,7 @@ export const Editor = () => {
           <CreateSidebarSubCategory key={label} label={label} fields={fields} />
         ))}
       </div>
-      <FancyButton to='/' className='w-full max-w-64 self-center'>
+      <FancyButton to='/' className='mb-4 w-full max-w-64 self-center'>
         Create Web
       </FancyButton>
       <CreateSidebarSubCategoryEditorMenu />
