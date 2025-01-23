@@ -2,7 +2,7 @@ import { Button } from '../Button'
 import { Description } from '../Description'
 import { Card } from './Card'
 import { templates } from '@/templates'
-import { Template, TemplateName } from '@/types'
+import { Template, TemplateName } from '@/types/templates'
 import { Check } from 'lucide-react'
 import { FC } from 'react'
 
@@ -30,7 +30,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
           </li>
         ))}
       </ul>
-      <Button to={`/create/${name}`}>Select</Button>
+      <Button to={`/create?template=${name}`}>Select</Button>
     </Card>
   )
 }

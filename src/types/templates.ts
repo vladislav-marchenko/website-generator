@@ -77,33 +77,33 @@ export interface ColorData {
   value: string
 }
 
-interface TemplateTextSubCategoryField {
+interface TemplateTextCategoryField {
   type: 'text'
   defaultValues?: Partial<TextData>
   editor?: boolean
   placeholder?: string
 }
 
-interface TemplateImageSubCategoryField {
+interface TemplateImageCategoryField {
   type: 'image'
   defaultValues?: Partial<ImageData>
   editor?: boolean
   placeholder?: string
 }
 
-interface TemplateLinkSubCategoryField {
+interface TemplateLinkCategoryField {
   type: 'link'
   defaultValues?: Partial<LinkData>
   editor?: boolean
   placeholder: string
 }
 
-interface TemplateToggleSubCategoryField {
+interface TemplateToggleCategoryField {
   type: 'toggle'
   defaultValues?: Partial<ToggleData>
 }
 
-interface TemplateColorSubCategoryField {
+interface TemplateColorCategoryField {
   type: 'color'
   defaultValues?: Partial<ColorData>
 }
@@ -112,11 +112,11 @@ export type TemplateSubCategoryField = {
   label: string
   name: string
 } & (
-  | TemplateTextSubCategoryField
-  | TemplateImageSubCategoryField
-  | TemplateLinkSubCategoryField
-  | TemplateToggleSubCategoryField
-  | TemplateColorSubCategoryField
+  | TemplateTextCategoryField
+  | TemplateImageCategoryField
+  | TemplateLinkCategoryField
+  | TemplateToggleCategoryField
+  | TemplateColorCategoryField
 )
 
 export type DefaultValues = {
@@ -129,15 +129,9 @@ export type DefaultValues = {
 
 export type TemplateSubCategoryFieldType = keyof DefaultValues
 
-type TemplateSubCategory = {
+type TemplateCategory = {
   label: string
   fields: TemplateSubCategoryField[]
-}
-
-type TemplateCategory = {
-  name: string
-  icon: LucideIcon
-  subCategories: TemplateSubCategory[]
 }
 
 type TemplateLinksData = {

@@ -17,7 +17,7 @@ function App() {
       <div className='dark:bg-neutral-900 dark:text-white'>
         <Routes>
           <Route
-            path='/create/:template'
+            path='/create'
             element={
               <TemplateContextProvider>
                 <Create />

@@ -1,14 +1,22 @@
 import { templatesData } from '@/templates'
-import { TemplateName, TemplateSubCategoryField, UpdateField } from '@/types'
+import { UpdateField } from '@/types'
 import { type TemplateContextValues } from '@/types/contexts'
+import { TemplateName, TemplateSubCategoryField } from '@/types/templates'
 import { set } from 'lodash'
-import { createContext, PropsWithChildren, useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import {
+  createContext,
+  PropsWithChildren,
+  useLayoutEffect,
+  useState
+} from 'react'
+import { Navigate, useSearchParams } from 'react-router-dom'
 
 export const TemplateContext = createContext<TemplateContextValues | null>(null)
 
 export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
-  const { template } = useParams()
+  const [searchParams] = useSearchParams()
+  const template = searchParams.get('template')
+
   if (!templatesData.hasOwnProperty(template ?? '')) {
     return <Navigate to='/templates' />
   }
@@ -21,6 +29,10 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
     useState<TemplateSubCategoryField | null>(null)
 
   const activeSubCategoryData = getActiveSubCategoryData()
+
+  useLayoutEffect(() => {
+    setData(templatesData[selectedTemplate])
+  }, [selectedTemplate])
 
   function getActiveSubCategoryData() {
     if (!activeSubCategory) return null

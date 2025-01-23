@@ -10,7 +10,7 @@ import {
   Templates
 } from '@/types/templates'
 import { cloneDeep, merge, set } from 'lodash'
-import { EditIcon, TextIcon } from 'lucide-react'
+import { EditIcon } from 'lucide-react'
 
 export const templates = {
   classic: {
@@ -28,314 +28,268 @@ export const templates = {
     price: 0.05,
     categories: [
       {
-        name: 'Edit',
-        icon: EditIcon,
-        subCategories: [
+        label: 'Text',
+        fields: [
           {
-            label: 'Text',
-            fields: [
-              {
-                type: 'text',
-                name: 'logoText',
-                label: 'Project name',
-                editor: true,
-                defaultValues: { fontSizeValue: 40 }
-              },
-              {
-                type: 'text',
-                name: 'ticker',
-                label: 'Ticker',
-                editor: true,
-                defaultValues: {
-                  fontSizeValue: 7.5,
-                  sizeUnit: 'rem',
-                  styles: ['bold'],
-                  align: 'center',
-                  animation: 'heartBeat'
-                }
-              },
-              {
-                type: 'text',
-                name: 'contractAddress',
-                label: 'Contract Address',
-                editor: true,
-                defaultValues: {
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'description',
-                label: 'Description',
-                editor: true,
-                defaultValues: {
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'buyNowText',
-                label: 'Buy Now',
-                editor: true,
-                defaultValues: {
-                  value: 'Buy Now',
-                  color: '#000',
-                  align: 'center',
-                  styles: ['bold']
-                }
-              }
-            ]
+            type: 'text',
+            name: 'logoText',
+            label: 'Project name',
+            editor: true,
+            defaultValues: { fontSizeValue: 40 }
           },
           {
-            label: 'Images',
-            fields: [
-              {
-                type: 'image',
-                name: 'logoImage',
-                label: 'Logo',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 90,
-                  height: 90,
-                  sizeUnit: 'px'
-                }
-              },
-              {
-                type: 'image',
-                name: 'background',
-                label: 'Background',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
-                  width: 100,
-                  height: 100,
-                  sizeUnit: '%'
-                }
-              },
-              {
-                type: 'image',
-                name: 'preview',
-                label: 'Image Preview',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 340,
-                  sizeUnit: 'px'
-                }
-              }
-            ]
+            type: 'text',
+            name: 'ticker',
+            label: 'Ticker',
+            editor: true,
+            defaultValues: {
+              fontSizeValue: 7.5,
+              sizeUnit: 'rem',
+              styles: ['bold'],
+              align: 'center',
+              animation: 'heartBeat'
+            }
           },
           {
-            label: 'Links',
-            fields: [
-              {
-                type: 'link',
-                label: 'Tiktok',
-                name: 'tiktok',
-                placeholder: 'https://www.tiktok.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Instagram',
-                name: 'instagram',
-                placeholder: 'https://www.instagram.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Discord',
-                name: 'discord',
-                placeholder: 'https://discord.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Telegram',
-                name: 'telegram',
-                placeholder: 'https://t.me',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Twitter',
-                name: 'twitter',
-                placeholder: 'https://twitter.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Dexscreener',
-                name: 'dexscreener',
-                placeholder: 'https://dexscreener.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Pump.fun',
-                name: 'pumpfun',
-                placeholder: 'https://pump.fun',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Coin Gecko',
-                name: 'coingecko',
-                placeholder: 'https://www.coingecko.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Coin Market Cap',
-                name: 'coinmarketcap',
-                placeholder: 'https://coinmarketcap.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Birdeye',
-                name: 'birdeye',
-                placeholder: 'https://www.birdeye.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Dextools',
-                name: 'dextools',
-                placeholder: 'https://www.dextools.io',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Whitepaper',
-                name: 'whitepaper',
-                placeholder: 'https://example.com/whitepaper',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Telegram',
-                name: 'authorTelegram',
-                placeholder: 'https://t.me',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Twitter',
-                name: 'authorTwitter',
-                placeholder: 'https://twitter.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Discord',
-                name: 'authorDiscord',
-                placeholder: 'https://discord.com',
-                defaultValues: { iconName: 'tiktok' }
-              }
-            ]
+            type: 'text',
+            name: 'contractAddress',
+            label: 'Contract Address',
+            editor: true,
+            defaultValues: {
+              color: '#000'
+            }
           },
           {
-            label: 'How to Buy',
-            fields: [
-              {
-                type: 'toggle',
-                name: 'showHowToBuy',
-                label: 'Show'
-              },
-              {
-                type: 'text',
-                name: 'firstStep',
-                label: 'Step 1',
-                defaultValues: {
-                  value:
-                    'Mobile Users: Download the Phantom app for free. Desktop Users: Download the Phantom chrome extension.',
-                  color: '#000',
-                  fontSizeValue: 20,
-                  align: 'center'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondStep',
-                label: 'Step 2',
-                defaultValues: {
-                  value:
-                    'Fund your wallet with Solana, you can buy Solana from an exchange or cross chain swap and send it to your wallet.',
-                  color: '#000',
-                  fontSizeValue: 20,
-                  align: 'center'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdStep',
-                label: 'Step 3',
-                defaultValues: {
-                  value:
-                    'Go to Raydium or Jupiter and swap your Solana for $Ticker.',
-                  color: '#000',
-                  fontSizeValue: 20,
-                  align: 'center'
-                },
-                editor: true
-              }
-            ]
+            type: 'text',
+            name: 'description',
+            label: 'Description',
+            editor: true,
+            defaultValues: {
+              color: '#000'
+            }
           },
           {
-            label: 'Buttons',
-            fields: [
-              {
-                type: 'link',
-                name: 'buyNowLink',
-                label: 'Buy Now URL',
-                placeholder: 'URL'
-              }
-            ]
+            type: 'text',
+            name: 'buyNowText',
+            label: 'Buy Now',
+            editor: true,
+            defaultValues: {
+              value: 'Buy Now',
+              color: '#000',
+              align: 'center',
+              styles: ['bold']
+            }
           }
         ]
       },
       {
-        name: 'Text',
-        icon: TextIcon,
-        subCategories: [
+        label: 'Images',
+        fields: [
           {
-            label: 'Something',
-            fields: [
-              {
-                type: 'text',
-                name: 'something',
-                label: 'Project name',
-                placeholder: 'Name'
-              },
-              {
-                type: 'link',
-                name: 'twitter',
-                label: 'Twitter',
-                placeholder: '#'
-              }
-            ]
+            type: 'image',
+            name: 'logoImage',
+            label: 'Logo',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              width: 90,
+              height: 90,
+              sizeUnit: 'px'
+            }
           },
           {
-            label: 'Something else',
-            fields: [
-              {
-                type: 'image',
-                name: 'something',
-                label: 'Logo',
-                placeholder: 'https://via.placeholder.com/150'
-              },
-              {
-                type: 'image',
-                name: 'background',
-                label: 'Background',
-                placeholder: 'https://via.placeholder.com/150'
-              }
-            ]
+            type: 'image',
+            name: 'background',
+            label: 'Background',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
+              width: 100,
+              height: 100,
+              sizeUnit: '%'
+            }
+          },
+          {
+            type: 'image',
+            name: 'preview',
+            label: 'Image Preview',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              width: 340,
+              sizeUnit: 'px'
+            }
+          }
+        ]
+      },
+      {
+        label: 'Links',
+        fields: [
+          {
+            type: 'link',
+            label: 'Tiktok',
+            name: 'tiktok',
+            placeholder: 'https://www.tiktok.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Instagram',
+            name: 'instagram',
+            placeholder: 'https://www.instagram.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Discord',
+            name: 'discord',
+            placeholder: 'https://discord.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Telegram',
+            name: 'telegram',
+            placeholder: 'https://t.me',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Twitter',
+            name: 'twitter',
+            placeholder: 'https://twitter.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Dexscreener',
+            name: 'dexscreener',
+            placeholder: 'https://dexscreener.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Pump.fun',
+            name: 'pumpfun',
+            placeholder: 'https://pump.fun',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Coin Gecko',
+            name: 'coingecko',
+            placeholder: 'https://www.coingecko.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Coin Market Cap',
+            name: 'coinmarketcap',
+            placeholder: 'https://coinmarketcap.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Birdeye',
+            name: 'birdeye',
+            placeholder: 'https://www.birdeye.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Dextools',
+            name: 'dextools',
+            placeholder: 'https://www.dextools.io',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Whitepaper',
+            name: 'whitepaper',
+            placeholder: 'https://example.com/whitepaper',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Telegram',
+            name: 'authorTelegram',
+            placeholder: 'https://t.me',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Twitter',
+            name: 'authorTwitter',
+            placeholder: 'https://twitter.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Discord',
+            name: 'authorDiscord',
+            placeholder: 'https://discord.com',
+            defaultValues: { iconName: 'tiktok' }
+          }
+        ]
+      },
+      {
+        label: 'How to Buy',
+        fields: [
+          {
+            type: 'toggle',
+            name: 'showHowToBuy',
+            label: 'Show'
+          },
+          {
+            type: 'text',
+            name: 'firstStep',
+            label: 'Step 1',
+            defaultValues: {
+              value:
+                'Mobile Users: Download the Phantom app for free. Desktop Users: Download the Phantom chrome extension.',
+              color: '#000',
+              fontSizeValue: 20,
+              align: 'center'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondStep',
+            label: 'Step 2',
+            defaultValues: {
+              value:
+                'Fund your wallet with Solana, you can buy Solana from an exchange or cross chain swap and send it to your wallet.',
+              color: '#000',
+              fontSizeValue: 20,
+              align: 'center'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdStep',
+            label: 'Step 3',
+            defaultValues: {
+              value:
+                'Go to Raydium or Jupiter and swap your Solana for $Ticker.',
+              color: '#000',
+              fontSizeValue: 20,
+              align: 'center'
+            },
+            editor: true
+          }
+        ]
+      },
+      {
+        label: 'Buttons',
+        fields: [
+          {
+            type: 'link',
+            name: 'buyNowLink',
+            label: 'Buy Now URL',
+            placeholder: 'URL'
           }
         ]
       }
@@ -357,174 +311,168 @@ export const templates = {
     price: 0.05,
     categories: [
       {
-        name: 'Edit',
-        icon: EditIcon,
-        subCategories: [
+        label: 'Text',
+        fields: [
           {
-            label: 'Text',
-            fields: [
-              {
-                type: 'text',
-                name: 'ticker',
-                label: 'Ticker',
-                editor: true,
-                defaultValues: {
-                  fontSizeValue: 6,
-                  sizeUnit: 'rem',
-                  styles: ['bold'],
-                  align: 'center',
-                  animation: 'heartBeat'
-                }
-              },
-              {
-                type: 'text',
-                name: 'contractAddress',
-                label: 'Contract Address',
-                editor: true,
-                defaultValues: {
-                  color: '#000'
-                }
-              }
-            ]
+            type: 'text',
+            name: 'ticker',
+            label: 'Ticker',
+            editor: true,
+            defaultValues: {
+              fontSizeValue: 6,
+              sizeUnit: 'rem',
+              styles: ['bold'],
+              align: 'center',
+              animation: 'heartBeat'
+            }
           },
           {
-            label: 'Images',
-            fields: [
-              {
-                type: 'image',
-                name: 'background',
-                label: 'Background',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
-                  width: 100,
-                  height: 100,
-                  sizeUnit: '%'
-                }
-              },
-              {
-                type: 'image',
-                name: 'preview',
-                label: 'Image Preview',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 420,
-                  sizeUnit: 'px'
-                }
-              }
-            ]
+            type: 'text',
+            name: 'contractAddress',
+            label: 'Contract Address',
+            editor: true,
+            defaultValues: {
+              color: '#000'
+            }
+          }
+        ]
+      },
+      {
+        label: 'Images',
+        fields: [
+          {
+            type: 'image',
+            name: 'background',
+            label: 'Background',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              src: 'https://media.assettype.com/outlookindia/2024-04/819e7205-4a83-4447-9b76-cd38384e10f8/2.png?w=801&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0',
+              width: 100,
+              height: 100,
+              sizeUnit: '%'
+            }
           },
           {
-            label: 'Links',
-            fields: [
-              {
-                type: 'link',
-                label: 'Tiktok',
-                name: 'tiktok',
-                placeholder: 'https://www.tiktok.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Instagram',
-                name: 'instagram',
-                placeholder: 'https://www.instagram.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Discord',
-                name: 'discord',
-                placeholder: 'https://discord.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Telegram',
-                name: 'telegram',
-                placeholder: 'https://t.me',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Twitter',
-                name: 'twitter',
-                placeholder: 'https://twitter.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Dexscreener',
-                name: 'dexscreener',
-                placeholder: 'https://dexscreener.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Pump.fun',
-                name: 'pumpfun',
-                placeholder: 'https://pump.fun',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Coin Gecko',
-                name: 'coingecko',
-                placeholder: 'https://www.coingecko.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Coin Market Cap',
-                name: 'coinmarketcap',
-                placeholder: 'https://coinmarketcap.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Birdeye',
-                name: 'birdeye',
-                placeholder: 'https://www.birdeye.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Dextools',
-                name: 'dextools',
-                placeholder: 'https://www.dextools.io',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Whitepaper',
-                name: 'whitepaper',
-                placeholder: 'https://example.com/whitepaper',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Telegram',
-                name: 'authorTelegram',
-                placeholder: 'https://t.me',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Twitter',
-                name: 'authorTwitter',
-                placeholder: 'https://twitter.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Discord',
-                name: 'authorDiscord',
-                placeholder: 'https://discord.com',
-                defaultValues: { iconName: 'tiktok' }
-              }
-            ]
+            type: 'image',
+            name: 'preview',
+            label: 'Image Preview',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              width: 420,
+              sizeUnit: 'px'
+            }
+          }
+        ]
+      },
+      {
+        label: 'Links',
+        fields: [
+          {
+            type: 'link',
+            label: 'Tiktok',
+            name: 'tiktok',
+            placeholder: 'https://www.tiktok.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Instagram',
+            name: 'instagram',
+            placeholder: 'https://www.instagram.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Discord',
+            name: 'discord',
+            placeholder: 'https://discord.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Telegram',
+            name: 'telegram',
+            placeholder: 'https://t.me',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Twitter',
+            name: 'twitter',
+            placeholder: 'https://twitter.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Dexscreener',
+            name: 'dexscreener',
+            placeholder: 'https://dexscreener.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Pump.fun',
+            name: 'pumpfun',
+            placeholder: 'https://pump.fun',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Coin Gecko',
+            name: 'coingecko',
+            placeholder: 'https://www.coingecko.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Coin Market Cap',
+            name: 'coinmarketcap',
+            placeholder: 'https://coinmarketcap.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Birdeye',
+            name: 'birdeye',
+            placeholder: 'https://www.birdeye.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Dextools',
+            name: 'dextools',
+            placeholder: 'https://www.dextools.io',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Whitepaper',
+            name: 'whitepaper',
+            placeholder: 'https://example.com/whitepaper',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Telegram',
+            name: 'authorTelegram',
+            placeholder: 'https://t.me',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Twitter',
+            name: 'authorTwitter',
+            placeholder: 'https://twitter.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Discord',
+            name: 'authorDiscord',
+            placeholder: 'https://discord.com',
+            defaultValues: { iconName: 'tiktok' }
           }
         ]
       }
@@ -546,476 +494,469 @@ export const templates = {
     price: 0.05,
     categories: [
       {
-        name: 'Edit',
-        icon: EditIcon,
-        subCategories: [
+        label: 'Text',
+        fields: [
           {
-            label: 'Text',
-            fields: [
-              {
-                type: 'text',
-                name: 'ticker',
-                label: 'Ticker',
-                editor: true,
-                defaultValues: {
-                  fontFamily: 'Dino',
-                  fontSizeValue: 6,
-                  sizeUnit: 'rem',
-                  styles: ['bold'],
-                  align: 'center',
-                  animation: 'heartBeat',
-                  strokeWidth: 2,
-                  strokeColor: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'contractAddress',
-                label: 'Contract Address',
-                editor: true,
-                defaultValues: {
-                  color: '#000',
-                  fontSizeValue: 28
-                }
-              },
-              {
-                type: 'text',
-                name: 'buyNowText',
-                label: 'Buy Now',
-                editor: true,
-                defaultValues: {
-                  value: 'Buy',
-                  fontFamily: 'Dino',
-                  color: '#fff',
-                  fontSizeValue: 28,
-                  styles: ['bold']
-                }
-              },
-              {
-                type: 'text',
-                name: 'aboutUsTitle',
-                label: 'About Us title',
-                editor: true,
-                defaultValues: {
-                  fontFamily: 'Dino',
-                  fontSizeValue: 72,
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'aboutUsDescription',
-                label: 'About Us description',
-                editor: true,
-                defaultValues: { fontSizeValue: 32, color: '#000' }
-              }
-            ]
+            type: 'text',
+            name: 'ticker',
+            label: 'Ticker',
+            editor: true,
+            defaultValues: {
+              fontFamily: 'Dino',
+              fontSizeValue: 6,
+              sizeUnit: 'rem',
+              styles: ['bold'],
+              align: 'center',
+              animation: 'heartBeat',
+              strokeWidth: 2,
+              strokeColor: '#000'
+            }
           },
           {
-            label: 'Images',
-            fields: [
-              {
-                type: 'image',
-                name: 'logo',
-                label: 'Logo',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 102,
-                  height: 102,
-                  sizeUnit: 'px'
-                }
-              },
-              {
-                type: 'image',
-                name: 'primaryBackground',
-                label: 'Primary Background',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  src: 'https://img.freepik.com/premium-photo/orange-background-backgrounds-texture-weathered_53876-218333.jpg',
-                  slideshowItems: [
-                    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F022%2F325%2F079%2Flarge_2x%2Fnature-wallpaper-background-nature-digital-painting-colorful-nature-ai-background-free-photo.jpg&f=1&nofb=1&ipt=44ae5060e26ab081d15d95175d711be57bc9e79c334f9749478e8f0bb6db2616&ipo=images'
-                  ],
-                  width: 100,
-                  height: 100,
-                  sizeUnit: '%'
-                }
-              },
-              {
-                type: 'image',
-                name: 'secondaryBackground',
-                label: 'Secondary Background',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  src: 'https://www.knoxalliance.store/wp-content/uploads/2017/05/light-color-background-images-for-website-top-hd-images-for-free-background-for-website-in-light-color-1-1024x640.jpg',
-                  width: 100,
-                  height: 100,
-                  sizeUnit: '%'
-                }
-              },
-              {
-                type: 'image',
-                name: 'preview',
-                label: 'Image Preview',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 100,
-                  sizeUnit: '%'
-                }
-              },
-              {
-                type: 'image',
-                name: 'aboutUsPreview',
-                label: 'About Us preview',
-                placeholder: 'URL',
-                editor: true,
-                defaultValues: {
-                  width: 100,
-                  sizeUnit: '%'
-                }
-              }
-            ]
+            type: 'text',
+            name: 'contractAddress',
+            label: 'Contract Address',
+            editor: true,
+            defaultValues: {
+              color: '#000',
+              fontSizeValue: 28
+            }
           },
           {
-            label: 'Links',
-            fields: [
-              {
-                type: 'link',
-                label: 'Tiktok',
-                name: 'tiktok',
-                placeholder: 'https://www.tiktok.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Instagram',
-                name: 'instagram',
-                placeholder: 'https://www.instagram.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Discord',
-                name: 'discord',
-                placeholder: 'https://discord.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Telegram',
-                name: 'telegram',
-                placeholder: 'https://t.me',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Twitter',
-                name: 'twitter',
-                placeholder: 'https://twitter.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Dexscreener',
-                name: 'dexscreener',
-                placeholder: 'https://dexscreener.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Pump.fun',
-                name: 'pumpfun',
-                placeholder: 'https://pump.fun',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Coin Gecko',
-                name: 'coingecko',
-                placeholder: 'https://www.coingecko.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Coin Market Cap',
-                name: 'coinmarketcap',
-                placeholder: 'https://coinmarketcap.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Birdeye',
-                name: 'birdeye',
-                placeholder: 'https://www.birdeye.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Dextools',
-                name: 'dextools',
-                placeholder: 'https://www.dextools.io',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Whitepaper',
-                name: 'whitepaper',
-                placeholder: 'https://example.com/whitepaper',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Telegram',
-                name: 'authorTelegram',
-                placeholder: 'https://t.me',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Twitter',
-                name: 'authorTwitter',
-                placeholder: 'https://twitter.com',
-                defaultValues: { iconName: 'tiktok' }
-              },
-              {
-                type: 'link',
-                label: 'Author Discord',
-                name: 'authorDiscord',
-                placeholder: 'https://discord.com',
-                defaultValues: { iconName: 'tiktok' }
-              }
-            ]
+            type: 'text',
+            name: 'buyNowText',
+            label: 'Buy Now',
+            editor: true,
+            defaultValues: {
+              value: 'Buy',
+              fontFamily: 'Dino',
+              color: '#fff',
+              fontSizeValue: 28,
+              styles: ['bold']
+            }
           },
           {
-            label: 'Buttons',
-            fields: [
-              {
-                type: 'link',
-                name: 'buyNowLink',
-                label: 'Buy Now URL',
-                placeholder: 'URL'
-              }
-            ]
+            type: 'text',
+            name: 'aboutUsTitle',
+            label: 'About Us title',
+            editor: true,
+            defaultValues: {
+              fontFamily: 'Dino',
+              fontSizeValue: 72,
+              color: '#000'
+            }
           },
           {
-            label: 'Roadmap',
-            fields: [
-              {
-                type: 'text',
-                name: 'roadmapTitle',
-                label: 'Title',
-                defaultValues: {
-                  value: 'Roadmap',
-                  fontFamily: 'Dino',
-                  fontSizeValue: 72,
-                  color: '#000',
-                  align: 'center'
-                }
-              },
-              {
-                type: 'text',
-                name: 'roadmapFirstStepTitle',
-                label: 'Phase 1 title',
-                defaultValues: {
-                  value: 'Phase 1',
-                  color: '#fff'
-                }
-              },
-              {
-                type: 'text',
-                name: 'roadmapFirstStepDescription',
-                label: 'Phase 1 description',
-                defaultValues: {
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'roadmapSecondStepTitle',
-                label: 'Phase 2 title',
-                defaultValues: {
-                  value: 'Phase 2',
-                  color: '#fff'
-                }
-              },
-              {
-                type: 'text',
-                name: 'roadmapSecondStepDescription',
-                label: 'Phase 2',
-                defaultValues: {
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'roadmapThirdStepTitle',
-                label: 'Phase 3 title',
-                defaultValues: {
-                  value: 'Phase 3',
-                  color: '#fff'
-                }
-              },
-              {
-                type: 'text',
-                name: 'roadmapThirdStepDescription',
-                label: 'Phase 3',
-                defaultValues: {
-                  color: '#000'
-                }
-              }
-            ]
+            type: 'text',
+            name: 'aboutUsDescription',
+            label: 'About Us description',
+            editor: true,
+            defaultValues: { fontSizeValue: 32, color: '#000' }
+          }
+        ]
+      },
+      {
+        label: 'Images',
+        fields: [
+          {
+            type: 'image',
+            name: 'logo',
+            label: 'Logo',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              width: 102,
+              height: 102,
+              sizeUnit: 'px'
+            }
           },
           {
-            label: 'How to Buy',
-            fields: [
-              {
-                type: 'text',
-                name: 'howToBuyTitle',
-                label: 'Title',
-                defaultValues: {
-                  value: 'How to Buy',
-                  fontFamily: 'Dino',
-                  fontSizeValue: 72,
-                  color: '#000',
-                  align: 'center'
-                }
-              },
-              {
-                type: 'text',
-                name: 'howToBuyFirstStep',
-                label: 'Step 1',
-                defaultValues: {
-                  value:
-                    'Create any wallet of your choice, we recommend Phantom.',
-                  color: '#000',
-                  align: 'center'
-                }
-              },
-              {
-                type: 'text',
-                name: 'howToBuySecondStep',
-                label: 'Step 2',
-                defaultValues: {
-                  value:
-                    'Fund your wallet with Solana, you can buy Solana from an exchange.',
-                  color: '#000',
-                  align: 'center'
-                }
-              },
-              {
-                type: 'text',
-                name: 'howToBuyThirdStep',
-                label: 'Step 3',
-                defaultValues: {
-                  value:
-                    'Head to Jupiter & paste our Contract Address, and swap your Solana to our token.',
-                  color: '#000',
-                  align: 'center'
-                }
-              },
-              {
-                type: 'text',
-                name: 'howToBuyFourthStep',
-                label: 'Step 4',
-                defaultValues: {
-                  value: 'Welcome aboard degen!',
-                  color: '#000',
-                  align: 'center'
-                }
-              }
-            ]
+            type: 'image',
+            name: 'primaryBackground',
+            label: 'Primary Background',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              src: 'https://img.freepik.com/premium-photo/orange-background-backgrounds-texture-weathered_53876-218333.jpg',
+              slideshowItems: [
+                'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F022%2F325%2F079%2Flarge_2x%2Fnature-wallpaper-background-nature-digital-painting-colorful-nature-ai-background-free-photo.jpg&f=1&nofb=1&ipt=44ae5060e26ab081d15d95175d711be57bc9e79c334f9749478e8f0bb6db2616&ipo=images'
+              ],
+              width: 100,
+              height: 100,
+              sizeUnit: '%'
+            }
           },
           {
-            label: 'FAQ',
-            fields: [
-              {
-                type: 'text',
-                name: 'FAQTitle',
-                label: 'Title',
-                defaultValues: {
-                  value: 'FAQ',
-                  fontFamily: 'Dino',
-                  fontSizeValue: 72,
-                  color: '#000',
-                  align: 'center'
-                }
-              },
-              {
-                type: 'text',
-                name: 'firstQuestion',
-                label: 'Question 1',
-                defaultValues: {
-                  value: 'FIRST QUESTION',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'firstAnswer',
-                label: 'Answer 1',
-                defaultValues: {
-                  value: 'FIRST ANSWER',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'secondQuestion',
-                label: 'Question 2',
-                defaultValues: {
-                  value: 'SECOND QUESTION',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'secondAnswer',
-                label: 'Answer 2',
-                defaultValues: {
-                  value: 'SECOND ANSWER',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'thirdQuestion',
-                label: 'Question 3',
-                defaultValues: {
-                  value: 'THIRD QUESTION',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'thirdAnswer',
-                label: 'Answer 3',
-                defaultValues: {
-                  value: 'THIRD ANSWER',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'fourthQuestion',
-                label: 'Question 4',
-                defaultValues: {
-                  value: 'FOURTH QUESTION',
-                  color: '#000'
-                }
-              },
-              {
-                type: 'text',
-                name: 'fourthAnswer',
-                label: 'Answer 4',
-                defaultValues: {
-                  value: 'FOURTH ANSWER',
-                  color: '#000'
-                }
-              }
-            ]
+            type: 'image',
+            name: 'secondaryBackground',
+            label: 'Secondary Background',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              src: 'https://www.knoxalliance.store/wp-content/uploads/2017/05/light-color-background-images-for-website-top-hd-images-for-free-background-for-website-in-light-color-1-1024x640.jpg',
+              width: 100,
+              height: 100,
+              sizeUnit: '%'
+            }
+          },
+          {
+            type: 'image',
+            name: 'preview',
+            label: 'Image Preview',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              width: 100,
+              sizeUnit: '%'
+            }
+          },
+          {
+            type: 'image',
+            name: 'aboutUsPreview',
+            label: 'About Us preview',
+            placeholder: 'URL',
+            editor: true,
+            defaultValues: {
+              width: 100,
+              sizeUnit: '%'
+            }
+          }
+        ]
+      },
+      {
+        label: 'Links',
+        fields: [
+          {
+            type: 'link',
+            label: 'Tiktok',
+            name: 'tiktok',
+            placeholder: 'https://www.tiktok.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Instagram',
+            name: 'instagram',
+            placeholder: 'https://www.instagram.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Discord',
+            name: 'discord',
+            placeholder: 'https://discord.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Telegram',
+            name: 'telegram',
+            placeholder: 'https://t.me',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Twitter',
+            name: 'twitter',
+            placeholder: 'https://twitter.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Dexscreener',
+            name: 'dexscreener',
+            placeholder: 'https://dexscreener.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Pump.fun',
+            name: 'pumpfun',
+            placeholder: 'https://pump.fun',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Coin Gecko',
+            name: 'coingecko',
+            placeholder: 'https://www.coingecko.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Coin Market Cap',
+            name: 'coinmarketcap',
+            placeholder: 'https://coinmarketcap.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Birdeye',
+            name: 'birdeye',
+            placeholder: 'https://www.birdeye.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Dextools',
+            name: 'dextools',
+            placeholder: 'https://www.dextools.io',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Whitepaper',
+            name: 'whitepaper',
+            placeholder: 'https://example.com/whitepaper',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Telegram',
+            name: 'authorTelegram',
+            placeholder: 'https://t.me',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Twitter',
+            name: 'authorTwitter',
+            placeholder: 'https://twitter.com',
+            defaultValues: { iconName: 'tiktok' }
+          },
+          {
+            type: 'link',
+            label: 'Author Discord',
+            name: 'authorDiscord',
+            placeholder: 'https://discord.com',
+            defaultValues: { iconName: 'tiktok' }
+          }
+        ]
+      },
+      {
+        label: 'Buttons',
+        fields: [
+          {
+            type: 'link',
+            name: 'buyNowLink',
+            label: 'Buy Now URL',
+            placeholder: 'URL'
+          }
+        ]
+      },
+      {
+        label: 'Roadmap',
+        fields: [
+          {
+            type: 'text',
+            name: 'roadmapTitle',
+            label: 'Title',
+            defaultValues: {
+              value: 'Roadmap',
+              fontFamily: 'Dino',
+              fontSizeValue: 72,
+              color: '#000',
+              align: 'center'
+            }
+          },
+          {
+            type: 'text',
+            name: 'roadmapFirstStepTitle',
+            label: 'Phase 1 title',
+            defaultValues: {
+              value: 'Phase 1',
+              color: '#fff'
+            }
+          },
+          {
+            type: 'text',
+            name: 'roadmapFirstStepDescription',
+            label: 'Phase 1 description',
+            defaultValues: {
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'roadmapSecondStepTitle',
+            label: 'Phase 2 title',
+            defaultValues: {
+              value: 'Phase 2',
+              color: '#fff'
+            }
+          },
+          {
+            type: 'text',
+            name: 'roadmapSecondStepDescription',
+            label: 'Phase 2',
+            defaultValues: {
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'roadmapThirdStepTitle',
+            label: 'Phase 3 title',
+            defaultValues: {
+              value: 'Phase 3',
+              color: '#fff'
+            }
+          },
+          {
+            type: 'text',
+            name: 'roadmapThirdStepDescription',
+            label: 'Phase 3',
+            defaultValues: {
+              color: '#000'
+            }
+          }
+        ]
+      },
+      {
+        label: 'How to Buy',
+        fields: [
+          {
+            type: 'text',
+            name: 'howToBuyTitle',
+            label: 'Title',
+            defaultValues: {
+              value: 'How to Buy',
+              fontFamily: 'Dino',
+              fontSizeValue: 72,
+              color: '#000',
+              align: 'center'
+            }
+          },
+          {
+            type: 'text',
+            name: 'howToBuyFirstStep',
+            label: 'Step 1',
+            defaultValues: {
+              value: 'Create any wallet of your choice, we recommend Phantom.',
+              color: '#000',
+              align: 'center'
+            }
+          },
+          {
+            type: 'text',
+            name: 'howToBuySecondStep',
+            label: 'Step 2',
+            defaultValues: {
+              value:
+                'Fund your wallet with Solana, you can buy Solana from an exchange.',
+              color: '#000',
+              align: 'center'
+            }
+          },
+          {
+            type: 'text',
+            name: 'howToBuyThirdStep',
+            label: 'Step 3',
+            defaultValues: {
+              value:
+                'Head to Jupiter & paste our Contract Address, and swap your Solana to our token.',
+              color: '#000',
+              align: 'center'
+            }
+          },
+          {
+            type: 'text',
+            name: 'howToBuyFourthStep',
+            label: 'Step 4',
+            defaultValues: {
+              value: 'Welcome aboard degen!',
+              color: '#000',
+              align: 'center'
+            }
+          }
+        ]
+      },
+      {
+        label: 'FAQ',
+        fields: [
+          {
+            type: 'text',
+            name: 'FAQTitle',
+            label: 'Title',
+            defaultValues: {
+              value: 'FAQ',
+              fontFamily: 'Dino',
+              fontSizeValue: 72,
+              color: '#000',
+              align: 'center'
+            }
+          },
+          {
+            type: 'text',
+            name: 'firstQuestion',
+            label: 'Question 1',
+            defaultValues: {
+              value: 'FIRST QUESTION',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'firstAnswer',
+            label: 'Answer 1',
+            defaultValues: {
+              value: 'FIRST ANSWER',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'secondQuestion',
+            label: 'Question 2',
+            defaultValues: {
+              value: 'SECOND QUESTION',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'secondAnswer',
+            label: 'Answer 2',
+            defaultValues: {
+              value: 'SECOND ANSWER',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'thirdQuestion',
+            label: 'Question 3',
+            defaultValues: {
+              value: 'THIRD QUESTION',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'thirdAnswer',
+            label: 'Answer 3',
+            defaultValues: {
+              value: 'THIRD ANSWER',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'fourthQuestion',
+            label: 'Question 4',
+            defaultValues: {
+              value: 'FOURTH QUESTION',
+              color: '#000'
+            }
+          },
+          {
+            type: 'text',
+            name: 'fourthAnswer',
+            label: 'Answer 4',
+            defaultValues: {
+              value: 'FOURTH ANSWER',
+              color: '#000'
+            }
           }
         ]
       }
@@ -1030,687 +971,681 @@ export const templates = {
     price: 0,
     categories: [
       {
-        name: 'Colors',
-        icon: EditIcon,
-        subCategories: [
+        label: 'Accent Colors',
+        fields: [
           {
-            label: 'Accent Colors',
-            fields: [
-              {
-                type: 'color',
-                name: 'primaryColor',
-                label: 'Primary Color',
-                defaultValues: {
-                  value: '#3B82F6'
-                }
-              },
-              {
-                type: 'color',
-                name: 'secondaryColor',
-                label: 'Secondary Color',
-                defaultValues: {
-                  value: '#c0bfbc'
-                }
-              }
-            ]
+            type: 'color',
+            name: 'primaryColor',
+            label: 'Primary Color',
+            defaultValues: {
+              value: '#3B82F6'
+            }
           },
           {
-            label: 'Text',
-            fields: [
-              {
-                type: 'text',
-                name: 'heroTitle',
-                label: 'Hero title',
-                editor: true,
-                defaultValues: {
-                  value: 'Token name',
-                  fontSizeValue: 64,
-                  fontFamily: 'Orbitron',
-                  styles: ['bold']
-                }
-              },
-              {
-                type: 'text',
-                name: 'ticker',
-                label: 'Ticker',
-                editor: true,
-                defaultValues: {
-                  value: 'Ticker',
-                  fontSizeValue: 28,
-                  fontFamily: 'Orbitron',
-                  color: '#c0bfbc'
-                }
-              },
-              {
-                type: 'text',
-                name: 'description',
-                label: 'Description',
-                editor: true,
-                defaultValues: {
-                  value:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, elit ac hendrerit fermentum, lorem quam blandit sapien, non finibus tortor est et urna. Etiam commodo iaculis convallis.',
-                  fontSizeValue: 16,
-                  color: '#c0bfbc'
-                }
-              },
-              {
-                type: 'text',
-                name: 'contractAddress',
-                label: 'Contract Address',
-                editor: true,
-                defaultValues: {
-                  fontSizeValue: 14
-                }
-              },
-              {
-                type: 'text',
-                name: 'contractAddressLabel',
-                label: 'Contract Address Label',
-                editor: true,
-                defaultValues: {
-                  value: 'Contract Address',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron',
-                  color: '#c0bfbc'
-                }
-              },
-              {
-                type: 'text',
-                name: 'projectName',
-                label: 'Project Name',
-                editor: true,
-                defaultValues: {
-                  value: 'Name',
-                  fontSizeValue: 80,
-                  color: '#000',
-                  styles: ['bold']
-                }
-              },
-              {
-                type: 'text',
-                name: 'buyTicker',
-                label: 'Header Button',
-                editor: true,
-                defaultValues: {
-                  value: 'Buy Ticker',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 16,
-                  color: '#fff'
-                }
-              },
-              {
-                type: 'text',
-                name: 'buyNow',
-                label: 'Buy Now Button',
-                editor: true,
-                defaultValues: {
-                  value: 'Buy now',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 18,
-                  color: '#fff'
-                }
-              },
-              {
-                type: 'text',
-                name: 'joinUs',
-                label: 'Join Us Button',
-                editor: true,
-                defaultValues: {
-                  value: 'Join Us',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 18,
-                  color: '#fff'
-                }
-              },
-              {
-                type: 'text',
-                name: 'tokenomicsTitle',
-                label: 'Tokenomics Title',
-                editor: true,
-                defaultValues: {
-                  value: 'Tokenomics',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 48
-                }
-              },
-              {
-                type: 'text',
-                name: 'missionTimelineTitle',
-                label: 'Mission Timeline Title',
-                defaultValues: {
-                  value: 'Mission Timeline',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 48
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'missionControlTitle',
-                label: 'Mission Control Title',
-                defaultValues: {
-                  value: 'Mission Control',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 48
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'FAQTitle',
-                label: 'Mission FAQ Title',
-                defaultValues: {
-                  value: 'Mission FAQ',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 48
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'joinTitle',
-                label: 'Join The Mission Title',
-                defaultValues: {
-                  value: 'Join The Mission',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 48
-                },
-                editor: true
-              }
-            ]
+            type: 'color',
+            name: 'secondaryColor',
+            label: 'Secondary Color',
+            defaultValues: {
+              value: '#c0bfbc'
+            }
+          }
+        ]
+      },
+      {
+        label: 'Text',
+        fields: [
+          {
+            type: 'text',
+            name: 'heroTitle',
+            label: 'Hero title',
+            editor: true,
+            defaultValues: {
+              value: 'Token name',
+              fontSizeValue: 64,
+              fontFamily: 'Orbitron',
+              styles: ['bold']
+            }
           },
           {
-            label: 'Buttons',
-            fields: [
-              {
-                type: 'link',
-                name: 'buyTickerLink',
-                label: 'Buy Ticker URL',
-                placeholder: 'URL'
-              },
-              {
-                type: 'link',
-                name: 'buyNowLink',
-                label: 'Buy Now URL',
-                placeholder: 'URL'
-              },
-              {
-                type: 'link',
-                name: 'joinUsLink',
-                label: 'Join Us URL',
-                placeholder: 'URL'
-              }
-            ]
+            type: 'text',
+            name: 'ticker',
+            label: 'Ticker',
+            editor: true,
+            defaultValues: {
+              value: 'Ticker',
+              fontSizeValue: 28,
+              fontFamily: 'Orbitron',
+              color: '#c0bfbc'
+            }
           },
           {
-            label: 'Tokenomics',
-            fields: [
-              {
-                type: 'text',
-                name: 'firstTokenomicsIcon',
-                label: 'First Icon',
-                defaultValues: { value: '💰', fontSizeValue: 40 }
-              },
-              {
-                type: 'text',
-                name: 'firstTokenomicsTitle',
-                label: 'First Title',
-                defaultValues: {
-                  value: 'Total Supply',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'firstTokenomicsValue',
-                label: 'First Value',
-                defaultValues: {
-                  value: '1000000000',
-                  fontSizeValue: 32,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'secondTokenomicsIcon',
-                label: 'Second Icon',
-                defaultValues: { value: '📈', fontSizeValue: 40 }
-              },
-              {
-                type: 'text',
-                name: 'secondTokenomicsTitle',
-                label: 'Second Title',
-                defaultValues: {
-                  value: 'Buy Tax',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'secondTokenomicsValue',
-                label: 'Second Value',
-                defaultValues: {
-                  value: '5%',
-                  fontSizeValue: 32,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'thirdTokenomicsIcon',
-                label: 'Third Icon',
-                defaultValues: { value: '📉', fontSizeValue: 40 }
-              },
-              {
-                type: 'text',
-                name: 'thirdTokenomicsTitle',
-                label: 'Third Title',
-                defaultValues: {
-                  value: 'Sell Tax',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'thirdTokenomicsValue',
-                label: 'Third Value',
-                defaultValues: {
-                  value: '5%',
-                  fontSizeValue: 32,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'fourthTokenomicsIcon',
-                label: 'Fourth Icon',
-                defaultValues: { value: '🔒', fontSizeValue: 40 }
-              },
-              {
-                type: 'text',
-                name: 'fourthTokenomicsTitle',
-                label: 'Fourth Title',
-                defaultValues: {
-                  value: 'LP Lock',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                }
-              },
-              {
-                type: 'text',
-                name: 'fourthTokenomicsValue',
-                label: 'Fourth Value',
-                defaultValues: {
-                  value: '2 Years',
-                  fontSizeValue: 32,
-                  fontFamily: 'Orbitron'
-                }
-              }
-            ]
+            type: 'text',
+            name: 'description',
+            label: 'Description',
+            editor: true,
+            defaultValues: {
+              value:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, elit ac hendrerit fermentum, lorem quam blandit sapien, non finibus tortor est et urna. Etiam commodo iaculis convallis.',
+              fontSizeValue: 16,
+              color: '#c0bfbc'
+            }
           },
           {
-            label: 'Mission Timeline',
-            fields: [
-              {
-                type: 'text',
-                name: 'firstTimelinePhaseTitle',
-                label: 'Phase 1 title',
-                defaultValues: {
-                  value: 'Phase 1',
-                  color: '#fff',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'firstTimelineTitle',
-                label: 'Phase 1 title',
-                defaultValues: {
-                  value: 'Concept & Vision',
-                  color: '#fff',
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'firstTimelineDescription',
-                label: 'Phase 1 description',
-                defaultValues: {
-                  value:
-                    'Define your big idea and lay out the foundation for your project. Set clear goals and build excitement around what’s coming next. 🚀',
-                  color: '#c0bfbc',
-                  fontSizeValue: 16
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'firstTimelineDate',
-                label: 'Phase 1 date',
-                defaultValues: {
-                  value: 'Q1 2024',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondTimelinePhaseTitle',
-                label: 'Phase 2 title',
-                defaultValues: {
-                  value: 'Phase 2',
-                  color: '#fff',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondTimelineTitle',
-                label: 'Phase 2 title',
-                defaultValues: {
-                  value: 'Build & Launch',
-                  color: '#fff',
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondTimelineDescription',
-                label: 'Phase 2 description',
-                defaultValues: {
-                  value:
-                    'Start creating! Focus on getting your product, service, or community up and running. This is where things start to come to life. 🌟',
-                  color: '#c0bfbc',
-                  fontSizeValue: 16
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondTimelineDate',
-                label: 'Phase 2 date',
-                defaultValues: {
-                  value: 'Q2 2025',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdTimelinePhaseTitle',
-                label: 'Phase 3 title',
-                defaultValues: {
-                  value: 'Phase 3',
-                  color: '#fff',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdTimelineTitle',
-                label: 'Phase 3 title',
-                defaultValues: {
-                  value: 'Build & Launch',
-                  color: '#fff',
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdTimelineDescription',
-                label: 'Phase 3 description',
-                defaultValues: {
-                  value:
-                    'Start creating! Focus on getting your product, service, or community up and running. This is where things start to come to life. 🌟',
-                  color: '#c0bfbc',
-                  fontSizeValue: 16
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdTimelineDate',
-                label: 'Phase 3 date',
-                defaultValues: {
-                  value: 'Q2 2025',
-                  fontSizeValue: 14,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              }
-            ]
+            type: 'text',
+            name: 'contractAddress',
+            label: 'Contract Address',
+            editor: true,
+            defaultValues: {
+              fontSizeValue: 14
+            }
           },
           {
-            label: 'Mission Control',
-            fields: [
-              {
-                type: 'image',
-                name: 'firstControlAvatar',
-                label: 'First Avatar',
-                defaultValues: { width: 120 },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'firstControlName',
-                label: 'First Name',
-                defaultValues: {
-                  value: 'Meme Lord',
-                  color: '#fff',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'firstControlJob',
-                label: 'First Job',
-                defaultValues: {
-                  value: 'Platform Architect',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 16
-                },
-                editor: true
-              },
-              {
-                type: 'image',
-                name: 'secondControlAvatar',
-                label: 'Second Avatar',
-                defaultValues: { width: 120 },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondControlName',
-                label: 'Second Name',
-                defaultValues: {
-                  value: 'Degen Dev',
-                  color: '#fff',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondControlJob',
-                label: 'Second Job',
-                defaultValues: {
-                  value: 'Smart Contract Wizard',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 16
-                },
-                editor: true
-              },
-              {
-                type: 'image',
-                name: 'thirdControlAvatar',
-                label: 'Third Avatar',
-                defaultValues: { width: 120 },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdControlName',
-                label: 'Third Name',
-                defaultValues: {
-                  value: 'Ser Launch',
-                  color: '#fff',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdControlJob',
-                label: 'Third Job',
-                defaultValues: {
-                  value: 'Community Lead',
-                  fontFamily: 'Orbitron',
-                  fontSizeValue: 16
-                },
-                editor: true
-              }
-            ]
+            type: 'text',
+            name: 'contractAddressLabel',
+            label: 'Contract Address Label',
+            editor: true,
+            defaultValues: {
+              value: 'Contract Address',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron',
+              color: '#c0bfbc'
+            }
           },
           {
-            label: 'FAQ',
-            fields: [
-              {
-                type: 'text',
-                name: 'firstQuestion',
-                label: 'First Question',
-                defaultValues: {
-                  value: 'What is AURORA? 🚀',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'firstAnswer',
-                label: 'First Answer',
-                defaultValues: {
-                  value:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
-                  fontSizeValue: 16,
-                  color: '#c0bfbc'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondQuestion',
-                label: 'Second Question',
-                defaultValues: {
-                  value: 'Why AURORA? 🌟',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'secondAnswer',
-                label: 'Second Answer',
-                defaultValues: {
-                  value:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
-                  fontSizeValue: 16,
-                  color: '#c0bfbc'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdQuestion',
-                label: 'Third Question',
-                defaultValues: {
-                  value: 'How does it work? ⚡',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'thirdAnswer',
-                label: 'Third Answer',
-                defaultValues: {
-                  value:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
-                  fontSizeValue: 16,
-                  color: '#c0bfbc'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'fourthQuestion',
-                label: 'Fourth Question',
-                defaultValues: {
-                  value: 'How does it work? ⚡',
-                  fontSizeValue: 20,
-                  fontFamily: 'Orbitron'
-                },
-                editor: true
-              },
-              {
-                type: 'text',
-                name: 'fourthAnswer',
-                label: 'Fourth Answer',
-                defaultValues: {
-                  value:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
-                  fontSizeValue: 16,
-                  color: '#c0bfbc'
-                },
-                editor: true
-              }
-            ]
+            type: 'text',
+            name: 'projectName',
+            label: 'Project Name',
+            editor: true,
+            defaultValues: {
+              value: 'Name',
+              fontSizeValue: 80,
+              color: '#000',
+              styles: ['bold']
+            }
           },
           {
-            label: 'Links',
-            fields: [
-              {
-                type: 'link',
-                name: 'joinTelegram',
-                label: 'Telegram',
-                editor: true,
-                placeholder: 'URL'
-              },
-              {
-                type: 'link',
-                name: 'joinTwitter',
-                label: 'Twitter',
-                editor: true,
-                placeholder: 'URL'
-              },
-              {
-                type: 'link',
-                name: 'joinDiscord',
-                label: 'Discord',
-                editor: true,
-                placeholder: 'URL'
-              }
-            ]
+            type: 'text',
+            name: 'buyTicker',
+            label: 'Header Button',
+            editor: true,
+            defaultValues: {
+              value: 'Buy Ticker',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 16,
+              color: '#fff'
+            }
+          },
+          {
+            type: 'text',
+            name: 'buyNow',
+            label: 'Buy Now Button',
+            editor: true,
+            defaultValues: {
+              value: 'Buy now',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 18,
+              color: '#fff'
+            }
+          },
+          {
+            type: 'text',
+            name: 'joinUs',
+            label: 'Join Us Button',
+            editor: true,
+            defaultValues: {
+              value: 'Join Us',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 18,
+              color: '#fff'
+            }
+          },
+          {
+            type: 'text',
+            name: 'tokenomicsTitle',
+            label: 'Tokenomics Title',
+            editor: true,
+            defaultValues: {
+              value: 'Tokenomics',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 48
+            }
+          },
+          {
+            type: 'text',
+            name: 'missionTimelineTitle',
+            label: 'Mission Timeline Title',
+            defaultValues: {
+              value: 'Mission Timeline',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 48
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'missionControlTitle',
+            label: 'Mission Control Title',
+            defaultValues: {
+              value: 'Mission Control',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 48
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'FAQTitle',
+            label: 'Mission FAQ Title',
+            defaultValues: {
+              value: 'Mission FAQ',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 48
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'joinTitle',
+            label: 'Join The Mission Title',
+            defaultValues: {
+              value: 'Join The Mission',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 48
+            },
+            editor: true
+          }
+        ]
+      },
+      {
+        label: 'Buttons',
+        fields: [
+          {
+            type: 'link',
+            name: 'buyTickerLink',
+            label: 'Buy Ticker URL',
+            placeholder: 'URL'
+          },
+          {
+            type: 'link',
+            name: 'buyNowLink',
+            label: 'Buy Now URL',
+            placeholder: 'URL'
+          },
+          {
+            type: 'link',
+            name: 'joinUsLink',
+            label: 'Join Us URL',
+            placeholder: 'URL'
+          }
+        ]
+      },
+      {
+        label: 'Tokenomics',
+        fields: [
+          {
+            type: 'text',
+            name: 'firstTokenomicsIcon',
+            label: 'First Icon',
+            defaultValues: { value: '💰', fontSizeValue: 40 }
+          },
+          {
+            type: 'text',
+            name: 'firstTokenomicsTitle',
+            label: 'First Title',
+            defaultValues: {
+              value: 'Total Supply',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'firstTokenomicsValue',
+            label: 'First Value',
+            defaultValues: {
+              value: '1000000000',
+              fontSizeValue: 32,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'secondTokenomicsIcon',
+            label: 'Second Icon',
+            defaultValues: { value: '📈', fontSizeValue: 40 }
+          },
+          {
+            type: 'text',
+            name: 'secondTokenomicsTitle',
+            label: 'Second Title',
+            defaultValues: {
+              value: 'Buy Tax',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'secondTokenomicsValue',
+            label: 'Second Value',
+            defaultValues: {
+              value: '5%',
+              fontSizeValue: 32,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'thirdTokenomicsIcon',
+            label: 'Third Icon',
+            defaultValues: { value: '📉', fontSizeValue: 40 }
+          },
+          {
+            type: 'text',
+            name: 'thirdTokenomicsTitle',
+            label: 'Third Title',
+            defaultValues: {
+              value: 'Sell Tax',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'thirdTokenomicsValue',
+            label: 'Third Value',
+            defaultValues: {
+              value: '5%',
+              fontSizeValue: 32,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'fourthTokenomicsIcon',
+            label: 'Fourth Icon',
+            defaultValues: { value: '🔒', fontSizeValue: 40 }
+          },
+          {
+            type: 'text',
+            name: 'fourthTokenomicsTitle',
+            label: 'Fourth Title',
+            defaultValues: {
+              value: 'LP Lock',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            }
+          },
+          {
+            type: 'text',
+            name: 'fourthTokenomicsValue',
+            label: 'Fourth Value',
+            defaultValues: {
+              value: '2 Years',
+              fontSizeValue: 32,
+              fontFamily: 'Orbitron'
+            }
+          }
+        ]
+      },
+      {
+        label: 'Mission Timeline',
+        fields: [
+          {
+            type: 'text',
+            name: 'firstTimelinePhaseTitle',
+            label: 'Phase 1 title',
+            defaultValues: {
+              value: 'Phase 1',
+              color: '#fff',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'firstTimelineTitle',
+            label: 'Phase 1 title',
+            defaultValues: {
+              value: 'Concept & Vision',
+              color: '#fff',
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'firstTimelineDescription',
+            label: 'Phase 1 description',
+            defaultValues: {
+              value:
+                'Define your big idea and lay out the foundation for your project. Set clear goals and build excitement around what’s coming next. 🚀',
+              color: '#c0bfbc',
+              fontSizeValue: 16
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'firstTimelineDate',
+            label: 'Phase 1 date',
+            defaultValues: {
+              value: 'Q1 2024',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondTimelinePhaseTitle',
+            label: 'Phase 2 title',
+            defaultValues: {
+              value: 'Phase 2',
+              color: '#fff',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondTimelineTitle',
+            label: 'Phase 2 title',
+            defaultValues: {
+              value: 'Build & Launch',
+              color: '#fff',
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondTimelineDescription',
+            label: 'Phase 2 description',
+            defaultValues: {
+              value:
+                'Start creating! Focus on getting your product, service, or community up and running. This is where things start to come to life. 🌟',
+              color: '#c0bfbc',
+              fontSizeValue: 16
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondTimelineDate',
+            label: 'Phase 2 date',
+            defaultValues: {
+              value: 'Q2 2025',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdTimelinePhaseTitle',
+            label: 'Phase 3 title',
+            defaultValues: {
+              value: 'Phase 3',
+              color: '#fff',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdTimelineTitle',
+            label: 'Phase 3 title',
+            defaultValues: {
+              value: 'Build & Launch',
+              color: '#fff',
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdTimelineDescription',
+            label: 'Phase 3 description',
+            defaultValues: {
+              value:
+                'Start creating! Focus on getting your product, service, or community up and running. This is where things start to come to life. 🌟',
+              color: '#c0bfbc',
+              fontSizeValue: 16
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdTimelineDate',
+            label: 'Phase 3 date',
+            defaultValues: {
+              value: 'Q2 2025',
+              fontSizeValue: 14,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          }
+        ]
+      },
+      {
+        label: 'Mission Control',
+        fields: [
+          {
+            type: 'image',
+            name: 'firstControlAvatar',
+            label: 'First Avatar',
+            defaultValues: { width: 120 },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'firstControlName',
+            label: 'First Name',
+            defaultValues: {
+              value: 'Meme Lord',
+              color: '#fff',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'firstControlJob',
+            label: 'First Job',
+            defaultValues: {
+              value: 'Platform Architect',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 16
+            },
+            editor: true
+          },
+          {
+            type: 'image',
+            name: 'secondControlAvatar',
+            label: 'Second Avatar',
+            defaultValues: { width: 120 },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondControlName',
+            label: 'Second Name',
+            defaultValues: {
+              value: 'Degen Dev',
+              color: '#fff',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondControlJob',
+            label: 'Second Job',
+            defaultValues: {
+              value: 'Smart Contract Wizard',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 16
+            },
+            editor: true
+          },
+          {
+            type: 'image',
+            name: 'thirdControlAvatar',
+            label: 'Third Avatar',
+            defaultValues: { width: 120 },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdControlName',
+            label: 'Third Name',
+            defaultValues: {
+              value: 'Ser Launch',
+              color: '#fff',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdControlJob',
+            label: 'Third Job',
+            defaultValues: {
+              value: 'Community Lead',
+              fontFamily: 'Orbitron',
+              fontSizeValue: 16
+            },
+            editor: true
+          }
+        ]
+      },
+      {
+        label: 'FAQ',
+        fields: [
+          {
+            type: 'text',
+            name: 'firstQuestion',
+            label: 'First Question',
+            defaultValues: {
+              value: 'What is AURORA? 🚀',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'firstAnswer',
+            label: 'First Answer',
+            defaultValues: {
+              value:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+              fontSizeValue: 16,
+              color: '#c0bfbc'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondQuestion',
+            label: 'Second Question',
+            defaultValues: {
+              value: 'Why AURORA? 🌟',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'secondAnswer',
+            label: 'Second Answer',
+            defaultValues: {
+              value:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+              fontSizeValue: 16,
+              color: '#c0bfbc'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdQuestion',
+            label: 'Third Question',
+            defaultValues: {
+              value: 'How does it work? ⚡',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'thirdAnswer',
+            label: 'Third Answer',
+            defaultValues: {
+              value:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+              fontSizeValue: 16,
+              color: '#c0bfbc'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'fourthQuestion',
+            label: 'Fourth Question',
+            defaultValues: {
+              value: 'How does it work? ⚡',
+              fontSizeValue: 20,
+              fontFamily: 'Orbitron'
+            },
+            editor: true
+          },
+          {
+            type: 'text',
+            name: 'fourthAnswer',
+            label: 'Fourth Answer',
+            defaultValues: {
+              value:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor eget nunc vel rutrum. Nullam efficitur metus a nibh ullamcorper suscipit. Nullam eget aliquam turpis, sed aliquet orci. Nulla sit amet nisl in lectus dapibus fringilla vitae id turpis.',
+              fontSizeValue: 16,
+              color: '#c0bfbc'
+            },
+            editor: true
+          }
+        ]
+      },
+      {
+        label: 'Links',
+        fields: [
+          {
+            type: 'link',
+            name: 'joinTelegram',
+            label: 'Telegram',
+            editor: true,
+            placeholder: 'URL'
+          },
+          {
+            type: 'link',
+            name: 'joinTwitter',
+            label: 'Twitter',
+            editor: true,
+            placeholder: 'URL'
+          },
+          {
+            type: 'link',
+            name: 'joinDiscord',
+            label: 'Discord',
+            editor: true,
+            placeholder: 'URL'
           }
         ]
       }
@@ -1768,24 +1703,22 @@ export const getTemplateFields = (templateName: TemplateName): TemplateData => {
   const result = { links: {} }
   const currentTemplate = templates[templateName] as Template
 
-  currentTemplate.categories.forEach(({ subCategories }) => {
-    subCategories.forEach(({ fields }) => {
-      fields.forEach(({ defaultValues, ...fieldData }) => {
-        const { type, name } = fieldData
-        if (result.hasOwnProperty(name)) return
+  currentTemplate.categories.forEach(({ fields }) => {
+    fields.forEach(({ defaultValues, ...fieldData }) => {
+      const { type, name } = fieldData
+      if (result.hasOwnProperty(name)) return
 
-        const data = merge(
-          fieldData,
-          cloneDeep(defaultFieldValues[type]),
-          defaultValues
-        )
+      const data = merge(
+        fieldData,
+        cloneDeep(defaultFieldValues[type]),
+        defaultValues
+      )
 
-        if (type === 'link') {
-          set(result, `links.${name}`, data)
-        } else {
-          set(result, name, data)
-        }
-      })
+      if (type === 'link') {
+        set(result, `links.${name}`, data)
+      } else {
+        set(result, name, data)
+      }
     })
   })
 

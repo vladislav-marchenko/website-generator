@@ -16,7 +16,6 @@ interface ClassicProps {
 }
 
 export const Classic: FC<ClassicProps> = ({ data, updateField }) => {
-  console.log(data)
   return (
     <TemplateLayout data={data} className='h-dvh overflow-y-auto'>
       <div className='mx-auto flex max-w-6xl flex-col items-center gap-8'>
@@ -70,7 +69,7 @@ export const Classic: FC<ClassicProps> = ({ data, updateField }) => {
           updateField={updateField}
           className='min-w-72 rounded-full text-center text-3xl uppercase text-black'
         />
-        {(data.showHowToBuy as ToggleData).value && (
+        {(data?.showHowToBuy as ToggleData)?.value && (
           <ClassicHowToBuy data={data} updateField={updateField} />
         )}
       </div>

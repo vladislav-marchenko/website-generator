@@ -1,3 +1,4 @@
+import { Editor } from './components/Editor/Editor'
 import { EditorAnimations } from './components/Editor/EditorAnimations'
 import { EditorRotate } from './components/Editor/EditorRotate'
 import { EditorBorder } from './components/Editor/Image/EditorBorder'
@@ -16,7 +17,9 @@ import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Link, Medium, Telegram, Twitter } from './components/Icons'
-import type { Animation, PricingCard } from './types'
+import { TemplatesSelector } from './components/TemplatesSelector'
+import type { PricingCard } from './types'
+import { Animation } from './types/templates'
 import {
   IN,
   ID,
@@ -39,6 +42,7 @@ import {
   PT,
   SA
 } from 'country-flag-icons/react/3x2'
+import { Edit, GalleryVerticalEnd } from 'lucide-react'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
@@ -213,6 +217,19 @@ export const fallbackFonts = [
 ]
 
 export const fontSizeUnits = ['px', 'rem', 'cm', '%']
+
+export const categoriesFields = [
+  {
+    label: 'Editor',
+    icon: Edit,
+    element: Editor
+  },
+  {
+    label: 'Templates',
+    icon: GalleryVerticalEnd,
+    element: TemplatesSelector
+  }
+]
 
 export const editorFields = {
   text: [

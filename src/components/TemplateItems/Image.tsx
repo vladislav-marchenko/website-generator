@@ -17,21 +17,22 @@ interface ImageProps {
 
 export const Image: FC<ImageProps> = ({ data, fieldName, className }) => {
   const fieldData = data[fieldName] as ImageData
-  if (!fieldData) return <TemplateItemError />
 
   const uploadedImageURL =
-    fieldData.uploaded && URL.createObjectURL(fieldData.uploaded)
+    fieldData?.uploaded && URL.createObjectURL(fieldData?.uploaded)
 
   const items = [
-    fieldData.src,
+    fieldData?.src,
     uploadedImageURL,
-    ...fieldData.slideshowItems
+    ...(fieldData?.slideshowItems ?? [])
   ].filter(Boolean)
 
   const currentImageIndex = useSlideshow(
     items.length,
-    fieldData.slideshowInterval
+    fieldData?.slideshowInterval
   )
+
+  if (!fieldData) return <TemplateItemError />
 
   return (
     <div
