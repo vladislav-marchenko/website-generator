@@ -18,6 +18,7 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
   const [searchParams] = useSearchParams()
   const params = new URLSearchParams(searchParams)
   params.set('template', templateName)
+  params.set('category', 'templates')
 
   return (
     <Card className='justify-between'>
