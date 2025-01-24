@@ -1,6 +1,7 @@
 import { Layout } from './components/Layout'
 import { TemplateContextProvider } from './contexts/TemplateContext'
 import { ThemeContext } from './contexts/ThemeContext'
+import { Account } from './pages/Account'
 import { Create } from './pages/Create'
 import { Pricing } from './pages/Pricing'
 import { Templates } from './pages/Templates'
@@ -26,6 +27,7 @@ function App() {
           />
           <Route path='/' element={<Main />} />
           <Route element={<Layout />}>
+            <Route path='/account' element={<Account />} />
             <Route path='/pricing' element={<Pricing />} />
             <Route path='/templates' element={<Templates />} />
           </Route>

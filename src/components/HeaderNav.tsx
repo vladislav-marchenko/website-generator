@@ -1,13 +1,20 @@
 import { Button } from './Button'
 import { CustomizeMenu } from './CustomizeMenu'
 import { NavLink } from './NavLink'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from './ui/dropdown-menu'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useWalletModal } from '@solana/wallet-adapter-react-ui'
 import { useTranslation } from 'react-i18next'
 import { FaUserCircle } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export const HeaderNav = () => {
-  const { publicKey } = useWallet()
+  const { publicKey, disconnect } = useWallet()
   const { setVisible } = useWalletModal()
   const publicKeyString = publicKey?.toString()
 
@@ -27,10 +34,18 @@ export const HeaderNav = () => {
         </Button>
       )}
       {publicKeyString && (
-        <button className='flex items-center gap-2'>
-          <FaUserCircle size={24} />
-          <span>{publicKeyString.slice(0, 8)}...</span>
-        </button>
+        <DropdownMenu>
+          <DropdownMenuTrigger className='flex items-center gap-2'>
+            <FaUserCircle size={24} />
+            <span>{publicKeyString?.slice(0, 8)}...</span>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem>
+              <Link to='/account'>Account</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={disconnect}>Sign Out</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       )}
       <CustomizeMenu />
     </nav>
