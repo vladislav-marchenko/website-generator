@@ -19,11 +19,13 @@ export const UserWebsites = () => {
     <Tabs defaultValue='all'>
       <TabsList>
         {items.map(({ label, value }) => (
-          <TabsTrigger value={value}>{label}</TabsTrigger>
+          <TabsTrigger key={value} value={value}>
+            {label}
+          </TabsTrigger>
         ))}
       </TabsList>
       {items.map(({ value, element: Element }) => (
-        <TabsContent value={value}>
+        <TabsContent key={value} value={value}>
           <Element />
         </TabsContent>
       ))}

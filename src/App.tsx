@@ -26,8 +26,8 @@ function App() {
             }
           />
           <Route path='/' element={<Main />} />
+          <Route path='/account' element={<Account />} />
           <Route element={<Layout />}>
-            <Route path='/account' element={<Account />} />
             <Route path='/pricing' element={<Pricing />} />
             <Route path='/templates' element={<Templates />} />
           </Route>
