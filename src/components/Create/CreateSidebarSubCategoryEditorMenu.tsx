@@ -1,5 +1,5 @@
-import { FancyButton } from '../FancyButton'
 import { Label } from '../ui/label'
+import { CreateButton } from './CreateButton'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { editorFields } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
@@ -50,9 +50,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
                 It seems like there's no editor for this type of component
               </span>
             )}
-            <FancyButton to='/' className='mb-4 w-full max-w-64 self-center'>
-              Create Web
-            </FancyButton>
+            <CreateButton />
           </div>
         </motion.div>
       )}

@@ -1,7 +1,7 @@
 import { FontsPicker } from '@/components/FontsPicker/FontsPicker'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
 import type { TemplateContextValues } from '@/types/contexts'
+import { TextData } from '@/types/templates'
 import { useContext } from 'react'
 
 export const EditorFontsPicker = () => {

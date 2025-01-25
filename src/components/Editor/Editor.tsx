@@ -1,6 +1,6 @@
+import { CreateButton } from '../Create/CreateButton'
 import { CreateSidebarSubCategory } from '../Create/CreateSidebarSubCategory'
 import { CreateSidebarSubCategoryEditorMenu } from '../Create/CreateSidebarSubCategoryEditorMenu'
-import { FancyButton } from '../FancyButton'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { templates } from '@/templates'
 import { TemplateContextValues } from '@/types/contexts'
@@ -19,9 +19,7 @@ export const Editor = () => {
           <CreateSidebarSubCategory key={label} label={label} fields={fields} />
         ))}
       </div>
-      <FancyButton to='/' className='mb-4 w-full max-w-64 self-center'>
-        Create Web
-      </FancyButton>
+      <CreateButton />
       <CreateSidebarSubCategoryEditorMenu />
     </div>
   )

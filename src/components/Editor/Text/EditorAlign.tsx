@@ -1,7 +1,7 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { TextData } from '@/types/templates'
 import { AlignLeft, AlignCenter, AlignRight } from 'lucide-react'
 import { useContext } from 'react'
 

@@ -7,8 +7,8 @@ import {
 } from '../ui/select'
 import { fontSizeUnits } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData, ImageData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { TextData, ImageData } from '@/types/templates'
 import { useContext } from 'react'
 
 export const SizeUnitSelect = () => {

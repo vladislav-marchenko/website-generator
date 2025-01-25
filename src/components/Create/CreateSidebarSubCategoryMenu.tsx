@@ -1,4 +1,4 @@
-import { FancyButton } from '../FancyButton'
+import { CreateButton } from './CreateButton'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { CreateSidebarSubCategoryItem } from './CreateSidebarSubCategoryItem'
 import { TemplateSubCategoryField } from '@/types/templates'
@@ -36,9 +36,7 @@ export const CreateSidebarSubCategoryMenu: FC<
                 <CreateSidebarSubCategoryItem key={field.name} {...field} />
               ))}
             </div>
-            <FancyButton to='/' className='mb-4 w-full max-w-64 self-center'>
-              Create Web
-            </FancyButton>
+            <CreateButton />
           </div>
         </motion.div>
       )}

@@ -1,36 +1,63 @@
 import { cn } from '@/lib/utils'
-import { FC, PropsWithChildren, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode } from 'react'
+import { Link, LinkProps } from 'react-router-dom'
 
-interface FancyButtonProps {
-  to: string
+const styles = {
+  '--spread': '90deg',
+  '--shimmer-color': '#ffffff',
+  '--radius': '100px',
+  '--speed': '1.5s',
+  '--cut': '0.2em',
+  '--bg': '#ffffff'
+} as React.CSSProperties
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+
+type FancyButtonProps = {
+  to?: string
   children: ReactNode
   className?: string
-}
+} & (ButtonProps | LinkProps)
 
 export const FancyButton: FC<FancyButtonProps> = ({
   children,
   to,
-  className
+  className,
+  ...props
 }) => {
+  if (to) {
+    return (
+      <Link
+        {...(props as LinkProps)}
+        to={to}
+        className={cn(
+          'group relative flex cursor-pointer justify-center overflow-hidden whitespace-nowrap rounded-full px-6 py-5 text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_8px_rgba(62,61,117,0.7)]',
+          className
+        )}
+        style={styles}
+      >
+        <FancyButtonInner>{children}</FancyButtonInner>
+      </Link>
+    )
+  }
+
   return (
-    <Link
-      to={to}
+    <button
+      {...(props as ButtonProps)}
       className={cn(
         'group relative flex cursor-pointer justify-center overflow-hidden whitespace-nowrap rounded-full px-6 py-5 text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_8px_rgba(62,61,117,0.7)]',
         className
       )}
-      style={
-        {
-          '--spread': '90deg',
-          '--shimmer-color': '#ffffff',
-          '--radius': '100px',
-          '--speed': '1.5s',
-          '--cut': '0.2em',
-          '--bg': '#ffffff'
-        } as React.CSSProperties
-      }
+      style={styles}
     >
+      <FancyButtonInner>{children}</FancyButtonInner>
+    </button>
+  )
+}
+
+const FancyButtonInner: FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <>
       <div className='absolute inset-0 overflow-hidden'>
         <div className='rotate-gradient absolute inset-[-100%]'>
           <div
@@ -46,6 +73,6 @@ export const FancyButton: FC<FancyButtonProps> = ({
       <span className='z-10 whitespace-pre bg-gradient-to-b from-black from-30% to-gray-300/80 bg-clip-text text-center text-lg font-bold leading-none tracking-tight text-white dark:text-black'>
         {children}
       </span>
-    </Link>
+    </>
   )
 }

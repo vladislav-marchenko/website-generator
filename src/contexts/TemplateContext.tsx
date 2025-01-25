@@ -29,8 +29,6 @@ export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
   const [activeSubCategory, setActiveSubCategory] =
     useState<TemplateSubCategoryField | null>(null)
 
-  console.log(data)
-
   const activeSubCategoryData = getActiveSubCategoryData()
 
   useLayoutEffect(() => {

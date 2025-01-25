@@ -16,7 +16,7 @@ import { EditorFontSize } from './components/Editor/Text/EditorFontSize'
 import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
-import { Discord, Link, Medium, Telegram, Twitter } from './components/Icons'
+import { Discord, Link, Telegram, Twitter } from './components/Icons'
 import { TemplatesSelector } from './components/TemplatesSelector'
 import type { PricingCard } from './types'
 import { Animation } from './types/templates'
@@ -46,6 +46,7 @@ import { Edit, GalleryVerticalEnd } from 'lucide-react'
 import { FaRocket, FaPalette, FaBoltLightning } from 'react-icons/fa6'
 
 export const PROJECT_NAME = 'AURORA'
+export const BASE_URL = 'http://localhost:3000'
 export const GOOGLE_API_BASE_URL =
   'https://www.googleapis.com/webfonts/v1/webfonts'
 

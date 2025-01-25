@@ -1,7 +1,7 @@
 import { Input } from '@/components/ui/input'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { ImageData, LinkData, TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { ImageData, LinkData, TextData } from '@/types/templates'
 import { useContext } from 'react'
 
 export const EditorRotate = () => {

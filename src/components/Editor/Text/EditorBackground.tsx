@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { TextData } from '@/types/templates'
 import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 

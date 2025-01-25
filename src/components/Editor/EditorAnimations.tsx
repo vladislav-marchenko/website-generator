@@ -3,8 +3,8 @@ import { Slider } from '../ui/slider'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { animations } from '@/consts'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { ImageData, LinkData, TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { TextData, ImageData, LinkData } from '@/types/templates'
 import { FC, useContext } from 'react'
 
 export const EditorAnimations: FC = () => {

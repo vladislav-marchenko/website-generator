@@ -1,7 +1,7 @@
 import { Slider } from '@/components/ui/slider'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { ImageData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { ImageData } from '@/types/templates'
 import { useContext } from 'react'
 
 export const EditorOpacity = () => {

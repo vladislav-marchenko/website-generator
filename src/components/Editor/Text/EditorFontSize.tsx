@@ -2,8 +2,8 @@ import { SizeUnitSelect } from '../SizeUnitSelect'
 import { Input } from '@/components/ui/input'
 import { Slider } from '@/components/ui/slider'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
+import { TextData } from '@/types/templates'
 import { useContext } from 'react'
 
 export const EditorFontSize = () => {

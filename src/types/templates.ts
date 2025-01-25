@@ -31,6 +31,9 @@ type SizeUnit = 'px' | 'rem' | 'cm' | '%'
 export type Data = TextData | ImageData | LinkData | ToggleData | ColorData
 
 interface CommonData {
+  label: string
+  name: string
+  placeholder?: string
   rotation: number
   animation: AnimationValue | null
   animationDuration: number

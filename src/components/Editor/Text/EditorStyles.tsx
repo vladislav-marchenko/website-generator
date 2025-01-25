@@ -1,16 +1,8 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TextData } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
-import {
-  AlignLeft,
-  AlignCenter,
-  AlignRight,
-  Bold,
-  Italic,
-  Underline,
-  Minus
-} from 'lucide-react'
+import { TextData } from '@/types/templates'
+import { Bold, Italic, Underline, Minus } from 'lucide-react'
 import { useContext } from 'react'
 
 const items = [
