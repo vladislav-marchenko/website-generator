@@ -2,9 +2,9 @@ import { BASE_URL, GOOGLE_API_BASE_URL } from '@/consts'
 import {
   CreateWebsiteFn,
   CreateWebsiteResponse,
+  ErrorResponse,
   GetFontsResponse,
-  GetWebsiteFn,
-  GetWebsiteResponse
+  GetWebsiteFn
 } from '@/types/api'
 
 export const getFonts = async (): Promise<Pick<GetFontsResponse, 'items'>> => {
@@ -26,18 +26,34 @@ export const createWebsite: CreateWebsiteFn = async ({
 }) => {
   const url = `${BASE_URL}/websites/create/${name}`
 
-  const data: CreateWebsiteResponse = await fetch(url, {
+  const response = await fetch(url, {
     body: JSON.stringify({ template: templateName, data: templateData }),
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Public-Key': publicKey }
-  }).then((res) => res.json())
+  })
+  const data: CreateWebsiteResponse = await response.json()
+
+  if (!response.ok) {
+    const errorData = data as ErrorResponse
+
+    if (typeof errorData.message === 'string') {
+      throw new Error(errorData.message)
+    } else {
+      throw new Error(errorData.message[0])
+    }
+  }
 
   return data
 }
 
 export const getWebsite: GetWebsiteFn = async (name: string) => {
   const url = `${BASE_URL}/websites/${name}`
-  const data: GetWebsiteResponse = await fetch(url).then((res) => res.json())
+  const response = await fetch(url)
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data)
+  }
 
   return data
 }

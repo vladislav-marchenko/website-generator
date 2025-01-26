@@ -9,11 +9,19 @@ export interface GetFontsResponse {
   error?: { message: string }
 }
 
-export interface CreateWebsiteResponse {
-  name: string
-  data: TemplateData
-  creator: string
+export type ErrorResponse = {
+  error: string
+  message: string | string[]
+  statusCode: number
 }
+
+export type CreateWebsiteResponse =
+  | {
+      name: string
+      data: TemplateData
+      creator: string
+    }
+  | ErrorResponse
 
 export type CreateWebsiteFn = ({
   name,
