@@ -82,22 +82,16 @@ export interface ColorData {
 interface TemplateTextCategoryField {
   type: 'text'
   defaultValues?: Partial<TextData>
-  editor?: boolean
-  placeholder?: string
 }
 
 interface TemplateImageCategoryField {
   type: 'image'
   defaultValues?: Partial<ImageData>
-  editor?: boolean
-  placeholder?: string
 }
 
 interface TemplateLinkCategoryField {
   type: 'link'
   defaultValues?: Partial<LinkData>
-  editor?: boolean
-  placeholder: string
 }
 
 interface TemplateToggleCategoryField {
@@ -113,6 +107,8 @@ interface TemplateColorCategoryField {
 export type TemplateSubCategoryField = {
   label: string
   name: string
+  editor?: boolean
+  placeholder?: string
 } & (
   | TemplateTextCategoryField
   | TemplateImageCategoryField

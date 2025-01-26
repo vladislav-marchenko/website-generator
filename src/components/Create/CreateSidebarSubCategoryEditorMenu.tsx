@@ -2,8 +2,8 @@ import { Label } from '../ui/label'
 import { CreateButton } from './CreateButton'
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { editorFields } from '@/consts'
-import { TemplateContext } from '@/contexts/TemplateContext'
-import type { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
+import type { TemplateEditorContextValues } from '@/types/contexts'
 import { TemplateSubCategoryField } from '@/types/templates'
 import { AnimatePresence, motion } from 'motion/react'
 import { FC, useContext } from 'react'
@@ -21,8 +21,8 @@ const getFields = (activeSubCategory: TemplateSubCategoryField | null) => {
 
 export const CreateSidebarSubCategoryEditorMenu: FC = () => {
   const { activeSubCategory, setActiveSubCategory } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
 
   const fields = getFields(activeSubCategory)
 

@@ -3,18 +3,26 @@ import { Checkbox } from '../ui/checkbox'
 import { Label } from '../ui/label'
 import { CreateSidebarSubCategoryItemField } from './CreateSidebarSubCategoryItemField'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import type { TemplateSubCategoryField, ToggleData } from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
+import {
+  TemplateContextValues,
+  TemplateEditorContextValues
+} from '@/types/contexts'
+import { TemplateSubCategoryField, ToggleData } from '@/types/templates'
 import { ChevronRight } from 'lucide-react'
 import { FC, useContext } from 'react'
 
 export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
   props
 ) => {
-  const { type, name, label, placeholder, editor = false } = props
-  const { data, updateField, setActiveSubCategory } = useContext(
+  const { type, name, label, editor = false, placeholder = '' } = props
+
+  const { data, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
+  const { setActiveSubCategory } = useContext(
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
 
   return (
     <div className='flex flex-col gap-2'>
