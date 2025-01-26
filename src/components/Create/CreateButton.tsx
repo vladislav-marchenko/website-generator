@@ -1,7 +1,6 @@
 import { FancyButton } from '../FancyButton'
+import { WebsiteNameInput } from '../WebsiteNameInput'
 import { Button } from '../ui/button'
-import { Input } from '../ui/input'
-import { Label } from '../ui/label'
 import {
   Dialog,
   DialogContent,
@@ -31,7 +30,7 @@ export const CreateButton = () => {
 
   const { protocol, host } = window.location
 
-  const { mutate, error } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: createWebsite,
     onSuccess: () => {
       window.location.href = `${protocol}//${name}.${host}`
@@ -45,8 +44,6 @@ export const CreateButton = () => {
       })
     }
   })
-
-  console.log(error)
 
   return (
     <Dialog>
@@ -63,15 +60,7 @@ export const CreateButton = () => {
             your subdomain, making it easier for visitors to remember.
           </DialogDescription>
         </DialogHeader>
-        <div>
-          <Label htmlFor='domain'>Domain</Label>
-          <Input
-            id='domain'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder='Domain'
-          />
-        </div>
+        <WebsiteNameInput value={name} setValue={setName} />
         <DialogFooter>
           <Button
             onClick={() =>

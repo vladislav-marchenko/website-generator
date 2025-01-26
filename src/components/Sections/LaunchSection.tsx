@@ -1,6 +1,7 @@
 import { Badge } from '../Badge'
 import { Button } from '../Button'
 import { Description } from '../Description'
+import { WebsiteNameInput } from '../WebsiteNameInput'
 import { Section } from './Section'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,15 +23,7 @@ export const LaunchSection = () => {
             {t('launch.description')}
           </Description>
           <div className='flex items-center gap-4'>
-            <div className='flex items-center rounded-full border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className='bg-transparent py-2 pl-4'
-                placeholder='yoursite'
-              />
-              <span className='pr-4'>.{window.location.host}</span>
-            </div>
+            <WebsiteNameInput value={name} setValue={setName} />
             <Button to={`/templates?name=${name}`}>
               {t('launch.startBuildingButton')}
             </Button>
