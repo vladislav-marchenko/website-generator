@@ -33,9 +33,9 @@ export const WebsiteNameInput: FC<WebsiteNameInputProps> = ({
   }
 
   return (
-    <div>
+    <div className='relative'>
       <Label htmlFor='domain'>Domain</Label>
-      <div className='flex items-center rounded-full border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
+      <div className='mb-6 flex items-center rounded-full border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
         <input
           id='domain'
           value={value}
@@ -46,7 +46,9 @@ export const WebsiteNameInput: FC<WebsiteNameInputProps> = ({
         <span className='pr-4'>.{window.location.host}</span>
       </div>
       {!!value.length && isNameTaken && (
-        <span className='text-red-500'>This name is already taken</span>
+        <span className='absolute bottom-0 text-red-500'>
+          This name is already taken
+        </span>
       )}
     </div>
   )
