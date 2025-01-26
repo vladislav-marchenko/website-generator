@@ -1,14 +1,13 @@
+import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Link } from '@/components/TemplateItems/Link'
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { cn } from '@/lib/utils'
-import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
-interface SocialLinksProps {
-  data: TemplateData
-  className?: string
-}
+export const SocialLinks: FC<{ className?: string }> = ({ className }) => {
+  const { data } = useTemplateData()
+  if (!data) return <TemplateItemError />
 
-export const SocialLinks: FC<SocialLinksProps> = ({ data, className }) => {
   return (
     <div
       className={cn(
@@ -17,9 +16,7 @@ export const SocialLinks: FC<SocialLinksProps> = ({ data, className }) => {
       )}
     >
       {Object.keys(data.links).map((key) => {
-        return (
-          data.links[key].url && <Link key={key} data={data} fieldName={key} />
-        )
+        return data.links[key].url && <Link key={key} fieldName={key} />
       })}
     </div>
   )

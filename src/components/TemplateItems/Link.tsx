@@ -1,5 +1,6 @@
 import { TemplateItemError } from './Error'
 import { socialLinkIcons } from '@/consts'
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { LinkData, TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
@@ -11,15 +12,11 @@ const getIcon = (name: string) => {
   return socialLinkIcons.default
 }
 
-interface LinkProps {
-  data: TemplateData
-  fieldName: keyof TemplateData
-}
+export const Link: FC<{ fieldName: keyof TemplateData }> = ({ fieldName }) => {
+  const { data } = useTemplateData()
+  if (!data) return <TemplateItemError />
 
-export const Link: FC<LinkProps> = ({ data, fieldName }) => {
   const fieldData = data.links[fieldName] as LinkData
-  if (!fieldData) return <TemplateItemError />
-
   const Icon = getIcon(fieldData.iconName)
 
   return (

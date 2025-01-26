@@ -1,15 +1,15 @@
 import { CreateSidebarHeader } from './CreateSidebarHeader'
 import { categoriesFields } from '@/consts'
-import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
 import { cn } from '@/lib/utils'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export const CreateSidebar: FC = () => {
   const { activeCategory, activeSubCategory } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
   const navigate = useNavigate()
 
   const CurrentCategoryElement = categoriesFields[activeCategory].element

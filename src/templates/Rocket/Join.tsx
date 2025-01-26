@@ -1,6 +1,7 @@
 import { RocketCard } from './Card'
 import { Image } from '@/components/TemplateItems/Image'
 import { Text } from '@/components/TemplateItems/Text'
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { UpdateField } from '@/types'
 import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
@@ -23,24 +24,15 @@ const items = [
   }
 ]
 
-interface RocketJoinProps {
-  data: TemplateData
-  updateField?: UpdateField
-  primaryColor: string
-}
+export const RocketJoin: FC<{ primaryColor: string }> = ({ primaryColor }) => {
+  const { data } = useTemplateData()
+  if (!data) return
 
-export const RocketJoin: FC<RocketJoinProps> = ({
-  data,
-  updateField,
-  primaryColor
-}) => {
   return (
     <section className='bg-[#0a0a0a]/95 py-24'>
       <div className='mx-auto flex max-w-6xl flex-col items-center justify-center gap-12'>
         <Text
-          data={data}
           fieldName='joinTitle'
-          updateField={updateField}
           defaultColor={primaryColor}
           className={{ text: 'tracking-wider' }}
           as='h2'

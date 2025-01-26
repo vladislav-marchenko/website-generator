@@ -1,19 +1,12 @@
 import { Text } from '@/components/TemplateItems/Text'
-import { UpdateField } from '@/types'
-import { TemplateData, TextData } from '@/types/templates'
+import { useTemplateData } from '@/hooks/useTemplateData'
+import { TextData } from '@/types/templates'
 import { FC } from 'react'
 
-interface AnimatedCircleProps {
-  data: TemplateData
-  updateField?: UpdateField
-  color: string
-}
+export const AnimateCircle: FC<{ color: string }> = ({ color }) => {
+  const { data } = useTemplateData()
+  if (!data) return
 
-export const AnimateCircle: FC<AnimatedCircleProps> = ({
-  data,
-  updateField,
-  color
-}) => {
   const projectName = data?.projectName as TextData
   const maxFontSize = projectName?.fontSizeValue
   const dynamicFontSize = 600 / projectName?.value.length
@@ -28,9 +21,7 @@ export const AnimateCircle: FC<AnimatedCircleProps> = ({
         }}
       >
         <Text
-          data={data}
           fieldName='projectName'
-          updateField={updateField}
           className={{ text: 'uppercase' }}
           style={{ fontSize: `${fontSize}px` }}
         />

@@ -1,22 +1,14 @@
 import { Button } from './Button'
 import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Text } from '@/components/TemplateItems/Text'
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { cn } from '@/lib/utils'
-import { TemplateData, UpdateField } from '@/types'
 import { FC } from 'react'
 
-interface ClassicBuyButtonProps {
-  data: TemplateData
-  updateField?: UpdateField
-  className?: string
-}
+export const BuyButton: FC<{ className?: string }> = ({ className }) => {
+  const { data } = useTemplateData()
 
-export const BuyButton: FC<ClassicBuyButtonProps> = ({
-  data,
-  updateField,
-  className
-}) => {
-  if (!data.links?.buyNowLink) {
+  if (!data?.links?.buyNowLink) {
     return <TemplateItemError />
   }
 
@@ -28,8 +20,6 @@ export const BuyButton: FC<ClassicBuyButtonProps> = ({
         className='flex justify-center'
       >
         <Text
-          data={data}
-          updateField={updateField}
           fieldName='buyNowText'
           className={{ text: 'inline-block px-6 py-3' }}
         />

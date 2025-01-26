@@ -1,13 +1,11 @@
 import { TemplateItemError } from './Error'
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { cn } from '@/lib/utils'
-import { UpdateField } from '@/types'
 import { TemplateData, TextData } from '@/types/templates'
 import { CSSProperties, FC } from 'react'
 import ContentEditable from 'react-contenteditable'
 
 interface TextProps {
-  data: TemplateData
-  updateField?: UpdateField
   fieldName: keyof TemplateData
   placeholder?: string
   as?: string
@@ -20,8 +18,6 @@ interface TextProps {
 }
 
 export const Text: FC<TextProps> = ({
-  data,
-  updateField,
   fieldName,
   placeholder = '',
   as = 'span',
@@ -29,7 +25,9 @@ export const Text: FC<TextProps> = ({
   className,
   style
 }) => {
-  const fieldData = data[fieldName] as TextData
+  const { data, updateField } = useTemplateData()
+  const fieldData = data?.[fieldName] as TextData
+
   if (!fieldData) return <TemplateItemError />
 
   return (

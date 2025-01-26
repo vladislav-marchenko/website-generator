@@ -17,10 +17,21 @@ export interface CreateWebsiteResponse {
 
 export type CreateWebsiteFn = ({
   name,
+  templateName,
   templateData,
   publicKey
 }: {
   name: string
+  templateName: string
   templateData: TemplateData
   publicKey: string
 }) => Promise<CreateWebsiteResponse>
+
+export interface GetWebsiteResponse {
+  name: string
+  template: string
+  data: TemplateData
+  creator: string
+}
+
+export type GetWebsiteFn = (name: string) => Promise<GetWebsiteResponse>

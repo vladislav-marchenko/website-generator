@@ -11,7 +11,7 @@ import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
 export const Create = () => {
-  const { selectedTemplate, data, updateField } = useContext(
+  const { selectedTemplate } = useContext(
     TemplateContext
   ) as TemplateContextValues
 
@@ -31,7 +31,7 @@ export const Create = () => {
       <ResizableHandle withHandle />
       <ResizablePanel>
         <main className='h-full flex-auto text-white'>
-          <Template data={data} updateField={updateField} />
+          <Template />
         </main>
       </ResizablePanel>
     </ResizablePanelGroup>

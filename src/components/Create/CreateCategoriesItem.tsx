@@ -1,16 +1,16 @@
 import { categoriesFields } from '@/consts'
-import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
 import { cn } from '@/lib/utils'
 import { CategoryName } from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 
 export const CreateCategoriesItem: FC<{ categoryName: CategoryName }> = ({
   categoryName
 }) => {
   const { activeCategory, setActiveCategory } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
   const { icon: Icon } = categoriesFields[categoryName]
 
   return (

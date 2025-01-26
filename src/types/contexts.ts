@@ -7,10 +7,9 @@ import {
 } from './templates'
 import { Dispatch, SetStateAction } from 'react'
 
-export interface TemplateContextValues {
+export interface TemplateEditorContextValues {
   selectedTemplate: TemplateName
   data: TemplateData
-  setData: Dispatch<SetStateAction<TemplateData>>
   activeCategory: CategoryName
   setActiveCategory: Dispatch<SetStateAction<CategoryName>>
   activeSubCategory: TemplateSubCategoryField | null
@@ -19,6 +18,12 @@ export interface TemplateContextValues {
   >
   updateField: UpdateField
   activeSubCategoryData: Data | null
+}
+
+export interface TemplateContextValues {
+  data: TemplateData
+  selectedTemplate: TemplateName
+  updateField: UpdateField
 }
 
 export interface ThemeContextValues {

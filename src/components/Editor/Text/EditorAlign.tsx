@@ -1,6 +1,6 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import { TemplateContext } from '@/contexts/TemplateContext'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
+import { TemplateEditorContextValues } from '@/types/contexts'
 import { TextData } from '@/types/templates'
 import { AlignLeft, AlignCenter, AlignRight } from 'lucide-react'
 import { useContext } from 'react'
@@ -22,8 +22,8 @@ const items = [
 
 export const EditorAlign = () => {
   const { activeSubCategoryData, updateField } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
 
   const data = activeSubCategoryData as TextData
   if (!data) return

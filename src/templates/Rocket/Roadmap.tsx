@@ -1,26 +1,14 @@
 import { RocketCard } from './Card'
 import { Text } from '@/components/TemplateItems/Text'
-import { UpdateField } from '@/types'
-import { TemplateData } from '@/types/templates'
 import { FC } from 'react'
 
-interface RocketHeroProps {
-  data: TemplateData
-  updateField?: UpdateField
-  primaryColor: string
-}
-
-export const RocketRoadmap: FC<RocketHeroProps> = ({
-  data,
-  updateField,
+export const RocketRoadmap: FC<{ primaryColor: string }> = ({
   primaryColor
 }) => {
   return (
     <section className='mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 py-24'>
       <Text
-        data={data}
         fieldName='missionTimelineTitle'
-        updateField={updateField}
         defaultColor={primaryColor}
         className={{ text: 'tracking-wider' }}
         as='h2'
@@ -32,27 +20,11 @@ export const RocketRoadmap: FC<RocketHeroProps> = ({
               className='max-w-max rounded-full px-4 py-2'
               style={{ background: primaryColor }}
             >
-              <Text
-                data={data}
-                fieldName={`${item}TimelinePhaseTitle`}
-                updateField={updateField}
-              />
+              <Text fieldName={`${item}TimelinePhaseTitle`} />
             </div>
-            <Text
-              data={data}
-              fieldName={`${item}TimelineTitle`}
-              updateField={updateField}
-            />
-            <Text
-              data={data}
-              fieldName={`${item}TimelineDescription`}
-              updateField={updateField}
-            />
-            <Text
-              data={data}
-              fieldName={`${item}TimelineDate`}
-              updateField={updateField}
-            />
+            <Text fieldName={`${item}TimelineTitle`} />
+            <Text fieldName={`${item}TimelineDescription`} />
+            <Text fieldName={`${item}TimelineDate`} />
           </RocketCard>
         ))}
       </div>

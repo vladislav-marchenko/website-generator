@@ -1,21 +1,9 @@
 import { Text } from '@/components/TemplateItems/Text'
 import { useCopy } from '@/hooks/useCopy'
-import { UpdateField } from '@/types'
-import { TemplateData } from '@/types/templates'
 import { Check, Copy } from 'lucide-react'
 import { FC } from 'react'
 
-interface RocketCopyButtonProps {
-  data: TemplateData
-  updateField?: UpdateField
-  color: string
-}
-
-export const RocketCopyButton: FC<RocketCopyButtonProps> = ({
-  data,
-  updateField,
-  color
-}) => {
+export const RocketCopyButton: FC<{ color: string }> = ({ color }) => {
   const { isCopied, copy } = useCopy()
 
   return (
@@ -24,8 +12,6 @@ export const RocketCopyButton: FC<RocketCopyButtonProps> = ({
       className='flex items-center justify-between gap-4 rounded-xl border border-neutral-800 bg-black/40 p-3'
     >
       <Text
-        data={data}
-        updateField={updateField}
         fieldName='contractAddress'
         placeholder='Contract Address'
         defaultColor={color}

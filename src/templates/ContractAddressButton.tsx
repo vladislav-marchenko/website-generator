@@ -1,23 +1,18 @@
 import { Button } from './Button'
 import { Text } from '@/components/TemplateItems/Text'
 import { useCopy } from '@/hooks/useCopy'
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { cn } from '@/lib/utils'
-import { TemplateData, UpdateField } from '@/types'
 import { CircleCheckBig, Copy } from 'lucide-react'
-import { FC, MouseEvent, useState } from 'react'
+import { FC } from 'react'
 
-interface ContractAddressButtonProps {
-  data: TemplateData
-  updateField?: UpdateField
-  className?: string
-}
-
-export const ContractAddressButton: FC<ContractAddressButtonProps> = ({
-  data,
-  updateField,
+export const ContractAddressButton: FC<{ className?: string }> = ({
   className
 }) => {
   const { isCopied, copy } = useCopy()
+  const { data, updateField } = useTemplateData()
+
+  if (!data) return <span>Something went wrong...</span>
 
   return (
     <Button

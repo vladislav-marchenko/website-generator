@@ -1,13 +1,13 @@
-import { TemplateContext } from '@/contexts/TemplateContext'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
+import { TemplateEditorContextValues } from '@/types/contexts'
 import { TextData } from '@/types/templates'
 import { useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
 export const EditorColor = () => {
   const { activeSubCategoryData, updateField } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
 
   const data = activeSubCategoryData as TextData
   if (!data) return

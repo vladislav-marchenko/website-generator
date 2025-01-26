@@ -1,17 +1,14 @@
 import { Image } from '@/components/TemplateItems/Image'
 import { cn } from '@/lib/utils'
-import { TemplateData } from '@/types/templates'
 import { FC, ReactNode } from 'react'
 
 interface TemplateLayoutProps {
-  data: TemplateData
   children: ReactNode
   className?: string
   backgroundFieldName?: string
 }
 
 export const TemplateLayout: FC<TemplateLayoutProps> = ({
-  data,
   children,
   className,
   backgroundFieldName
@@ -24,7 +21,6 @@ export const TemplateLayout: FC<TemplateLayoutProps> = ({
         {children}
       </div>
       <Image
-        data={data}
         fieldName={backgroundFieldName ?? 'background'}
         className={{
           wrapper: 'absolute left-0 top-0 h-full w-full',

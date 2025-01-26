@@ -21,6 +21,7 @@ export const CreateButton = () => {
       onClick={() =>
         mutate({
           name: searchParams.get('name') ?? '',
+          templateName: searchParams.get('template') ?? '',
           templateData: data,
           publicKey: publicKey?.toString() ?? ''
         })

@@ -1,77 +1,49 @@
-import { categoriesFields } from '@/consts'
 import { templatesData } from '@/templates'
-import { CategoryName, UpdateField } from '@/types'
-import { type TemplateContextValues } from '@/types/contexts'
-import { TemplateName, TemplateSubCategoryField } from '@/types/templates'
+import { UpdateField } from '@/types'
+import { TemplateContextValues } from '@/types/contexts'
+import { TemplateName } from '@/types/templates'
 import { set } from 'lodash'
 import {
   createContext,
+  FC,
   PropsWithChildren,
   useLayoutEffect,
   useState
 } from 'react'
-import { Navigate, useSearchParams } from 'react-router-dom'
+import { Navigate, useLocation, useSearchParams } from 'react-router-dom'
 
 export const TemplateContext = createContext<TemplateContextValues | null>(null)
 
-export const TemplateContextProvider = ({ children }: PropsWithChildren) => {
+export const TemplateContextProvider: FC<PropsWithChildren> = ({
+  children
+}) => {
   const [searchParams] = useSearchParams()
+  const { pathname } = useLocation()
   const template = searchParams.get('template')
 
-  if (!templatesData.hasOwnProperty(template ?? '')) {
+  if (pathname === '/create' && !templatesData.hasOwnProperty(template ?? '')) {
     return <Navigate to='/templates' />
   }
 
   const selectedTemplate = template as TemplateName
-
   const [data, setData] = useState(templatesData[selectedTemplate])
-  const [activeCategory, setActiveCategory] = useState(getActiveCategory)
-  const [activeSubCategory, setActiveSubCategory] =
-    useState<TemplateSubCategoryField | null>(null)
-
-  const activeSubCategoryData = getActiveSubCategoryData()
 
   useLayoutEffect(() => {
     setData(templatesData[selectedTemplate])
   }, [selectedTemplate])
 
-  function getActiveCategory() {
-    const categoryParam = searchParams.get('category')
-    if (categoriesFields.hasOwnProperty(categoryParam ?? '')) {
-      return categoryParam as CategoryName
-    }
-
-    return Object.keys(categoriesFields)[0] as CategoryName
-  }
-
-  function getActiveSubCategoryData() {
-    if (!activeSubCategory) return null
-
-    if (activeSubCategory.type === 'link') {
-      return data.links[activeSubCategory.name]
-    }
-
-    return data[activeSubCategory.name]
-  }
-
   const updateField: UpdateField = (path, value) => {
     setData(set({ ...data }, path, value))
   }
 
-  const value = {
-    selectedTemplate,
-    data,
-    setData,
-    activeCategory,
-    setActiveCategory,
-    activeSubCategory,
-    setActiveSubCategory,
-    updateField,
-    activeSubCategoryData
-  }
-
   return (
-    <TemplateContext.Provider value={value}>
+    <TemplateContext.Provider
+      value={{
+        data,
+        updateField,
+        selectedTemplate
+      }}
+    >
       {children}
     </TemplateContext.Provider>
   )

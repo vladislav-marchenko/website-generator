@@ -2,15 +2,15 @@ import { Label } from '../ui/label'
 import { Slider } from '../ui/slider'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { animations } from '@/consts'
-import { TemplateContext } from '@/contexts/TemplateContext'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
+import { TemplateEditorContextValues } from '@/types/contexts'
 import { TextData, ImageData, LinkData } from '@/types/templates'
 import { FC, useContext } from 'react'
 
 export const EditorAnimations: FC = () => {
   const { activeSubCategoryData, updateField } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
 
   const data = activeSubCategoryData as TextData | ImageData | LinkData
   if (!data) return

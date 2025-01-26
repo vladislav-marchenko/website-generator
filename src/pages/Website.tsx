@@ -1,8 +1,15 @@
+import { useTemplateData } from '@/hooks/useTemplateData'
 import { templates } from '@/templates'
+import { TemplateName } from '@/types/templates'
+import { Navigate } from 'react-router-dom'
 
 export const Website = () => {
-  const TemplateElement = templates['classic'].element
-  const data = JSON.parse(localStorage.getItem('template') ?? '')
+  const { data, templateName } = useTemplateData()
 
-  return <TemplateElement data={data} />
+  if (!templateName || !data) {
+    return <Navigate to='/' />
+  }
+
+  const TemplateElement = templates[templateName as TemplateName].element
+  return <TemplateElement />
 }

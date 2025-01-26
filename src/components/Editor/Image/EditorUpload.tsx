@@ -1,13 +1,18 @@
 import { Button } from '@/components/ui/button'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { TemplateContextValues } from '@/types/contexts'
+import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
+import {
+  TemplateContextValues,
+  TemplateEditorContextValues
+} from '@/types/contexts'
 import { ImageData } from '@/types/templates'
 import { ChangeEvent, useContext } from 'react'
 
 export const EditorUpload = () => {
-  const { data, activeSubCategoryData, updateField } = useContext(
-    TemplateContext
-  ) as TemplateContextValues
+  const { data } = useContext(TemplateContext) as TemplateContextValues
+  const { activeSubCategoryData, updateField } = useContext(
+    TemplateEditorContext
+  ) as TemplateEditorContextValues
 
   const imageData = activeSubCategoryData as ImageData
   if (!data) return
