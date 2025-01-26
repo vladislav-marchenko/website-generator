@@ -22,7 +22,7 @@ export const LaunchSection = () => {
           <Description className='max-w-[600px]'>
             {t('launch.description')}
           </Description>
-          <div className='flex items-center gap-4'>
+          <div className='flex items-end gap-4'>
             <WebsiteNameInput value={name} setValue={setName} />
             <Button to={`/templates?name=${name}`}>
               {t('launch.startBuildingButton')}
