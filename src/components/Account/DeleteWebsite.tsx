@@ -10,6 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import { useToast } from '@/hooks/use-toast'
 import { deleteWebsite } from '@/services/api'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
@@ -17,12 +18,21 @@ import { FC } from 'react'
 
 export const DeleteWebsite: FC<{ name: string }> = ({ name }) => {
   const { publicKey } = useWallet()
+  const { toast } = useToast()
 
   const queryClient = useQueryClient()
   const { mutate } = useMutation({
     mutationFn: deleteWebsite,
     onSuccess: () => {
+      toast({ title: 'Your website was successfully deleted!' })
       queryClient.invalidateQueries({ queryKey: ['userWebsites'] })
+    },
+    onError: (error) => {
+      toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive'
+      })
     }
   })
 
