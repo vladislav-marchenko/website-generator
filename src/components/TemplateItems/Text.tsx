@@ -1,6 +1,6 @@
 import { TemplateItemError } from './Error'
 import { useTemplateData } from '@/hooks/useTemplateData'
-import { cn } from '@/lib/utils'
+import { cn, loadFonts } from '@/lib/utils'
 import { TemplateData, TextData } from '@/types/templates'
 import { CSSProperties, FC } from 'react'
 import ContentEditable from 'react-contenteditable'
@@ -27,8 +27,9 @@ export const Text: FC<TextProps> = ({
 }) => {
   const { data, updateField } = useTemplateData()
   const fieldData = data?.[fieldName] as TextData
-
   if (!fieldData) return <TemplateItemError />
+
+  loadFonts([fieldData.fontFamily])
 
   return (
     <div
