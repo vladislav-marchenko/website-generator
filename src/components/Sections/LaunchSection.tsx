@@ -5,9 +5,12 @@ import { WebsiteNameInput } from '../WebsiteNameInput'
 import { Section } from './Section'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 export const LaunchSection = () => {
   const [name, setName] = useState('')
+
+  const navigate = useNavigate()
   const { t } = useTranslation()
 
   return (
@@ -22,12 +25,16 @@ export const LaunchSection = () => {
           <Description className='max-w-[600px]'>
             {t('launch.description')}
           </Description>
-          <div className='flex items-center gap-4'>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              navigate(`/templates?name=${name}`)
+            }}
+            className='flex items-center gap-4'
+          >
             <WebsiteNameInput value={name} setValue={setName} />
-            <Button to={`/templates?name=${name}`}>
-              {t('launch.startBuildingButton')}
-            </Button>
-          </div>
+            <Button type='submit'>{t('launch.startBuildingButton')}</Button>
+          </form>
         </div>
         <div className='flex h-96 w-[1000px] flex-auto items-center justify-center rounded-md bg-neutral-400'>
           Video placeholder

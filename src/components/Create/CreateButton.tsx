@@ -47,7 +47,7 @@ export const CreateButton = () => {
 
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <FancyButton className='mb-4 w-full max-w-64 self-center'>
           Create Web
         </FancyButton>

@@ -4,8 +4,21 @@ import {
   CreateWebsiteResponse,
   ErrorResponse,
   GetFontsResponse,
-  GetWebsiteFn
+  GetWebsiteFn,
+  GetWebsiteResponse,
+  GetUserWebsitesResponse,
+  GetUserWebsitesFn,
+  Website,
+  DeleteWebsiteFn
 } from '@/types/api'
+
+const handleError = (data: ErrorResponse) => {
+  if (typeof data.message === 'string') {
+    throw new Error(data.message)
+  } else {
+    throw new Error(data.message[0])
+  }
+}
 
 export const getFonts = async (): Promise<Pick<GetFontsResponse, 'items'>> => {
   const url = `${GOOGLE_API_BASE_URL}?key=${import.meta.env.VITE_GOOGLE_API_KEY}`
@@ -33,27 +46,39 @@ export const createWebsite: CreateWebsiteFn = async ({
   })
   const data: CreateWebsiteResponse = await response.json()
 
-  if (!response.ok) {
-    const errorData = data as ErrorResponse
-
-    if (typeof errorData.message === 'string') {
-      throw new Error(errorData.message)
-    } else {
-      throw new Error(errorData.message[0])
-    }
-  }
-
-  return data
+  if (!response.ok) handleError(data as ErrorResponse)
+  return data as Website
 }
 
 export const getWebsite: GetWebsiteFn = async (name: string) => {
   const url = `${BASE_URL}/websites/${name}`
   const response = await fetch(url)
-  const data = await response.json()
+  const data: GetWebsiteResponse = await response.json()
+
+  if (!response.ok) handleError(data as ErrorResponse)
+  return data as Website
+}
+
+export const getUserWebsites: GetUserWebsitesFn = async (publicKey: string) => {
+  const url = `${BASE_URL}/websites`
+  const response = await fetch(url, {
+    headers: { 'Content-Type': 'application/json', 'Public-Key': publicKey }
+  })
+  const data: GetUserWebsitesResponse = await response.json()
+
+  if (!response.ok) handleError(data as ErrorResponse)
+  return data as Website[]
+}
+
+export const deleteWebsite: DeleteWebsiteFn = async ({ name, publicKey }) => {
+  const url = `${BASE_URL}/websites/${name}`
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json', 'Public-Key': publicKey }
+  })
 
   if (!response.ok) {
-    throw new Error(data)
+    const data = await response.json()
+    handleError(data as ErrorResponse)
   }
-
-  return data
 }

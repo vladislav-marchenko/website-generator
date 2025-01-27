@@ -15,14 +15,14 @@ export type ErrorResponse = {
   statusCode: number
 }
 
-export type CreateWebsiteResponse =
-  | {
-      name: string
-      data: TemplateData
-      creator: string
-    }
-  | ErrorResponse
+export type Website = {
+  name: string
+  template: string
+  data: TemplateData
+  creator: string
+}
 
+export type CreateWebsiteResponse = Website | ErrorResponse
 export type CreateWebsiteFn = ({
   name,
   templateName,
@@ -33,13 +33,18 @@ export type CreateWebsiteFn = ({
   templateName: string
   templateData: TemplateData
   publicKey: string
-}) => Promise<CreateWebsiteResponse>
+}) => Promise<Website>
 
-export interface GetWebsiteResponse {
+export type GetWebsiteResponse = Website | ErrorResponse
+export type GetWebsiteFn = (name: string) => Promise<Website>
+
+export type GetUserWebsitesResponse = Website[] | ErrorResponse
+export type GetUserWebsitesFn = (publicKey: string) => Promise<Website[]>
+
+export type DeleteWebsiteFn = ({
+  name,
+  publicKey
+}: {
   name: string
-  template: string
-  data: TemplateData
-  creator: string
-}
-
-export type GetWebsiteFn = (name: string) => Promise<GetWebsiteResponse>
+  publicKey: string
+}) => Promise<void>
