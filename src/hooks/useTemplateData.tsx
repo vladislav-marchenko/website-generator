@@ -8,23 +8,24 @@ import { useContext } from 'react'
 const subdomain = getSubdomain()
 
 export const useTemplateData = () => {
+  const { data: fetchedData, isLoading } = useQuery({
+    queryKey: ['templateData'],
+    queryFn: async () => {
+      return getWebsite(subdomain as string)
+    },
+    enabled: !!subdomain
+  })
+
   const {
     data: templateEditorData,
     updateField,
     selectedTemplate
   } = useContext(TemplateContext) as TemplateContextValues
 
-  const { data: fetchedData } = useQuery({
-    queryKey: ['templateData'],
-    queryFn: () => {
-      return getWebsite(subdomain as string)
-    },
-    enabled: !!subdomain
-  })
-
   return {
-    templateName: subdomain ? fetchedData?.template : selectedTemplate,
     data: subdomain ? fetchedData?.data : templateEditorData,
+    isLoading,
+    templateName: subdomain ? fetchedData?.template : selectedTemplate,
     updateField: subdomain ? null : updateField
   }
 }
