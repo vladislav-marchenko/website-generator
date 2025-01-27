@@ -1,5 +1,6 @@
 import { Card } from '../Cards/Card'
 import { Button } from '../ui/button'
+import { ChangeDomain } from './ChangeDomain'
 import { DeleteWebsite } from './DeleteWebsite'
 import { FC } from 'react'
 
@@ -22,7 +23,7 @@ export const WebsitesItem: FC<WebsitesItemsProps> = ({ name, template }) => {
         <div className='flex items-center gap-4'>
           <Button>Edit</Button>
           <Button>Domain transfer</Button>
-          <Button>Change domain</Button>
+          <ChangeDomain name={name} />
           <DeleteWebsite name={name} />
         </div>
       </Card>

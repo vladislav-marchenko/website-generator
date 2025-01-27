@@ -35,10 +35,8 @@ export type CreateWebsiteFn = ({
   publicKey: string
 }) => Promise<Website>
 
-export type GetWebsiteResponse = Website | ErrorResponse
 export type GetWebsiteFn = (name: string) => Promise<Website>
 
-export type GetUserWebsitesResponse = Website[] | ErrorResponse
 export type GetUserWebsitesFn = (publicKey: string) => Promise<Website[]>
 
 export type DeleteWebsiteFn = ({
@@ -48,3 +46,15 @@ export type DeleteWebsiteFn = ({
   name: string
   publicKey: string
 }) => Promise<void>
+
+export type UpdateWebsite = ({
+  currentName,
+  newName,
+  data,
+  publicKey
+}: {
+  currentName: string
+  newName?: string
+  data?: TemplateData
+  publicKey: string
+}) => Promise<Website | ErrorResponse>
