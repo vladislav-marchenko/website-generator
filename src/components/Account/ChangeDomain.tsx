@@ -25,7 +25,10 @@ export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
   const { mutate } = useMutation({
     mutationFn: updateWebsite,
     onSuccess: () => {
-      toast({ title: 'Your domain was successfully changed!' })
+      toast({
+        title: 'Your domain was successfully changed!',
+        variant: 'successful'
+      })
       invalidateQueries({ queryKey: ['userWebsites'] })
     },
     onError: (error) => {

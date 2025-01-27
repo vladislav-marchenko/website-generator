@@ -34,7 +34,10 @@ export const CreateButton = () => {
     mutationFn: createWebsite,
     onSuccess: () => {
       window.location.href = `${protocol}//${name}.${host}`
-      toast({ title: 'Your website was successfully created!' })
+      toast({
+        title: 'Your website was successfully created!',
+        variant: 'successful'
+      })
     },
     onError: (error) => {
       toast({

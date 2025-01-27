@@ -24,7 +24,10 @@ export const DeleteWebsite: FC<{ name: string }> = ({ name }) => {
   const { mutate } = useMutation({
     mutationFn: deleteWebsite,
     onSuccess: () => {
-      toast({ title: 'Your website was successfully deleted!' })
+      toast({
+        title: 'Your website was successfully deleted!',
+        variant: 'successful'
+      })
       queryClient.invalidateQueries({ queryKey: ['userWebsites'] })
     },
     onError: (error) => {
