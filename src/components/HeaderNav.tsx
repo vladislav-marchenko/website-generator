@@ -40,7 +40,7 @@ export const HeaderNav = () => {
             <span>{publicKeyString?.slice(0, 8)}...</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>
+            <DropdownMenuItem asChild>
               <Link to='/account'>Account</Link>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={disconnect}>Sign Out</DropdownMenuItem>

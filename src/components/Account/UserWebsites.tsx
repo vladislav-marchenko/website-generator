@@ -6,11 +6,6 @@ const items = [
     label: 'All sites',
     value: 'all',
     element: AllUserWebsites
-  },
-  {
-    label: 'Recent sites',
-    value: 'recent',
-    element: () => 'world'
   }
 ]
 
