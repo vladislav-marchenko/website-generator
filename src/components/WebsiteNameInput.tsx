@@ -28,6 +28,11 @@ export const WebsiteNameInput: FC<WebsiteNameInputProps> = ({
   )
 
   const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const subdomainPattern = /^(?!-)[A-Za-z0-9-]{1,63}(?<!-)$/
+    const isValid = subdomainPattern.test(e.target.value)
+
+    if (!isValid) return
+
     setValue(e.target.value)
     verifyName()
   }

@@ -58,7 +58,8 @@ export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
         <DialogHeader>
           <DialogTitle>Change domain</DialogTitle>
           <DialogDescription>
-            Change your domain to any available one
+            Enter a valid subdomain (1-63 characters) using letters, numbers,
+            and hyphens. No spaces or special characters allowed.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={onSubmit}>

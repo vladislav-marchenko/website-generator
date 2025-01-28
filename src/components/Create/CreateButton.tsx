@@ -70,8 +70,8 @@ export const CreateButton = () => {
         <DialogHeader>
           <DialogTitle>Enter your domain</DialogTitle>
           <DialogDescription>
-            Would you like to change your website name? This will be used as
-            your subdomain, making it easier for visitors to remember.
+            Enter a valid subdomain (1-63 characters) using letters, numbers,
+            and hyphens. No spaces or special characters allowed.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={onSubmit}>
