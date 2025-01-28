@@ -15,7 +15,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC, FormEvent, useState } from 'react'
 
-export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
+export const ChangeDomain: FC<{ name: string }> = ({ name = '' }) => {
   const [websiteName, setWebsiteName] = useState(name)
 
   const { publicKey } = useWallet()

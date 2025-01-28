@@ -15,6 +15,7 @@ export const Create = () => {
     TemplateContext
   ) as TemplateContextValues
 
+  if (!selectedTemplate) return
   const Template = templates[selectedTemplate].element
 
   return (
