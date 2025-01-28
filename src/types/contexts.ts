@@ -22,6 +22,7 @@ export interface TemplateEditorContextValues {
 
 export interface TemplateContextValues {
   data: TemplateData
+  setData: Dispatch<SetStateAction<TemplateData>>
   selectedTemplate: TemplateName
   updateField: UpdateField
 }

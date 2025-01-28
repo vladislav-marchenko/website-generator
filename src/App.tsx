@@ -19,16 +19,18 @@ function App() {
         }
       >
         <Route
-          path='/create'
           element={
             <TemplateEditorContextProvider>
-              <Builder />
+              <Outlet />
             </TemplateEditorContextProvider>
           }
-        />
+        >
+          <Route path='/create' element={<Builder />} />
+          <Route path='/edit' element={<Builder />} />
+        </Route>
         <Route path='/' element={<Main />} />
+        <Route path='/account' element={<Account />} />
       </Route>
-      <Route path='/account' element={<Account />} />
       <Route element={<Layout />}>
         <Route path='/pricing' element={<Pricing />} />
         <Route path='/templates' element={<Templates />} />

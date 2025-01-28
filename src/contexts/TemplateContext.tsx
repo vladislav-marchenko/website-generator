@@ -21,8 +21,9 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
   const [searchParams] = useSearchParams()
   const { pathname } = useLocation()
   const template = searchParams.get('template')
+  const isCreator = pathname === '/create'
 
-  if (pathname === '/create' && !templatesData.hasOwnProperty(template ?? '')) {
+  if (isCreator && !templatesData.hasOwnProperty(template ?? '')) {
     return <Navigate to='/templates' />
   }
 
@@ -30,6 +31,8 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
   const [data, setData] = useState(templatesData[selectedTemplate])
 
   useLayoutEffect(() => {
+    if (!isCreator) return
+
     const newData = templatesData[selectedTemplate]
     if (data === newData) return
 
@@ -44,6 +47,7 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
     <TemplateContext.Provider
       value={{
         data,
+        setData,
         updateField,
         selectedTemplate
       }}
