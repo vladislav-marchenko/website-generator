@@ -21,7 +21,7 @@ export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
   const { publicKey } = useWallet()
   const { toast } = useToast()
 
-  const { invalidateQueries } = useQueryClient()
+  const queryClient = useQueryClient()
   const { mutate } = useMutation({
     mutationFn: updateWebsite,
     onSuccess: () => {
@@ -29,7 +29,7 @@ export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
         title: 'Your domain was successfully changed!',
         variant: 'successful'
       })
-      invalidateQueries({ queryKey: ['userWebsites'] })
+      queryClient.invalidateQueries({ queryKey: ['userWebsites'] })
     },
     onError: (error) => {
       toast({

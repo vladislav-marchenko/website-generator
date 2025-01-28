@@ -33,6 +33,7 @@ export const CreateButton = () => {
   const { mutate } = useMutation({
     mutationFn: createWebsite,
     onSuccess: () => {
+      // window.open(`${protocol}//${name}.${host}`, '_blank')?.focus()
       window.location.href = `${protocol}//${name}.${host}`
       toast({
         title: 'Your website was successfully created!',
