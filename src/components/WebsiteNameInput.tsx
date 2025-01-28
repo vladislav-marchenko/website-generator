@@ -14,7 +14,7 @@ export const WebsiteNameInput: FC<WebsiteNameInputProps> = ({
   setValue
 }) => {
   const { isSuccess: isNameTaken, refetch } = useQuery({
-    queryKey: ['templateData'],
+    queryKey: ['websiteName'],
     queryFn: () => {
       return getWebsite(value)
     },

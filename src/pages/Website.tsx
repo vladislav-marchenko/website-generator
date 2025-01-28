@@ -11,7 +11,7 @@ export const Website = () => {
   if (isLoading) {
     return (
       <div className='flex h-dvh w-full items-center justify-center'>
-        <Loading size={48} />
+        <Loading size={48} className='dark:fill-neutral-200' />
       </div>
     )
   }

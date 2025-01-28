@@ -7,7 +7,7 @@ export const Logo: FC<{ className?: string; size?: number }> = ({
   size = 150
 }) => {
   return (
-    <img src={LogoImg} width={150} />
+    <img src={LogoImg} width={190} />
 
     /*
     <svg
