@@ -7,6 +7,7 @@ import {
   createContext,
   FC,
   PropsWithChildren,
+  useCallback,
   useLayoutEffect,
   useState
 } from 'react'
@@ -29,12 +30,15 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
   const [data, setData] = useState(templatesData[selectedTemplate])
 
   useLayoutEffect(() => {
-    setData(templatesData[selectedTemplate])
-  }, [selectedTemplate])
+    const newData = templatesData[selectedTemplate]
+    if (data === newData) return
 
-  const updateField: UpdateField = (path, value) => {
-    setData(set({ ...data }, path, value))
-  }
+    setData(newData)
+  }, [templatesData, selectedTemplate])
+
+  const updateField: UpdateField = useCallback((path, value) => {
+    setData((data) => set({ ...data }, path, value))
+  }, [])
 
   return (
     <TemplateContext.Provider
