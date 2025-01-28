@@ -1,4 +1,4 @@
-import { Logo } from '../Icons'
+import { SmallLogo } from '../Icons'
 import { BuilderCategoriesItem } from './BuilderCategoriesItem'
 import { categoriesFields } from '@/consts'
 import { CategoryName } from '@/types'
@@ -9,7 +9,7 @@ export const BuilderCategories: FC = () => {
   return (
     <div className='flex flex-col items-center gap-4 overflow-y-auto bg-neutral-100 p-2 py-4 dark:bg-neutral-800'>
       <Link to='/' className='mb-6'>
-        <Logo />
+        <SmallLogo />
       </Link>
       {Object.keys(categoriesFields).map((categoryName) => (
         <BuilderCategoriesItem
