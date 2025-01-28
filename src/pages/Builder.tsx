@@ -1,5 +1,5 @@
-import { CreateCategories } from '@/components/Create/CreateCategories'
-import { CreateSidebar } from '@/components/Create/CreateSidebar'
+import { BuilderCategories } from '@/components/Builder/BuilderCategories'
+import { BuilderSidebar } from '@/components/Builder/BuilderSidebar'
 import {
   ResizableHandle,
   ResizablePanel,
@@ -10,7 +10,7 @@ import { templates } from '@/templates'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 
-export const Create = () => {
+export const Builder = () => {
   const { selectedTemplate } = useContext(
     TemplateContext
   ) as TemplateContextValues
@@ -20,14 +20,14 @@ export const Create = () => {
 
   return (
     <ResizablePanelGroup direction='horizontal' className='flex max-h-dvh'>
-      <CreateCategories />
+      <BuilderCategories />
       <ResizablePanel
         defaultSize={20}
         minSize={5}
         maxSize={80}
         className='min-w-52'
       >
-        <CreateSidebar />
+        <BuilderSidebar />
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel>

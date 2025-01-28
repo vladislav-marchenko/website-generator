@@ -2,7 +2,7 @@ import { Layout } from './components/Layout'
 import { TemplateContextProvider } from './contexts/TemplateContext'
 import { TemplateEditorContextProvider } from './contexts/TemplateEditorContext'
 import { Account } from './pages/Account'
-import { Create } from './pages/Create'
+import { Builder } from './pages/Builder'
 import { Pricing } from './pages/Pricing'
 import { Templates } from './pages/Templates'
 import { Main } from '@/pages/Main'
@@ -22,7 +22,7 @@ function App() {
           path='/create'
           element={
             <TemplateEditorContextProvider>
-              <Create />
+              <Builder />
             </TemplateEditorContextProvider>
           }
         />

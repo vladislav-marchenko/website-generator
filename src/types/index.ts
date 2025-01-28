@@ -1,5 +1,7 @@
 import { categoriesFields } from '@/consts'
 import { PropertyPath } from 'lodash'
+import { LucideIcon } from 'lucide-react'
+import { FC } from 'react'
 
 export interface PricingCard {
   label: string
@@ -14,5 +16,14 @@ export interface PricingCard {
 }
 
 export type UpdateField = (path: PropertyPath, value: unknown) => void
-
 export type CategoryName = keyof typeof categoriesFields
+
+export type CategoriesField = {
+  label: string
+  icon: LucideIcon
+  element: FC
+  creatorOnly?: boolean
+}
+export interface CategoriesFields {
+  [key: string]: CategoriesField
+}

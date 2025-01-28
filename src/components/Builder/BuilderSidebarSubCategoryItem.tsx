@@ -1,7 +1,7 @@
 import { Button } from '../ui/button'
 import { Checkbox } from '../ui/checkbox'
 import { Label } from '../ui/label'
-import { CreateSidebarSubCategoryItemField } from './CreateSidebarSubCategoryItemField'
+import { BuilderSidebarSubCategoryItemField } from './BuilderSidebarSubCategoryItemField'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
 import {
@@ -12,7 +12,7 @@ import { TemplateSubCategoryField, ToggleData } from '@/types/templates'
 import { ChevronRight } from 'lucide-react'
 import { FC, useContext } from 'react'
 
-export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
+export const BuilderSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
   props
 ) => {
   const { type, name, label, editor = false, placeholder = '' } = props
@@ -47,7 +47,7 @@ export const CreateSidebarSubCategoryItem: FC<TemplateSubCategoryField> = (
         )}
       </div>
       {type !== 'toggle' && (
-        <CreateSidebarSubCategoryItemField
+        <BuilderSidebarSubCategoryItemField
           type={type}
           name={name}
           placeholder={placeholder}

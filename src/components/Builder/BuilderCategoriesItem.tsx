@@ -4,14 +4,18 @@ import { cn } from '@/lib/utils'
 import { CategoryName } from '@/types'
 import { TemplateEditorContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
+import { useLocation } from 'react-router-dom'
 
-export const CreateCategoriesItem: FC<{ categoryName: CategoryName }> = ({
+export const BuilderCategoriesItem: FC<{ categoryName: CategoryName }> = ({
   categoryName
 }) => {
   const { activeCategory, setActiveCategory } = useContext(
     TemplateEditorContext
   ) as TemplateEditorContextValues
-  const { icon: Icon } = categoriesFields[categoryName]
+  const { icon: Icon, creatorOnly = false } = categoriesFields[categoryName]
+  const { pathname } = useLocation()
+
+  if (creatorOnly && pathname !== '/create') return
 
   return (
     <button

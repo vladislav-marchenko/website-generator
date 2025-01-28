@@ -1,6 +1,6 @@
-import { CreateButton } from '../Create/CreateButton'
-import { CreateSidebarSubCategory } from '../Create/CreateSidebarSubCategory'
-import { CreateSidebarSubCategoryEditorMenu } from '../Create/CreateSidebarSubCategoryEditorMenu'
+import { BuilderButton } from '../Builder/BuilderButton'
+import { BuilderSidebarSubCategory } from '../Builder/BuilderSidebarSubCategory'
+import { BuilderSidebarSubCategoryEditorMenu } from '../Builder/BuilderSidebarSubCategoryEditorMenu'
 import { TemplateContext } from '@/contexts/TemplateContext'
 import { templates } from '@/templates'
 import { TemplateContextValues } from '@/types/contexts'
@@ -16,11 +16,15 @@ export const Editor = () => {
     <div className='flex flex-auto flex-col justify-between gap-4 p-4'>
       <div className='flex flex-col gap-2'>
         {currentTemplate.categories.map(({ label, fields }) => (
-          <CreateSidebarSubCategory key={label} label={label} fields={fields} />
+          <BuilderSidebarSubCategory
+            key={label}
+            label={label}
+            fields={fields}
+          />
         ))}
       </div>
-      <CreateButton />
-      <CreateSidebarSubCategoryEditorMenu />
+      <BuilderButton />
+      <BuilderSidebarSubCategoryEditorMenu />
     </div>
   )
 }

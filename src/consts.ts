@@ -18,7 +18,7 @@ import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
 import { Discord, Link, Telegram, Twitter } from './components/Icons'
 import { TemplatesSelector } from './components/TemplatesSelector'
-import type { PricingCard } from './types'
+import type { CategoriesFields, PricingCard } from './types'
 import { Animation } from './types/templates'
 import {
   IN,
@@ -241,7 +241,7 @@ export const fallbackFonts = [
 
 export const fontSizeUnits = ['px', 'rem', 'cm', '%']
 
-export const categoriesFields = {
+export const categoriesFields: CategoriesFields = {
   editor: {
     label: 'Editor',
     icon: Edit,
@@ -250,7 +250,8 @@ export const categoriesFields = {
   templates: {
     label: 'Templates',
     icon: GalleryVerticalEnd,
-    element: TemplatesSelector
+    element: TemplatesSelector,
+    creatorOnly: true
   }
 }
 

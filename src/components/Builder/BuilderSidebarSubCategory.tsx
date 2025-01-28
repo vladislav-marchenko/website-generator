@@ -1,14 +1,14 @@
-import { CreateSidebarSubCategoryMenu } from './CreateSidebarSubCategoryMenu'
+import { BuilderSidebarSubCategoryMenu } from './BuilderSidebarSubCategoryMenu'
 import { TemplateSubCategoryField } from '@/types/templates'
 import { MoveRight } from 'lucide-react'
 import { FC, useState } from 'react'
 
-interface CreateSidebarSubCategoryProps {
+interface BuilderSidebarSubCategoryProps {
   label: string
   fields: TemplateSubCategoryField[]
 }
 
-export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
+export const BuilderSidebarSubCategory: FC<BuilderSidebarSubCategoryProps> = ({
   label,
   fields
 }) => {
@@ -23,7 +23,7 @@ export const CreateSidebarSubCategory: FC<CreateSidebarSubCategoryProps> = ({
         <span className='font-arial-black'>{label}</span>
         <MoveRight size={16} />
       </button>
-      <CreateSidebarSubCategoryMenu
+      <BuilderSidebarSubCategoryMenu
         isActive={isActive}
         setIsActive={setIsActive}
         fields={fields}

@@ -1,24 +1,24 @@
 import { Input } from '../ui/input'
 import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
 import {
   ColorData,
   ImageData,
   LinkData,
   TemplateSubCategoryFieldType,
   TextData
-} from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
+} from '@/types/templates'
 import { FC, useContext } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
-interface CreateSidebarSubCategoryItemFieldProps {
+interface BuilderSidebarSubCategoryItemFieldProps {
   type: TemplateSubCategoryFieldType
   name: string
   placeholder?: string
 }
 
-export const CreateSidebarSubCategoryItemField: FC<
-  CreateSidebarSubCategoryItemFieldProps
+export const BuilderSidebarSubCategoryItemField: FC<
+  BuilderSidebarSubCategoryItemFieldProps
 > = ({ type, name, placeholder }) => {
   const { data, updateField } = useContext(
     TemplateContext

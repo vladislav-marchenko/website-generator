@@ -19,7 +19,7 @@ import { useMutation } from '@tanstack/react-query'
 import { FormEvent, useContext, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-export const CreateButton = () => {
+export const BuilderButton = () => {
   const { publicKey } = useWallet()
   const { data } = useContext(TemplateContext) as TemplateFormValues
   const { toast } = useToast()

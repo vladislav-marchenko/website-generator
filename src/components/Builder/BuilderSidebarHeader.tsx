@@ -3,13 +3,13 @@ import { Button } from '../ui/button'
 import { MoveLeft } from 'lucide-react'
 import { FC, MouseEvent } from 'react'
 
-interface CreateSidebarHeaderProps {
+interface BuilderSidebarHeaderProps {
   title?: string
   buttonLabel?: string
   onClick: (e: MouseEvent) => void
 }
 
-export const CreateSidebarHeader: FC<CreateSidebarHeaderProps> = ({
+export const BuilderSidebarHeader: FC<BuilderSidebarHeaderProps> = ({
   title,
   buttonLabel = 'Back',
   onClick

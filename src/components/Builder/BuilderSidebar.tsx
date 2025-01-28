@@ -1,4 +1,4 @@
-import { CreateSidebarHeader } from './CreateSidebarHeader'
+import { BuilderSidebarHeader } from './BuilderSidebarHeader'
 import { categoriesFields } from '@/consts'
 import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
 import { cn } from '@/lib/utils'
@@ -6,7 +6,7 @@ import { TemplateEditorContextValues } from '@/types/contexts'
 import { FC, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const CreateSidebar: FC = () => {
+export const BuilderSidebar: FC = () => {
   const { activeCategory, activeSubCategory } = useContext(
     TemplateEditorContext
   ) as TemplateEditorContextValues
@@ -21,7 +21,7 @@ export const CreateSidebar: FC = () => {
           'overflow-y-auto': activeSubCategory === null
         })}
       >
-        <CreateSidebarHeader
+        <BuilderSidebarHeader
           buttonLabel='Back to templates'
           onClick={() => navigate('/templates')}
         />

@@ -1,6 +1,6 @@
 import { Label } from '../ui/label'
-import { CreateButton } from './CreateButton'
-import { CreateSidebarHeader } from './CreateSidebarHeader'
+import { BuilderButton } from './BuilderButton'
+import { BuilderSidebarHeader } from './BuilderSidebarHeader'
 import { editorFields } from '@/consts'
 import { TemplateEditorContext } from '@/contexts/TemplateEditorContext'
 import type { TemplateEditorContextValues } from '@/types/contexts'
@@ -19,7 +19,7 @@ const getFields = (activeSubCategory: TemplateSubCategoryField | null) => {
   return null
 }
 
-export const CreateSidebarSubCategoryEditorMenu: FC = () => {
+export const BuilderSidebarSubCategoryEditorMenu: FC = () => {
   const { activeSubCategory, setActiveSubCategory } = useContext(
     TemplateEditorContext
   ) as TemplateEditorContextValues
@@ -36,7 +36,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
           transition={{ duration: 0.2 }}
           className='absolute inset-0 z-20 overflow-y-auto bg-white dark:bg-neutral-900'
         >
-          <CreateSidebarHeader onClick={() => setActiveSubCategory(null)} />
+          <BuilderSidebarHeader onClick={() => setActiveSubCategory(null)} />
           <div className='flex flex-col gap-8 p-4'>
             {fields?.map(({ label, element: Element }) => (
               <div key={label} className='flex flex-col gap-2'>
@@ -50,7 +50,7 @@ export const CreateSidebarSubCategoryEditorMenu: FC = () => {
                 It seems like there's no editor for this type of component
               </span>
             )}
-            <CreateButton />
+            <BuilderButton />
           </div>
         </motion.div>
       )}
