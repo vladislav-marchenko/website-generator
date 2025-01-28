@@ -35,15 +35,17 @@ export const WebsiteNameInput: FC<WebsiteNameInputProps> = ({
   return (
     <div className='relative'>
       <Label htmlFor='domain'>Domain</Label>
-      <div className='mb-6 flex items-center rounded-full border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
-        <input
-          id='domain'
-          value={value}
-          onChange={onNameChange}
-          className='flex-auto bg-transparent py-2 pl-4'
-          placeholder='yoursite'
-        />
-        <span className='pr-4'>.{window.location.host}</span>
+      <div className='pb-6'>
+        <div className='flex items-center rounded-full border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-500 dark:bg-neutral-600'>
+          <input
+            id='domain'
+            value={value}
+            onChange={onNameChange}
+            className='flex-auto bg-transparent py-2 pl-4'
+            placeholder='yoursite'
+          />
+          <span className='pr-4'>.{window.location.host}</span>
+        </div>
       </div>
       {!!value.length && isNameTaken && (
         <span className='absolute bottom-0 text-red-500'>

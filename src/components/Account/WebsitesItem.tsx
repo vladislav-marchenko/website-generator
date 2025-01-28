@@ -22,7 +22,7 @@ export const WebsitesItem: FC<WebsitesItemsProps> = ({ name, template }) => {
         </div>
         <div className='flex items-center gap-4'>
           <Button>Edit</Button>
-          <Button>Domain transfer</Button>
+          {/* <Button>Domain transfer</Button> */}
           <ChangeDomain name={name} />
           <DeleteWebsite name={name} />
         </div>

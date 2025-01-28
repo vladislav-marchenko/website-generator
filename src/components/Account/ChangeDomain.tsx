@@ -13,7 +13,7 @@ import { useToast } from '@/hooks/use-toast'
 import { updateWebsite } from '@/services/api'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { FC, useState } from 'react'
+import { FC, FormEvent, useState } from 'react'
 
 export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
   const [websiteName, setWebsiteName] = useState(name)
@@ -40,6 +40,15 @@ export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
     }
   })
 
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    mutate({
+      currentName: name,
+      newName: websiteName,
+      publicKey: publicKey?.toString() ?? ''
+    })
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -52,20 +61,12 @@ export const ChangeDomain: FC<{ name: string }> = ({ name }) => {
             Change your domain to any available one
           </DialogDescription>
         </DialogHeader>
-        <WebsiteNameInput value={websiteName} setValue={setWebsiteName} />
-        <DialogFooter>
-          <Button
-            onClick={() =>
-              mutate({
-                currentName: name,
-                newName: websiteName,
-                publicKey: publicKey?.toString() ?? ''
-              })
-            }
-          >
-            Change
-          </Button>
-        </DialogFooter>
+        <form onSubmit={onSubmit}>
+          <WebsiteNameInput value={websiteName} setValue={setWebsiteName} />
+          <DialogFooter>
+            <Button type='submit'>Change</Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )

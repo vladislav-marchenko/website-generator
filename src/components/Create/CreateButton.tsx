@@ -16,7 +16,7 @@ import { createWebsite } from '@/services/api'
 import { TemplateFormValues } from '@/types/forms'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { useMutation } from '@tanstack/react-query'
-import { useContext, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 export const CreateButton = () => {
@@ -49,6 +49,16 @@ export const CreateButton = () => {
     }
   })
 
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    mutate({
+      name,
+      templateName: template,
+      templateData: data,
+      publicKey: publicKey?.toString() ?? ''
+    })
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -64,21 +74,12 @@ export const CreateButton = () => {
             your subdomain, making it easier for visitors to remember.
           </DialogDescription>
         </DialogHeader>
-        <WebsiteNameInput value={name} setValue={setName} />
-        <DialogFooter>
-          <Button
-            onClick={() =>
-              mutate({
-                name,
-                templateName: template,
-                templateData: data,
-                publicKey: publicKey?.toString() ?? ''
-              })
-            }
-          >
-            Confirm and Create
-          </Button>
-        </DialogFooter>
+        <form onSubmit={onSubmit}>
+          <WebsiteNameInput value={name} setValue={setName} />
+          <DialogFooter>
+            <Button type='submit'>Confirm and Create</Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )
