@@ -59,7 +59,6 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
 
   const {
     data: fetchedData,
-    isLoading,
     isSuccess,
     isFetching
   } = useQuery({

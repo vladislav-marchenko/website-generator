@@ -65,9 +65,9 @@ export const Impressive: FC = () => {
     <div className='flex h-full flex-col overflow-auto'>
       <TemplateLayout
         backgroundFieldName='primaryBackground'
-        className='h-full min-h-dvh'
+        className='flex h-full min-h-dvh flex-col'
       >
-        <div className='mx-auto flex h-full max-w-7xl flex-col'>
+        <div className='mx-auto flex h-full w-full max-w-7xl flex-auto flex-col'>
           <header className='flex w-full items-center justify-between'>
             <Image fieldName='logo' />
             <div className='flex items-center gap-4'>

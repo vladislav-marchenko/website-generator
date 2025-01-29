@@ -34,7 +34,7 @@ export const templates = {
             name: 'logoText',
             label: 'Project name',
             editor: true,
-            defaultValues: { fontSizeValue: 40 }
+            defaultValues: { fontSizeValue: 40, color: '#ffffff' }
           },
           {
             type: 'text',
@@ -43,6 +43,7 @@ export const templates = {
             editor: true,
             defaultValues: {
               fontSizeValue: 7.5,
+              color: '#ffffff',
               sizeUnit: 'rem',
               styles: ['bold'],
               align: 'center',
@@ -352,6 +353,7 @@ export const templates = {
             editor: true,
             defaultValues: {
               fontSizeValue: 6,
+              color: '#ffffff',
               sizeUnit: 'rem',
               styles: ['bold'],
               align: 'center',
@@ -536,6 +538,7 @@ export const templates = {
             editor: true,
             defaultValues: {
               fontFamily: 'Dino',
+              color: '#ffffff',
               fontSizeValue: 6,
               sizeUnit: 'rem',
               styles: ['bold'],

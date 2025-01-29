@@ -43,7 +43,7 @@ export const RocketJoin: FC<{ primaryColor: string }> = ({ primaryColor }) => {
               target='_blank'
             >
               <RocketCard className='max-w-[370px] flex-auto items-center'>
-                <h3>{title}</h3>
+                <h3 className='text-white'>{title}</h3>
                 <p className='text-[#c0bfbc]'>{description}</p>
               </RocketCard>
             </a>

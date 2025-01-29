@@ -11,7 +11,7 @@ export const ClassicHowToBuy: FC = () => {
 
   return (
     <div className='flex flex-col items-center gap-4 pt-16'>
-      <h2 className='tracking-wide'>How to Buy</h2>
+      <h2 className='tracking-wide text-white'>How to Buy</h2>
       <div className='flex flex-wrap justify-center gap-4'>
         {['first', 'second', 'third'].map((name, index) => (
           <div
