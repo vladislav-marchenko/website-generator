@@ -11,10 +11,10 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { useTemplateData } from '@/hooks/useTemplateData'
-import { UpdateField } from '@/types'
-import { TemplateData, TextData } from '@/types/templates'
-import { FC } from 'react'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
+import { TextData } from '@/types/templates'
+import { FC, useContext } from 'react'
 
 const roadmapSteps = [
   {
@@ -58,7 +58,7 @@ const FAQItems = [
 ]
 
 export const Impressive: FC = () => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return <span>Something went wrong...</span>
 
   return (

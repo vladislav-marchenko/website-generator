@@ -1,8 +1,9 @@
 import { TemplateItemError } from './Error'
 import { socialLinkIcons } from '@/consts'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
 import { LinkData, TemplateData } from '@/types/templates'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 const getIcon = (name: string) => {
   if (socialLinkIcons.hasOwnProperty(name)) {
@@ -13,7 +14,7 @@ const getIcon = (name: string) => {
 }
 
 export const Link: FC<{ fieldName: keyof TemplateData }> = ({ fieldName }) => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return <TemplateItemError />
 
   const fieldData = data.links[fieldName] as LinkData

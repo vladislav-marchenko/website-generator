@@ -1,10 +1,11 @@
 import { Text } from '@/components/TemplateItems/Text'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
 import { TextData } from '@/types/templates'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 export const AnimateCircle: FC<{ color: string }> = ({ color }) => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return
 
   const projectName = data?.projectName as TextData

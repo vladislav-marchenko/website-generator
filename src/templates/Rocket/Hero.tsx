@@ -2,8 +2,9 @@ import { AnimateCircle } from './AnimatedCircle'
 import { RocketButton } from './Button'
 import { RocketCopyButton } from './CopyButton'
 import { Text } from '@/components/TemplateItems/Text'
-import { useTemplateData } from '@/hooks/useTemplateData'
-import { FC } from 'react'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
+import { FC, useContext } from 'react'
 
 interface RocketHeroProps {
   primaryColor: string
@@ -14,7 +15,7 @@ export const RocketHero: FC<RocketHeroProps> = ({
   primaryColor,
   secondaryColor
 }) => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return
 
   return (

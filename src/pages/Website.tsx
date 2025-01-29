@@ -1,23 +1,20 @@
-import { Loading } from '@/components/Loading'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { templates } from '@/templates'
+import { TemplateContextValues } from '@/types/contexts'
 import { TemplateName } from '@/types/templates'
+import { useContext } from 'react'
 
 export const Website = () => {
-  const { data, templateName, isLoading } = useTemplateData()
+  const { data, selectedTemplate } = useContext(
+    TemplateContext
+  ) as TemplateContextValues
   const { protocol, host } = window.location
   const homeURL = `${protocol}//${host.split('.').slice(1).join('.')}`
 
-  if (isLoading) {
-    return (
-      <div className='flex h-dvh w-full items-center justify-center'>
-        <Loading size={48} className='dark:fill-neutral-200' />
-      </div>
-    )
-  }
+  console.log(data, selectedTemplate)
 
-  if (!templateName || !data) window.location.href = homeURL
+  // if (!selectedTemplate || !data) window.location.href = homeURL
 
-  const TemplateElement = templates[templateName as TemplateName].element
+  const TemplateElement = templates[selectedTemplate as TemplateName].element
   return <TemplateElement />
 }

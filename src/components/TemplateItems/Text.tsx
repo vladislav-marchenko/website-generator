@@ -1,8 +1,9 @@
 import { TemplateItemError } from './Error'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { cn, loadFonts } from '@/lib/utils'
+import { TemplateContextValues } from '@/types/contexts'
 import { TemplateData, TextData } from '@/types/templates'
-import { CSSProperties, FC } from 'react'
+import { CSSProperties, FC, useContext } from 'react'
 import ContentEditable from 'react-contenteditable'
 
 interface TextProps {
@@ -25,7 +26,10 @@ export const Text: FC<TextProps> = ({
   className,
   style
 }) => {
-  const { data, updateField } = useTemplateData()
+  const { data, updateField } = useContext(
+    TemplateContext
+  ) as TemplateContextValues
+
   const fieldData = data?.[fieldName] as TextData
   if (!fieldData) return <TemplateItemError />
 

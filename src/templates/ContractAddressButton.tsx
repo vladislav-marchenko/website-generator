@@ -1,16 +1,17 @@
 import { Button } from './Button'
 import { Text } from '@/components/TemplateItems/Text'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { useCopy } from '@/hooks/useCopy'
-import { useTemplateData } from '@/hooks/useTemplateData'
 import { cn } from '@/lib/utils'
+import { TemplateContextValues } from '@/types/contexts'
 import { CircleCheckBig, Copy } from 'lucide-react'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 export const ContractAddressButton: FC<{ className?: string }> = ({
   className
 }) => {
   const { isCopied, copy } = useCopy()
-  const { data, updateField } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
 
   if (!data) return <span>Something went wrong...</span>
 
@@ -22,12 +23,7 @@ export const ContractAddressButton: FC<{ className?: string }> = ({
         className
       )}
     >
-      <Text
-        data={data}
-        updateField={updateField}
-        fieldName='contractAddress'
-        placeholder='Contract address'
-      />
+      <Text fieldName='contractAddress' placeholder='Contract address' />
       {isCopied && (
         <CircleCheckBig size={28} className='pointer-events-none text-black' />
       )}

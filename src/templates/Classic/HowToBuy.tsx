@@ -1,11 +1,12 @@
 import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Image } from '@/components/TemplateItems/Image'
 import { Text } from '@/components/TemplateItems/Text'
-import { useTemplateData } from '@/hooks/useTemplateData'
-import { FC } from 'react'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
+import { FC, useContext } from 'react'
 
 export const ClassicHowToBuy: FC = () => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return <TemplateItemError />
 
   return (

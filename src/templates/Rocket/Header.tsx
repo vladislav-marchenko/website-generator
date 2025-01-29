@@ -1,10 +1,11 @@
 import { RocketButton } from './Button'
 import { Text } from '@/components/TemplateItems/Text'
-import { useTemplateData } from '@/hooks/useTemplateData'
-import { FC } from 'react'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
+import { FC, useContext } from 'react'
 
 export const RocketHeader: FC = () => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return
 
   return (

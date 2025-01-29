@@ -16,7 +16,7 @@ export interface TemplateEditorContextValues {
   setActiveSubCategory: Dispatch<
     SetStateAction<TemplateSubCategoryField | null>
   >
-  updateField: UpdateField
+  updateField: UpdateField | null
   activeSubCategoryData: Data | null
 }
 
@@ -24,7 +24,7 @@ export interface TemplateContextValues {
   data: TemplateData
   setData: Dispatch<SetStateAction<TemplateData>>
   selectedTemplate: TemplateName
-  updateField: UpdateField
+  updateField: UpdateField | null
 }
 
 export interface ThemeContextValues {

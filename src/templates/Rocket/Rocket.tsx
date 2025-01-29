@@ -5,15 +5,16 @@ import { RocketJoin } from './Join'
 import { RocketMissionControl } from './MissionControl'
 import { RocketRoadmap } from './Roadmap'
 import { RocketTokenomics } from './Tokenomics'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { loadFonts } from '@/lib/utils'
+import { TemplateContextValues } from '@/types/contexts'
 import { ColorData } from '@/types/templates'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 loadFonts(['Orbitron'])
 
 export const Rocket: FC = () => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return <span>Something went wrong...</span>
 
   const primaryColor = (data?.primaryColor as ColorData)?.value

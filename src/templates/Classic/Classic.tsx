@@ -6,16 +6,17 @@ import { ClassicHowToBuy } from './HowToBuy'
 import { Image } from '@/components/TemplateItems/Image'
 import { Link } from '@/components/TemplateItems/Link'
 import { Text } from '@/components/TemplateItems/Text'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
 import { ToggleData } from '@/types/templates'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 export const Classic: FC = () => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return <span>Something went wrong...</span>
 
   return (
-    <TemplateLayout data={data} className='h-dvh overflow-y-auto'>
+    <TemplateLayout className='h-dvh overflow-y-auto'>
       <div className='mx-auto flex max-w-6xl flex-col items-center gap-8'>
         <header className='flex w-full items-center justify-between gap-4 pb-12'>
           <div className='flex items-center gap-4'>

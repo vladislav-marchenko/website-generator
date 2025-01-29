@@ -1,9 +1,7 @@
-import { Loading } from '@/components/Loading'
 import { getSubdomain } from '@/lib/utils'
 import { getWebsite } from '@/services/api'
 import { templatesData } from '@/templates'
 import { UpdateField } from '@/types'
-import { TemplateContextValues } from '@/types/contexts'
 import { TemplateData, TemplateName } from '@/types/templates'
 import { useQuery } from '@tanstack/react-query'
 import { set } from 'lodash'
@@ -19,11 +17,9 @@ import { Navigate, useLocation, useSearchParams } from 'react-router-dom'
 
 const subdomain = getSubdomain()
 
-export const TemplateContext = createContext<TemplateContextValues | null>(null)
+export const NewContext = createContext(null)
 
-export const TemplateContextProvider: FC<PropsWithChildren> = ({
-  children
-}) => {
+export const NewContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [searchParams] = useSearchParams()
   const name = searchParams.get('name') ?? ''
   const template = searchParams.get('template')
@@ -52,11 +48,6 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
 
   const [data, setData] = useState<TemplateData>(initialData.data)
 
-  useLayoutEffect(() => {
-    if (isExist) return
-    setData(initialData.data)
-  }, [isExist, initialData])
-
   const {
     data: fetchedData,
     isLoading,
@@ -67,38 +58,28 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
     queryFn: async () => {
       return getWebsite((subdomain as string) || name)
     },
-    enabled: isExist && !isCreator
+    enabled: isExist,
+    initialData
   })
 
-  const fetchedTemplate = fetchedData && (fetchedData.template as TemplateName)
-
   useLayoutEffect(() => {
-    if (isSuccess && isExist) setData(fetchedData.data)
+    if (isSuccess) setData(fetchedData.data)
   }, [isFetching])
 
   const updateField: UpdateField = useCallback((path, value) => {
     setData((data) => set({ ...data }, path, value))
   }, [])
 
-  if (isFetching) {
-    return (
-      <div className='flex h-dvh w-full items-center justify-center'>
-        <Loading size={48} />
-      </div>
-    )
+  if (isLoading) {
+    return <span>loading...</span>
   }
 
   const value = {
     data,
     setData,
-    updateField: isCreator ? updateField : null,
-    selectedTemplate:
-      isExist && fetchedTemplate ? fetchedTemplate : selectedTemplate
+    updateField,
+    selectedTemplate
   }
 
-  return (
-    <TemplateContext.Provider value={value}>
-      {children}
-    </TemplateContext.Provider>
-  )
+  return <NewContext.Provider value={value}>{children}</NewContext.Provider>
 }

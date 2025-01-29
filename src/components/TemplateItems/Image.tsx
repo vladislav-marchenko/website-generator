@@ -1,11 +1,12 @@
 import { TemplateItemError } from './Error'
 import ImagePlaceholder from '@/assets/images/placeholder.jpeg'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { useSlideshow } from '@/hooks/useSlideshow'
-import { useTemplateData } from '@/hooks/useTemplateData'
 import { cn } from '@/lib/utils'
+import { TemplateContextValues } from '@/types/contexts'
 import { ImageData, TemplateData } from '@/types/templates'
 import { motion, AnimatePresence } from 'motion/react'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 interface ImageProps {
   fieldName: keyof TemplateData
@@ -16,7 +17,7 @@ interface ImageProps {
 }
 
 export const Image: FC<ImageProps> = ({ fieldName, className }) => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   const fieldData = data?.[fieldName] as ImageData
 
   const uploadedImageURL =

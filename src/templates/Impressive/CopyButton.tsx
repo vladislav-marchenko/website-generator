@@ -1,12 +1,13 @@
 import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Text } from '@/components/TemplateItems/Text'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { useCopy } from '@/hooks/useCopy'
-import { useTemplateData } from '@/hooks/useTemplateData'
-import { FC } from 'react'
+import { TemplateContextValues } from '@/types/contexts'
+import { FC, useContext } from 'react'
 
 export const ImpressiveCopyButton: FC = () => {
   const { isCopied, copy } = useCopy()
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
 
   if (!data) return <TemplateItemError />
 

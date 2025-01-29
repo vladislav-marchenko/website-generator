@@ -1,10 +1,8 @@
 import { RocketCard } from './Card'
-import { Image } from '@/components/TemplateItems/Image'
 import { Text } from '@/components/TemplateItems/Text'
-import { useTemplateData } from '@/hooks/useTemplateData'
-import { UpdateField } from '@/types'
-import { TemplateData } from '@/types/templates'
-import { FC } from 'react'
+import { TemplateContext } from '@/contexts/TemplateContext'
+import { TemplateContextValues } from '@/types/contexts'
+import { FC, useContext } from 'react'
 
 const items = [
   {
@@ -25,7 +23,7 @@ const items = [
 ]
 
 export const RocketJoin: FC<{ primaryColor: string }> = ({ primaryColor }) => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return
 
   return (

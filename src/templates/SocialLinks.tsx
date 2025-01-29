@@ -1,11 +1,12 @@
 import { TemplateItemError } from '@/components/TemplateItems/Error'
 import { Link } from '@/components/TemplateItems/Link'
-import { useTemplateData } from '@/hooks/useTemplateData'
+import { TemplateContext } from '@/contexts/TemplateContext'
 import { cn } from '@/lib/utils'
-import { FC } from 'react'
+import { TemplateContextValues } from '@/types/contexts'
+import { FC, useContext } from 'react'
 
 export const SocialLinks: FC<{ className?: string }> = ({ className }) => {
-  const { data } = useTemplateData()
+  const { data } = useContext(TemplateContext) as TemplateContextValues
   if (!data) return <TemplateItemError />
 
   return (
