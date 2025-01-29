@@ -12,13 +12,13 @@ export const Logo: FC<{ className?: string; size?: number }> = ({
       className={cn('fill-black dark:fill-white', className)}
       xmlns='http://www.w3.org/2000/svg'
     >
-      <g clip-path='url(#clip0_44_42)'>
+      <g clipPath='url(#clip0_44_42)'>
         <g filter='url(#filter0_d_44_42)'>
           <path
             d='M3 145L10.109 129.199M45.2358 51.1218L66.4327 4.00717C67.1368 2.44212 69.3555 2.43244 70.0733 3.99127L126.868 127.34M45.2358 51.1218L88.0851 143.839C88.4122 144.547 89.1208 145 89.9006 145H131.877C133.336 145 134.304 143.489 133.694 142.164L126.868 127.34M45.2358 51.1218L10.109 129.199M10.109 129.199L126.868 127.34'
             stroke='white'
-            stroke-width='5'
-            shape-rendering='crispEdges'
+            strokeWidth='5'
+            shapeRendering='crispEdges'
           />
         </g>
         <g filter='url(#filter1_d_44_42)'>
@@ -36,9 +36,9 @@ export const Logo: FC<{ className?: string; size?: number }> = ({
           width='143.662'
           height='155.172'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -71,9 +71,9 @@ export const Logo: FC<{ className?: string; size?: number }> = ({
           width='853.568'
           height='77.1499'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -123,8 +123,8 @@ export const SmallLogo: FC<{ className?: string; size?: number }> = ({
         <path
           d='M3 296L17.218 263.744M87.4716 104.359L131.662 4.10396C132.36 2.52034 134.604 2.51067 135.315 4.08822L250.737 259.949M87.4716 104.359L173.711 294.825C174.035 295.54 174.748 296 175.533 296H263.904C265.356 296 266.324 294.501 265.727 293.178L250.737 259.949M87.4716 104.359L17.218 263.744M17.218 263.744L250.737 259.949'
           stroke='white'
-          stroke-width='5'
-          shape-rendering='crispEdges'
+          strokeWidth='5'
+          shapeRendering='crispEdges'
         />
       </g>
       <defs>
@@ -135,9 +135,9 @@ export const SmallLogo: FC<{ className?: string; size?: number }> = ({
           width='275.696'
           height='306.089'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
