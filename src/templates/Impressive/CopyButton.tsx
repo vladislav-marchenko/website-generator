@@ -17,7 +17,7 @@ export const ImpressiveCopyButton: FC = () => {
       className='button flex items-center justify-between gap-4 rounded-2xl'
     >
       <Text fieldName='contractAddress' placeholder='Contract Address' />
-      <button className='impressive-block pointer-events-none rounded-xl bg-orange-500 px-4 py-2 font-dino text-xl font-bold uppercase'>
+      <button className='impressive-block pointer-events-none rounded-xl bg-orange-500 px-4 py-2 font-dino text-xl font-bold uppercase text-white'>
         {isCopied ? 'copied' : 'copy'}
       </button>
     </div>

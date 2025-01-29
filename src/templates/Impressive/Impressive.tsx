@@ -144,7 +144,7 @@ export const Impressive: FC = () => {
                   key={fieldName}
                   className='impressive-block flex w-full flex-col items-center gap-4 bg-white p-8'
                 >
-                  <h3 className='flex min-h-14 min-w-14 items-center justify-center rounded-full border-4 border-black bg-orange-500 text-center text-2xl'>
+                  <h3 className='flex min-h-14 min-w-14 items-center justify-center rounded-full border-4 border-black bg-orange-500 text-center text-2xl text-white'>
                     {index + 1}
                   </h3>
                   <Text
@@ -190,7 +190,7 @@ export const Impressive: FC = () => {
         className='h-full p-8'
       >
         <section className='flex justify-center'>
-          <span className='font-dino text-2xl'>
+          <span className='font-dino text-2xl text-white'>
             {(data?.ticker as TextData)?.value || 'ticker'}
           </span>
         </section>
