@@ -91,7 +91,7 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
   const value = {
     data,
     setData,
-    updateField: isCreator ? updateField : null,
+    updateField: isCreator || isEditor ? updateField : null,
     selectedTemplate:
       isExist && fetchedTemplate ? fetchedTemplate : selectedTemplate
   }
