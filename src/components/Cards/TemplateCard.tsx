@@ -21,9 +21,9 @@ export const TemplateCard: FC<{ currentIndex: number }> = ({
   params.set('category', 'templates')
 
   return (
-    <Card className='justify-between'>
+    <Card className='group justify-between'>
       <div className='flex flex-col gap-4'>
-        <div className='group h-48 overflow-hidden rounded-md'>
+        <div className='h-48 overflow-hidden rounded-md'>
           <img
             className='object-cover object-top group-hover:animate-scroll'
             src='https://www.buidl.co.in/_next/image?url=%2Ftemplates%2Fmodern.png&w=1920&q=75'
