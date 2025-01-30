@@ -1,6 +1,6 @@
 import { TemplateContext } from './TemplateContext'
 import { categoriesFields } from '@/consts'
-import { CategoryName } from '@/types'
+import { CategoryName, UpdateField } from '@/types'
 import {
   TemplateContextValues,
   TemplateEditorContextValues
@@ -15,10 +15,11 @@ export const TemplateEditorContext =
 export const TemplateEditorContextProvider = ({
   children
 }: PropsWithChildren) => {
-  const [searchParams] = useSearchParams()
-  const { data, updateField, selectedTemplate } = useContext(
+  const { data, updateField } = useContext(
     TemplateContext
   ) as TemplateContextValues
+  const [searchParams] = useSearchParams()
+
   const [activeCategory, setActiveCategory] = useState(getActiveCategory)
   const [activeSubCategory, setActiveSubCategory] =
     useState<TemplateSubCategoryField | null>(null)
@@ -45,13 +46,11 @@ export const TemplateEditorContextProvider = ({
   }
 
   const value = {
-    selectedTemplate,
-    data,
+    updateField: updateField as UpdateField,
     activeCategory,
     setActiveCategory,
     activeSubCategory,
     setActiveSubCategory,
-    updateField,
     activeSubCategoryData
   }
 
