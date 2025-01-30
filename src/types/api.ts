@@ -27,12 +27,14 @@ export type CreateWebsiteFn = ({
   name,
   templateName,
   templateData,
-  publicKey
+  publicKey,
+  signature
 }: {
   name: string
   templateName: string
   templateData: TemplateData
   publicKey: string
+  signature: string
 }) => Promise<Website>
 
 export type GetWebsiteFn = (name: string) => Promise<Website>

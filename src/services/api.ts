@@ -33,14 +33,19 @@ export const createWebsite: CreateWebsiteFn = async ({
   name,
   templateName,
   templateData,
-  publicKey
+  publicKey,
+  signature
 }) => {
   const url = `${BASE_URL}/websites/create/${name}`
 
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Public-Key': publicKey },
-    body: JSON.stringify({ template: templateName, data: templateData })
+    body: JSON.stringify({
+      template: templateName,
+      data: templateData,
+      signature
+    })
   })
   const data: Website | ErrorResponse = await response.json()
 

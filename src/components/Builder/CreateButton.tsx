@@ -14,27 +14,29 @@ import { TemplateContext } from '@/contexts/TemplateContext'
 import { useToast } from '@/hooks/use-toast'
 import { createWebsite } from '@/services/api'
 import { TemplateFormValues } from '@/types/forms'
-import { useWallet } from '@solana/wallet-adapter-react'
+import { useConnection, useWallet } from '@solana/wallet-adapter-react'
+import { SystemProgram, Transaction } from '@solana/web3.js'
 import { useMutation } from '@tanstack/react-query'
 import { FormEvent, useContext, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 export const CreateButton = () => {
-  const { publicKey } = useWallet()
-  const { data } = useContext(TemplateContext) as TemplateFormValues
-  const { toast } = useToast()
-
   const [searchParams] = useSearchParams()
   const [name, setName] = useState(searchParams.get('name') ?? '')
   const template = searchParams.get('template') ?? ''
 
-  const { protocol, host } = window.location
+  const { publicKey, sendTransaction } = useWallet()
+  const { connection } = useConnection()
+
+  const { data } = useContext(TemplateContext) as TemplateFormValues
+  const { toast } = useToast()
 
   const { mutate } = useMutation({
     mutationFn: createWebsite,
     onSuccess: () => {
-      // window.open(`${protocol}//${name}.${host}`, '_blank')?.focus()
-      window.location.href = `${protocol}//${name}.${host}`
+      const { protocol, host } = window.location
+      // window.location.href = `${protocol}//${name}.${host}`
+
       toast({
         title: 'Your website was successfully created!',
         variant: 'successful'
@@ -49,13 +51,46 @@ export const CreateButton = () => {
     }
   })
 
-  const onSubmit = (e: FormEvent) => {
+  // https://github.com/anza-xyz/wallet-adapter/blob/master/APP.md
+  const send = async (amount: number) => {
+    if (!publicKey) return
+
+    const transaction = new Transaction().add(
+      SystemProgram.transfer({
+        fromPubkey: publicKey,
+        toPubkey: publicKey,
+        lamports: amount * 1000000000 // Convert SOL to lamports
+      })
+    )
+
+    const {
+      context: { slot: minContextSlot },
+      value: { blockhash, lastValidBlockHeight }
+    } = await connection.getLatestBlockhashAndContext()
+
+    const signature = await sendTransaction(transaction, connection, {
+      minContextSlot
+    })
+
+    await connection.confirmTransaction({
+      blockhash,
+      lastValidBlockHeight,
+      signature
+    })
+
+    return signature
+  }
+
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
+
+    const signature = await send(0.45)
     mutate({
       name,
       templateName: template,
       templateData: data,
-      publicKey: publicKey?.toString() ?? ''
+      publicKey: publicKey?.toString() ?? '',
+      signature
     })
   }
 
