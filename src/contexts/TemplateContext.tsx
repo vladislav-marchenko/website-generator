@@ -32,30 +32,24 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
   const isEditor = pathname === '/edit'
   const isCreator = pathname === '/create'
 
-  if (isCreator && !templatesData.hasOwnProperty(template ?? '')) {
+  const isValidTemplate = templatesData.hasOwnProperty(template ?? '')
+
+  if (isCreator && !isValidTemplate) {
     return <Navigate to='/templates' />
   }
 
-  if (isEditor && !templatesData.hasOwnProperty(template ?? '')) {
+  if (isEditor && !isValidTemplate) {
     return <Navigate to='/account' />
   }
 
   const selectedTemplate = template as TemplateName
   const isExist = !!subdomain || isEditor
 
-  const initialData = {
-    template: selectedTemplate,
-    data: templatesData[selectedTemplate],
-    name,
-    creator: ''
-  }
-
-  const [data, setData] = useState<TemplateData>(initialData.data)
+  const [data, setData] = useState(templatesData[selectedTemplate])
 
   useLayoutEffect(() => {
-    if (isExist) return
-    setData(initialData.data)
-  }, [isExist, initialData])
+    if (isCreator) setData(templatesData[selectedTemplate])
+  }, [isCreator, templatesData, selectedTemplate])
 
   const {
     data: fetchedData,
