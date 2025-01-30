@@ -26,7 +26,7 @@ export const WebsitesItem: FC<WebsitesItemsProps> = ({ name, template }) => {
               <a
                 href={websiteURL}
                 target='_blank'
-                className='text-neutral-400 transition-colors duration-300 hover:text-white'
+                className='text-neutral-400 transition-colors duration-300 hover:text-black dark:hover:text-white'
               >
                 <ExternalLink size={18} />
               </a>
