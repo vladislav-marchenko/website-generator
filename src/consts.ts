@@ -16,7 +16,7 @@ import { EditorFontSize } from './components/Editor/Text/EditorFontSize'
 import { EditorFontsPicker } from './components/Editor/Text/EditorFontsPicker'
 import { EditorStroke } from './components/Editor/Text/EditorStroke'
 import { EditorStyles } from './components/Editor/Text/EditorStyles'
-import { Discord, Link, Telegram, Twitter } from './components/Icons'
+import { Discord, Link, Medium, Telegram, Twitter } from './components/Icons'
 import { TemplatesSelector } from './components/TemplatesSelector'
 import type { CategoriesFields, PricingCard } from './types'
 import { Animation } from './types/templates'
@@ -80,12 +80,22 @@ export const languages = [
 ]
 
 export const footerNavLinks = [
-  'dashboard',
-  'templates',
-  'pricing',
-  'docs',
-  'about',
-  'blog'
+  {
+    value: 'dashboard',
+    label: 'dashboard'
+  },
+  {
+    value: 'templates',
+    label: 'templates'
+  },
+  {
+    value: 'pricing',
+    label: 'pricing'
+  },
+  {
+    value: 'start',
+    label: 'How to Start'
+  }
 ]
 
 export const footerSocialLinks = [
@@ -100,6 +110,10 @@ export const footerSocialLinks = [
   {
     icon: Telegram,
     href: 'https://t.me/'
+  },
+  {
+    icon: Medium,
+    href: 'https://medium.com/'
   }
 ]
 

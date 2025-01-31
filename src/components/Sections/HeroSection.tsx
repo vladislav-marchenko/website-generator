@@ -3,11 +3,23 @@ import { Description } from '../Description'
 import { FancyButton } from '../FancyButton'
 import { Section } from './Section'
 import { PROJECT_NAME } from '@/consts'
+import { useWallet } from '@solana/wallet-adapter-react'
+import { useWalletModal } from '@solana/wallet-adapter-react-ui'
 import { useTranslation } from 'react-i18next'
 import { IoIosArrowDown } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
 
 export const HeroSection = () => {
+  const { connected } = useWallet()
+  const { setVisible } = useWalletModal()
+
+  const navigate = useNavigate()
   const { t } = useTranslation()
+
+  const goToDashboard = () => {
+    if (connected) return navigate('/account')
+    setVisible(true)
+  }
 
   return (
     <Section
@@ -21,7 +33,9 @@ export const HeroSection = () => {
         <h2 className='py-2 xl:text-5xl'>{t('hero.title')}</h2>
         <Description className='my-6'>{t('hero.description')}</Description>
         <div className='flex items-center gap-4'>
-          <FancyButton to='/dashboard'>{t('hero.dashboardButton')}</FancyButton>
+          <FancyButton onClick={goToDashboard}>
+            {t('hero.dashboardButton')}
+          </FancyButton>
           <Button to='/howto' variant='outline'>
             {t('hero.howToButton')}
           </Button>
