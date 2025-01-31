@@ -148,10 +148,10 @@ export const pricingCards: PricingCard[] = [
   },
   {
     label: 'Professional',
-    price: 0.06,
+    price: 0.065,
     oldPrice: 0.1,
     description:
-      'For 0.06 Sol you will get a fully professional template Rocket with animations, different blocks, buttons, full editing for your memecoin.',
+      'For 0.065 Sol you will get a fully professional template Rocket with animations, different blocks, buttons, full editing for your memecoin.',
     features: [
       'Free domain',
       'Editing after creation',

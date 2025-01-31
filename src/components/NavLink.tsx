@@ -19,7 +19,8 @@ export const NavLink: FC<NavLinkProps> = ({
       {...props}
       to={to}
       className={cn(
-        'capitalize text-neutral-700 transition-colors duration-200 hover:text-black dark:text-neutral-200 dark:hover:text-white'
+        'capitalize text-neutral-700 transition-colors duration-200 hover:text-black dark:text-neutral-200 dark:hover:text-white',
+        className
       )}
     >
       {children}

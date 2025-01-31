@@ -14,9 +14,9 @@ import { FaUserCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export const HeaderNav = () => {
-  const { publicKey, disconnect } = useWallet()
+  const { connected, disconnect, publicKey: walletPublicKey } = useWallet()
   const { setVisible } = useWalletModal()
-  const publicKeyString = publicKey?.toString()
+  const publicKey = walletPublicKey?.toString()
 
   const { t } = useTranslation()
   const headerNavLinks = t('header.navLinks', { returnObjects: true })
@@ -24,20 +24,20 @@ export const HeaderNav = () => {
   return (
     <nav className='flex items-center gap-8'>
       {Object.values(headerNavLinks).map((link) => (
-        <NavLink key={link} to={`/${link}`}>
+        <NavLink key={link} to={`/${link}`} className='font-arial-black'>
           {link}
         </NavLink>
       ))}
-      {!publicKeyString && (
+      {!connected && (
         <Button onClick={() => setVisible(true)} className='py-2'>
           {t('header.connectButton')}
         </Button>
       )}
-      {publicKeyString && (
+      {connected && (
         <DropdownMenu>
           <DropdownMenuTrigger className='flex items-center gap-2'>
             <FaUserCircle size={24} />
-            <span>{publicKeyString?.slice(0, 8)}...</span>
+            <span>{publicKey?.slice(0, 8)}...</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem asChild>
