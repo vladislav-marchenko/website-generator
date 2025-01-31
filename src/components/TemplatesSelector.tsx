@@ -1,6 +1,6 @@
 import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
-import { templates } from '@/templates'
+import { templates } from '@/templates/data'
 import { TemplateName } from '@/types/templates'
 import { useSearchParams } from 'react-router-dom'
 

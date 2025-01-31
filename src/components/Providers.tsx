@@ -1,4 +1,5 @@
 import { Toaster } from './ui/toaster'
+import { TemplateContextProvider } from '@/contexts/TemplateContext'
 import { ThemeContextProvider } from '@/contexts/ThemeContext'
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom'

@@ -6,7 +6,7 @@ import {
   ResizablePanelGroup
 } from '@/components/ui/resizable'
 import { TemplateContext } from '@/contexts/TemplateContext'
-import { templates } from '@/templates'
+import { templates } from '@/templates/data'
 import { TemplateContextValues } from '@/types/contexts'
 import { useContext } from 'react'
 

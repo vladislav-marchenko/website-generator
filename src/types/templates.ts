@@ -1,6 +1,4 @@
-import { UpdateField } from '.'
-import { templates } from '@/templates'
-import { FC } from 'react'
+import { templatesCategories } from '@/templates'
 
 type TextStyles = 'bold' | 'uderline' | 'italic' | 'line-through'
 
@@ -118,16 +116,16 @@ export type TemplateSubCategoryField = {
 )
 
 export type DefaultValues = {
-  text: TextData
-  image: ImageData
-  link: LinkData
-  toggle: ToggleData
-  color: ColorData
+  text: Omit<TextData, 'label' | 'name'>
+  image: Omit<ImageData, 'label' | 'name'>
+  link: Omit<LinkData, 'label' | 'name'>
+  toggle: Omit<ToggleData, 'label' | 'name'>
+  color: Omit<ColorData, 'label' | 'name'>
 }
 
 export type TemplateSubCategoryFieldType = keyof DefaultValues
 
-type TemplateCategory = {
+export type TemplateCategory = {
   label: string
   fields: TemplateSubCategoryField[]
 }
@@ -142,19 +140,7 @@ export type TemplateData = {
   [key: string]: Data
 } & TemplateLinksData
 
-export interface Template {
-  label: string
-  description: string
-  shortDescription: string
-  features: string[]
-  price: number
-  badge?: string
-  categories: TemplateCategory[]
-  element: FC<{ data: TemplateData; updateField?: UpdateField }>
+export type TemplateName = keyof typeof templatesCategories
+export type TemplatesCategories = {
+  [key: string]: TemplateCategory[]
 }
-
-export type Templates = {
-  [key: string]: Template
-}
-
-export type TemplateName = keyof typeof templates

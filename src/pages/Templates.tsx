@@ -2,7 +2,7 @@ import { Button } from '@/components/Button'
 import { TemplateCard } from '@/components/Cards/TemplateCard'
 import { Section } from '@/components/Sections/Section'
 import { Slider } from '@/components/Slider'
-import { templates } from '@/templates'
+import { templates } from '@/templates/data'
 import { ChevronLeft } from 'lucide-react'
 import { useState } from 'react'
 
