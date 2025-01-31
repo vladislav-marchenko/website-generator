@@ -90,7 +90,7 @@ export const CreateButton = () => {
       templateName: template,
       templateData: data,
       publicKey: publicKey?.toString() ?? '',
-      signature
+      signature: signature ?? ''
     })
   }
 

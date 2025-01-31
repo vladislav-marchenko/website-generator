@@ -4,9 +4,9 @@ import { getWebsite } from '@/services/api'
 import { templatesData } from '@/templates'
 import { UpdateField } from '@/types'
 import { TemplateContextValues } from '@/types/contexts'
-import { TemplateData, TemplateName } from '@/types/templates'
+import { TemplateName } from '@/types/templates'
 import { useQuery } from '@tanstack/react-query'
-import { set } from 'lodash'
+import { cloneDeep, set } from 'lodash'
 import {
   createContext,
   FC,
@@ -70,7 +70,7 @@ export const TemplateContextProvider: FC<PropsWithChildren> = ({
   }, [isFetching])
 
   const updateField: UpdateField = useCallback((path, value) => {
-    setData((data) => set({ ...data }, path, value))
+    setData((data) => set(cloneDeep(data), path, value))
   }, [])
 
   if (isFetching) {
