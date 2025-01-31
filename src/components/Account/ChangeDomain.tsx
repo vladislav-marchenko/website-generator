@@ -42,6 +42,16 @@ export const ChangeDomain: FC<{ name: string }> = ({ name = '' }) => {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
+
+    if (name.length < 2 || name.length > 20) {
+      return toast({
+        title: 'Error',
+        description:
+          'The subdomain should be between 2 and 20 characters in length',
+        variant: 'destructive'
+      })
+    }
+
     mutate({
       currentName: name,
       newName: websiteName,
@@ -58,7 +68,7 @@ export const ChangeDomain: FC<{ name: string }> = ({ name = '' }) => {
         <DialogHeader>
           <DialogTitle>Change domain</DialogTitle>
           <DialogDescription>
-            Enter a valid subdomain (1-63 characters) using letters, numbers,
+            Enter a valid subdomain (2-20 characters) using letters, numbers,
             and hyphens. No spaces or special characters allowed.
           </DialogDescription>
         </DialogHeader>

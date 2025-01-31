@@ -84,6 +84,15 @@ export const CreateButton = () => {
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
+    if (name.length < 2 || name.length > 20) {
+      return toast({
+        title: 'Error',
+        description:
+          'The subdomain should be between 2 and 20 characters in length',
+        variant: 'destructive'
+      })
+    }
+
     const signature = await send(0.45)
     mutate({
       name,
@@ -105,7 +114,7 @@ export const CreateButton = () => {
         <DialogHeader>
           <DialogTitle>Enter your domain</DialogTitle>
           <DialogDescription>
-            Enter a valid subdomain (1-63 characters) using letters, numbers,
+            Enter a valid subdomain (2-20 characters) using letters, numbers,
             and hyphens. No spaces or special characters allowed.
           </DialogDescription>
         </DialogHeader>
